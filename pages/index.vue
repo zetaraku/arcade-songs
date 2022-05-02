@@ -10,7 +10,10 @@
           Welcome to the Vuetify + Nuxt.js template
         </v-card-title>
         <v-card-text>
-          <p>Vuetify is a progressive Material Design component framework for Vue.js. It was designed to empower developers to create amazing applications.</p>
+          <p>
+            Vuetify is a progressive Material Design component framework for Vue.js.
+            It was designed to empower developers to create amazing applications.
+          </p>
           <p>
             For more information on Vuetify, check out the <a
               href="https://vuetifyjs.com"
@@ -40,7 +43,10 @@
               issue board
             </a>.
           </p>
-          <p>Thank you for developing with Vuetify and I look forward to bringing more exciting features in the future.</p>
+          <p>
+            Thank you for developing with Vuetify
+            and I look forward to bringing more exciting features in the future.
+          </p>
           <div class="text-xs-right">
             <em><small>&mdash; John Leider</small></em>
           </div>
@@ -78,6 +84,6 @@
 
 <script>
 export default {
-  name: 'IndexPage'
-}
+  name: 'IndexPage',
+};
 </script>
