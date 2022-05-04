@@ -2262,6 +2262,27 @@
   resolved "https://registry.yarnpkg.com/@vue/shared/-/shared-3.2.33.tgz#69a8c99ceb37c1b031d5cc4aec2ff1dc77e1161e"
   integrity sha512-UBc1Pg1T3yZ97vsA2ueER0F6GbJebLHYlEi4ou1H5YL4KWvMOOWwpYo9/QpWq93wxKG6Wo13IY74Hcn/f7c7Bg==
 
+"@vueuse/core@^8.4.1":
+  version "8.4.1"
+  resolved "https://registry.yarnpkg.com/@vueuse/core/-/core-8.4.1.tgz#68d06039bee53e08db5e9761aa06cb018e190535"
+  integrity sha512-YRM2+wZj/XWzch44sgFaRWtTGEZ8xgTsleaGy6cuULIU1q6o9Z/XHDHqofzNXrEqEhN6EtJqM4m8puURFO0nzg==
+  dependencies:
+    "@vueuse/metadata" "8.4.1"
+    "@vueuse/shared" "8.4.1"
+    vue-demi "*"
+
+"@vueuse/metadata@8.4.1":
+  version "8.4.1"
+  resolved "https://registry.yarnpkg.com/@vueuse/metadata/-/metadata-8.4.1.tgz#933d971599fbb772769afd281fd2aefa09bb955e"
+  integrity sha512-OMwadiewrAHgJAgCh5zrbJMXySECB09cnEnIWRicvTWBiqBm14N1t464oeV1fhskRPEBsLSzxQmDoVBAqQh4rQ==
+
+"@vueuse/shared@8.4.1":
+  version "8.4.1"
+  resolved "https://registry.yarnpkg.com/@vueuse/shared/-/shared-8.4.1.tgz#a6856fc04db1db74c4d3252cce5f16641313ca50"
+  integrity sha512-yzWNzvqaTGkc25fNsGkaF3pnMdXDax3EasYgPKlC4/eXSo0TqwG+xLz0Y8t6KN52x/kIHlpSwtry4LXfw7LSBA==
+  dependencies:
+    vue-demi "*"
+
 "@webassemblyjs/ast@1.9.0":
   version "1.9.0"
   resolved "https://registry.yarnpkg.com/@webassemblyjs/ast/-/ast-1.9.0.tgz#bd850604b4042459a5a41cd7d338cbed695ed964"
@@ -10608,6 +10629,11 @@ vue-client-only@^2.0.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/vue-client-only/-/vue-client-only-2.1.0.tgz#1a67a47b8ecacfa86d75830173fffee3bf8a4ee3"
   integrity sha512-vKl1skEKn8EK9f8P2ZzhRnuaRHLHrlt1sbRmazlvsx6EiC3A8oWF8YCBrMJzoN+W3OnElwIGbVjsx6/xelY1AA==
+
+vue-demi@*:
+  version "0.12.5"
+  resolved "https://registry.yarnpkg.com/vue-demi/-/vue-demi-0.12.5.tgz#8eeed566a7d86eb090209a11723f887d28aeb2d1"
+  integrity sha512-BREuTgTYlUr0zw0EZn3hnhC3I6gPWv+Kwh4MCih6QcAeaTlaIX0DwOVN0wHej7hSvDPecz4jygy/idsgKfW58Q==
 
 vue-eslint-parser@^8.0.1, vue-eslint-parser@^8.3.0:
   version "8.3.0"
