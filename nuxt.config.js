@@ -1,4 +1,5 @@
 import colors from 'vuetify/es5/util/colors';
+import locales from './locales';
 
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
@@ -53,7 +54,17 @@ export default {
     '@nuxtjs/pwa',
     // https://go.nuxtjs.dev/content
     '@nuxt/content',
+    // https://i18n.nuxtjs.org/
+    '@nuxtjs/i18n',
   ],
+
+  i18n: {
+    langDir: '~/locales/',
+    locales,
+    defaultLocale: 'en',
+    strategy: 'no_prefix',
+    lazy: true,
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
