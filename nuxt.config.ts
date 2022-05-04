@@ -1,3 +1,5 @@
+/* eslint-disable import/no-extraneous-dependencies */
+import { NuxtConfig } from '@nuxt/types';
 import locales from './locales';
 
 export default {
@@ -90,4 +92,4 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
   },
-};
+} as NuxtConfig;
