@@ -93,5 +93,12 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    extend(config) {
+      config.module?.rules.push({
+        test: /\.ya?ml$/,
+        type: 'javascript/auto',
+        use: 'yaml-loader',
+      });
+    },
   },
 } as NuxtConfig;
