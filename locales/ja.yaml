@@ -1,1 +1,7 @@
 hello: 'こんにちは世界！'
+pages:
+  home: ホーム
+  songs: 楽曲一覧
+  song-lists: 段位認定リスト
+  about: このサイトについて
+  bug-report: バグを報告する

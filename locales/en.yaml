@@ -1,1 +1,7 @@
 hello: Hello world!
+pages:
+  home: Home
+  songs: Songs
+  song-lists: Song Lists
+  about: About
+  bug-report: Bug Report
