@@ -3,7 +3,8 @@
     "locales"
   ],
   "i18n-ally.enabledParsers": [
-    "js"
+    "js",
+    "yaml"
   ],
   "i18n-ally.ignoreFiles": [
     "index.*"
