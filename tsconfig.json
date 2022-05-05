@@ -30,6 +30,7 @@
       "@nuxtjs/axios",
       "@nuxt/content",
       "@types/node",
+      "@pinia/nuxt",
       "unplugin-vue2-script-setup/types"
     ]
   },
