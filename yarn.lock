@@ -1606,6 +1606,13 @@
     mustache "^2.3.0"
     stack-trace "0.0.10"
 
+"@pinia/nuxt@^0.1.8":
+  version "0.1.8"
+  resolved "https://registry.yarnpkg.com/@pinia/nuxt/-/nuxt-0.1.8.tgz#457a87b0f39ae47a1306e08ab7d4d390b30b48c9"
+  integrity sha512-+M1GH/4XQdooOulPL7aYzli6UE1R5rWJtgcPhx2/97yYRLhKZvuIT33OauUCjYZ+tQVs8lyKfzt6S2agqzcmWg==
+  dependencies:
+    vue-demi "*"
+
 "@polka/url@^1.0.0-next.20":
   version "1.0.0-next.21"
   resolved "https://registry.yarnpkg.com/@polka/url/-/url-1.0.0-next.21.tgz#5de5a2385a35309427f6011992b544514d559aa1"
@@ -2221,6 +2228,11 @@
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/@vue/composition-api/-/composition-api-1.6.0.tgz#41c45672245fff2181f8be1f757c95cb6c9b0316"
   integrity sha512-m/FbsCXn0Ov2QCYUEIt4yupWJLCL6nfZg/Xx2L5VlFUqgJb2iOrbLnkYSV0TO2VUxkBLSFtTZMyG8IIHZFdKNA==
+
+"@vue/devtools-api@^6.1.4":
+  version "6.1.4"
+  resolved "https://registry.yarnpkg.com/@vue/devtools-api/-/devtools-api-6.1.4.tgz#b4aec2f4b4599e11ba774a50c67fa378c9824e53"
+  integrity sha512-IiA0SvDrJEgXvVxjNkHPFfDx6SXw0b/TUkqMcDZWNg9fnCAHbTpoo59YfJ9QLFkwa3raau5vSlRVzMSLDnfdtQ==
 
 "@vue/reactivity-transform@^3.2.26":
   version "3.2.33"
@@ -7795,6 +7807,14 @@ pify@^5.0.0:
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/pify/-/pify-5.0.0.tgz#1f5eca3f5e87ebec28cc6d54a0e4aaf00acc127f"
   integrity sha512-eW/gHNMlxdSP6dmG6uJip6FXN0EQBwm2clYYd8Wul42Cwu/DK8HEftzsapcNdYe2MfLiIwZqsDk2RDEsTE79hA==
+
+pinia@^2.0.13:
+  version "2.0.13"
+  resolved "https://registry.yarnpkg.com/pinia/-/pinia-2.0.13.tgz#6656fc290dae120a9f0cb2f5c520df400d41b8c5"
+  integrity sha512-B7rSqm1xNpwcPMnqns8/gVBfbbi7lWTByzS6aPZ4JOXSJD4Y531rZHDCoYWBwLyHY/8hWnXljgiXp6rRyrofcw==
+  dependencies:
+    "@vue/devtools-api" "^6.1.4"
+    vue-demi "*"
 
 pkg-dir@^3.0.0:
   version "3.0.0"
