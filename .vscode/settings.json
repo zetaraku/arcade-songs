@@ -8,5 +8,6 @@
   ],
   "i18n-ally.ignoreFiles": [
     "index.*"
-  ]
+  ],
+  "i18n-ally.keystyle": "nested"
 }
