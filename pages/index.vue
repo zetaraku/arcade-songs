@@ -1,28 +1,23 @@
-<script lang="ts">
-import { defineComponent } from '@nuxtjs/composition-api';
+<script setup lang="ts">
+</script>
 
-export default defineComponent({
+<script lang="ts">
+export default {
   name: 'IndexPage',
-});
+};
 </script>
 
 <template>
-  <v-row align="center">
-    <v-col class="text-center">
-      <img
-        src="/v.png"
-        alt="Vuetify.js"
-        class="mb-5"
-      >
-      <h1>{{ $t('hello') }}</h1>
-      <blockquote class="blockquote">
-        &#8220;First, solve the problem. Then, write the code.&#8221;
-        <footer>
-          <small>
-            <em>&mdash;John Johnson</em>
-          </small>
-        </footer>
-      </blockquote>
-    </v-col>
-  </v-row>
+  <v-container class="fill-height">
+    <v-row align="center">
+      <v-col class="text-center">
+        <v-icon :size="120" class="mb-5">
+          mdi-music-box-multiple
+        </v-icon>
+        <h1 class="mb-5">
+          arcade-songs
+        </h1>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
