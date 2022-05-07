@@ -1,118 +1,169 @@
+<script setup lang="ts">
+import { ref, watch, nextTick } from '@nuxtjs/composition-api';
+import useVM from '~/composables/useVM';
+import useGameCode from '~/composables/useGameCode';
+import useSideNav from '~/composables/useSideNav';
+import sites from '~/assets/sites';
+
+const vm = useVM()!;
+const {
+  isAtRoot,
+  gameCode,
+  siteTitle,
+  siteColor,
+  accessCounterUrl,
+} = useGameCode();
+const { menu } = useSideNav();
+
+const isDrawerOpened = ref(false);
+const isPortalOpened = ref(false);
+
+function adaptSiteStyle() {
+  const { themes } = (vm as any).$vuetify.theme;
+  themes.light.primary = siteColor.value;
+  themes.dark.primary = siteColor.value;
+}
+function validateGameCode() {
+  if (gameCode.value === undefined && !isAtRoot.value) {
+    // eslint-disable-next-line no-throw-literal
+    throw { statusCode: 404 };
+  }
+}
+function adjustPortalList() {
+  if (isAtRoot.value) {
+    isPortalOpened.value = true;
+  }
+}
+
+watch(gameCode, async () => {
+  await nextTick();
+  adaptSiteStyle();
+  validateGameCode();
+  adjustPortalList();
+}, { immediate: true });
+</script>
+
+<script lang="ts">
+export default {
+  name: 'DefaultLayout',
+};
+</script>
+
 <template>
-  <v-app dark>
+  <v-app>
     <v-navigation-drawer
-      v-model="drawer"
-      :mini-variant="miniVariant"
-      :clipped="clipped"
-      fixed
+      v-model="isDrawerOpened"
+      width="300"
+      temporary
       app
     >
+      <template #prepend>
+        <v-list-group
+          v-model="isPortalOpened"
+        >
+          <template #activator>
+            <v-icon large left color="primary">
+              mdi-music-box-multiple
+            </v-icon>
+            <v-list-item-content>
+              <v-list-item-title class="text-h6">
+                {{ siteTitle }}
+              </v-list-item-title>
+              <v-list-item-subtitle>
+                made by @zetaraku
+              </v-list-item-subtitle>
+            </v-list-item-content>
+          </template>
+
+          <v-list-item
+            v-for="(site, i) in sites"
+            :key="i"
+            :to="`/${site.gameCode}/`"
+            nuxt
+            @click.stop="isPortalOpened = false;"
+          >
+            <v-list-item-icon>
+              <v-icon :color="site.color">
+                mdi-music-box-multiple
+              </v-icon>
+            </v-list-item-icon>
+            <v-list-item-title v-text="site.title" />
+          </v-list-item>
+        </v-list-group>
+        <v-divider />
+      </template>
+
       <v-list>
         <v-list-item
-          v-for="(item, i) in items"
+          v-for="(menuItem, i) in menu"
           :key="i"
-          :to="item.to"
-          router
+          :to="menuItem.to"
+          :nuxt="menuItem.to !== undefined"
+          :href="menuItem.href"
+          :target="menuItem.href !== undefined ? '_blank' : undefined"
+          :disabled="menuItem.disabled"
           exact
         >
-          <v-list-item-action>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-item-action>
+          <v-list-item-icon>
+            <v-icon v-text="menuItem.icon" />
+          </v-list-item-icon>
           <v-list-item-content>
-            <v-list-item-title v-text="item.title" />
+            <v-list-item-title v-text="menuItem.title" />
           </v-list-item-content>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
-    <v-app-bar
-      :clipped-left="clipped"
-      fixed
-      app
-    >
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-      <v-btn
-        icon
-        @click.stop="miniVariant = !miniVariant"
-      >
-        <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
-      </v-btn>
-      <v-btn
-        icon
-        @click.stop="clipped = !clipped"
-      >
-        <v-icon>mdi-application</v-icon>
-      </v-btn>
-      <v-btn
-        icon
-        @click.stop="fixed = !fixed"
-      >
-        <v-icon>mdi-minus</v-icon>
-      </v-btn>
-      <v-toolbar-title v-text="title" />
-      <v-spacer />
-      <v-btn
-        icon
-        @click.stop="rightDrawer = !rightDrawer"
-      >
-        <v-icon>mdi-menu</v-icon>
-      </v-btn>
-    </v-app-bar>
-    <v-main>
-      <v-container>
-        <Nuxt />
-      </v-container>
-    </v-main>
-    <v-navigation-drawer
-      v-model="rightDrawer"
-      :right="right"
-      temporary
-      fixed
-    >
-      <v-list>
-        <v-list-item @click.native="right = !right">
-          <v-list-item-action>
-            <v-icon light>
-              mdi-repeat
+          <v-list-item-icon v-if="menuItem.href !== undefined">
+            <v-icon>
+              mdi-open-in-new
             </v-icon>
-          </v-list-item-action>
-          <v-list-item-title>Switch drawer (click me)</v-list-item-title>
+          </v-list-item-icon>
         </v-list-item>
       </v-list>
+
+      <template #append>
+        <template v-if="isAtRoot">
+          <v-divider />
+          <div class="pa-3 text-right">
+            <DarkModeSwitcher />
+          </div>
+        </template>
+      </template>
     </v-navigation-drawer>
-    <v-footer
-      :absolute="!fixed"
+
+    <v-app-bar
+      color="primary"
+      dark
       app
     >
-      <span>&copy; {{ new Date().getFullYear() }}</span>
+      <v-app-bar-nav-icon @click.stop="isDrawerOpened = !isDrawerOpened" />
+      <v-icon large left right>
+        mdi-music-box-multiple
+      </v-icon>
+      <v-toolbar-title class="font-weight-medium text-h5" v-text="siteTitle" />
+
+      <v-spacer />
+
+      <v-divider vertical inset class="mx-1" />
+      <LocaleSwitcher />
+    </v-app-bar>
+
+    <v-main>
+      <Nuxt />
+    </v-main>
+
+    <v-footer
+      absolute
+      app
+    >
+      <v-spacer />
+      <a
+        v-if="accessCounterUrl != null"
+        href="https://www.free-counter.jp/"
+        class="mr-2"
+      >
+        <img :src="accessCounterUrl" alt="アクセスカウンター" width="70" height="12">
+      </a>
+      <span>
+        &copy; {{ new Date().getFullYear() }} / made by zetaraku with &lt;3
+      </span>
     </v-footer>
   </v-app>
 </template>
-
-<script>
-export default {
-  name: 'DefaultLayout',
-  data() {
-    return {
-      clipped: false,
-      drawer: false,
-      fixed: false,
-      items: [
-        {
-          icon: 'mdi-apps',
-          title: 'Welcome',
-          to: '/',
-        },
-        {
-          icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire',
-        },
-      ],
-      miniVariant: false,
-      right: true,
-      rightDrawer: false,
-      title: 'Vuetify.js',
-    };
-  },
-};
-</script>
