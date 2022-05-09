@@ -15,5 +15,6 @@ module.exports = {
   // add your custom rules here
   rules: {
     'import/extensions': ['error', 'ignorePackages', { js: 'never', ts: 'never' }],
+    'no-restricted-syntax': ['error', 'ForInStatement', 'LabeledStatement', 'WithStatement'],
   },
 };
