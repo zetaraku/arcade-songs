@@ -16,5 +16,9 @@ module.exports = {
   rules: {
     'import/extensions': ['error', 'ignorePackages', { js: 'never', ts: 'never' }],
     'no-restricted-syntax': ['error', 'ForInStatement', 'LabeledStatement', 'WithStatement'],
+    'no-shadow': 'off',
+    'no-unused-vars': 'off',
+    '@typescript-eslint/no-shadow': 'error',
+    '@typescript-eslint/no-unused-vars': 'error',
   },
 };
