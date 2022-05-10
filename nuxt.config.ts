@@ -9,6 +9,10 @@ export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
 
+  publicRuntimeConfig: {
+    siteUrl: process.env.SITE_URL,
+  },
+
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     meta: [
