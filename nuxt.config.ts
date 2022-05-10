@@ -68,6 +68,8 @@ export default {
     '@nuxt/content',
     // https://i18n.nuxtjs.org/
     '@nuxtjs/i18n',
+    // https://github.com/nuxt-community/google-gtag-module
+    '@nuxtjs/google-gtag',
   ],
 
   i18n: {
@@ -76,6 +78,10 @@ export default {
     defaultLocale: 'en',
     strategy: 'no_prefix',
     lazy: true,
+  },
+
+  'google-gtag': {
+    id: process.env.GTAG_TRACK_ID,
   },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
