@@ -16,6 +16,12 @@ module.exports = {
   rules: {
     'import/extensions': ['error', 'ignorePackages', { js: 'never', ts: 'never' }],
     'no-restricted-syntax': ['error', 'ForInStatement', 'LabeledStatement', 'WithStatement'],
+    'object-curly-newline': ['error', {
+      ObjectExpression: { minProperties: 6, multiline: true, consistent: true },
+      ObjectPattern: { minProperties: 6, multiline: true, consistent: true },
+      ImportDeclaration: { minProperties: 6, multiline: true, consistent: true },
+      ExportDeclaration: { minProperties: 6, multiline: true, consistent: true },
+    }],
     'no-shadow': 'off',
     'no-unused-vars': 'off',
     '@typescript-eslint/no-shadow': 'error',
