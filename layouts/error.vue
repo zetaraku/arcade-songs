@@ -1,44 +1,67 @@
-<template>
-  <v-app>
-    <h1 v-if="error.statusCode === 404">
-      {{ pageNotFound }}
-    </h1>
-    <h1 v-else>
-      {{ otherError }}
-    </h1>
-    <NuxtLink to="/">
-      Home page
-    </NuxtLink>
-  </v-app>
-</template>
+<script setup lang="ts">
+/* eslint-disable import/first, import/no-duplicates */
+import { computed, useMeta as useHead } from '@nuxtjs/composition-api';
+import useGameCode from '~/composables/useGameCode';
 
-<script>
-export default {
-  name: 'EmptyLayout',
-  layout: 'empty',
-  props: {
-    error: {
-      type: Object,
-      default: null,
-    },
-  },
-  data() {
-    return {
-      pageNotFound: '404 Not Found',
-      otherError: 'An error occurred',
-    };
-  },
-  head() {
-    const title = this.error.statusCode === 404 ? this.pageNotFound : this.otherError;
-    return {
-      title,
-    };
-  },
-};
+const props = defineProps<{
+  error: Record<string, any>;
+}>();
+
+const { gameCode } = useGameCode();
+
+const isNotFound = computed(() => props.error.statusCode === 404);
+const title = computed(() => (isNotFound.value ? 'Not Found' : 'Error'));
+
+useHead(() => ({
+  title: title.value,
+}));
 </script>
 
-<style scoped>
-h1 {
-  font-size: 20px;
-}
-</style>
+<script lang="ts">
+import { defineComponent } from '@nuxtjs/composition-api';
+
+export default defineComponent({
+  name: 'ErrorPage',
+  head: {},
+});
+</script>
+
+<template>
+  <v-container class="fill-height">
+    <v-row align="center">
+      <v-col class="text-center">
+        <v-icon :size="120" class="mb-5">
+          mdi-alert-circle-outline
+        </v-icon>
+        <h1 class="mb-5">
+          {{ title }}
+        </h1>
+        <p class="red--text mb-5">
+          {{ error.message }}
+        </p>
+
+        <div class="mt-10">
+          <v-btn
+            v-if="!isNotFound"
+            outlined
+            large
+            href="https://github.com/zetaraku/arcade-songs/issues"
+            target="_blank"
+            color="error"
+            class="mr-5"
+          >
+            Report Bug
+          </v-btn>
+          <v-btn
+            outlined
+            large
+            :to="gameCode !== undefined ? `/${gameCode}/` : '/'"
+            exact
+          >
+            Back to Home
+          </v-btn>
+        </div>
+      </v-col>
+    </v-row>
+  </v-container>
+</template>
