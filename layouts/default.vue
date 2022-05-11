@@ -1,6 +1,7 @@
 <script setup lang="ts">
 /* eslint-disable import/first, import/no-duplicates */
 import { ref, watch, useMeta as useHead, nextTick } from '@nuxtjs/composition-api';
+import useDataStore from '~/stores/data';
 import useVM from '~/composables/useVM';
 import useGameCode from '~/composables/useGameCode';
 import useSideNav from '~/composables/useSideNav';
@@ -9,6 +10,8 @@ import sites from '~/assets/sites';
 import { PageNotFoundError } from '~/utils';
 
 const vm = useVM()!;
+
+const dataStore = useDataStore();
 const {
   isAtRoot,
   gameCode,
@@ -79,6 +82,7 @@ watch(gameCode, async () => {
   adaptSiteStyle();
   validateGameCode();
   adjustPortalList();
+  await dataStore.switchGameCode(gameCode.value!);
 }, { immediate: true });
 </script>
 
