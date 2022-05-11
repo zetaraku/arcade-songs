@@ -5,6 +5,7 @@ import useGameCode from '~/composables/useGameCode';
 import useSideNav from '~/composables/useSideNav';
 import useDarkMode from '~/composables/useDarkMode';
 import sites from '~/assets/sites';
+import { PageNotFoundError } from '~/utils';
 
 const vm = useVM()!;
 const {
@@ -28,8 +29,7 @@ function adaptSiteStyle() {
 }
 function validateGameCode() {
   if (gameCode.value === undefined && !isAtRoot.value) {
-    // eslint-disable-next-line no-throw-literal
-    throw { statusCode: 404 };
+    throw new PageNotFoundError();
   }
 }
 function adjustPortalList() {
