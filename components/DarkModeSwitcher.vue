@@ -7,7 +7,7 @@ const { isDarkMode } = useDarkMode();
 <template>
   <v-btn
     icon
-    @click="isDarkMode = !isDarkMode"
+    @click.stop="isDarkMode = !isDarkMode"
   >
     <v-icon v-if="!isDarkMode">
       mdi-lightbulb-on-outline
