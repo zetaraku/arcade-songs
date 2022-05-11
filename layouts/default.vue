@@ -135,11 +135,19 @@ export default {
       dark
       app
     >
-      <v-app-bar-nav-icon @click.stop="isDrawerOpened = !isDrawerOpened" />
-      <v-icon large left right>
-        mdi-music-box-multiple
-      </v-icon>
-      <v-toolbar-title class="font-weight-medium text-h5" v-text="siteTitle" />
+      <v-app-bar-nav-icon
+        @click.stop="isDrawerOpened = !isDrawerOpened"
+      />
+      <NuxtLink
+        class="d-flex"
+        style="text-decoration: none; color: inherit; user-select: none;"
+        :to="gameCode ? `/${gameCode}/` : '/'"
+      >
+        <v-icon large left right>
+          mdi-music-box-multiple
+        </v-icon>
+        <v-toolbar-title class="font-weight-medium text-h5" v-text="siteTitle" />
+      </NuxtLink>
 
       <v-spacer />
 
