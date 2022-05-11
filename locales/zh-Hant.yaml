@@ -1,7 +1,58 @@
-hello: '哈囉世界！'
-pages:
+# Test entry
+hello: 哈囉世界！
+
+# Page titles
+page-title:
   home: 首頁
   songs: 歌曲一覽
   song-lists: 段位歌單
   about: 關於本站
   bug-report: 問題回報
+
+# General UIs
+ui:
+  ok: 確定
+  cancel: 取消
+  close: 關閉
+  goBack: 返回
+  all: 全部
+
+# Terminologies
+term:
+  category: 分類
+  title: 曲名
+  artist: 創作者
+  version: 版本
+  releaseDate: 追加日期
+  minBPM: 最低 BPM
+  maxBPM: 最高 BPM
+  sheets: 譜面
+  type: 類型
+  difficulty: 難易度
+  level: 等級
+  minLevel: 最低等級
+  maxLevel: 最高等級
+  noteDesigner: 譜面製作者
+  totalNotes: 總計
+  region: 地區
+
+# Descriptions & Tooltips
+description:
+  newSong: 新歌曲！
+  unlockNeeded: 需要解禁的歌曲
+  unavailableInRegion: '{region} 未收錄'
+  copied: 已複製到剪貼簿！
+
+# Pages
+page:
+  error:
+    error: 錯誤
+    notFound: 此頁面不存在
+    backToHome: 回首頁
+
+# Components
+sfc:
+  DataInfoBar:
+    loading: 資料載入中...
+    updateTime: '資料更新日期：{time}'
+    loadFailed: 資料讀取失敗。
