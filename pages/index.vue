@@ -1,10 +1,22 @@
 <script setup lang="ts">
+/* eslint-disable import/first, import/no-duplicates */
+import { useMeta as useHead } from '@nuxtjs/composition-api';
+import useVM from '~/composables/useVM';
+
+const vm = useVM()!;
+
+useHead(() => ({
+  title: vm.$t('page-title.home') as string,
+}));
 </script>
 
 <script lang="ts">
-export default {
+import { defineComponent } from '@nuxtjs/composition-api';
+
+export default defineComponent({
   name: 'IndexPage',
-};
+  head: {},
+});
 </script>
 
 <template>
