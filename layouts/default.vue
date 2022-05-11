@@ -64,7 +64,7 @@ export default {
           v-model="isPortalOpened"
         >
           <template #activator>
-            <v-icon large left color="primary">
+            <v-icon large left :color="siteColor">
               mdi-music-box-multiple
             </v-icon>
             <v-list-item-content>
@@ -131,7 +131,7 @@ export default {
     </v-navigation-drawer>
 
     <v-app-bar
-      color="primary"
+      :color="siteColor"
       dark
       app
     >
