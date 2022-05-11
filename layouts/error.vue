@@ -1,16 +1,19 @@
 <script setup lang="ts">
 /* eslint-disable import/first, import/no-duplicates */
 import { computed, useMeta as useHead } from '@nuxtjs/composition-api';
+import useVM from '~/composables/useVM';
 import useGameCode from '~/composables/useGameCode';
 
 const props = defineProps<{
   error: Record<string, any>;
 }>();
 
+const vm = useVM()!;
 const { gameCode } = useGameCode();
 
 const isNotFound = computed(() => props.error.statusCode === 404);
 const title = computed(() => (isNotFound.value ? 'Not Found' : 'Error'));
+const heading = computed(() => (isNotFound.value ? vm.$t('page.error.notFound') : vm.$t('page.error.error')) as string);
 
 useHead(() => ({
   title: title.value,
@@ -34,7 +37,7 @@ export default defineComponent({
           mdi-alert-circle-outline
         </v-icon>
         <h1 class="mb-5">
-          {{ title }}
+          {{ heading }}
         </h1>
         <p class="red--text mb-5">
           {{ error.message }}
@@ -58,7 +61,7 @@ export default defineComponent({
             :to="gameCode !== undefined ? `/${gameCode}/` : '/'"
             exact
           >
-            Back to Home
+            {{ $t('page.error.backToHome') }}
           </v-btn>
         </div>
       </v-col>
