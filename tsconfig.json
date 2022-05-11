@@ -25,13 +25,13 @@
       ]
     },
     "types": [
+      "@types/node",
       "@nuxt/types",
+      "@nuxt/content",
       "@nuxtjs/i18n",
       "@nuxtjs/axios",
-      "@nuxt/content",
-      "@types/node",
-      "@pinia/nuxt",
       "@nuxtjs/vuetify",
+      "@pinia/nuxt",
       "unplugin-vue2-script-setup/types"
     ]
   },
