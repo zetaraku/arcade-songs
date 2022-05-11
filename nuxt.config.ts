@@ -39,6 +39,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    '~/plugins/i18n-vuetify.client.ts',
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
