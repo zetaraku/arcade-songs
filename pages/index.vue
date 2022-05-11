@@ -29,6 +29,7 @@ export default defineComponent({
         <h1 class="mb-5">
           arcade-songs
         </h1>
+        <p>Search songs of your favorite arcade music games, now all in one.</p>
       </v-col>
     </v-row>
   </v-container>
