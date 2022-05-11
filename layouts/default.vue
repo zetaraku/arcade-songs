@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { ref, watch, nextTick } from '@nuxtjs/composition-api';
+/* eslint-disable import/first, import/no-duplicates */
+import { ref, watch, useMeta as useHead, nextTick } from '@nuxtjs/composition-api';
 import useVM from '~/composables/useVM';
 import useGameCode from '~/composables/useGameCode';
 import useSideNav from '~/composables/useSideNav';
@@ -11,6 +12,7 @@ const vm = useVM()!;
 const {
   isAtRoot,
   gameCode,
+  gameTitle,
   siteTitle,
   siteColor,
   accessCounterUrl,
@@ -18,6 +20,41 @@ const {
 const { menu } = useSideNav();
 
 useDarkMode();
+
+useHead(() => {
+  const i18nHead = vm.$nuxtI18nHead({ addSeoAttributes: true });
+
+  const siteUrl = vm.$config.siteUrl!;
+  const currentSiteUrl = new URL(`${gameCode.value ?? ''}/`, siteUrl).toString();
+  const logoUrl = new URL('logo.png', siteUrl).toString();
+  const descriptionEn = `An utility site which provides searching interface for ${gameTitle.value || 'arcade games'} songs and sheets.`;
+  const descriptionJp = `${gameTitle.value || '音ゲー'}譜面情報検索webツール`;
+
+  return {
+    titleTemplate: `%s | ${siteTitle.value}`,
+    htmlAttrs: {
+      ...i18nHead.htmlAttrs,
+    },
+    meta: [
+      { name: 'description', content: descriptionEn, hid: 'description' },
+      { property: 'og:type', content: 'website' },
+      { property: 'og:title', content: siteTitle.value },
+      { property: 'og:url', content: currentSiteUrl },
+      { property: 'og:image', content: logoUrl },
+      { property: 'og:description', content: descriptionEn },
+      { name: 'twitter:card', content: 'summary' },
+      { name: 'twitter:title', content: siteTitle.value },
+      { name: 'twitter:image', content: logoUrl },
+      { name: 'twitter:description', content: descriptionJp },
+      { name: 'theme-color', content: siteColor.value },
+      { name: 'msapplication-TileColor', content: siteColor.value },
+      ...i18nHead.meta,
+    ],
+    link: [
+      ...i18nHead.link,
+    ],
+  };
+});
 
 const isDrawerOpened = ref(false);
 const isPortalOpened = ref(false);
@@ -46,9 +83,12 @@ watch(gameCode, async () => {
 </script>
 
 <script lang="ts">
-export default {
+import { defineComponent } from '@nuxtjs/composition-api';
+
+export default defineComponent({
   name: 'DefaultLayout',
-};
+  head: {},
+});
 </script>
 
 <template>
