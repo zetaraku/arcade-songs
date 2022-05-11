@@ -73,11 +73,15 @@ export default {
   ],
 
   i18n: {
+    baseUrl: process.env.SITE_URL,
     langDir: '~/locales/',
     locales,
     defaultLocale: 'en',
     strategy: 'no_prefix',
     lazy: true,
+    vueI18n: {
+      fallbackLocale: 'en',
+    },
   },
 
   'google-gtag': {
