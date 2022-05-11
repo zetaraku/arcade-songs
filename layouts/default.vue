@@ -23,9 +23,8 @@ const isDrawerOpened = ref(false);
 const isPortalOpened = ref(false);
 
 function adaptSiteStyle() {
-  const { themes } = (vm as any).$vuetify.theme;
-  themes.light.primary = siteColor.value;
-  themes.dark.primary = siteColor.value;
+  vm.$vuetify.theme.themes.light.primary = siteColor.value;
+  vm.$vuetify.theme.themes.dark.primary = '#AAAAAA';
 }
 function validateGameCode() {
   if (gameCode.value === undefined && !isAtRoot.value) {
