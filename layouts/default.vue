@@ -3,6 +3,7 @@ import { ref, watch, nextTick } from '@nuxtjs/composition-api';
 import useVM from '~/composables/useVM';
 import useGameCode from '~/composables/useGameCode';
 import useSideNav from '~/composables/useSideNav';
+import useDarkMode from '~/composables/useDarkMode';
 import sites from '~/assets/sites';
 
 const vm = useVM()!;
@@ -14,6 +15,8 @@ const {
   accessCounterUrl,
 } = useGameCode();
 const { menu } = useSideNav();
+
+useDarkMode();
 
 const isDrawerOpened = ref(false);
 const isPortalOpened = ref(false);
