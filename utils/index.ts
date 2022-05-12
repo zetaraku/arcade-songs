@@ -55,11 +55,11 @@ export function preprocessData(data: Data, dataSourceUrl: string) {
     ) : noteCounts;
   }
 
-  for (const [i, song] of data.songs.entries()) {
+  for (const [i, song] of data.songs.slice().reverse().entries()) {
     const lastTitleSerialNo = titleCounts.get(song.title) ?? 0;
     titleCounts.set(song.title, lastTitleSerialNo + 1);
 
-    song.songNo = data.songs.length - i;
+    song.songNo = 1 + i;
     song.titleSerialNo = lastTitleSerialNo + 1;
     song.imageUrl = resolveUrl(song.imageName, `${dataSourceUrl}/img/cover/`);
 
