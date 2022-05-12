@@ -19,6 +19,7 @@ export type Song = {
     noteDesigner?: string;
     noteCounts?: Record<string, number>;
     regions?: Record<string, boolean>;
+    isSpecial?: boolean;
   } & {
     // added by preprocessing
     notePercents?: Record<string, number>;
