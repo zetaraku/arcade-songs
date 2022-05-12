@@ -22,6 +22,7 @@ export type Song = {
     isSpecial?: boolean;
   } & {
     // added by preprocessing
+    sheetNo: number;
     notePercents?: Record<string, number>;
   })[];
 } & {

@@ -76,6 +76,10 @@ export function preprocessData(data: Data, dataSourceUrl: string) {
   // eslint-disable-next-line no-param-reassign
   data.sheets = data.songs.flatMap((song) => song.sheets);
 
+  for (const [i, sheet] of data.sheets.entries()) {
+    sheet.sheetNo = 1 + i;
+  }
+
   for (const type of data.types) {
     type.iconUrl = resolveUrl(type.iconUrl, `${dataSourceUrl}/img/`);
   }
