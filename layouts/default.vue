@@ -1,11 +1,11 @@
 <script setup lang="ts">
 /* eslint-disable import/first, import/no-duplicates */
-import { ref, watch, useMeta as useHead, nextTick } from '@nuxtjs/composition-api';
+import { ref, watch, provide, useMeta as useHead, nextTick } from '@nuxtjs/composition-api';
+import { useDark } from '@vueuse/core';
 import useDataStore from '~/stores/data';
 import useVM from '~/composables/useVM';
 import useGameCode from '~/composables/useGameCode';
 import useSideNav from '~/composables/useSideNav';
-import useDarkMode from '~/composables/useDarkMode';
 import sites from '~/assets/sites';
 import { PageNotFoundError } from '~/utils';
 
@@ -21,8 +21,6 @@ const {
   accessCounterUrl,
 } = useGameCode();
 const { menu } = useSideNav();
-
-useDarkMode();
 
 useHead(() => {
   const i18nHead = vm.$nuxtI18nHead({ addSeoAttributes: true });
@@ -84,6 +82,12 @@ watch(gameCode, async () => {
   adjustPortalList();
   await dataStore.switchGameCode(gameCode.value!);
 }, { immediate: true });
+
+provide('isDarkMode', useDark({
+  onChanged(isDark: boolean) {
+    vm.$vuetify.theme.dark = isDark;
+  },
+}));
 </script>
 
 <script lang="ts">
