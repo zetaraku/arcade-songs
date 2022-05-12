@@ -1,5 +1,5 @@
 hello: '你好世界！'
-pages:
+page-title:
   home: 首页
   songs: 乐曲一览
   song-lists: 段位歌单

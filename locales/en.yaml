@@ -1,5 +1,5 @@
 hello: Hello world!
-pages:
+page-title:
   home: Home
   songs: Songs
   song-lists: Song Lists

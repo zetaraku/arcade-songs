@@ -1,5 +1,5 @@
 hello: 'こんにちは世界！'
-pages:
+page-title:
   home: ホーム
   songs: 楽曲一覧
   song-lists: 段位認定リスト
