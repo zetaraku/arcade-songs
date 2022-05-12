@@ -9,6 +9,10 @@ export class PageNotFoundError extends Error {
   }
 }
 
+export function mod(n: number, m: number) {
+  return ((n % m) + m) % m;
+}
+
 export function toLocalDateString(date: Date) {
   return new Intl.DateTimeFormat().format(date);
 }
