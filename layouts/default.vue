@@ -184,7 +184,7 @@ export default defineComponent({
       app
     >
       <v-app-bar-nav-icon
-        @click.stop="isDrawerOpened = !isDrawerOpened"
+        @click.stop="isDrawerOpened = !isDrawerOpened;"
       />
       <NuxtLink
         class="d-flex"

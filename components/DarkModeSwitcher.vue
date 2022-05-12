@@ -7,7 +7,7 @@ const isDarkMode: WritableComputedRef<boolean> = inject('isDarkMode')!;
 <template>
   <v-btn
     icon
-    @click.stop="isDarkMode = !isDarkMode"
+    @click.stop="isDarkMode = !isDarkMode;"
   >
     <v-icon v-if="!isDarkMode">
       mdi-lightbulb-on-outline
