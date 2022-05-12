@@ -2,6 +2,6 @@ hello: '你好世界！'
 page-title:
   home: 首页
   songs: 乐曲一览
-  song-lists: 段位歌单
+  lists: 段位歌单
   about: 关于本站
   bug-report: 错误回报

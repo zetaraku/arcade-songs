@@ -2,6 +2,6 @@ hello: Hello world!
 page-title:
   home: Home
   songs: Songs
-  song-lists: Song Lists
+  lists: Song Lists
   about: About
   bug-report: Bug Report

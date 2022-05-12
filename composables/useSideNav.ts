@@ -22,8 +22,8 @@ export default function useSideNav() {
       },
       {
         icon: 'mdi-script-text',
-        title: vm.$t('page-title.song-lists'),
-        to: `/${gameCode.value}/song-lists/`,
+        title: vm.$t('page-title.lists'),
+        to: `/${gameCode.value}/lists/`,
         disabled: true,
       },
       {
