@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import useDarkMode from '~/composables/useDarkMode';
+import { inject, WritableComputedRef } from '@nuxtjs/composition-api';
 
-const { isDarkMode } = useDarkMode();
+const isDarkMode: WritableComputedRef<boolean> = inject('isDarkMode')!;
 </script>
 
 <template>
