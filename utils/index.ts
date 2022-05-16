@@ -47,8 +47,16 @@ export function buildEmptyData(): Data {
 }
 
 export function preprocessData(data: Data, dataSourceUrl: string) {
-  const titleCounts = new Map<string | undefined, number>();
+  const genTitleSerialNo = (() => {
+    const titleCounts = new Map<string, number>();
 
+    return (title: string) => {
+      const lastTitleSerialNo = titleCounts.get(title) ?? 0;
+      titleCounts.set(title, lastTitleSerialNo + 1);
+
+      return lastTitleSerialNo + 1;
+    };
+  })();
   function resolveUrl(filePath: string | undefined, baseUrl: string) {
     return filePath != null ? new URL(filePath, baseUrl).toString() : filePath;
   }
@@ -60,11 +68,8 @@ export function preprocessData(data: Data, dataSourceUrl: string) {
   }
 
   for (const [i, song] of data.songs.slice().reverse().entries()) {
-    const lastTitleSerialNo = titleCounts.get(song.title) ?? 0;
-    titleCounts.set(song.title, lastTitleSerialNo + 1);
-
     song.songNo = 1 + i;
-    song.titleSerialNo = lastTitleSerialNo + 1;
+    song.titleSerialNo = genTitleSerialNo(song.title!);
     song.imageUrl = resolveUrl(song.imageName, `${dataSourceUrl}/img/cover/`);
 
     for (const sheet of song.sheets) {
