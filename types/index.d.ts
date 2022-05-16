@@ -24,6 +24,9 @@ export type Song = {
     // added by preprocessing
     sheetNo: number;
     notePercents?: Record<string, number>;
+
+    // used by sheet placeholders
+    searchUrl?: string | null;
   })[];
 } & {
   // added by preprocessing
