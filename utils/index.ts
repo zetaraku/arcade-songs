@@ -67,23 +67,26 @@ export function preprocessData(data: Data, dataSourceUrl: string) {
     ) : noteCounts;
   }
 
-  for (const [i, song] of data.songs.slice().reverse().entries()) {
-    song.songNo = 1 + i;
+  let lastSongNo = 0;
+  let lastSheetNo = 0;
+  for (const song of data.songs) {
+    lastSongNo += 1;
+    song.songNo = lastSongNo;
     song.titleSerialNo = genTitleSerialNo(song.title!);
     song.imageUrl = resolveUrl(song.imageName, `${dataSourceUrl}/img/cover/`);
 
     for (const sheet of song.sheets) {
       Object.setPrototypeOf(sheet, song);
+
+      lastSheetNo += 1;
+      sheet.sheetNo = lastSheetNo;
       sheet.notePercents = computeNotePercentages(sheet.noteCounts);
     }
   }
 
+  data.songs.reverse();
   // eslint-disable-next-line no-param-reassign
   data.sheets = data.songs.flatMap((song) => song.sheets);
-
-  for (const [i, sheet] of data.sheets.entries()) {
-    sheet.sheetNo = 1 + i;
-  }
 
   for (const type of data.types) {
     type.iconUrl = resolveUrl(type.iconUrl, `${dataSourceUrl}/img/`);
