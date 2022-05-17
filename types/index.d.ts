@@ -17,13 +17,13 @@ export type Song = {
     levelValue?: number;
 
     noteDesigner?: string;
-    noteCounts?: Record<string, number>;
+    noteCounts?: Record<string, number | null>;
     regions?: Record<string, boolean>;
     isSpecial?: boolean;
   } & {
     // added by preprocessing
     sheetNo: number;
-    notePercents?: Record<string, number>;
+    notePercents?: Record<string, number | null>;
 
     // used by sheet placeholders
     searchUrl?: string | null;

@@ -60,10 +60,13 @@ export function preprocessData(data: Data, dataSourceUrl: string) {
   function resolveUrl(filePath: string | undefined, baseUrl: string) {
     return filePath != null ? new URL(filePath, baseUrl).toString() : filePath;
   }
-  function computeNotePercentages(noteCounts: Record<string, number> | undefined) {
+  function computeNotePercentages(noteCounts: Record<string, number | null> | undefined) {
     return noteCounts != null ? Object.fromEntries(
       Object.entries(noteCounts)
-        .map(([key, value]) => [key, Number(value) / noteCounts.total]),
+        .map(([key, value]) => [
+          key,
+          value != null && noteCounts.total != null ? Number(value) / noteCounts.total : null,
+        ]),
     ) : noteCounts;
   }
 
