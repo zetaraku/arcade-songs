@@ -295,3 +295,20 @@ export function filterSheets(sheets: Sheet[], filters: Filters) {
 
   return result;
 }
+
+export function validateNoteCounts(sheet: Sheet, gameCode: string | undefined) {
+  if (sheet.noteCounts == null) return true;
+
+  if (gameCode === 'maimai') {
+    return (
+      sheet.noteCounts.total!
+      - sheet.noteCounts.tap!
+      - sheet.noteCounts.hold!
+      - sheet.noteCounts.slide!
+      - sheet.noteCounts.touch!
+      - sheet.noteCounts.break!
+    ) === 0;
+  }
+
+  return true;
+}
