@@ -2,7 +2,7 @@
 import { NuxtConfig } from '@nuxt/types';
 import locales from './locales';
 
-export default {
+const nuxtConfig: NuxtConfig = {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
 
@@ -120,4 +120,6 @@ export default {
       });
     },
   },
-} as NuxtConfig;
+};
+
+export default nuxtConfig;

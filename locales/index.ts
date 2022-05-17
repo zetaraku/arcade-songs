@@ -1,6 +1,6 @@
 import type { LocaleObject } from '@nuxtjs/i18n';
 
-export default [
+const locales: LocaleObject[] = [
   {
     code: 'en', iso: 'en', abbr: 'en', name: 'English', file: 'en.yaml',
   },
@@ -13,4 +13,6 @@ export default [
   {
     code: 'zh-Hans', iso: 'zh-Hans', abbr: 'sc', name: '简体中文', file: 'zh-Hans.yaml',
   },
-] as LocaleObject[];
+];
+
+export default locales;
