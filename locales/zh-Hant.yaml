@@ -24,6 +24,7 @@ term:
   artist: 創作者
   version: 版本
   releaseDate: 追加日期
+  bpm: BPM
   minBPM: 最低 BPM
   maxBPM: 最高 BPM
   sheets: 譜面
@@ -42,6 +43,7 @@ description:
   unlockNeeded: 需要解禁的歌曲
   unavailableInRegion: '{region} 未收錄'
   copied: 已複製到剪貼簿！
+  invalidNoteCounts: 無效的 NOTE 數量
 
 # Pages
 page:
