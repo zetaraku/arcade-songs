@@ -56,3 +56,6 @@ sfc:
     loading: 資料載入中...
     updateTime: '資料更新日期：{time}'
     loadFailed: 資料讀取失敗。
+  FilterInfoBar:
+    sheetsCount: '{n} 譜面'
+    songsCount: '{n} 歌曲'
