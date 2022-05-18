@@ -13,7 +13,7 @@ const songs = computed(() => [...new Set(props.sheets.map((sheet) => sheet.songN
 </script>
 
 <template>
-  <v-container fluid>
+  <div>
     <v-progress-linear
       height="30"
       color="lime"
@@ -25,5 +25,5 @@ const songs = computed(() => [...new Set(props.sheets.map((sheet) => sheet.songN
         ( {{ songs.length }} / {{ $t('sfc.FilterInfoBar.songsCount', { n: data.songs.length }) }} )
       </span>
     </v-progress-linear>
-  </v-container>
+  </div>
 </template>

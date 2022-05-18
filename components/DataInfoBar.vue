@@ -12,7 +12,7 @@ const errorMessage = computed(() => dataStore.currentLoadingErrorMessage);
 </script>
 
 <template>
-  <v-container fluid>
+  <div>
     <v-alert
       v-if="loadingStatus === LoadingStatus.LOADING"
       type="info"
@@ -37,5 +37,5 @@ const errorMessage = computed(() => dataStore.currentLoadingErrorMessage);
     >
       {{ $t('sfc.DataInfoBar.loadFailed') }} ({{ errorMessage }})
     </v-alert>
-  </v-container>
+  </div>
 </template>

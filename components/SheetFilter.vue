@@ -7,7 +7,7 @@ const filterOptions: Ref<FilterOptions> = inject('filterOptions')!;
 </script>
 
 <template>
-  <v-container fluid>
+  <div>
     <v-row>
       <v-col
         v-if="filterOptions.categories != null"
@@ -221,5 +221,5 @@ const filterOptions: Ref<FilterOptions> = inject('filterOptions')!;
         </v-row>
       </v-col>
     </v-row>
-  </v-container>
+  </div>
 </template>

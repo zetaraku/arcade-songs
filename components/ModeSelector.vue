@@ -7,7 +7,7 @@ const selectedSheets: Ref<string[]> = inject('selectedSheets')!;
 </script>
 
 <template>
-  <v-container fluid>
+  <div>
     <v-row no-gutters>
       <v-col
         cols="12"
@@ -66,5 +66,5 @@ const selectedSheets: Ref<string[]> = inject('selectedSheets')!;
         </v-radio-group>
       </v-col>
     </v-row>
-  </v-container>
+  </div>
 </template>
