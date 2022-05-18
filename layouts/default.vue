@@ -169,12 +169,10 @@ export default defineComponent({
       </v-list>
 
       <template #append>
-        <template v-if="isAtRoot">
-          <v-divider />
-          <div class="pa-3 text-right">
-            <DarkModeSwitcher />
-          </div>
-        </template>
+        <v-divider />
+        <div class="pa-3 text-right">
+          <DarkModeSwitcher />
+        </div>
       </template>
     </v-navigation-drawer>
 
