@@ -42,7 +42,6 @@ const filterOptions: Ref<FilterOptions> = inject('filterOptions')!;
           :placeholder="$t('ui.all')"
           persistent-placeholder
           clearable
-          :allow-overflow="false"
         />
       </v-col>
       <v-col
@@ -149,7 +148,6 @@ const filterOptions: Ref<FilterOptions> = inject('filterOptions')!;
           :placeholder="$t('ui.all')"
           persistent-placeholder
           clearable
-          :allow-overflow="false"
         />
       </v-col>
       <v-col
