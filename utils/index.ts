@@ -1,5 +1,7 @@
 import type { VueConstructor } from 'vue';
 import type { Data, Sheet, Filters, FilterOptions } from '~/types';
+import cat from '~/assets/cat.png';
+import rick from '~/assets/rick.png';
 
 export class PageNotFoundError extends Error {
   statusCode = 404;
@@ -29,6 +31,29 @@ export const NULL_SHEET: Sheet = {
 
   noteDesigner: 'Oops! Nothing here :3',
   searchUrl: 'https://www.youtube.com/watch?v=W1nifh1OhI8',
+};
+
+export const RICK_SHEET: Sheet = {
+  songNo: -1,
+  sheetNo: -1,
+  titleSerialNo: 0,
+
+  category: 'Whenever You Need Somebody',
+  title: 'Never Gonna Give You Up',
+  artist: 'Rick Astley',
+  imageUrl: rick,
+
+  version: undefined,
+  releaseDate: '1987-11-16',
+  bpm: 113,
+
+  type: '??',
+  difficulty: 'never',
+  level: '',
+  levelValue: 0,
+
+  noteDesigner: 'Never gonna give you up. Never gonna let you down. Never gonna run around and desert you.',
+  searchUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
 };
 
 export function mod(n: number, m: number) {
