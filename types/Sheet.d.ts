@@ -1,6 +1,6 @@
 import type { Song } from './Song';
 
-export type Sheet = (Song & {
+export type Sheet = (Omit<Song, 'sheets'> & {
   type?: string;
   difficulty?: string;
   level?: string;
