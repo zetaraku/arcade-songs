@@ -9,6 +9,28 @@ export class PageNotFoundError extends Error {
   }
 }
 
+export const NULL_SHEET: Sheet = {
+  songNo: 0,
+  sheetNo: 0,
+  titleSerialNo: 0,
+
+  category: '???',
+  title: 'ฅ•ω•ฅ',
+  artist: ':3',
+  imageUrl: cat,
+
+  version: undefined,
+  bpm: 0,
+
+  type: '??',
+  difficulty: 'void',
+  level: '0',
+  levelValue: 0,
+
+  noteDesigner: 'Oops! Nothing here :3',
+  searchUrl: 'https://www.youtube.com/watch?v=W1nifh1OhI8',
+};
+
 export function mod(n: number, m: number) {
   return ((n % m) + m) % m;
 }
