@@ -26,6 +26,7 @@
     },
     "types": [
       "@types/node",
+      "@types/canvas-confetti",
       "@nuxt/types",
       "@nuxt/content",
       "@nuxtjs/i18n",
