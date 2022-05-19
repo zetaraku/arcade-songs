@@ -41,6 +41,7 @@
     "@nuxtjs/eslint-module": "^3.0.2",
     "@nuxtjs/stylelint-module": "^4.1.0",
     "@nuxtjs/vuetify": "^1.12.3",
+    "@types/canvas-confetti": "^1.4.2",
     "@vue/runtime-dom": "^3.2.33",
     "eslint": "^8.4.1",
     "eslint-config-airbnb-base": "^15.0.0",
