@@ -1,11 +1,12 @@
 import { computed } from '@nuxtjs/composition-api';
 import useDataStore from '~/stores/data';
 import useGameCode from '~/composables/useGameCode';
+import { Sheet } from '~/types';
 
 export default function useGameData() {
   const dataStore = useDataStore();
   const data = computed(() => dataStore.currentData);
-  const { dataSourceUrl } = useGameCode();
+  const { gameTitle, dataSourceUrl } = useGameCode();
 
   // Lock icon
   function getLockedIconUrl() {
@@ -74,6 +75,38 @@ export default function useGameData() {
     return data.value.difficulties.findIndex((e) => e.difficulty === difficulty);
   }
 
+  // Search link
+  function getSheetSearchLinkIcon(sheet: Sheet) {
+    if (sheet.searchUrl === null) return null;
+    if (sheet.searchUrl === undefined) return 'mdi-youtube';
+    if (sheet.searchUrl.includes('https://www.youtube.com/')) return 'mdi-youtube';
+
+    return 'mdi-link-variant';
+  }
+  function getSheetSearchLinkColor(sheet: Sheet) {
+    if (sheet.searchUrl === null) return null;
+    if (sheet.searchUrl === undefined) return 'red';
+    if (sheet.searchUrl.includes('https://www.youtube.com/')) return 'red';
+
+    return 'primary';
+  }
+  function getSheetSearchLink(sheet: Sheet) {
+    if (sheet.searchUrl === null) return null;
+    if (sheet.searchUrl !== undefined) return sheet.searchUrl;
+
+    const escapedGameTitle = gameTitle.value;
+    const escapedTitle = sheet.title ?? '';
+    const escapedDifficulty = getDifficultyName(sheet.difficulty);
+
+    const url = new URL('https://www.youtube.com/results');
+    url.searchParams.set(
+      'search_query',
+      `${escapedGameTitle} ${escapedTitle} ${escapedDifficulty}`.replaceAll('-', '\\-'),
+    );
+
+    return url.toString();
+  }
+
   return {
     getLockedIconUrl,
     getLockedIconHeight,
@@ -91,5 +124,8 @@ export default function useGameData() {
     getDifficultyIconUrl,
     getDifficultyIconHeight,
     getDifficultyIndex,
+    getSheetSearchLinkIcon,
+    getSheetSearchLinkColor,
+    getSheetSearchLink,
   };
 }
