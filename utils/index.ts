@@ -52,7 +52,7 @@ export const RICK_SHEET: Sheet = {
   level: '',
   levelValue: 0,
 
-  noteDesigner: 'Never gonna give you up. Never gonna let you down. Never gonna run around and desert you.',
+  noteDesigner: 'Never gonna give you up. Never gonna let you down.',
   searchUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
 };
 
