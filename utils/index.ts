@@ -156,7 +156,7 @@ export function buildEmptyFilters(): Filters {
     minBPM: null,
     maxBPM: null,
 
-    type: null,
+    types: [],
     difficulties: [],
     minLevelValue: null,
     maxLevelValue: null,
@@ -298,9 +298,9 @@ export function filterSheets(sheets: Sheet[], filters: Filters) {
       (sheet) => sheet.version != null && filters.versions.includes(sheet.version),
     );
   }
-  if (filters.type != null) {
+  if (filters.types.length !== 0) {
     result = result.filter(
-      (sheet) => sheet.type != null && sheet.type === filters.type,
+      (sheet) => sheet.type != null && filters.types.includes(sheet.type),
     );
   }
   if (filters.difficulties.length !== 0) {

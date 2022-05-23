@@ -125,12 +125,15 @@ const filterOptions: Ref<FilterOptions> = inject('filterOptions')!;
         class="d-flex align-end"
       >
         <v-select
-          v-model="filters.type"
+          v-model="filters.types"
           :items="filterOptions.types"
           prepend-icon="mdi-assistant"
           :label="$t('term.type')"
           :placeholder="$t('ui.all')"
           persistent-placeholder
+          multiple
+          chips
+          deletable-chips
           clearable
         />
       </v-col>

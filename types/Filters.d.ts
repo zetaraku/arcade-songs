@@ -7,7 +7,7 @@ export type Filters = {
   minBPM: number | null;
   maxBPM: number | null;
 
-  type: string | null;
+  types: string[];
   difficulties: string[];
   minLevelValue: number | null;
   maxLevelValue: number | null;
