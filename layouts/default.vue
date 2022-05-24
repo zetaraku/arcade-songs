@@ -166,13 +166,6 @@ export default defineComponent({
           </v-list-item-icon>
         </v-list-item>
       </v-list>
-
-      <template #append>
-        <v-divider />
-        <div class="pa-3 text-right">
-          <DarkModeSwitcher />
-        </div>
-      </template>
     </v-navigation-drawer>
 
     <v-app-bar
