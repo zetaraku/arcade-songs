@@ -27,6 +27,10 @@ const {
 } = useGameData();
 const { headers } = useSheetTableHeaders();
 
+function getItemClass(sheet: Sheet) {
+  return selectedSheets.value.includes(sheet) ? 'selected-sheet' : '';
+}
+
 watch(sheets, () => {
   currentPage.value = 1;
 });
@@ -39,6 +43,7 @@ watch(sheets, () => {
       v-model="selectedSheets"
       :headers="headers"
       :items="sheets"
+      :item-class="getItemClass"
       :items-per-page="sheetsPerPage"
       :page.sync="currentPage"
       item-key="sheetNo"
@@ -159,3 +164,11 @@ watch(sheets, () => {
     </v-data-table>
   </div>
 </template>
+
+<style lang="scss" scoped>
+::v-deep {
+  .selected-sheet {
+    background-color: #4EDA !important;
+  }
+}
+</style>

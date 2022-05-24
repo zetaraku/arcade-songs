@@ -25,9 +25,17 @@ function toggleSheetSelection(sheet: Sheet) {
         v-for="(sheet, i) in currentSheets"
         :key="i"
         :sheet="sheet"
-        :style="{ 'background-color': selectedSheets.includes(sheet) ? 'turquoise' : null }"
+        :class="{ 'selected-sheet': selectedSheets.includes(sheet) }"
         @click.right.stop="toggleSheetSelection(sheet);"
       />
     </div>
   </div>
 </template>
+
+<style lang="scss" scoped>
+::v-deep {
+  .selected-sheet {
+    background-color: #4EDA !important;
+  }
+}
+</style>
