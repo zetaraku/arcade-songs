@@ -184,7 +184,11 @@ export default defineComponent({
         <v-icon large left right>
           mdi-music-box-multiple
         </v-icon>
-        <v-toolbar-title class="font-weight-medium text-h5" v-text="siteTitle" />
+        <v-toolbar-title
+          class="font-weight-medium"
+          :class="$vuetify.breakpoint.xsOnly ? 'text-h6' : 'text-h4'"
+          v-text="siteTitle"
+        />
       </NuxtLink>
 
       <v-spacer />
