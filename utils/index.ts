@@ -14,7 +14,6 @@ export class PageNotFoundError extends Error {
 export const NULL_SHEET: Sheet = {
   songNo: 0,
   sheetNo: 0,
-  titleSerialNo: 0,
 
   category: '???',
   title: 'ฅ•ω•ฅ',
@@ -36,7 +35,6 @@ export const NULL_SHEET: Sheet = {
 export const RICK_SHEET: Sheet = {
   songNo: -1,
   sheetNo: -1,
-  titleSerialNo: 0,
 
   category: 'Whenever You Need Somebody',
   title: 'Never Gonna Give You Up',
@@ -94,16 +92,6 @@ export function buildEmptyData(): Data {
 }
 
 export function preprocessData(data: Data, dataSourceUrl: string) {
-  const genTitleSerialNo = (() => {
-    const titleCounts = new Map<string, number>();
-
-    return (title: string) => {
-      const lastTitleSerialNo = titleCounts.get(title) ?? 0;
-      titleCounts.set(title, lastTitleSerialNo + 1);
-
-      return lastTitleSerialNo + 1;
-    };
-  })();
   function resolveUrl(filePath: string | undefined, baseUrl: string) {
     return filePath != null ? new URL(filePath, baseUrl).toString() : filePath;
   }
@@ -122,7 +110,6 @@ export function preprocessData(data: Data, dataSourceUrl: string) {
   for (const song of data.songs) {
     lastSongNo += 1;
     song.songNo = lastSongNo;
-    song.titleSerialNo = genTitleSerialNo(song.title!);
     song.imageUrl = resolveUrl(song.imageName, `${dataSourceUrl}/img/cover/`);
 
     for (const sheet of song.sheets) {

@@ -16,6 +16,5 @@ export type Song = {
 } & {
   // added by preprocessing
   songNo: number;
-  titleSerialNo: number;
   imageUrl?: string;
 };
