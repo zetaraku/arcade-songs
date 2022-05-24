@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { inject, WritableComputedRef } from '@nuxtjs/composition-api';
+import { inject, Ref } from '@nuxtjs/composition-api';
 import useGameData from '~/composables/useGameData';
 import type { Sheet } from '~/types';
 
@@ -7,7 +7,7 @@ defineProps<{
   sheet: Sheet;
 }>();
 
-const isDarkMode: WritableComputedRef<boolean> = inject('isDarkMode')!;
+const isDarkMode: Ref<boolean> = inject('isDarkMode')!;
 
 const {
   getLockedIconUrl,

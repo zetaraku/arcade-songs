@@ -1,7 +1,6 @@
 <script setup lang="ts">
 /* eslint-disable import/first, import/no-duplicates */
 import { ref, watch, provide, useMeta as useHead, nextTick } from '@nuxtjs/composition-api';
-import { useDark } from '@vueuse/core';
 import useDataStore from '~/stores/data';
 import useVM from '~/composables/useVM';
 import useGameCode from '~/composables/useGameCode';
@@ -57,6 +56,7 @@ useHead(() => {
   };
 });
 
+const isDarkMode = ref(false);
 const isDrawerOpened = ref(false);
 const isPortalOpened = ref(false);
 
@@ -82,12 +82,11 @@ watch(gameCode, async () => {
   adjustPortalList();
   await dataStore.switchGameCode(gameCode.value!);
 }, { immediate: true });
+watch(isDarkMode, () => {
+  vm.$vuetify.theme.dark = isDarkMode.value;
+});
 
-provide('isDarkMode', useDark({
-  onChanged(isDark: boolean) {
-    vm.$vuetify.theme.dark = isDark;
-  },
-}));
+provide('isDarkMode', isDarkMode);
 </script>
 
 <script lang="ts">
