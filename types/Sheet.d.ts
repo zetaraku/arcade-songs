@@ -13,6 +13,7 @@ export type Sheet = (Omit<Song, 'sheets'> & {
 } & {
   // added by preprocessing
   sheetNo: number;
+  sheetExpr?: string;
   notePercents?: Record<string, number | null>;
 
   // used by sheet placeholders

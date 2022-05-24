@@ -72,6 +72,10 @@ export function toPercentageString(n: number | undefined) {
   return `${Math.trunc(10000 * n) / 100}%`;
 }
 
+function computeSheetExpr(sheet: Sheet) {
+  return `${sheet.title}|${sheet.type}-${sheet.difficulty}`;
+}
+
 export function buildEmptyData(): Data {
   return {
     songs: [],
@@ -117,6 +121,7 @@ export function preprocessData(data: Data, dataSourceUrl: string) {
 
       lastSheetNo += 1;
       sheet.sheetNo = lastSheetNo;
+      sheet.sheetExpr = computeSheetExpr(sheet);
       sheet.notePercents = computeNotePercentages(sheet.noteCounts);
     }
   }
