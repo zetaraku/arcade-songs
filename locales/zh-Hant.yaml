@@ -39,6 +39,7 @@ term:
 
 # Descriptions & Tooltips
 description:
+  loading: 資料載入中...
   newSong: 新歌曲！
   unlockNeeded: 需要解禁的歌曲
   unavailableInRegion: '{region} 未收錄'
@@ -58,7 +59,6 @@ page:
 # Components
 sfc:
   DataInfoBar:
-    loading: 資料載入中...
     updateTime: '資料更新日期：{time}'
     loadFailed: 資料讀取失敗。
   ModeSelector:

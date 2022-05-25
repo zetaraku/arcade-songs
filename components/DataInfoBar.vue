@@ -19,7 +19,7 @@ const errorMessage = computed(() => dataStore.currentLoadingErrorMessage);
       dense
       outlined
     >
-      {{ $t('sfc.DataInfoBar.loading') }}
+      {{ $t('description.loading') }}
     </v-alert>
     <v-alert
       v-else-if="loadingStatus === LoadingStatus.LOADED"
