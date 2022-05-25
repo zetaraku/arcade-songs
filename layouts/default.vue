@@ -5,6 +5,7 @@ import useDataStore from '~/stores/data';
 import useVM from '~/composables/useVM';
 import useGameCode from '~/composables/useGameCode';
 import useSideNav from '~/composables/useSideNav';
+import LoadingStatus from '~/enums/LoadingStatus';
 import sites from '~/assets/sites';
 import { PageNotFoundError } from '~/utils';
 
@@ -100,6 +101,8 @@ export default defineComponent({
 
 <template>
   <v-app>
+    <LoadingOverlay v-if="dataStore.currentLoadingStatus === LoadingStatus.LOADING" />
+
     <v-navigation-drawer
       v-model="isDrawerOpened"
       width="300"
