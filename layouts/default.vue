@@ -217,5 +217,7 @@ export default defineComponent({
         &copy; {{ new Date().getFullYear() }} / made by zetaraku with &lt;3
       </span>
     </v-footer>
+
+    <SheetDialog />
   </v-app>
 </template>
