@@ -66,3 +66,6 @@ sfc:
   FilterInfoBar:
     sheetsCount: '{n} 譜面'
     songsCount: '{n} 歌曲'
+  SheetDialog:
+    searchOnYouTube: 在 YouTube 上搜尋
+    tryAgain: 再抽一次
