@@ -62,7 +62,7 @@ const isPortalOpened = ref(false);
 
 function adaptSiteStyle() {
   vm.$vuetify.theme.themes.light.primary = siteColor.value;
-  vm.$vuetify.theme.themes.dark.primary = '#777777';
+  vm.$vuetify.theme.themes.dark.primary = '#FFAC1C';
 }
 function validateGameCode() {
   if (gameCode.value === undefined && !isAtRoot.value) {
