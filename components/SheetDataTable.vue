@@ -3,6 +3,7 @@ import { watch, inject, Ref } from '@nuxtjs/composition-api';
 import useGameCode from '~/composables/useGameCode';
 import useGameData from '~/composables/useGameData';
 import useSheetTableHeaders from '~/composables/useSheetTableHeaders';
+import useSheetDialog from '~/composables/useSheetDialog';
 import { toPercentageString, validateNoteCounts } from '~/utils';
 import type { Sheet } from '~/types';
 
@@ -26,6 +27,7 @@ const {
   getDifficultyIconHeight,
 } = useGameData();
 const { headers } = useSheetTableHeaders();
+const { viewSheet } = useSheetDialog();
 
 function getItemClass(sheet: Sheet) {
   return selectedSheets.value.includes(sheet) ? 'selected-sheet' : '';
@@ -66,6 +68,7 @@ watch(sheets, () => {
         <v-btn
           icon
           color="cyan"
+          @click.stop="viewSheet(sheet);"
         >
           <v-icon>mdi-file-image</v-icon>
         </v-btn>

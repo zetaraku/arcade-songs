@@ -1,9 +1,12 @@
 <script setup lang="ts">
 import { inject, Ref } from '@nuxtjs/composition-api';
+import useSheetDialog from '~/composables/useSheetDialog';
 import type { Sheet } from '~/types';
 
 const selectedSheets: Ref<Sheet[]> = inject('selectedSheets')!;
 const currentSheets: Ref<Sheet[]> = inject('currentSheets')!;
+
+const { viewSheet } = useSheetDialog();
 
 function toggleSheetSelection(sheet: Sheet) {
   const index = selectedSheets.value.indexOf(sheet);
@@ -26,6 +29,7 @@ function toggleSheetSelection(sheet: Sheet) {
         :key="i"
         :sheet="sheet"
         :class="{ 'selected-sheet': selectedSheets.includes(sheet) }"
+        @click.left.stop="viewSheet(sheet);"
         @click.right.stop="toggleSheetSelection(sheet);"
       />
     </div>
