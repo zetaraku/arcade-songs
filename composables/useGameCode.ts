@@ -11,7 +11,6 @@ export default function useGameCode() {
 
   const gameCode = computed(() => siteInfo.value?.gameCode ?? undefined);
   const gameTitle = computed(() => siteInfo.value?.gameTitle ?? '');
-  const siteTitle = computed(() => siteInfo.value?.title ?? 'arcade-songs');
   const siteColor = computed(() => siteInfo.value?.color ?? '#424242');
   const dataSourceUrl = computed(() => siteInfo.value?.dataSourceUrl ?? undefined);
   const accessCounterUrl = computed(() => siteInfo.value?.accessCounterUrl ?? undefined);
@@ -20,7 +19,6 @@ export default function useGameCode() {
     isAtRoot,
     gameCode,
     gameTitle,
-    siteTitle,
     siteColor,
     dataSourceUrl,
     accessCounterUrl,
