@@ -2,13 +2,15 @@
 /* eslint-disable import/first, import/no-duplicates */
 import { ref, computed, provide, useMeta as useHead } from '@nuxtjs/composition-api';
 import useDataStore from '~/stores/data';
+import useGameInfo from '~/composables/useGameInfo';
 import useVM from '~/composables/useVM';
 import { buildEmptyFilters, buildFilterOptions, filterSheets } from '~/utils';
 import type { Sheet } from '~/types';
 
+const vm = useVM();
+const { gameTitle } = useGameInfo();
 const dataStore = useDataStore();
 const data = computed(() => dataStore.currentData);
-const vm = useVM();
 
 const filterMode = ref('filter');
 const displayMode = ref('grid');
@@ -25,7 +27,8 @@ const displayingSheets = computed(() => {
 });
 
 useHead(() => ({
-  title: vm.$t('page-title.home') as string,
+  titleTemplate: '%s',
+  title: `${gameTitle.value} | ${vm.$config.siteTitle}`,
 }));
 
 provide('selectedSheets', selectedSheets);
