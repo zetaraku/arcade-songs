@@ -16,11 +16,6 @@ export default function useSideNav() {
         to: `/${gameCode.value}/`,
       },
       {
-        icon: 'mdi-database',
-        title: vm.$t('page-title.songs'),
-        to: `/${gameCode.value}/songs/`,
-      },
-      {
         icon: 'mdi-script-text',
         title: vm.$t('page-title.lists'),
         to: `/${gameCode.value}/lists/`,

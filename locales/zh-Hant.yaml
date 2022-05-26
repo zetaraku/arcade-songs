@@ -4,7 +4,6 @@ hello: 哈囉世界！
 # Page titles
 page-title:
   home: 首頁
-  songs: 歌曲一覽
   lists: 段位歌單
   about: 關於本站
   bug-report: 回報問題
@@ -51,6 +50,8 @@ description:
 
 # Pages
 page:
+  # lists:
+  #   selectPage: 選擇歌曲列表
   about:
     author: 作者
     dataSource: 資料來源
