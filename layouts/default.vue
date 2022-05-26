@@ -1,6 +1,6 @@
 <script setup lang="ts">
 /* eslint-disable import/first, import/no-duplicates */
-import { ref, computed, watch, provide, useMeta as useHead, nextTick } from '@nuxtjs/composition-api';
+import { ref, computed, watch, provide, useRoute, useMeta as useHead, nextTick } from '@nuxtjs/composition-api';
 import useDataStore from '~/stores/data';
 import useVM from '~/composables/useVM';
 import useGameInfo from '~/composables/useGameInfo';
@@ -9,11 +9,10 @@ import sites from '~/assets/sites';
 import { PageNotFoundError } from '~/utils';
 
 const vm = useVM();
-
+const route = useRoute();
 const siteTitle = vm.$config.siteTitle!;
 const dataStore = useDataStore();
 const {
-  isAtRoot,
   gameCode,
   gameTitle,
   siteColor,
@@ -90,7 +89,7 @@ function adaptSiteStyle() {
   vm.$vuetify.theme.themes.dark.primary = '#FFAC1C';
 }
 function validateGameCode() {
-  if (gameCode.value === undefined && !isAtRoot.value) {
+  if (route.value.params.gameCode !== undefined && gameCode.value === undefined) {
     vm.$nuxt.error(new PageNotFoundError());
   }
 }

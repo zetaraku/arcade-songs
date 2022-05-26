@@ -7,7 +7,6 @@ export default function useGameInfo() {
   const siteInfo = computed(
     () => sites.find((site) => site.gameCode === route.value.params.gameCode),
   );
-  const isAtRoot = computed(() => route.value.params.gameCode === undefined);
 
   const gameCode = computed(() => siteInfo.value?.gameCode ?? undefined);
   const gameTitle = computed(() => siteInfo.value?.gameTitle ?? '');
@@ -16,7 +15,6 @@ export default function useGameInfo() {
   const accessCounterUrl = computed(() => siteInfo.value?.accessCounterUrl ?? undefined);
 
   return {
-    isAtRoot,
     gameCode,
     gameTitle,
     siteColor,
