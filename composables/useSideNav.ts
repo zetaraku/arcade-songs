@@ -32,9 +32,9 @@ export default function useSideNav() {
         to: `/${gameCode.value}/about/`,
       },
       {
-        icon: 'mdi-bug',
+        icon: 'mdi-comment-question',
         title: vm.$t('page-title.bug-report'),
-        href: 'https://github.com/zetaraku/arcade-songs/issues',
+        href: 'https://arcade-songs-report.zetaraku.dev/',
       },
     ];
   });
