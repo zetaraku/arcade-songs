@@ -144,7 +144,7 @@ watch(sheets, () => {
         <span>{{ sheet.notePercents ? toPercentageString(sheet.notePercents.break) : null }}</span>
       </template>
       <template #item.noteCounts.total="{ item: sheet }">
-        <span>{{ sheet.noteCounts.total }}</span>
+        <span>{{ sheet.noteCounts ? sheet.noteCounts.total : null }}</span>
         <v-tooltip
           v-if="!validateNoteCounts(sheet, gameCode)"
           top
