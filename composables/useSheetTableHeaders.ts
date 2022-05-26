@@ -1,12 +1,12 @@
 import { computed } from '@nuxtjs/composition-api';
 import useVM from '~/composables/useVM';
-import useGameCode from '~/composables/useGameCode';
+import useGameInfo from '~/composables/useGameInfo';
 import useGameData from '~/composables/useGameData';
 import type { DataTableHeader } from 'vuetify';
 
 export default function useSheetTableHeaders() {
   const vm = useVM()!;
-  const { gameCode } = useGameCode();
+  const { gameCode } = useGameInfo();
 
   const {
     getCategoryIndex,

@@ -3,7 +3,7 @@
 import { ref, watch, provide, useMeta as useHead, nextTick } from '@nuxtjs/composition-api';
 import useDataStore from '~/stores/data';
 import useVM from '~/composables/useVM';
-import useGameCode from '~/composables/useGameCode';
+import useGameInfo from '~/composables/useGameInfo';
 import useSideNav from '~/composables/useSideNav';
 import LoadingStatus from '~/enums/LoadingStatus';
 import sites from '~/assets/sites';
@@ -19,7 +19,7 @@ const {
   gameTitle,
   siteColor,
   accessCounterUrl,
-} = useGameCode();
+} = useGameInfo();
 const { menu } = useSideNav();
 
 useHead(() => {

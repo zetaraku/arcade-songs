@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { watch, inject, Ref } from '@nuxtjs/composition-api';
-import useGameCode from '~/composables/useGameCode';
+import useGameInfo from '~/composables/useGameInfo';
 import useGameData from '~/composables/useGameData';
 import useSheetTableHeaders from '~/composables/useSheetTableHeaders';
 import useSheetDialog from '~/composables/useSheetDialog';
@@ -15,7 +15,7 @@ const pageCount: Ref<number> = inject('pageCount')!;
 const currentPage: Ref<number> = inject('currentPage')!;
 const currentSheets: Ref<Sheet[]> = inject('currentSheets')!;
 
-const { gameCode } = useGameCode();
+const { gameCode } = useGameInfo();
 const {
   getVersionAbbr,
   getTypeAbbr,

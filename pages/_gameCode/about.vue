@@ -2,12 +2,12 @@
 /* eslint-disable import/first, import/no-duplicates */
 import { inject, useMeta as useHead, Ref } from '@nuxtjs/composition-api';
 import useVM from '~/composables/useVM';
-import useGameCode from '~/composables/useGameCode';
+import useGameInfo from '~/composables/useGameInfo';
 
 const isDarkMode: Ref<boolean> = inject('isDarkMode')!;
 
 const vm = useVM()!;
-const { gameCode } = useGameCode();
+const { gameCode } = useGameInfo();
 
 useHead(() => ({
   title: vm.$t('page-title.about') as string,

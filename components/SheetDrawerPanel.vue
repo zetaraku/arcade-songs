@@ -2,7 +2,7 @@
 import { ref, watch, inject, Ref } from '@nuxtjs/composition-api';
 import confetti from 'canvas-confetti';
 import useVM from '~/composables/useVM';
-import useGameCode from '~/composables/useGameCode';
+import useGameInfo from '~/composables/useGameInfo';
 import useSheetDialog from '~/composables/useSheetDialog';
 import { mod, RICK_SHEET } from '~/utils';
 import { Sheet } from '~/types';
@@ -14,7 +14,7 @@ const props = defineProps<{
 const isDarkMode: Ref<boolean> = inject('isDarkMode')!;
 
 const vm = useVM()!;
-const { gameCode, siteColor } = useGameCode();
+const { gameCode, siteColor } = useGameInfo();
 const {
   viewSheet,
   setDrawingPool,

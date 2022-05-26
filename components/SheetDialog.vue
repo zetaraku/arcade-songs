@@ -3,7 +3,7 @@ import { ref, computed, watch, inject, Ref } from '@nuxtjs/composition-api';
 import copy from 'copy-to-clipboard';
 import useDataStore from '~/stores/data';
 import useVM from '~/composables/useVM';
-import useGameCode from '~/composables/useGameCode';
+import useGameInfo from '~/composables/useGameInfo';
 import useGameData from '~/composables/useGameData';
 import useSheetDialog from '~/composables/useSheetDialog';
 import cat from '~/assets/cat.png';
@@ -12,7 +12,7 @@ const isDarkMode: Ref<boolean> = inject('isDarkMode')!;
 
 const vm = useVM()!;
 const dataStore = useDataStore();
-const { gameCode } = useGameCode();
+const { gameCode } = useGameInfo();
 const {
   getTypeIconUrl,
   getDifficultyName,

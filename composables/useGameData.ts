@@ -1,12 +1,12 @@
 import { computed } from '@nuxtjs/composition-api';
 import useDataStore from '~/stores/data';
-import useGameCode from '~/composables/useGameCode';
+import useGameInfo from '~/composables/useGameInfo';
 import { Sheet } from '~/types';
 
 export default function useGameData() {
   const dataStore = useDataStore();
   const data = computed(() => dataStore.currentData);
-  const { gameTitle, dataSourceUrl } = useGameCode();
+  const { gameTitle, dataSourceUrl } = useGameInfo();
 
   // Lock icon
   function getLockedIconUrl() {

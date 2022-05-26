@@ -1,10 +1,10 @@
 import { computed } from '@nuxtjs/composition-api';
 import useVM from '~/composables/useVM';
-import useGameCode from '~/composables/useGameCode';
+import useGameInfo from '~/composables/useGameInfo';
 
 export default function useSideNav() {
   const vm = useVM()!;
-  const { gameCode } = useGameCode();
+  const { gameCode } = useGameInfo();
 
   const menu = computed(() => {
     if (gameCode.value === undefined) return [];

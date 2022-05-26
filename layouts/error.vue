@@ -2,14 +2,14 @@
 /* eslint-disable import/first, import/no-duplicates */
 import { computed, useMeta as useHead } from '@nuxtjs/composition-api';
 import useVM from '~/composables/useVM';
-import useGameCode from '~/composables/useGameCode';
+import useGameInfo from '~/composables/useGameInfo';
 
 const props = defineProps<{
   error: Record<string, any>;
 }>();
 
 const vm = useVM()!;
-const { gameCode } = useGameCode();
+const { gameCode } = useGameInfo();
 
 const isNotFound = computed(() => props.error.statusCode === 404);
 const title = computed(() => (isNotFound.value ? 'Not Found' : 'Error'));
