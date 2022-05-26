@@ -25,11 +25,10 @@ const { menu } = useSideNav();
 useHead(() => {
   const i18nHead = vm.$nuxtI18nHead({ addSeoAttributes: true });
 
-  const siteUrl = vm.$config.siteUrl!;
-  const currentSiteUrl = new URL(`${gameCode.value ?? ''}/`, siteUrl).toString();
-  const logoUrl = new URL('logo.png', siteUrl).toString();
-  const descriptionEn = `An utility site which provides searching interface for ${gameTitle.value || 'arcade games'} songs and sheets.`;
-  const descriptionJp = `${gameTitle.value || '音ゲー'}譜面情報検索webツール`;
+  const siteUrl = new URL(`${gameCode.value ?? ''}/`, vm.$config.siteUrl!).toString();
+  const logoUrl = new URL('logo.png', vm.$config.siteUrl!).toString();
+  const descriptionEn = String(vm.$config.siteDescriptionEn!).replace('______', gameTitle.value || 'arcade games');
+  const descriptionJp = String(vm.$config.siteDescriptionJp!).replace('______', gameTitle.value || '音ゲー');
 
   return {
     titleTemplate: `%s | ${siteTitle.value}`,
@@ -37,20 +36,22 @@ useHead(() => {
       ...i18nHead.htmlAttrs,
     },
     meta: [
-      { name: 'description', content: descriptionEn, hid: 'description' },
+      ...i18nHead.meta,
       { property: 'og:type', content: 'website' },
       { property: 'og:title', content: siteTitle.value },
-      { property: 'og:url', content: currentSiteUrl },
+      { property: 'og:site_name', content: siteTitle.value },
+      { property: 'og:url', content: siteUrl },
       { property: 'og:image', content: logoUrl },
       { property: 'og:description', content: descriptionEn },
+      { name: 'description', content: descriptionEn },
       { name: 'twitter:card', content: 'summary' },
       { name: 'twitter:title', content: siteTitle.value },
       { name: 'twitter:image', content: logoUrl },
       { name: 'twitter:description', content: descriptionJp },
       { name: 'theme-color', content: siteColor.value },
       { name: 'msapplication-TileColor', content: siteColor.value },
-      ...i18nHead.meta,
-    ],
+      { name: 'apple-mobile-web-app-title', content: siteTitle.value },
+    ].map((e) => ({ ...e, hid: e.hid ?? e.name ?? e.property })),
     link: [
       ...i18nHead.link,
     ],
