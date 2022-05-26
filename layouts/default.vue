@@ -73,7 +73,7 @@ function validateGameCode() {
   }
 }
 function adjustPortalList() {
-  if (isAtRoot.value) {
+  if (gameCode.value === undefined) {
     isPortalOpened.value = true;
   }
 }
