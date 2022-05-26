@@ -27,7 +27,7 @@ useHead(() => {
 
   const subSiteTitle = gameTitle.value ? `${gameTitle.value} | ${siteTitle}` : siteTitle;
   const siteUrl = new URL(`${gameCode.value ?? ''}/`, vm.$config.siteUrl!).toString();
-  const logoUrl = new URL('logo.png', vm.$config.siteUrl!).toString();
+  const logoUrl = new URL('logo.png?v=1', vm.$config.siteUrl!).toString();
   const descriptionEn = String(vm.$config.siteDescriptionEn!).replace('______', gameTitle.value || 'arcade games');
   const descriptionJp = String(vm.$config.siteDescriptionJp!).replace('______', gameTitle.value || '音ゲー');
 
