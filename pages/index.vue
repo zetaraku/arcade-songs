@@ -3,7 +3,7 @@
 import { useMeta as useHead } from '@nuxtjs/composition-api';
 import useVM from '~/composables/useVM';
 
-const vm = useVM()!;
+const vm = useVM();
 
 useHead(() => ({
   title: vm.$t('page-title.home') as string,

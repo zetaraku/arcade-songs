@@ -9,7 +9,7 @@ import LoadingStatus from '~/enums/LoadingStatus';
 import sites from '~/assets/sites';
 import { PageNotFoundError } from '~/utils';
 
-const vm = useVM()!;
+const vm = useVM();
 
 const siteTitle = vm.$config.siteTitle!;
 const dataStore = useDataStore();

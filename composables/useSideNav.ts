@@ -3,7 +3,7 @@ import useVM from '~/composables/useVM';
 import useGameInfo from '~/composables/useGameInfo';
 
 export default function useSideNav() {
-  const vm = useVM()!;
+  const vm = useVM();
   const { gameCode } = useGameInfo();
 
   const menu = computed(() => {

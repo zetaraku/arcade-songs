@@ -5,7 +5,7 @@ import useGameData from '~/composables/useGameData';
 import type { DataTableHeader } from 'vuetify';
 
 export default function useSheetTableHeaders() {
-  const vm = useVM()!;
+  const vm = useVM();
   const { gameCode } = useGameInfo();
 
   const {

@@ -10,7 +10,7 @@ import cat from '~/assets/cat.png';
 
 const isDarkMode: Ref<boolean> = inject('isDarkMode')!;
 
-const vm = useVM()!;
+const vm = useVM();
 const dataStore = useDataStore();
 const { gameCode } = useGameInfo();
 const {

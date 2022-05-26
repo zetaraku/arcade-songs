@@ -3,7 +3,7 @@ import { computed } from '@nuxtjs/composition-api';
 import useVM from '~/composables/useVM';
 import type { LocaleObject } from '@nuxtjs/i18n';
 
-const vm = useVM()!;
+const vm = useVM();
 
 const currentLocaleOption = computed(() => vm.$i18n.localeProperties);
 const localeOptions = computed(() => vm.$i18n.locales as LocaleObject[]);

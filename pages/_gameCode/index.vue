@@ -8,7 +8,7 @@ import type { Sheet } from '~/types';
 
 const dataStore = useDataStore();
 const data = computed(() => dataStore.currentData);
-const vm = useVM()!;
+const vm = useVM();
 
 const filterMode = ref('filter');
 const displayMode = ref('grid');

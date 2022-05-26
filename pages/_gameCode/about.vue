@@ -6,7 +6,7 @@ import useGameInfo from '~/composables/useGameInfo';
 
 const isDarkMode: Ref<boolean> = inject('isDarkMode')!;
 
-const vm = useVM()!;
+const vm = useVM();
 const { gameCode } = useGameInfo();
 
 useHead(() => ({

@@ -8,7 +8,7 @@ const props = defineProps<{
   error: Record<string, any>;
 }>();
 
-const vm = useVM()!;
+const vm = useVM();
 const { gameCode } = useGameInfo();
 
 const isNotFound = computed(() => props.error.statusCode === 404);

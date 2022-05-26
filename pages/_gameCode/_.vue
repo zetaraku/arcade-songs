@@ -3,7 +3,7 @@
 import useVM from '~/composables/useVM';
 import { PageNotFoundError } from '~/utils';
 
-const vm = useVM()!;
+const vm = useVM();
 
 vm.$nuxt.error(new PageNotFoundError());
 </script>

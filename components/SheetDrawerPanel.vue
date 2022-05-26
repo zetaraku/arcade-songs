@@ -13,7 +13,7 @@ const props = defineProps<{
 
 const isDarkMode: Ref<boolean> = inject('isDarkMode')!;
 
-const vm = useVM()!;
+const vm = useVM();
 const { gameCode, siteColor } = useGameInfo();
 const {
   viewSheet,
