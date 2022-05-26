@@ -69,7 +69,7 @@ function adaptSiteStyle() {
 }
 function validateGameCode() {
   if (gameCode.value === undefined && !isAtRoot.value) {
-    throw new PageNotFoundError();
+    vm.$nuxt.error(new PageNotFoundError());
   }
 }
 function adjustPortalList() {
