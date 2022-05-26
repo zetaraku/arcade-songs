@@ -51,6 +51,21 @@ description:
 
 # Pages
 page:
+  about:
+    author: 作者
+    dataSource: 資料來源
+    songInfo: 歌曲資訊
+    sheetInfo: 譜面資訊
+    sheetInfoDescription: 在此特別感謝所有貢獻譜面資訊的玩家們！
+    openSource: 專案原始碼
+    openSourceDescription: |
+      本專案以 <a
+        href="https://zh.wikipedia.org/wiki/MIT%E8%A8%B1%E5%8F%AF%E8%AD%89"
+        target="_blank"
+        class="text-decoration-none"
+      >MIT授權條款</a> 授權開源，你可以在這邊找到完整的原始碼，如果你有興趣，也可以一起來改善這個專案 ⭐ :)
+    updateRecord: 更新記錄
+    disclaimer: 版權聲明
   error:
     error: 錯誤
     notFound: 此頁面不存在
