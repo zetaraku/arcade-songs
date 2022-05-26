@@ -11,12 +11,12 @@ import { PageNotFoundError } from '~/utils';
 
 const vm = useVM()!;
 
+const siteTitle = vm.$config.siteTitle!;
 const dataStore = useDataStore();
 const {
   isAtRoot,
   gameCode,
   gameTitle,
-  siteTitle,
   siteColor,
   accessCounterUrl,
 } = useGameCode();
@@ -25,33 +25,34 @@ const { menu } = useSideNav();
 useHead(() => {
   const i18nHead = vm.$nuxtI18nHead({ addSeoAttributes: true });
 
+  const subSiteTitle = gameTitle.value ? `${gameTitle.value} | ${siteTitle}` : siteTitle;
   const siteUrl = new URL(`${gameCode.value ?? ''}/`, vm.$config.siteUrl!).toString();
   const logoUrl = new URL('logo.png', vm.$config.siteUrl!).toString();
   const descriptionEn = String(vm.$config.siteDescriptionEn!).replace('______', gameTitle.value || 'arcade games');
   const descriptionJp = String(vm.$config.siteDescriptionJp!).replace('______', gameTitle.value || '音ゲー');
 
   return {
-    titleTemplate: `%s | ${siteTitle.value}`,
+    titleTemplate: `%s | ${subSiteTitle}`,
     htmlAttrs: {
       ...i18nHead.htmlAttrs,
     },
     meta: [
       ...i18nHead.meta,
       { property: 'og:type', content: 'website' },
-      { property: 'og:title', content: siteTitle.value },
-      { property: 'og:site_name', content: siteTitle.value },
+      { property: 'og:title', content: subSiteTitle },
+      { property: 'og:site_name', content: subSiteTitle },
       { property: 'og:url', content: siteUrl },
       { property: 'og:image', content: logoUrl },
       { property: 'og:description', content: descriptionEn },
       { name: 'description', content: descriptionEn },
       { name: 'twitter:card', content: 'summary' },
-      { name: 'twitter:title', content: siteTitle.value },
+      { name: 'twitter:title', content: subSiteTitle },
       { name: 'twitter:image', content: logoUrl },
       { name: 'twitter:description', content: descriptionJp },
       { name: 'theme-color', content: siteColor.value },
       { name: 'msapplication-TileColor', content: siteColor.value },
-      { name: 'apple-mobile-web-app-title', content: siteTitle.value },
-    ].map((e) => ({ ...e, hid: e.hid ?? e.name ?? e.property })),
+      { name: 'apple-mobile-web-app-title', content: subSiteTitle },
+    ].map((e) => ({ ...e, hid: e.name ?? e.property })),
     link: [
       ...i18nHead.link,
     ],
@@ -119,12 +120,13 @@ export default defineComponent({
               mdi-music-box-multiple
             </v-icon>
             <v-list-item-content>
-              <v-list-item-title class="text-h6">
-                {{ siteTitle }}
-              </v-list-item-title>
-              <v-list-item-subtitle>
-                made by @zetaraku
-              </v-list-item-subtitle>
+              <v-list-item-title
+                class="text-h6 font-weight-medium"
+                v-text="siteTitle"
+              />
+              <v-list-item-subtitle
+                v-text="gameTitle || 'Home'"
+              />
             </v-list-item-content>
           </template>
 
@@ -140,7 +142,7 @@ export default defineComponent({
                 mdi-music-box-multiple
               </v-icon>
             </v-list-item-icon>
-            <v-list-item-title v-text="site.title" />
+            <v-list-item-title v-text="site.gameTitle" />
           </v-list-item>
         </v-list-group>
         <v-divider />
@@ -188,11 +190,17 @@ export default defineComponent({
         <v-icon large left right>
           mdi-music-box-multiple
         </v-icon>
-        <v-toolbar-title
-          class="font-weight-medium"
-          :class="$vuetify.breakpoint.xsOnly ? 'text-h6' : 'text-h4'"
-          v-text="siteTitle"
-        />
+        <v-toolbar-title>
+          <v-list-item-content>
+            <v-list-item-title
+              class="text-h5 font-weight-medium mb-0"
+              v-text="siteTitle"
+            />
+            <v-list-item-subtitle
+              v-text="gameTitle || 'Home'"
+            />
+          </v-list-item-content>
+        </v-toolbar-title>
       </NuxtLink>
 
       <v-spacer />
