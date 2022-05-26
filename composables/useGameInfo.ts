@@ -9,15 +9,15 @@ export default function useGameInfo() {
   );
 
   const gameCode = computed(() => siteInfo.value?.gameCode ?? undefined);
-  const gameTitle = computed(() => siteInfo.value?.gameTitle ?? '');
-  const siteColor = computed(() => siteInfo.value?.color ?? '#424242');
+  const gameTitle = computed(() => siteInfo.value?.gameTitle ?? undefined);
+  const themeColor = computed(() => siteInfo.value?.themeColor ?? '#424242');
   const dataSourceUrl = computed(() => siteInfo.value?.dataSourceUrl ?? undefined);
   const accessCounterUrl = computed(() => siteInfo.value?.accessCounterUrl ?? undefined);
 
   return {
     gameCode,
     gameTitle,
-    siteColor,
+    themeColor,
     dataSourceUrl,
     accessCounterUrl,
   };

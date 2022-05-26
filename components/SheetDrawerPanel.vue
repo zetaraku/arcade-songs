@@ -14,7 +14,7 @@ const props = defineProps<{
 const isDarkMode: Ref<boolean> = inject('isDarkMode')!;
 
 const vm = useVM();
-const { gameCode, siteColor } = useGameInfo();
+const { gameCode, themeColor } = useGameInfo();
 const {
   viewSheet,
   setDrawingPool,
@@ -70,7 +70,7 @@ watch(drawModeIndex, () => {
       v-if="drawMode === 'single'"
       large
       dark
-      :color="siteColor"
+      :color="themeColor"
       class="text-h6 ma-3"
       @click.stop="drawSheet();"
     >

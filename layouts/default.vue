@@ -15,7 +15,7 @@ const dataStore = useDataStore();
 const {
   gameCode,
   gameTitle,
-  siteColor,
+  themeColor,
   accessCounterUrl,
 } = useGameInfo();
 
@@ -70,8 +70,8 @@ useHead(() => {
       { name: 'twitter:title', content: subSiteTitle },
       { name: 'twitter:image', content: logoUrl },
       { name: 'twitter:description', content: descriptionJp },
-      { name: 'theme-color', content: siteColor.value },
-      { name: 'msapplication-TileColor', content: siteColor.value },
+      { name: 'theme-color', content: themeColor.value },
+      { name: 'msapplication-TileColor', content: themeColor.value },
       { name: 'apple-mobile-web-app-title', content: subSiteTitle },
     ].map((e) => ({ ...e, hid: e.name ?? e.property })),
     link: [
@@ -85,7 +85,7 @@ const isDrawerOpened = ref(false);
 const isPortalOpened = ref(false);
 
 function adaptSiteStyle() {
-  vm.$vuetify.theme.themes.light.primary = siteColor.value;
+  vm.$vuetify.theme.themes.light.primary = themeColor.value;
   vm.$vuetify.theme.themes.dark.primary = '#FFAC1C';
 }
 function validateGameCode() {
@@ -137,7 +137,7 @@ export default defineComponent({
           v-model="isPortalOpened"
         >
           <template #activator>
-            <v-icon large left :color="siteColor">
+            <v-icon large left :color="themeColor">
               mdi-music-box-multiple
             </v-icon>
             <v-list-item-content>
@@ -159,7 +159,7 @@ export default defineComponent({
             @click.stop="isPortalOpened = false;"
           >
             <v-list-item-icon>
-              <v-icon :color="site.color">
+              <v-icon :color="site.themeColor">
                 mdi-music-box-multiple
               </v-icon>
             </v-list-item-icon>
@@ -196,7 +196,7 @@ export default defineComponent({
     </v-navigation-drawer>
 
     <v-app-bar
-      :color="siteColor"
+      :color="themeColor"
       dark
       app
     >
