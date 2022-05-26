@@ -61,6 +61,7 @@ watch(drawModeIndex, () => {
     </template>
 
     <v-btn
+      v-if="drawModes.length > 1"
       icon
       @click.stop="drawModeIndex -= 1;"
     >
@@ -95,6 +96,7 @@ watch(drawModeIndex, () => {
       {{ $t('sfc.SheetDrawerPanel.toggleDarkMode') }}
     </v-btn>
     <v-btn
+      v-if="drawModes.length > 1"
       icon
       @click.stop="drawModeIndex += 1;"
     >
