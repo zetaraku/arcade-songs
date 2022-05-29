@@ -25,13 +25,17 @@ export default class ItemDrawer<T> {
     this.#isRestarting = false;
   }
 
+  resetCurrentItems() {
+    this.currentItems.value = [...Array(this.#drawSize)].fill(undefined);
+  }
+
   setDrawingPool(items: T[]) {
     this.#drawingPool = items;
   }
 
   setDrawSize(drawSize: number) {
     this.#drawSize = drawSize;
-    this.currentItems.value = [...Array(drawSize)].fill(undefined);
+    this.resetCurrentItems();
   }
 
   async startDrawing() {
