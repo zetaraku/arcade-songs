@@ -2,6 +2,7 @@
 /* eslint-disable import/first, import/no-duplicates */
 import { useMeta as useHead } from '@nuxtjs/composition-api';
 import useVM from '~/composables/useVM';
+import sites from '~/assets/sites';
 
 const vm = useVM();
 
@@ -20,16 +21,36 @@ export default defineComponent({
 </script>
 
 <template>
-  <v-container class="fill-height">
-    <v-row align="center">
-      <v-col class="text-center">
-        <v-icon :size="120" class="mb-5">
+  <v-container class="fill-height pa-8">
+    <v-row class="align-center">
+      <v-col cols="12" md="6" class="text-center">
+        <v-icon :size="120" class="my-5">
           mdi-music-box-multiple
         </v-icon>
         <h1 class="mb-5">
           arcade-songs
         </h1>
         <p>Search songs of your favorite arcade music games, now all in one.</p>
+      </v-col>
+      <v-col cols="12" md="6">
+        <v-list
+          nav
+          max-width="500px"
+          class="mx-auto"
+        >
+          <v-list-item
+            v-for="(site, i) in sites"
+            :key="i"
+            :to="`/${site.gameCode}/`"
+          >
+            <v-list-item-icon>
+              <v-icon :color="site.themeColor">
+                mdi-music-box-multiple
+              </v-icon>
+            </v-list-item-icon>
+            <v-list-item-title v-text="site.gameTitle" />
+          </v-list-item>
+        </v-list>
       </v-col>
     </v-row>
   </v-container>
