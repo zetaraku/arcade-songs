@@ -69,7 +69,7 @@ page:
     disclaimer: 版權聲明
   error:
     error: 錯誤
-    notFound: 此頁面不存在
+    notFound: 頁面不存在
     backToHome: 回首頁
 
 # Components

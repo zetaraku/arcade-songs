@@ -12,8 +12,7 @@ const vm = useVM();
 const { gameCode } = useGameInfo();
 
 const isNotFound = computed(() => props.error.statusCode === 404);
-const title = computed(() => (isNotFound.value ? 'Not Found' : 'Error'));
-const heading = computed(() => (isNotFound.value ? vm.$t('page.error.notFound') : vm.$t('page.error.error')) as string);
+const title = computed(() => (isNotFound.value ? vm.$t('page.error.notFound') : vm.$t('page.error.error')) as string);
 
 useHead(() => ({
   title: title.value,
@@ -37,7 +36,7 @@ export default defineComponent({
           mdi-alert-circle-outline
         </v-icon>
         <h1 class="mb-5">
-          {{ heading }}
+          {{ title }}
         </h1>
         <p class="red--text mb-5">
           {{ error.message }}
