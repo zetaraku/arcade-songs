@@ -7,3 +7,7 @@ const vm = useVM();
 
 vm.$nuxt.error(new PageNotFoundError());
 </script>
+
+<template>
+  <div />
+</template>
