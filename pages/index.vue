@@ -24,13 +24,15 @@ export default defineComponent({
   <v-container class="fill-height pa-8">
     <v-row class="align-center">
       <v-col cols="12" md="6" class="text-center">
-        <v-icon :size="120" class="my-5">
+        <v-icon :size="120" class="my-6">
           mdi-music-box-multiple
         </v-icon>
         <h1 class="mb-5">
           arcade-songs
         </h1>
-        <p>Search songs of your favorite arcade music games, now all in one.</p>
+        <p>
+          Search songs of your favorite arcade music games, now all in one.
+        </p>
       </v-col>
       <v-col cols="12" md="6">
         <v-list
