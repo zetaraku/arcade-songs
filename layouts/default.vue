@@ -155,7 +155,6 @@ export default defineComponent({
             v-for="(site, i) in sites"
             :key="i"
             :to="`/${site.gameCode}/`"
-            nuxt
             @click.stop="isPortalOpened = false;"
           >
             <v-list-item-icon>
@@ -174,7 +173,6 @@ export default defineComponent({
           v-for="(menuItem, i) in menu"
           :key="i"
           :to="menuItem.to"
-          :nuxt="menuItem.to !== undefined"
           :href="menuItem.href"
           :target="menuItem.href !== undefined ? '_blank' : undefined"
           :disabled="menuItem.disabled"
