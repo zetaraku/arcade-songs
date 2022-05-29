@@ -130,6 +130,7 @@ const nuxtConfig: NuxtConfig = {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    transpile: ['vuetify/src/locale'],
     extend(config) {
       config.module?.rules.push({
         test: /\.ya?ml$/,
