@@ -26,20 +26,22 @@ const {
     v-ripple
     class="SheetTile rounded pa-3 ma-1"
     style="user-select: none;"
-    v-on="$listeners"
-    @dragstart.prevent
-    @contextmenu.prevent
   >
-    <!-- invisible blocking panel (prevent long-press and right-click on images) -->
-    <div class="BlockingPanel" />
-
-    <!-- cover image & icons -->
     <v-tooltip
       top
-      :nudge-bottom="80"
+      :nudge-bottom="95"
       :disabled="$vuetify.breakpoint.mobile"
     >
       <template #activator="{ on }">
+        <!-- invisible blocking panel (prevent long-press and right-click on images) -->
+        <div
+          class="BlockingPanel"
+          v-on="{ ...on, ...$listeners }"
+          @dragstart.prevent
+          @contextmenu.prevent
+        />
+
+        <!-- cover image & icons -->
         <div
           class="CoverBackground pa-2"
           :class="{ 'rainbow-background': sheet.isSpecial }"
