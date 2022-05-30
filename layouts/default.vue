@@ -27,9 +27,9 @@ const menu = computed(() => [
   },
   {
     icon: 'mdi-script-text',
-    title: vm.$t('page-title.lists'),
-    to: `/${gameCode.value}/lists/`,
-    disabled: true,
+    title: vm.$t('page-title.gallery'),
+    to: `/${gameCode.value}/gallery/`,
+    disabled: dataStore.currentGallery.length === 0,
   },
   {
     icon: 'mdi-information-outline',
