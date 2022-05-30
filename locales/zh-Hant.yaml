@@ -92,6 +92,7 @@ sfc:
     drawRandomSheet: 隨機抽取譜面！
     drawRandomCombo: 隨機抽取組曲！
     toggleDarkMode: 切換電燈開關！
+    drawPoolEmpty: 當前的譜面池是空的！
   FilterInfoBar:
     sheetsCount: '{n} 譜面'
     songsCount: '{n} 歌曲'

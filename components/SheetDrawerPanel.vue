@@ -1,17 +1,21 @@
 <script setup lang="ts">
-import { ref, watch, inject, Ref } from '@nuxtjs/composition-api';
+import { ref, watch, inject, Ref, ComputedRef } from '@nuxtjs/composition-api';
 import confetti from 'canvas-confetti';
 import useVM from '~/composables/useVM';
 import useGameInfo from '~/composables/useGameInfo';
 import useSheetDialog from '~/composables/useSheetDialog';
 import { mod, RICK_SHEET } from '~/utils';
+import ItemDrawer from '~/utils/ItemDrawer';
 import { Sheet } from '~/types';
 
 const props = defineProps<{
   sheets: Sheet[];
 }>();
 
+const drawMode: Ref<string> = inject('drawMode')!;
 const isDarkMode: Ref<boolean> = inject('isDarkMode')!;
+const comboDrawer: ItemDrawer<Sheet> = inject('comboDrawer')!;
+const drawingPool: ComputedRef<Sheet[]> = inject('drawingPool')!;
 
 const vm = useVM();
 const { gameCode, themeColor } = useGameInfo();
@@ -21,7 +25,6 @@ const {
   startDrawingSheet,
 } = useSheetDialog();
 
-const drawMode = ref('single');
 const drawModes = ref(['single', 'combo']);
 const drawModeIndex = ref(0);
 
@@ -31,6 +34,24 @@ async function drawSheet() {
 
   if (isFinished) {
     (vm as any).$gtag('event', 'RandomSongDrawn', { game_code: gameCode.value });
+  }
+}
+async function drawCombo() {
+  if (drawingPool.value.length === 0) {
+    // eslint-disable-next-line no-alert
+    window.alert(vm.$t('sfc.SheetDrawerPanel.drawPoolEmpty'));
+    return;
+  }
+
+  document.getElementById('drawComboAnchor')?.scrollIntoView({
+    behavior: 'smooth',
+  });
+
+  comboDrawer.setDrawingPool(drawingPool.value);
+  const isFinished = await comboDrawer.startDrawing();
+
+  if (isFinished) {
+    (vm as any).$gtag('event', 'RandomComboDrawn', { game_code: gameCode.value });
   }
 }
 async function toggleLightSwitch() {
@@ -82,7 +103,7 @@ watch(drawModeIndex, () => {
       large
       color="success"
       class="text-h6 ma-3"
-      disabled
+      @click.stop="drawCombo();"
     >
       {{ $t('sfc.SheetDrawerPanel.drawRandomCombo') }}
     </v-btn>
