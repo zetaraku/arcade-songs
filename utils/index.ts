@@ -70,7 +70,7 @@ export function toPercentageString(n: number | undefined) {
   return `${Math.trunc(10000 * n) / 100}%`;
 }
 
-function computeSheetExpr(sheet: Sheet) {
+export function computeSheetExpr(sheet: Sheet) {
   return `${sheet.title}|${sheet.type}-${sheet.difficulty}`;
 }
 
