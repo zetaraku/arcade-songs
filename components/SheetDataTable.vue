@@ -32,6 +32,14 @@ const { viewSheet } = useSheetDialog();
 function getItemClass(sheet: Sheet) {
   return selectedSheets.value.includes(sheet) ? 'selected-sheet' : '';
 }
+function toggleSheetSelection(sheet: Sheet) {
+  const index = selectedSheets.value.indexOf(sheet);
+  if (index === -1) {
+    selectedSheets.value.push(sheet);
+  } else {
+    selectedSheets.value.splice(index, 1);
+  }
+}
 
 watch(sheets, () => {
   currentPage.value = 1;
@@ -42,18 +50,16 @@ watch(sheets, () => {
   <!-- eslint-disable vue/valid-v-slot -->
   <div>
     <v-data-table
-      v-model="selectedSheets"
       :headers="headers"
       :items="sheets"
       :item-class="getItemClass"
       :items-per-page="sheetsPerPage"
       :page.sync="currentPage"
-      item-key="sheetNo"
       must-sort
-      show-select
       hide-default-footer
       @page-count="pageCount = $event;"
       @current-items="currentSheets = $event;"
+      @contextmenu:row.stop.prevent="toggleSheetSelection(arguments[1].item);"
     >
       <!-- This is explicitly added for the variables used in v-on to be exposed correctly -->
       <template v-if="false">
