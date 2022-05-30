@@ -153,6 +153,71 @@ export function buildEmptyFilters(): Filters {
   };
 }
 
+const filterTypes = {
+  categories: 'string[]',
+  title: 'string',
+  artist: 'string',
+
+  versions: 'string[]',
+  minBPM: 'number',
+  maxBPM: 'number',
+
+  types: 'string[]',
+  difficulties: 'string[]',
+  minLevelValue: 'number',
+  maxLevelValue: 'number',
+
+  noteDesigners: 'string[]',
+  region: 'string',
+};
+
+export function loadFiltersFromQuery(query: Record<string, string>): Filters {
+  const QueryReader = {
+    string: (str: string) => String(str),
+    number: (str: string) => Number(str),
+    'string[]': (str: string) => str.split('|').map(QueryReader.string),
+    'number[]': (str: string) => str.split('|').map(QueryReader.number),
+  } as Record<string, (str: string) => any>;
+
+  const filters = buildEmptyFilters() as Record<string, any>;
+
+  for (const [key, name] of Object.entries(filterTypes)) {
+    if (Object.prototype.hasOwnProperty.call(query, key)) {
+      filters[key] = QueryReader[name](query[key]);
+    }
+  }
+
+  return filters as Filters;
+
+  // Get the query from:
+  // this.$route.query;
+}
+export function saveFiltersAsQuery(filters: Filters): Record<string, string> {
+  const QueryWriter = {
+    string: (value: string) => String(String(value)),
+    number: (value: number) => String(Number(value)),
+    'string[]': (values: string[]) => values.map(QueryWriter.string).join('|'),
+    'number[]': (values: number[]) => values.map(QueryWriter.number).join('|'),
+  } as Record<string, (value: any) => string>;
+
+  const query = Object.create(null) as Record<string, string>;
+
+  for (const [key, name] of Object.entries(filterTypes)) {
+    const value = filters[key as keyof Filters];
+    // eslint-disable-next-line no-continue
+    if (value == null || (Array.isArray(value) && value.length === 0)) continue;
+    query[key] = QueryWriter[name](value);
+  }
+
+  return query;
+
+  // To apply the query:
+  // this.$router.replace({ query }).catch(err => {
+  //   ; // Ignore the error regarding navigating to the page they are already on.
+  //   if (err.name !== 'NavigationDuplicated') throw err;
+  // });
+}
+
 export function buildFilterOptions(data: Data, $t: InstanceType<VueConstructor>['$t']): FilterOptions {
   if (data.updateTime === '0000-00-00') {
     // return empty array instead of null to preserve all filters ui before the data is loaded
