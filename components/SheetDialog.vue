@@ -146,7 +146,7 @@ watch(isOpened, () => {
           <div>
             <!-- Category -->
             <h3
-              class="pb-2 text-truncate"
+              class="text-truncate"
               style="margin-right: 80px;"
             >
               <span>{{ (sheet.category || 'N/A').replaceAll('|', '｜') }}</span>
@@ -156,7 +156,7 @@ watch(isOpened, () => {
             <v-tooltip top>
               <template #activator="{ on }">
                 <h1
-                  class="pb-2 text-truncate"
+                  class="py-2 text-truncate"
                   :class="{ 'text--primary': isStatic }"
                   style="cursor: pointer; user-select: all; margin-right: 42px;"
                   v-on="on"
