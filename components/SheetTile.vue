@@ -25,6 +25,7 @@ const {
   <div
     v-ripple
     class="SheetTile rounded pa-3 ma-1"
+    style="user-select: none;"
     v-on="$listeners"
     @dragstart.prevent
     @contextmenu.prevent
