@@ -82,6 +82,8 @@ sfc:
     tableMode: 表格檢視
     filterMode: 篩選模式
     myListMode: 我的歌單
+    copyFilterLink: 將當前篩選條件複製成連結
+    noFilterWarn: 請先指定至少一個篩選條件
   SheetDrawerPanel:
     drawRandomSheet: 隨機抽取譜面！
     drawRandomCombo: 隨機抽取組曲！

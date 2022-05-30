@@ -1,10 +1,10 @@
 <script setup lang="ts">
 /* eslint-disable import/first, import/no-duplicates */
-import { ref, computed, provide, useMeta as useHead } from '@nuxtjs/composition-api';
+import { ref, computed, provide, onMounted, useMeta as useHead } from '@nuxtjs/composition-api';
 import useDataStore from '~/stores/data';
 import useGameInfo from '~/composables/useGameInfo';
 import useVM from '~/composables/useVM';
-import { buildEmptyFilters, buildFilterOptions, filterSheets } from '~/utils';
+import { buildEmptyFilters, buildFilterOptions, loadFiltersFromQuery, filterSheets } from '~/utils';
 import type { Sheet } from '~/types';
 
 const vm = useVM();
@@ -24,6 +24,14 @@ const displayingSheets = computed(() => {
   if (filterMode.value === 'my-list') return selectedSheets.value;
   if (filterMode.value === 'filter') return filteredSheets.value;
   throw new Error('Invalid filter mode');
+});
+
+onMounted(() => {
+  filters.value = loadFiltersFromQuery(vm.$route.query as Record<string, string>);
+  vm.$router.replace({ query: {} }).catch((err) => {
+    // Ignore the error regarding navigating to the page they are already on.
+    if (err.name !== 'NavigationDuplicated') throw err;
+  });
 });
 
 useHead(() => ({

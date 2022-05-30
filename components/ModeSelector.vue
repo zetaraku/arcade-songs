@@ -1,9 +1,37 @@
 <script setup lang="ts">
 import { inject, Ref } from '@nuxtjs/composition-api';
+import QueryString from 'query-string';
+import copyToClipboard from 'copy-to-clipboard';
+import useVM from '~/composables/useVM';
+import useGameInfo from '~/composables/useGameInfo';
+import { saveFiltersAsQuery } from '~/utils';
+import { Sheet, Filters } from '~/types';
 
 const displayMode: Ref<string> = inject('displayMode')!;
 const filterMode: Ref<string> = inject('filterMode')!;
+const filters: Ref<Filters> = inject('filters')!;
 const selectedSheets: Ref<Sheet[]> = inject('selectedSheets')!;
+
+const vm = useVM();
+const { gameCode } = useGameInfo();
+
+function copyFilterLink() {
+  const query = saveFiltersAsQuery(filters.value);
+
+  if (Object.keys(query).length === 0) {
+    // eslint-disable-next-line no-alert
+    window.alert(vm.$t('sfc.ModeSelector.noFilterWarn'));
+    return;
+  }
+
+  const url = QueryString.stringifyUrl({ url: window.location.href, query });
+  copyToClipboard(url, { format: 'text/plain' });
+
+  // eslint-disable-next-line no-alert
+  window.alert(`${url}\n${vm.$t('description.copied')}`);
+
+  (vm as any).$gtag('event', 'FilterLinkCopied', { game_code: gameCode.value });
+}
 </script>
 
 <template>
@@ -64,6 +92,24 @@ const selectedSheets: Ref<Sheet[]> = inject('selectedSheets')!;
             </template>
           </v-radio>
         </v-radio-group>
+
+        <template v-if="filterMode === 'filter'">
+          <v-tooltip top>
+            <template #activator="{ on }">
+              <v-btn
+                icon
+                x-large
+                color="green"
+                class="mx-4"
+                @click="copyFilterLink"
+                v-on="on"
+              >
+                <v-icon>mdi-link-box-variant</v-icon>
+              </v-btn>
+            </template>
+            <span>{{ $t('sfc.ModeSelector.copyFilterLink') }}</span>
+          </v-tooltip>
+        </template>
       </v-col>
     </v-row>
   </div>
