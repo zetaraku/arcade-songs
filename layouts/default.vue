@@ -212,7 +212,9 @@ export default defineComponent({
         <v-toolbar-title>
           <v-list-item-content>
             <v-list-item-title
-              class="text-h5 font-weight-medium mb-0"
+              class="font-weight-medium mb-0"
+              :class="$vuetify.breakpoint.smAndUp ? 'text-h5' : 'text-h6'"
+              style="line-height: 1.8rem;"
               v-text="siteTitle"
             />
             <v-list-item-subtitle
