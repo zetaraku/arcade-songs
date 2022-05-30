@@ -59,7 +59,7 @@ export function mod(n: number, m: number) {
 export function toLocalDateString(date: Date) {
   return new Intl.DateTimeFormat().format(date);
 }
-export function toLocalISOString(date: Date) {
+export function toLocalISOTimeString(date: Date) {
   const d = new Date(date.getTime());
   d.setMinutes(d.getMinutes() - d.getTimezoneOffset());
   return d.toISOString().slice(0, -1);
