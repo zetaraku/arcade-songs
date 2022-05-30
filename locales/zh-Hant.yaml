@@ -44,9 +44,7 @@ description:
   unavailableInRegion: '{region} 未收錄'
   copied: 已複製到剪貼簿！
   invalidNoteCounts: 無效的 NOTE 數量
-  myListEmpty: |
-    右鍵點擊或長按譜面將譜面加入【我的歌單】後，就能在這裡看到你選擇的譜面。<br>
-    （在【表格檢視】模式時，請勾選方框來將譜面加入【我的歌單】。）<br>
+  myListEmpty: 右鍵點擊或長按譜面將譜面加入【我的歌單】後，就能在這裡看到你選擇的譜面。
 
 # Pages
 page:

@@ -105,8 +105,7 @@ export default defineComponent({
       v-if="filterMode === 'my-list' && displayingSheets.length === 0"
       class="text-center text--secondary py-8"
     >
-      <!-- eslint-disable-next-line vue/no-v-html -->
-      <span v-html="$t('description.myListEmpty')" />
+      <span v-text="$t('description.myListEmpty')" />
     </div>
   </v-container>
 </template>
