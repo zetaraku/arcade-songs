@@ -24,6 +24,7 @@ export default defineComponent({
 </script>
 
 <template>
+  <!-- eslint-disable max-len -->
   <v-container class="pa-8">
     <h1>{{ $t('page-title.about') }}</h1>
 
@@ -171,6 +172,12 @@ export default defineComponent({
         </a>
         <!-- eslint-disable-next-line vue/no-v-html -->
         － <span v-html="$t('page.about.openSourceDescription')" />
+      </li>
+      <li>
+        <a class="text-decoration-none" href="https://github.com/zetaraku/arcade-songs-fetch" target="_blank">
+          <v-icon small left color="#24292e">mdi-github</v-icon><span>zetaraku/arcade-songs-fetch</span>
+        </a>
+        － <span><u>arcade-songs-fetch</u> is the data-fetching scripts used by <u>arcade-songs</u>, also licensed in MIT. ⭐</span>
       </li>
     </ul>
 
