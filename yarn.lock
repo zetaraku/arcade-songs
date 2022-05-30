@@ -9280,6 +9280,11 @@ section-matter@^1.0.0:
     extend-shallow "^2.0.1"
     kind-of "^6.0.0"
 
+select-files@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/select-files/-/select-files-1.0.1.tgz#974991a69c5dba26cfa57dcbc6d27f0917741acb"
+  integrity sha512-8h4DSpjfFa0hyMP3z3ye4SxyhdaE5RgaXeScRpH7xl4YblnZSHwexmLdLNdSKwTO8H9ccDKj7Votz0io+18+BQ==
+
 "semver@2 || 3 || 4 || 5", semver@^5.6.0:
   version "5.7.1"
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.7.1.tgz#a954f931aeba508d307bbf069eff0c01c96116f7"
