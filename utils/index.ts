@@ -74,6 +74,56 @@ export function computeSheetExpr(sheet: Sheet) {
   return `${sheet.title}|${sheet.type}-${sheet.difficulty}`;
 }
 
+export function makeDummySheet(sheetExpr: string): Sheet {
+  const match = sheetExpr.match(/^(.*)\|(\w*)-(\w*)$/);
+
+  // eslint-disable-next-line no-console
+  console.warn(`Sheet for expr '${sheetExpr}' is not found.`);
+
+  if (match === null) {
+    return {
+      songNo: 0,
+
+      category: 'INVALID SHEET EXPR',
+      title: sheetExpr,
+      artist: undefined,
+      imageUrl: undefined,
+
+      version: undefined,
+      bpm: undefined,
+
+      type: '??',
+      difficulty: 'invalid',
+      level: undefined,
+      levelValue: undefined,
+
+      noteDesigner: 'This sheet expr is not in a valid format.',
+      searchUrl: null,
+    };
+  }
+
+  const [, title, type, difficulty] = match;
+  return {
+    songNo: 0,
+
+    category: 'UNMATCHED SHEET',
+    title,
+    artist: undefined,
+    imageUrl: undefined,
+
+    version: undefined,
+    bpm: undefined,
+
+    type,
+    difficulty,
+    level: undefined,
+    levelValue: undefined,
+
+    noteDesigner: 'This sheet expr doesn\'t match with any sheets.',
+    searchUrl: null,
+  };
+}
+
 export function buildEmptyData(): Data {
   return {
     songs: [],
