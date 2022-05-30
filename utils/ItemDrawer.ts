@@ -3,9 +3,9 @@ import sleep from 'sleep-promise';
 import { pickItems } from '~/utils';
 
 export default class ItemDrawer<T> {
-  #drawingPool: T[];
+  drawingPool: T[];
 
-  #drawSize: number;
+  drawSize: number;
 
   currentItems: Ref<(T | undefined)[]>;
 
@@ -16,8 +16,8 @@ export default class ItemDrawer<T> {
   #isRestarting: boolean;
 
   constructor({ drawingPool = [] as T[], drawSize = 1 } = {}) {
-    this.#drawingPool = drawingPool;
-    this.#drawSize = drawSize;
+    this.drawingPool = drawingPool;
+    this.drawSize = drawSize;
     this.currentItems = ref([...Array(drawSize)].fill(undefined));
 
     this.isDrawing = ref(false);
@@ -26,15 +26,15 @@ export default class ItemDrawer<T> {
   }
 
   resetCurrentItems() {
-    this.currentItems.value = [...Array(this.#drawSize)].fill(undefined);
+    this.currentItems.value = [...Array(this.drawSize)].fill(undefined);
   }
 
   setDrawingPool(items: T[]) {
-    this.#drawingPool = items;
+    this.drawingPool = items;
   }
 
   setDrawSize(drawSize: number) {
-    this.#drawSize = drawSize;
+    this.drawSize = drawSize;
     this.resetCurrentItems();
   }
 
@@ -50,12 +50,12 @@ export default class ItemDrawer<T> {
     do {
       this.#isRestarting = false;
 
-      if (this.#drawingPool.length === 0) {
-        this.currentItems.value = [...Array(this.#drawSize)].fill(undefined);
+      if (this.drawingPool.length === 0) {
+        this.currentItems.value = [...Array(this.drawSize)].fill(undefined);
         break;
       }
-      if (this.#drawingPool.length === 1) {
-        this.currentItems.value = [...Array(this.#drawSize)].fill(this.#drawingPool[0]);
+      if (this.drawingPool.length === 1) {
+        this.currentItems.value = [...Array(this.drawSize)].fill(this.drawingPool[0]);
         break;
       }
 
@@ -66,7 +66,7 @@ export default class ItemDrawer<T> {
       for (let speed = initialSpeed; speed > 0; speed -= speedDecrement) {
         if (this.#isStopping || this.#isRestarting) break;
 
-        this.currentItems.value = pickItems(this.#drawingPool, this.#drawSize);
+        this.currentItems.value = pickItems(this.drawingPool, this.drawSize);
 
         // eslint-disable-next-line no-await-in-loop
         await sleep(tickDistance / speed);
