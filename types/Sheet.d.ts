@@ -12,7 +12,6 @@ export type Sheet = (Omit<Song, 'sheets'> & {
   isSpecial?: boolean;
 } & {
   // added by preprocessing
-  sheetNo: number;
   sheetExpr?: string;
   notePercents?: Record<string, number | null>;
 

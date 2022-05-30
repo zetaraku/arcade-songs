@@ -13,7 +13,6 @@ export class PageNotFoundError extends Error {
 
 export const NULL_SHEET: Sheet = {
   songNo: 0,
-  sheetNo: 0,
 
   category: '???',
   title: 'ฅ•ω•ฅ',
@@ -34,7 +33,6 @@ export const NULL_SHEET: Sheet = {
 
 export const RICK_SHEET: Sheet = {
   songNo: -1,
-  sheetNo: -1,
 
   category: 'Whenever You Need Somebody',
   title: 'Never Gonna Give You Up',
@@ -110,7 +108,6 @@ export function preprocessData(data: Data, dataSourceUrl: string) {
   }
 
   let lastSongNo = 0;
-  let lastSheetNo = 0;
   for (const song of data.songs) {
     lastSongNo += 1;
     song.songNo = lastSongNo;
@@ -119,8 +116,6 @@ export function preprocessData(data: Data, dataSourceUrl: string) {
     for (const sheet of song.sheets) {
       Object.setPrototypeOf(sheet, song);
 
-      lastSheetNo += 1;
-      sheet.sheetNo = lastSheetNo;
       sheet.sheetExpr = computeSheetExpr(sheet);
       sheet.notePercents = computeNotePercentages(sheet.noteCounts);
     }
