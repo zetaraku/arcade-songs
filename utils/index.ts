@@ -64,6 +64,10 @@ export function toLocalISOTimeString(date: Date) {
   d.setMinutes(d.getMinutes() - d.getTimezoneOffset());
   return d.toISOString().slice(0, -1);
 }
+export function toLocalISODateString(date: Date) {
+  return toLocalISOTimeString(date).slice(0, 10);
+}
+
 export function toPercentageString(n: number | undefined) {
   if (n == null) return n;
   if (Number.isNaN(n)) return '?';
