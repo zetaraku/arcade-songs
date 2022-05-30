@@ -8,10 +8,6 @@ import { mod, RICK_SHEET } from '~/utils';
 import ItemDrawer from '~/utils/ItemDrawer';
 import { Sheet } from '~/types';
 
-const props = defineProps<{
-  sheets: Sheet[];
-}>();
-
 const drawMode: Ref<string> = inject('drawMode')!;
 const isDarkMode: Ref<boolean> = inject('isDarkMode')!;
 const comboDrawer: ItemDrawer<Sheet> = inject('comboDrawer')!;
@@ -29,7 +25,13 @@ const drawModes = ref(['single', 'combo']);
 const drawModeIndex = ref(0);
 
 async function drawSheet() {
-  setDrawingPool(props.sheets);
+  if (drawingPool.value.length === 0) {
+    // eslint-disable-next-line no-alert
+    window.alert(vm.$t('sfc.SheetDrawerPanel.drawPoolEmpty'));
+    return;
+  }
+
+  setDrawingPool(drawingPool.value);
   const isFinished = await startDrawingSheet();
 
   if (isFinished) {

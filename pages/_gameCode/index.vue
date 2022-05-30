@@ -87,9 +87,7 @@ export default defineComponent({
     <div id="drawComboAnchor" />
     <ModeSelector class="px-3" />
 
-    <SheetDrawerPanel
-      :sheets="displayingSheets"
-    />
+    <SheetDrawerPanel />
 
     <FilterInfoBar
       :sheets="displayingSheets"
