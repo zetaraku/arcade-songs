@@ -84,6 +84,10 @@ sfc:
     myListMode: 我的歌單
     copyFilterLink: 將當前篩選條件複製成連結
     noFilterWarn: 請先指定至少一個篩選條件
+    exportMyList: 匯出我的歌單到檔案
+    myListEmptyWarn: "「我的歌單」是空的！\n沒有可以匯出的項目。"
+    importMyList: 從檔案匯入我的歌單
+    sheetsLoaded: '成功匯入 {n} 譜面'
   SheetDrawerPanel:
     drawRandomSheet: 隨機抽取譜面！
     drawRandomCombo: 隨機抽取組曲！
