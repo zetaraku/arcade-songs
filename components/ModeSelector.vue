@@ -3,7 +3,7 @@ import { inject, Ref } from '@nuxtjs/composition-api';
 
 const displayMode: Ref<string> = inject('displayMode')!;
 const filterMode: Ref<string> = inject('filterMode')!;
-const selectedSheets: Ref<string[]> = inject('selectedSheets')!;
+const selectedSheets: Ref<Sheet[]> = inject('selectedSheets')!;
 </script>
 
 <template>
