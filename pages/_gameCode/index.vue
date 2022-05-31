@@ -85,7 +85,7 @@ export default defineComponent({
 
     <SheetFilter class="px-3" />
     <div id="drawComboAnchor" />
-    <ModeSelector class="px-3" />
+    <ModeSelector class="px-3 py-3" />
 
     <SheetDrawerPanel />
 
