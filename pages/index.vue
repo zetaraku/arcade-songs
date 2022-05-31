@@ -43,7 +43,7 @@ export default defineComponent({
           <v-list-item
             v-for="(site, i) in sites"
             :key="i"
-            :to="`/${site.gameCode}/`"
+            :to="{ name: 'gameCode', params: { gameCode: site.gameCode }}"
           >
             <v-list-item-icon>
               <v-icon :color="site.themeColor">

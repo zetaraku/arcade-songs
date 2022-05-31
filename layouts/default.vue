@@ -23,23 +23,23 @@ const menu = computed(() => [
   {
     icon: 'mdi-apps',
     title: vm.$t('page-title.home'),
-    to: `/${gameCode.value}/`,
+    to: { name: 'gameCode' },
   },
   {
     icon: 'mdi-script-text',
     title: vm.$t('page-title.gallery'),
-    to: `/${gameCode.value}/gallery/`,
+    to: { name: 'gameCode-gallery' },
     disabled: dataStore.currentGallery.length === 0,
   },
   {
     icon: 'mdi-information-outline',
     title: vm.$t('page-title.about'),
-    to: `/${gameCode.value}/about/`,
+    to: { name: 'gameCode-about' },
   },
   {
     icon: 'mdi-comment-question',
     title: vm.$t('page-title.bug-report'),
-    href: 'https://arcade-songs-report.zetaraku.dev/',
+    href: 'https://arcade-songs-report.zetaraku.dev',
   },
 ]);
 
