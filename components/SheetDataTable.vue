@@ -68,7 +68,7 @@ watch(sheets, () => {
       </template>
 
       <template #item.category="{ item: sheet }">
-        <span>{{ (sheet.category || 'N/A').replaceAll('|', '｜') }}</span>
+        <span>{{ (sheet.category || '').replaceAll('|', '｜') }}</span>
       </template>
       <template #item.title="{ item: sheet }">
         <v-btn
