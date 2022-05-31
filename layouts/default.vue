@@ -154,7 +154,10 @@ export default defineComponent({
           <v-list-item
             v-for="(site, i) in sites"
             :key="i"
-            :to="`/${site.gameCode}/`"
+            :to="{
+              name: $route.name === 'index' ? 'gameCode' : undefined,
+              params: { gameCode: site.gameCode },
+            }"
             @click.stop="isPortalOpened = false;"
           >
             <v-list-item-icon>
