@@ -217,12 +217,9 @@ watch(isOpened, () => {
             style="position: absolute; top: 0; right: 0;"
           >
             <!-- BPM -->
-            <h3
-              v-if="sheet.bpm !== undefined"
-              class="mb-2"
-            >
+            <h3 class="mb-2">
               <span>{{ $t('term.bpm') }} {{
-                sheet.bpm !== null ? sheet.bpm : '?'
+                sheet.bpm != null ? sheet.bpm : '?'
               }}</span>
             </h3>
 
