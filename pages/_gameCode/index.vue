@@ -2,8 +2,8 @@
 /* eslint-disable import/first, import/no-duplicates */
 import { ref, computed, watch, provide, onMounted, useMeta as useHead } from '@nuxtjs/composition-api';
 import useDataStore from '~/stores/data';
-import useGameInfo from '~/composables/useGameInfo';
 import useVM from '~/composables/useVM';
+import useGameInfo from '~/composables/useGameInfo';
 import { buildEmptyFilters, buildFilterOptions, loadFiltersFromQuery, filterSheets, NULL_SHEET } from '~/utils';
 import ItemDrawer from '~/utils/ItemDrawer';
 import type { Sheet } from '~/types';
