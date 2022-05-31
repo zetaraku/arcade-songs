@@ -204,7 +204,7 @@ export default defineComponent({
       <NuxtLink
         class="d-flex"
         style="text-decoration: none; color: inherit; user-select: none;"
-        :to="gameCode ? `/${gameCode}/` : '/'"
+        to="/"
       >
         <v-icon large left right>
           mdi-music-box-multiple
