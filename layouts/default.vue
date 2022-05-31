@@ -93,17 +93,11 @@ function validateGameCode() {
     vm.$nuxt.error(new PageNotFoundError());
   }
 }
-function adjustPortalList() {
-  if (gameCode.value === undefined) {
-    isPortalOpened.value = true;
-  }
-}
 
 watch(gameCode, async () => {
   await nextTick();
   adaptSiteStyle();
   validateGameCode();
-  adjustPortalList();
   await dataStore.switchGameCode(gameCode.value!);
 }, { immediate: true });
 watch(isDarkMode, () => {
