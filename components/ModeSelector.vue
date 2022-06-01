@@ -103,7 +103,7 @@ async function importSelectedSheets() {
             <template #label>
               <span>
                 <v-icon>mdi-view-grid-outline</v-icon>
-                {{ $t('sfc.ModeSelector.gridMode') }}
+                <span v-text="$t('sfc.ModeSelector.gridMode')" />
               </span>
             </template>
           </v-radio>
@@ -111,7 +111,7 @@ async function importSelectedSheets() {
             <template #label>
               <span>
                 <v-icon>mdi-table</v-icon>
-                {{ $t('sfc.ModeSelector.tableMode') }}
+                <span v-text="$t('sfc.ModeSelector.tableMode')" />
               </span>
             </template>
           </v-radio>
@@ -131,7 +131,7 @@ async function importSelectedSheets() {
             <template #label>
               <span>
                 <v-icon>mdi-filter-menu-outline</v-icon>
-                {{ $t('sfc.ModeSelector.filterMode') }}
+                <span v-text="$t('sfc.ModeSelector.filterMode')" />
               </span>
             </template>
           </v-radio>
@@ -139,8 +139,8 @@ async function importSelectedSheets() {
             <template #label>
               <span>
                 <v-icon>mdi-playlist-music</v-icon>
-                {{ $t('sfc.ModeSelector.myListMode') }}
-                ({{ selectedSheets.length }})
+                <span v-text="$t('sfc.ModeSelector.myListMode')" />
+                <span>({{ selectedSheets.length }})</span>
               </span>
             </template>
           </v-radio>
@@ -160,7 +160,7 @@ async function importSelectedSheets() {
                 <v-icon>mdi-link-box-variant</v-icon>
               </v-btn>
             </template>
-            <span>{{ $t('sfc.ModeSelector.copyFilterLink') }}</span>
+            <span v-text="$t('sfc.ModeSelector.copyFilterLink')" />
           </v-tooltip>
         </template>
         <template v-if="filterMode === 'my-list'">
@@ -176,7 +176,7 @@ async function importSelectedSheets() {
                 <v-icon>mdi-download</v-icon>
               </v-btn>
             </template>
-            <span>{{ $t('sfc.ModeSelector.exportMyList') }}</span>
+            <span v-text="$t('sfc.ModeSelector.exportMyList')" />
           </v-tooltip>
           <v-tooltip top>
             <template #activator="{ on }">
@@ -190,7 +190,7 @@ async function importSelectedSheets() {
                 <v-icon>mdi-upload</v-icon>
               </v-btn>
             </template>
-            <span>{{ $t('sfc.ModeSelector.importMyList') }}</span>
+            <span v-text="$t('sfc.ModeSelector.importMyList')" />
           </v-tooltip>
         </template>
       </v-col>

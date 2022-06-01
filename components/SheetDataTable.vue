@@ -78,14 +78,14 @@ watch(sheets, () => {
         >
           <v-icon>mdi-file-image</v-icon>
         </v-btn>
-        <span>{{ sheet.title }}</span>
+        <span v-text="sheet.title" />
         <v-tooltip v-if="sheet.isLocked" top>
           <template #activator="{ on }">
             <v-icon right color="yellow darken-2" v-on="on">
               mdi-lock
             </v-icon>
           </template>
-          <span>{{ $t('description.unlockNeeded') }}</span>
+          <span v-text="$t('description.unlockNeeded')" />
         </v-tooltip>
         <v-tooltip v-if="sheet.isNew" top>
           <template #activator="{ on }">
@@ -93,35 +93,36 @@ watch(sheets, () => {
               mdi-star
             </v-icon>
           </template>
-          <span>{{ $t('description.newSong') }}</span>
+          <span v-text="$t('description.newSong')" />
         </v-tooltip>
       </template>
       <template #item.type="{ item: sheet }">
-        <span v-if="getTypeIconUrl(sheet.type) != null">
+        <template v-if="getTypeIconUrl(sheet.type) != null">
           <img
             :src="getTypeIconUrl(sheet.type)"
             :height="getTypeIconHeight(sheet.type)"
             :alt="getTypeAbbr(sheet.type)"
             style="vertical-align: middle;"
           >
-        </span>
-        <span v-else>{{ getTypeAbbr(sheet.type) }}</span>
+        </template>
+        <template v-else>
+          <span v-text="getTypeAbbr(sheet.type)" />
+        </template>
       </template>
       <template #item.difficulty="{ item: sheet }">
         <div
           class="font-weight-bold"
           :style="{ 'color': getDifficultyColor(sheet.difficulty) }"
         >
-          <span v-if="getDifficultyIconUrl(sheet.difficulty) != null">
-            <img
-              :src="getDifficultyIconUrl(sheet.difficulty)"
-              :height="getDifficultyIconHeight(sheet.difficulty)"
-              alt=""
-              class="mr-1"
-              style="vertical-align: middle;"
-            >
-          </span>
-          <span>{{ getDifficultyName(sheet.difficulty) }}</span>
+          <img
+            v-if="getDifficultyIconUrl(sheet.difficulty) != null"
+            :src="getDifficultyIconUrl(sheet.difficulty)"
+            :height="getDifficultyIconHeight(sheet.difficulty)"
+            alt=""
+            class="mr-1"
+            style="vertical-align: middle;"
+          >
+          <span v-text="getDifficultyName(sheet.difficulty)" />
         </div>
       </template>
       <template #item.levelValue="{ item: sheet }">
@@ -129,7 +130,7 @@ watch(sheets, () => {
           class="font-weight-bold"
           :style="{ 'color': getDifficultyColor(sheet.difficulty) }"
         >
-          <span>{{ sheet.level }}</span>
+          <span v-text="sheet.level" />
         </div>
       </template>
 
@@ -160,15 +161,15 @@ watch(sheets, () => {
               mdi-alert-outline
             </v-icon>
           </template>
-          <span>{{ $t('description.invalidNoteCounts') }}</span>
+          <span v-text="$t('description.invalidNoteCounts')" />
         </v-tooltip>
       </template>
 
       <template #item.noteDesigner="{ item: sheet }">
-        <span>{{ sheet.noteDesigner }}</span>
+        <span v-text="sheet.noteDesigner" />
       </template>
       <template #item.version="{ item: sheet }">
-        <span>{{ getVersionAbbr(sheet.version) }}</span>
+        <span v-text="getVersionAbbr(sheet.version)" />
       </template>
     </v-data-table>
   </div>

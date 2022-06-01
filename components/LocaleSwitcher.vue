@@ -23,23 +23,24 @@ function setLocale(locale: string) {
         <v-icon left>
           mdi-web
         </v-icon>
-        <span class="d-inline d-sm-none">
-          {{ currentLocaleOption.abbr }}
-        </span>
-        <span class="d-none d-sm-inline">
-          {{ currentLocaleOption.name }}
-        </span>
+        <span
+          class="d-inline d-sm-none"
+          v-text="currentLocaleOption.abbr"
+        />
+        <span
+          class="d-none d-sm-inline"
+          v-text="currentLocaleOption.name"
+        />
       </v-btn>
     </template>
+
     <v-list>
       <v-list-item
         v-for="localeOption in localeOptions"
         :key="localeOption.code"
         @click.stop="setLocale(localeOption.code);"
       >
-        <v-list-item-title>
-          {{ localeOption.name }}
-        </v-list-item-title>
+        <v-list-item-title v-text="localeOption.name" />
       </v-list-item>
     </v-list>
   </v-menu>

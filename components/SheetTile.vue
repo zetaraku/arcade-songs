@@ -62,7 +62,8 @@ const {
             <span
               v-if="sheet.imageName === 'default-cover.png'"
               class="CoverTitle"
-            >{{ sheet.title }}</span>
+              v-text="sheet.title"
+            />
 
             <!-- locked icon -->
             <img
@@ -91,7 +92,7 @@ const {
           </div>
         </div>
       </template>
-      <span>{{ sheet.title }}</span>
+      <span v-text="sheet.title" />
     </v-tooltip>
 
     <!-- difficulty & level & description -->
@@ -107,7 +108,7 @@ const {
         }"
       >
         <!-- sheet difficulty -->
-        <span v-if="getDifficultyIconUrl(sheet.difficulty) != null">
+        <template v-if="getDifficultyIconUrl(sheet.difficulty) != null">
           <img
             :src="getDifficultyIconUrl(sheet.difficulty)"
             :height="getDifficultyIconHeight(sheet.difficulty)"
@@ -115,11 +116,13 @@ const {
             class="mr-1"
             style="vertical-align: middle;"
           >
-        </span>
-        <span v-else>{{ getDifficultyName(sheet.difficulty) }}</span>
+        </template>
+        <template v-else>
+          <span v-text="getDifficultyName(sheet.difficulty)" />
+        </template>
 
         <!-- sheet level -->
-        <span>{{ sheet.level }}</span>
+        <span v-text="sheet.level" />
       </div>
       <div class="text-pre-wrap">
         <slot name="description" />

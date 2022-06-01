@@ -104,7 +104,7 @@ watch(isOpened, () => {
           v-if="!isStatic"
           class="d-flex justify-center align-center fill-height text-h1 white--text"
         >
-          {{ sheet.songNo }}
+          <span v-text="sheet.songNo" />
         </div>
         <div
           v-else
@@ -122,9 +122,10 @@ watch(isOpened, () => {
                 v-on="on"
                 @click.stop="$gtag('event', 'SheetVideoSearched', { game_code: gameCode });"
               >
-                <v-icon :large="$vuetify.breakpoint.smAndUp">
-                  {{ getSheetSearchLinkIcon(sheet) }}
-                </v-icon>
+                <v-icon
+                  :large="$vuetify.breakpoint.smAndUp"
+                  v-text="getSheetSearchLinkIcon(sheet)"
+                />
               </v-btn>
             </template>
             <span>
@@ -162,10 +163,10 @@ watch(isOpened, () => {
                   v-on="on"
                   @click.stop="copyText(sheet.title);"
                 >
-                  <span>{{ sheet.title }}</span>
+                  <span v-text="sheet.title" />
                 </h1>
               </template>
-              <span>{{ sheet.title }}</span>
+              <span v-text="sheet.title" />
             </v-tooltip>
 
             <!-- Artist -->
@@ -178,15 +179,14 @@ watch(isOpened, () => {
 
             <!-- Difficulty & Level -->
             <h2 class="py-2 text-truncate">
-              <span v-if="getDifficultyIconUrl(sheet.difficulty) != null">
-                <img
-                  :src="getDifficultyIconUrl(sheet.difficulty)"
-                  :height="getDifficultyIconHeight(sheet.difficulty)"
-                  class="mr-1"
-                  alt=""
-                  style="vertical-align: middle;"
-                >
-              </span>
+              <img
+                v-if="getDifficultyIconUrl(sheet.difficulty) != null"
+                :src="getDifficultyIconUrl(sheet.difficulty)"
+                :height="getDifficultyIconHeight(sheet.difficulty)"
+                class="mr-1"
+                alt=""
+                style="vertical-align: middle;"
+              >
               <span
                 :class="{ 'text--primary': getDifficultyColor(sheet.difficulty) === 'unset' }"
                 :style="{ 'color': getDifficultyColor(sheet.difficulty) }"
@@ -195,19 +195,15 @@ watch(isOpened, () => {
 
             <!-- Note Designer -->
             <h4 class="pt-2 text-truncate">
-              <span>{{ $t('term.noteDesigner') }}: {{
-                sheet.noteDesigner || 'N/A'
-              }}</span>
+              <span v-text="$t('term.noteDesigner')" />:
+              <span>{{ sheet.noteDesigner || 'N/A' }}</span>
             </h4>
 
             <!-- Release Date & Version -->
             <h4 class="pt-2 text-truncate">
-              <span>{{ $t('term.releaseDate') }}: {{
-                sheet.releaseDate || '????-??-??'
-              }}</span>
-              <span>({{
-                sheet.version || 'N/A'
-              }})</span>
+              <span v-text="$t('term.releaseDate')" />:
+              <span>{{ sheet.releaseDate || '????-??-??' }}</span>
+              <span>({{ sheet.version || 'N/A' }})</span>
             </h4>
           </div>
 
@@ -218,9 +214,8 @@ watch(isOpened, () => {
           >
             <!-- BPM -->
             <h3 class="mb-2">
-              <span>{{ $t('term.bpm') }} {{
-                sheet.bpm != null ? sheet.bpm : '?'
-              }}</span>
+              <span v-text="$t('term.bpm')" />
+              <span>{{ sheet.bpm != null ? sheet.bpm : '?' }}</span>
             </h3>
 
             <!-- Unlock needed -->
@@ -230,7 +225,7 @@ watch(isOpened, () => {
                   mdi-lock
                 </v-icon>
               </template>
-              <span>{{ $t('description.unlockNeeded') }}</span>
+              <span v-text="$t('description.unlockNeeded')" />
             </v-tooltip>
 
             <!-- Unavailable in regions -->
@@ -279,7 +274,7 @@ watch(isOpened, () => {
       <v-icon left color="success">
         mdi-content-copy
       </v-icon>
-      {{ $t('description.copied') }}
+      <span v-text="$t('description.copied')" />
     </v-snackbar>
   </v-dialog>
 </template>
