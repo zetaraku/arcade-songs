@@ -12,6 +12,7 @@ const nuxtConfig: NuxtConfig = {
   publicRuntimeConfig: {
     siteTitle: process.env.SITE_TITLE,
     siteUrl: process.env.SITE_URL,
+    siteReportUrl: process.env.SITE_REPORT_URL,
     siteDescriptionEn: process.env.SITE_DESCRIPTION_EN,
     siteDescriptionJp: process.env.SITE_DESCRIPTION_JP,
   },

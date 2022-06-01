@@ -39,7 +39,7 @@ const menu = computed(() => [
   {
     icon: 'mdi-comment-question',
     title: vm.$t('page-title.bug-report'),
-    href: 'https://arcade-songs-report.zetaraku.dev',
+    href: vm.$config.siteReportUrl,
   },
 ]);
 

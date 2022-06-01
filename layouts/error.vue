@@ -47,12 +47,12 @@ export default defineComponent({
             v-if="!isNotFound"
             outlined
             large
-            href="https://github.com/zetaraku/arcade-songs/issues"
+            :href="$config.siteReportUrl"
             target="_blank"
             color="error"
             class="mr-5"
           >
-            Report Bug
+            {{ $t('page-title.bug-report') }}
           </v-btn>
           <v-btn
             outlined
