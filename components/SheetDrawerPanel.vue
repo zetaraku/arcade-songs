@@ -69,7 +69,7 @@ async function toggleLightSwitch() {
 watch(drawModeIndex, () => {
   drawMode.value = drawModes.value[mod(drawModeIndex.value, drawModes.value.length)];
 
-  if (drawModeIndex.value === -7) {
+  if (drawModeIndex.value === -3) {
     drawMode.value = 'secret';
   }
 });
