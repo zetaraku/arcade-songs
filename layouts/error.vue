@@ -30,38 +30,39 @@ export default defineComponent({
 
 <template>
   <v-container class="fill-height">
-    <v-row align="center">
+    <v-row class="align-center">
       <v-col class="text-center">
         <v-icon :size="120" class="mb-5">
           mdi-alert-circle-outline
         </v-icon>
+
         <h1 class="mb-5">
-          {{ title }}
+          <span v-text="title" />
         </h1>
-        <p class="red--text mb-5">
-          {{ error.message }}
-        </p>
+        <p
+          class="red--text"
+          v-text="error.message"
+        />
 
         <div class="mt-10">
           <v-btn
             v-if="!isNotFound"
             outlined
             large
+            color="error"
             :href="$config.siteReportUrl"
             target="_blank"
-            color="error"
             class="mr-5"
-          >
-            {{ $t('page-title.bug-report') }}
-          </v-btn>
+            v-text="$t('page-title.bug-report')"
+          />
           <v-btn
             outlined
             large
+            color="secondary"
             :to="gameCode !== undefined ? `/${gameCode}/` : '/'"
             exact
-          >
-            {{ $t('page.error.backToHome') }}
-          </v-btn>
+            v-text="$t('page.error.backToHome')"
+          />
         </div>
       </v-col>
     </v-row>
