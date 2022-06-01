@@ -86,7 +86,7 @@ watch(drawModeIndex, () => {
     <v-btn
       v-if="drawModes.length > 1"
       icon
-      @click.stop="drawModeIndex -= 1;"
+      @click="drawModeIndex -= 1;"
     >
       <v-icon>mdi-chevron-left</v-icon>
     </v-btn>
@@ -96,7 +96,7 @@ watch(drawModeIndex, () => {
       dark
       :color="themeColor"
       class="text-h6 ma-3"
-      @click.stop="drawSheet();"
+      @click="drawSheet();"
     >
       {{ $t('sfc.SheetDrawerPanel.drawRandomSheet') }}
     </v-btn>
@@ -105,7 +105,7 @@ watch(drawModeIndex, () => {
       large
       color="success"
       class="text-h6 ma-3"
-      @click.stop="drawCombo();"
+      @click="drawCombo();"
     >
       {{ $t('sfc.SheetDrawerPanel.drawRandomCombo') }}
     </v-btn>
@@ -114,14 +114,14 @@ watch(drawModeIndex, () => {
       large
       color="warning"
       class="text-h6 ma-3"
-      @click.stop="toggleLightSwitch();"
+      @click="toggleLightSwitch();"
     >
       {{ $t('sfc.SheetDrawerPanel.toggleDarkMode') }}
     </v-btn>
     <v-btn
       v-if="drawModes.length > 1"
       icon
-      @click.stop="drawModeIndex += 1;"
+      @click="drawModeIndex += 1;"
     >
       <v-icon>mdi-chevron-right</v-icon>
     </v-btn>

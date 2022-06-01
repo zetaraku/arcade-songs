@@ -152,7 +152,7 @@ export default defineComponent({
               name: $route.name === 'index' ? 'gameCode' : undefined,
               params: { gameCode: site.gameCode },
             }"
-            @click.stop="isPortalOpened = false;"
+            @click="isPortalOpened = false;"
           >
             <v-list-item-icon>
               <v-icon :color="site.themeColor">
@@ -196,7 +196,7 @@ export default defineComponent({
       app
     >
       <v-app-bar-nav-icon
-        @click.stop="isDrawerOpened = !isDrawerOpened;"
+        @click="isDrawerOpened = !isDrawerOpened;"
       />
       <NuxtLink
         class="d-flex"

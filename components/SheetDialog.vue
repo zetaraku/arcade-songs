@@ -120,7 +120,7 @@ watch(isOpened, () => {
                 :href="getSheetSearchLink(sheet)"
                 target="_blank"
                 v-on="on"
-                @click.stop="$gtag('event', 'SheetVideoSearched', { game_code: gameCode });"
+                @click="$gtag('event', 'SheetVideoSearched', { game_code: gameCode });"
               >
                 <v-icon
                   :large="$vuetify.breakpoint.smAndUp"
@@ -161,7 +161,7 @@ watch(isOpened, () => {
                   :class="{ 'text--primary': isStatic }"
                   style="cursor: pointer; user-select: all; margin-right: 42px;"
                   v-on="on"
-                  @click.stop="copyText(sheet.title);"
+                  @click="copyText(sheet.title);"
                 >
                   <span v-text="sheet.title" />
                 </h1>
@@ -256,14 +256,14 @@ watch(isOpened, () => {
           v-if="isDrawMode"
           text
           color="primary"
-          @click.stop="drawSheet();"
+          @click="drawSheet();"
         >
           {{ $t('sfc.SheetDialog.tryAgain') }}
         </v-btn>
         <v-btn
           text
           color="success"
-          @click.stop="isOpened = false;"
+          @click="isOpened = false;"
         >
           {{ isDrawMode ? $t('ui.ok') : $t('ui.close') }}
         </v-btn>

@@ -7,7 +7,7 @@ const isDarkMode: Ref<boolean> = inject('isDarkMode')!;
 <template>
   <v-btn
     icon
-    @click.stop="isDarkMode = !isDarkMode;"
+    @click="isDarkMode = !isDarkMode;"
   >
     <v-icon v-if="!isDarkMode">
       mdi-lightbulb-on-outline

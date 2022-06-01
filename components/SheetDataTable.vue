@@ -59,7 +59,7 @@ watch(sheets, () => {
       hide-default-footer
       @page-count="pageCount = $event;"
       @current-items="currentSheets = $event;"
-      @contextmenu:row.stop.prevent="toggleSheetSelection(arguments[1].item);"
+      @contextmenu:row.prevent="toggleSheetSelection(arguments[1].item);"
     >
       <!-- This is explicitly added for the variables used in v-on to be exposed correctly -->
       <template v-if="false">
@@ -74,7 +74,7 @@ watch(sheets, () => {
         <v-btn
           icon
           color="cyan"
-          @click.stop="viewSheet(sheet);"
+          @click="viewSheet(sheet);"
         >
           <v-icon>mdi-file-image</v-icon>
         </v-btn>

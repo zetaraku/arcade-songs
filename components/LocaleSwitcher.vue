@@ -38,7 +38,7 @@ function setLocale(locale: string) {
       <v-list-item
         v-for="localeOption in localeOptions"
         :key="localeOption.code"
-        @click.stop="setLocale(localeOption.code);"
+        @click="setLocale(localeOption.code);"
       >
         <v-list-item-title v-text="localeOption.name" />
       </v-list-item>

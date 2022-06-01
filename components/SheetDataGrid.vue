@@ -29,8 +29,8 @@ function toggleSheetSelection(sheet: Sheet) {
         :key="i"
         :sheet="sheet"
         :class="{ 'selected-sheet': selectedSheets.includes(sheet) }"
-        @click.left.stop="viewSheet(sheet);"
-        @click.right.stop="toggleSheetSelection(sheet);"
+        @click.left="viewSheet(sheet);"
+        @click.right="toggleSheetSelection(sheet);"
       />
     </div>
   </div>
