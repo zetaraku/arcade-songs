@@ -20,11 +20,11 @@ export const NULL_SHEET: Sheet = {
   imageUrl: cat,
 
   version: undefined,
-  bpm: 0,
+  bpm: undefined,
 
   type: '??',
-  difficulty: 'void',
-  level: '0',
+  difficulty: '?',
+  level: '',
   levelValue: 0,
 
   noteDesigner: 'Oops! Nothing here :3',
@@ -44,7 +44,7 @@ export const RICK_SHEET: Sheet = {
   bpm: 113,
 
   type: '??',
-  difficulty: 'never',
+  difficulty: '<:D',
   level: '',
   levelValue: 0,
 
