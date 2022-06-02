@@ -1,7 +1,104 @@
-hello: 'こんにちは世界！'
+# Test entry
+hello: こんにちは世界！
+
+# Page titles
 page-title:
   home: ホーム
   songs: 楽曲一覧
-  lists: 段位認定リスト
+  gallery: 段位認定リスト
   about: このサイトについて
-  bug-report: バグを報告する
+  bug-report: 問題を報告する
+
+# General UIs
+ui:
+  ok: OK
+  cancel: キャンセル
+  close: 閉じる
+  search: 検索
+  goBack: 戻る
+  all: すべて
+
+# Terminologies
+term:
+  category: カテゴリ
+  title: タイトル
+  artist: アーティスト
+  version: バージョン
+  releaseDate: 追加日
+  bpm: BPM
+  minBPM: 最小 BPM
+  maxBPM: 最大 BPM
+  sheets: 譜面
+  type: タイプ
+  difficulty: 難易度
+  level: レベル
+  minLevel: 最小レベル
+  maxLevel: 最大レベル
+  noteDesigner: 譜面制作者
+  totalNotes: ノーツ総数
+  region: 地区
+
+# Descriptions & Tooltips
+description:
+  loading: データを読み込んでいます．．．
+  newSong: 新曲！
+  unlockNeeded: 解禁が必要な楽曲です
+  unavailableInRegion: '{region} 未追加'
+  copied: コピーしました！
+  invalidNoteCounts: 無効なノーツ数量
+  filterResultEmpty: フィルター条件を満たす譜面が見つかりません。
+  myListEmpty: 譜面を右クリックまたは長押しで「マイリスト」に追加すると、ここに選択した譜面が見られます。
+  drawPoolEmpty: 譜面プールは空です。
+
+# Pages
+page:
+  gallery:
+    selectList: 曲リスト選択
+  songs:
+    sheetData: 譜面データ
+  about:
+    author: 制作者
+    dataSource: 情報源
+    songInfo: 曲情報
+    sheetInfo: 譜面情報
+    sheetInfoDescription: 譜面情報を提供してくれたプレイヤーの皆さん、本当にありがとうございます！
+    openSource: プロジェクトソースコード
+    openSourceDescription: |
+      このプロジェクトは <a
+        href="https://ja.wikipedia.org/wiki/MIT_License"
+        target="_blank"
+        class="text-decoration-none"
+      >MIT ライセンス</a> でオープンソース化しました。ここですべてのソースコードを見つけることができます。興味があれば、このプロジェクトを一緒に改善することもできます。 ⭐ :)
+    updateRecord: 更新記録
+    disclaimer: 著作権表示
+  error:
+    error: エラー
+    notFound: 指定されたページが見つかりませんでした
+    backToHome: トップページへ戻る
+
+# Components
+sfc:
+  DataInfoBar:
+    updateTime: 'データ更新日：{time}'
+    loadFailed: データの読み込みに失敗しました。
+  ModeSelector:
+    gridMode: グリッド表示
+    tableMode: テーブル表示
+    filterMode: フィルターモード
+    myListMode: マイリスト
+    copyFilterLink: フィルターをリンクにコピーする
+    noFilterWarn: まずはフィルターを一つ以上適用してください
+    exportMyList: マイリストをエクスポートする
+    myListEmptyWarn: "「マイリスト」は空です。\nエクスポートするものがありません。"
+    importMyList: マイリストをインポートする
+    sheetsLoaded: '{n} 譜面をインポートしました'
+  SheetDrawerPanel:
+    drawRandomSheet: 譜面を抽選する！
+    drawRandomCombo: セットを抽選する！
+    toggleDarkMode: 電気を切り替え！
+  FilterInfoBar:
+    sheetsCount: '{n} 譜面'
+    songsCount: '{n} 歌曲'
+  SheetDialog:
+    searchOnYouTube: YouTube で検索
+    tryAgain: もう一回
