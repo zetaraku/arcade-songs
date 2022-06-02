@@ -1,12 +1,14 @@
 <script setup lang="ts">
 /* eslint-disable import/first, import/no-duplicates */
-import { ref, computed, watch, provide, onMounted, useMeta as useHead } from '@nuxtjs/composition-api';
+import { ref, computed, watch, provide, inject, onMounted, useMeta as useHead, Ref } from '@nuxtjs/composition-api';
 import useDataStore from '~/stores/data';
 import useVM from '~/composables/useVM';
 import useGameInfo from '~/composables/useGameInfo';
-import { buildEmptyFilters, buildFilterOptions, loadFiltersFromQuery, filterSheets, NULL_SHEET } from '~/utils';
+import { buildEmptyFilters, buildFilterOptions, loadFiltersFromQuery, filterSheets, NULL_SHEET, RICK_SHEET } from '~/utils';
 import ItemDrawer from '~/utils/ItemDrawer';
 import type { Sheet } from '~/types';
+
+const isDarkMode: Ref<boolean> = inject('isDarkMode')!;
 
 const vm = useVM();
 const { gameTitle } = useGameInfo();
@@ -19,23 +21,31 @@ const drawMode = ref('single');
 
 const filters = ref(buildEmptyFilters());
 const filterOptions = computed(() => buildFilterOptions(data.value, vm.$t.bind(vm)));
-const filteredSheets = computed(() => filterSheets(data.value.sheets, filters.value));
 
 const comboDrawer = new ItemDrawer<Sheet>({ drawSize: 4 });
+
+const filteredSheets = computed(
+  () => filterSheets(data.value.sheets, filters.value),
+);
+const selectedSheets = ref<Sheet[]>([]);
 const comboSheets = computed(
   () => comboDrawer.currentItems.value.map((sheet) => sheet ?? NULL_SHEET),
 );
-const selectedSheets = ref<Sheet[]>([]);
+const secretSheets = computed(
+  () => [...Array(4)].map(() => (isDarkMode.value ? RICK_SHEET : NULL_SHEET)),
+);
+
 const drawingPool = computed(() => {
-  if (filterMode.value === 'my-list') return selectedSheets.value;
   if (filterMode.value === 'filter') return filteredSheets.value;
+  if (filterMode.value === 'my-list') return selectedSheets.value;
   throw new Error('Invalid drawing pool');
 });
 const displayingSheets = computed(() => {
   if (drawMode.value === 'combo') return comboSheets.value;
-  if (filterMode.value === 'my-list') return selectedSheets.value;
+  if (drawMode.value === 'secret') return secretSheets.value;
   if (filterMode.value === 'filter') return filteredSheets.value;
-  throw new Error('Invalid filter mode');
+  if (filterMode.value === 'my-list') return selectedSheets.value;
+  throw new Error('Invalid displaying sheets');
 });
 
 onMounted(() => {
