@@ -102,6 +102,10 @@ export default defineComponent({
       class="my-5"
     />
 
+    <!--
+      The inner SheetDataGrid and SheetDataTable need to sync with each other.
+      To ensure the SheetDataView always exists, we use v-show instead of v-if.
+    -->
     <SheetDataView
       v-show="displayingSheets.length > 0"
       :sheets="displayingSheets"
