@@ -43,9 +43,7 @@ const drawingPool = computed(() => {
 const displayingSheets = computed(() => {
   if (drawMode.value === 'combo') return comboSheets.value;
   if (drawMode.value === 'secret') return secretSheets.value;
-  if (filterMode.value === 'filter') return filteredSheets.value;
-  if (filterMode.value === 'my-list') return selectedSheets.value;
-  throw new Error('Invalid displaying sheets');
+  return drawingPool.value;
 });
 
 onMounted(() => {
