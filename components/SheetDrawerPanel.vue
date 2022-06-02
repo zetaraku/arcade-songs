@@ -27,7 +27,7 @@ const drawModeIndex = ref(0);
 async function drawSheet() {
   if (drawingPool.value.length === 0) {
     // eslint-disable-next-line no-alert
-    window.alert(vm.$t('sfc.SheetDrawerPanel.drawPoolEmpty'));
+    window.alert(vm.$t('description.drawPoolEmpty'));
     return;
   }
 
@@ -41,7 +41,7 @@ async function drawSheet() {
 async function drawCombo() {
   if (drawingPool.value.length === 0) {
     // eslint-disable-next-line no-alert
-    window.alert(vm.$t('sfc.SheetDrawerPanel.drawPoolEmpty'));
+    window.alert(vm.$t('description.drawPoolEmpty'));
     return;
   }
 

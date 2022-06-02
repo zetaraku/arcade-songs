@@ -48,6 +48,7 @@ description:
   invalidNoteCounts: 无效的 NOTE 数量
   filterResultEmpty: 找不到符合当前筛选条件的谱面。
   myListEmpty: 右键点击或长按谱面将谱面加入【我的歌单】后，就能在这里看到你选择的谱面。
+  drawPoolEmpty: 当前的谱面池是空的！
 
 # Pages
 page:
@@ -95,7 +96,6 @@ sfc:
     drawRandomSheet: 随机抽取谱面！
     drawRandomCombo: 随机抽取组曲！
     toggleDarkMode: 切换电灯开关！
-    drawPoolEmpty: 当前的谱面池是空的！
   FilterInfoBar:
     sheetsCount: '{n} 谱面'
     songsCount: '{n} 乐曲'

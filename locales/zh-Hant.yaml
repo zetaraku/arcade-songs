@@ -48,6 +48,7 @@ description:
   invalidNoteCounts: 無效的 NOTE 數量
   filterResultEmpty: 找不到符合當前篩選條件的譜面。
   myListEmpty: 右鍵點擊或長按譜面將譜面加入【我的歌單】後，就能在這裡看到你選擇的譜面。
+  drawPoolEmpty: 當前的譜面池是空的！
 
 # Pages
 page:
@@ -95,7 +96,6 @@ sfc:
     drawRandomSheet: 隨機抽取譜面！
     drawRandomCombo: 隨機抽取組曲！
     toggleDarkMode: 切換電燈開關！
-    drawPoolEmpty: 當前的譜面池是空的！
   FilterInfoBar:
     sheetsCount: '{n} 譜面'
     songsCount: '{n} 歌曲'
