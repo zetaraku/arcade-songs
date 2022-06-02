@@ -64,4 +64,12 @@ export default [
     dataSourceUrl: `${DATA_SOURCE_URL}/diva`,
     accessCounterUrl: 'https://www.f-counter.net/j/46/1632203900/',
   },
+  {
+    gameCode: 'any',
+    gameTitle: '???',
+    themeColor: '#000000',
+    dataSourceUrl: `${DATA_SOURCE_URL}/any`,
+    accessCounterUrl: 'https://www.f-counter.net/j/48/1651407538/',
+    isHidden: true,
+  },
 ];

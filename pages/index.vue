@@ -1,8 +1,10 @@
 <script setup lang="ts">
 /* eslint-disable import/first, import/no-duplicates */
-import { useMeta as useHead } from '@nuxtjs/composition-api';
+import { inject, useMeta as useHead, Ref } from '@nuxtjs/composition-api';
 import useVM from '~/composables/useVM';
 import sites from '~/assets/sites';
+
+const isDarkMode: Ref<boolean> = inject('isDarkMode')!;
 
 const vm = useVM();
 
@@ -41,7 +43,7 @@ export default defineComponent({
           class="mx-auto"
         >
           <v-list-item
-            v-for="(site, i) in sites"
+            v-for="(site, i) in sites.filter((e) => !e.isHidden || isDarkMode)"
             :key="i"
             :to="{ name: 'gameCode', params: { gameCode: site.gameCode }}"
           >

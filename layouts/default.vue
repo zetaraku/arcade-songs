@@ -151,7 +151,7 @@ export default defineComponent({
           </template>
 
           <v-list-item
-            v-for="(site, i) in sites"
+            v-for="(site, i) in sites.filter((e) => !e.isHidden || isDarkMode)"
             :key="i"
             :to="{
               name: $route.name === 'index' ? 'gameCode' : undefined,
