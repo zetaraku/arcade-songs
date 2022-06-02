@@ -46,6 +46,7 @@ description:
   unavailableInRegion: '{region} 未收錄'
   copied: 已複製到剪貼簿！
   invalidNoteCounts: 無效的 NOTE 數量
+  filterResultEmpty: 找不到符合當前篩選條件的譜面。
   myListEmpty: 右鍵點擊或長按譜面將譜面加入【我的歌單】後，就能在這裡看到你選擇的譜面。
 
 # Pages

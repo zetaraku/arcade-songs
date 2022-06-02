@@ -110,12 +110,18 @@ export default defineComponent({
       :display-mode="displayMode"
       class="mt-8"
     />
-
     <div
-      v-if="filterMode === 'my-list' && displayingSheets.length === 0"
+      v-if="displayingSheets.length === 0"
       class="text-center text--secondary py-8"
     >
-      <span v-text="$t('description.myListEmpty')" />
+      <span
+        v-if="filterMode === 'filter'"
+        v-text="$t('description.filterResultEmpty')"
+      />
+      <span
+        v-if="filterMode === 'my-list'"
+        v-text="$t('description.myListEmpty')"
+      />
     </div>
   </v-container>
 </template>
