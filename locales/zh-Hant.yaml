@@ -4,6 +4,7 @@ hello: 哈囉世界！
 # Page titles
 page-title:
   home: 首頁
+  songs: 歌曲一覽
   gallery: 段位歌單
   about: 關於本站
   bug-report: 回報問題
@@ -13,6 +14,7 @@ ui:
   ok: 確定
   cancel: 取消
   close: 關閉
+  search: 搜尋
   goBack: 返回
   all: 全部
 
@@ -50,6 +52,8 @@ description:
 page:
   gallery:
     selectList: 選擇歌曲列表
+  songs:
+    sheetData: 譜面資料
   about:
     author: 作者
     dataSource: 資料來源

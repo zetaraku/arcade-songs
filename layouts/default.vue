@@ -26,6 +26,11 @@ const menu = computed(() => [
     to: { name: 'gameCode' },
   },
   {
+    icon: 'mdi-database',
+    title: vm.$t('page-title.songs'),
+    to: { name: 'gameCode-songs' },
+  },
+  {
     icon: 'mdi-script-text',
     title: vm.$t('page-title.gallery'),
     to: { name: 'gameCode-gallery' },

@@ -1,0 +1,129 @@
+<script setup lang="ts">
+/* eslint-disable import/first, import/no-duplicates */
+import { ref, computed, useMeta as useHead, ComputedRef } from '@nuxtjs/composition-api';
+import useDataStore from '~/stores/data';
+import useVM from '~/composables/useVM';
+import useGameData from '~/composables/useGameData';
+import useSheetDialog from '~/composables/useSheetDialog';
+import type { DataTableHeader } from 'vuetify';
+
+const vm = useVM();
+const dataStore = useDataStore();
+const {
+  getCategoryIndex,
+  getVersionIndex,
+  getTypeAbbr,
+  getDifficultyColor,
+} = useGameData();
+const { viewSheet } = useSheetDialog();
+
+const searchInput = ref('');
+
+const songs = computed(() => dataStore.currentData.songs);
+const headers: ComputedRef<DataTableHeader[]> = computed(() => [
+  {
+    text: 'No.',
+    value: 'songNo',
+    width: 10,
+    searchable: false,
+  },
+  {
+    text: vm.$t('term.category') as string,
+    value: 'category',
+    width: 150,
+    sort: (a: string, b: string) => getCategoryIndex(a) - getCategoryIndex(b),
+    searchable: false,
+  },
+  {
+    text: vm.$t('term.title') as string,
+    value: 'title',
+    width: 250,
+  },
+  {
+    text: vm.$t('term.artist') as string,
+    value: 'artist',
+    width: 250,
+  },
+  {
+    text: vm.$t('term.sheets') as string,
+    value: 'sheets',
+    width: 350,
+    searchable: false,
+  },
+  {
+    text: vm.$t('term.bpm') as string,
+    value: 'bpm',
+    width: 50,
+    searchable: false,
+  },
+  {
+    text: vm.$t('term.version') as string,
+    value: 'version',
+    width: 200,
+    sort: (a: string, b: string) => getVersionIndex(a) - getVersionIndex(b),
+    searchable: false,
+  },
+]);
+
+useHead(() => ({
+  title: vm.$t('page-title.songs') as string,
+}));
+</script>
+
+<script lang="ts">
+import { defineComponent } from '@nuxtjs/composition-api';
+
+export default defineComponent({
+  name: 'GameSongsPage',
+  head: {},
+});
+</script>
+
+<template>
+  <!-- eslint-disable vue/valid-v-slot -->
+  <v-container fluid class="pa-8">
+    <h1>
+      <span v-text="$t('page-title.songs')" />
+    </h1>
+
+    <v-data-table
+      :headers="headers"
+      :items="songs"
+      :search="searchInput"
+      must-sort
+    >
+      <template #top>
+        <v-text-field
+          v-model="searchInput"
+          :label="$t('ui.search')"
+          prepend-icon="mdi-magnify"
+          clearable
+        />
+      </template>
+
+      <template #item.category="{ item: song }">
+        <span>{{ (song.category || '').replaceAll('|', '｜') }}</span>
+      </template>
+      <template #item.title="{ item: song }">
+        <router-link
+          :to="{ name: 'gameCode-songs-title', params: { title: song.title } }"
+          v-text="song.title"
+        />
+      </template>
+      <template #item.sheets="{ item: song }">
+        <v-btn
+          v-for="(sheet, i) in song.sheets"
+          :key="i"
+          text
+          rounded
+          class="font-weight-bold text-none"
+          :style="{ 'color': getDifficultyColor(sheet.difficulty) }"
+          @click="viewSheet(sheet);"
+        >
+          <sub v-text="getTypeAbbr(sheet.type)" />
+          <span v-text="sheet.level" />
+        </v-btn>
+      </template>
+    </v-data-table>
+  </v-container>
+</template>
