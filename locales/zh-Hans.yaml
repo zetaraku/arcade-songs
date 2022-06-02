@@ -1,7 +1,103 @@
-hello: '你好世界！'
+# Test entry
+hello: 你好世界！
+
+# Page titles
 page-title:
   home: 首页
   songs: 乐曲一览
-  lists: 段位歌单
+  gallery: 段位歌单
   about: 关于本站
-  bug-report: 错误回报
+  bug-report: 回报问题
+
+# General UIs
+ui:
+  ok: 确定
+  cancel: 取消
+  close: 关闭
+  search: 搜索
+  goBack: 返回
+  all: 全部
+
+# Terminologies
+term:
+  category: 分类
+  title: 曲名
+  artist: 创作者
+  version: 版本
+  releaseDate: 追加日期
+  bpm: BPM
+  minBPM: 最低 BPM
+  maxBPM: 最高 BPM
+  sheets: 谱面
+  type: 类型
+  difficulty: 难度
+  level: 等级
+  minLevel: 最低等级
+  maxLevel: 最高等级
+  noteDesigner: 谱面制作者
+  totalNotes: 总计
+  region: 地区
+
+# Descriptions & Tooltips
+description:
+  loading: 正在加载数据...
+  newSong: 新乐曲！
+  unlockNeeded: 需要解禁的乐曲
+  unavailableInRegion: '{region} 未收录'
+  copied: 已复制到剪贴板！
+  invalidNoteCounts: 无效的 NOTE 数量
+  myListEmpty: 右键点击或长按谱面将谱面加入【我的歌单】后，就能在这里看到你选择的谱面。
+
+# Pages
+page:
+  gallery:
+    selectList: 选择乐曲列表
+  songs:
+    sheetData: 谱面数据
+  about:
+    author: 作者
+    dataSource: 数据源
+    songInfo: 乐曲情报
+    sheetInfo: 谱面情报
+    sheetInfoDescription: 在此特别感谢所有贡献谱面情报的玩家们！
+    openSource: 项目源代码
+    openSourceDescription: |
+      本项目以 <a
+        href="https://zh.wikipedia.org/wiki/MIT%E8%A8%B1%E5%8F%AF%E8%AD%89"
+        target="_blank"
+        class="text-decoration-none"
+      >MIT许可协议</a> 授权开源，你可以在这里找到完整的源代码，如果你有兴趣，也可以一起来改善这个项目 ⭐ :)
+    updateRecord: 更新记录
+    disclaimer: 版权声明
+  error:
+    error: 错误
+    notFound: 页面不存在
+    backToHome: 回首页
+
+# Components
+sfc:
+  DataInfoBar:
+    updateTime: '数据更新日期：{time}'
+    loadFailed: 数据加载失败。
+  ModeSelector:
+    gridMode: 格状检视
+    tableMode: 表格检视
+    filterMode: 筛选模式
+    myListMode: 我的歌单
+    copyFilterLink: 将当前筛选条件复制成链接
+    noFilterWarn: 请先指定至少一个筛选条件
+    exportMyList: 汇出我的歌单到文件
+    myListEmptyWarn: "「我的歌单」是空的！\n没有可以汇出的项目。"
+    importMyList: 从文件汇入我的歌单
+    sheetsLoaded: '成功汇入 {n} 谱面'
+  SheetDrawerPanel:
+    drawRandomSheet: 随机抽取谱面！
+    drawRandomCombo: 随机抽取组曲！
+    toggleDarkMode: 切换电灯开关！
+    drawPoolEmpty: 当前的谱面池是空的！
+  FilterInfoBar:
+    sheetsCount: '{n} 谱面'
+    songsCount: '{n} 乐曲'
+  SheetDialog:
+    searchOnYouTube: 在 YouTube 上搜索
+    tryAgain: 再抽一次
