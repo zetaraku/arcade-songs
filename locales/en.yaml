@@ -1,7 +1,104 @@
+# Test entry
 hello: Hello world!
+
+# Page titles
 page-title:
   home: Home
   songs: Songs
-  lists: Song Lists
+  gallery: Track Lists
   about: About
-  bug-report: Bug Report
+  bug-report: Report Issue
+
+# General UIs
+ui:
+  ok: OK
+  cancel: Cancel
+  close: Close
+  search: Search
+  goBack: Go Back
+  all: ALL
+
+# Terminologies
+term:
+  category: Category
+  title: Title
+  artist: Artist
+  version: Version
+  releaseDate: Release Date
+  bpm: BPM
+  minBPM: Min BPM
+  maxBPM: Max BPM
+  sheets: Sheets
+  type: Type
+  difficulty: Difficulty
+  level: Level
+  minLevel: Min Level
+  maxLevel: Max Level
+  noteDesigner: Notes Designer
+  totalNotes: TOTAL
+  region: Region
+
+# Descriptions & Tooltips
+description:
+  loading: Loading data...
+  newSong: New song!
+  unlockNeeded: This song needs to be unlocked.
+  unavailableInRegion: 'Currently Unavailable in {region}'
+  copied: Copied to clipboard!
+  invalidNoteCounts: Invalid NOTE counts
+  filterResultEmpty: Cannot find any sheet that satisfies the filter.
+  myListEmpty: Right-click or long-press a sheet to add it to MY LIST, and then you can see your selected sheets here.
+  drawPoolEmpty: Current drawing pool is empty!
+
+# Pages
+page:
+  gallery:
+    selectList: Select Song List
+  songs:
+    sheetData: Sheet Data
+  about:
+    author: Author
+    dataSource: Data Source
+    songInfo: Song Info
+    sheetInfo: Sheet Info
+    sheetInfoDescription: Much thanks to all the players contributing the sheet data!
+    openSource: Project Source Code
+    openSourceDescription: |
+      This project is licensed under the <a
+        href="https://en.wikipedia.org/wiki/MIT_License"
+        target="_blank"
+        class="text-decoration-none"
+      >MIT License</a>, and you can find the complete source code here. If you're interested, you can join us to improve the project too! ⭐ :)
+    updateRecord: Update Record
+    disclaimer: Copyright Notice
+  error:
+    error: Error
+    notFound: Page Not Found
+    backToHome:  Back to Home
+
+# Components
+sfc:
+  DataInfoBar:
+    updateTime: 'Data Update Time: {time}'
+    loadFailed: Failed while loading data.
+  ModeSelector:
+    gridMode: Grid View
+    tableMode: Table View
+    filterMode: Filter Mode
+    myListMode: MY LIST Mode
+    copyFilterLink: Copy current filters as link
+    noFilterWarn: Please select at least one filter first.
+    exportMyList: Export MY LIST to file
+    myListEmptyWarn: "MY LIST is empty!\nNothing to export."
+    importMyList: Import MY LIST from file
+    sheetsLoaded: 'Imported {n} sheet(s) successfully.'
+  SheetDrawerPanel:
+    drawRandomSheet: DRAW RANDOM SHEET!
+    drawRandomCombo: DRAW RANDOM SET!
+    toggleDarkMode: TOGGLE THE LIGHT!
+  FilterInfoBar:
+    sheetsCount: '{n} sheets'
+    songsCount: '{n} songs'
+  SheetDialog:
+    searchOnYouTube: Search on YouTube
+    tryAgain: TRY AGAIN
