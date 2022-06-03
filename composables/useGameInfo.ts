@@ -1,5 +1,5 @@
 import { computed, useRoute } from '@nuxtjs/composition-api';
-import sites from '~/assets/sites';
+import sites from '~/assets/sites.json';
 
 export default function useGameInfo() {
   const route = useRoute();

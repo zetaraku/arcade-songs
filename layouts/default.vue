@@ -5,7 +5,7 @@ import useDataStore from '~/stores/data';
 import useVM from '~/composables/useVM';
 import useGameInfo from '~/composables/useGameInfo';
 import LoadingStatus from '~/enums/LoadingStatus';
-import sites from '~/assets/sites';
+import sites from '~/assets/sites.json';
 import { PageNotFoundError } from '~/utils';
 
 const vm = useVM();

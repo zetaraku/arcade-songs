@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
 import LoadingStatus from '~/enums/LoadingStatus';
-import sites from '~/assets/sites';
+import sites from '~/assets/sites.json';
 import { buildEmptyData, preprocessData, makeDummySheet } from '~/utils';
 import type { Data, GalleryList } from '~/types';
 

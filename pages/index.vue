@@ -2,7 +2,7 @@
 /* eslint-disable import/first, import/no-duplicates */
 import { inject, useMeta as useHead, Ref } from '@nuxtjs/composition-api';
 import useVM from '~/composables/useVM';
-import sites from '~/assets/sites';
+import sites from '~/assets/sites.json';
 
 const isDarkMode: Ref<boolean> = inject('isDarkMode')!;
 

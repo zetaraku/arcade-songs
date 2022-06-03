@@ -1,0 +1,73 @@
+[
+  {
+    "gameCode": "maimai",
+    "gameTitle": "maimai",
+    "themeColor": "#1976d2",
+    "dataSourceUrl": "https://dp4p6x0xfi5o9.cloudfront.net/maimai",
+    "accessCounterUrl": "https://www.f-counter.net/j/33/1600361536/"
+  },
+  {
+    "gameCode": "wacca",
+    "gameTitle": "WACCA",
+    "themeColor": "#e50065",
+    "dataSourceUrl": "https://dp4p6x0xfi5o9.cloudfront.net/wacca",
+    "accessCounterUrl": "https://www.f-counter.net/j/45/1609244286/"
+  },
+  {
+    "gameCode": "chunithm",
+    "gameTitle": "CHUNITHM",
+    "themeColor": "#f3a607",
+    "dataSourceUrl": "https://dp4p6x0xfi5o9.cloudfront.net/chunithm",
+    "accessCounterUrl": "https://www.f-counter.net/j/45/1609244179/"
+  },
+  {
+    "gameCode": "sdvx",
+    "gameTitle": "SOUND VOLTEX",
+    "themeColor": "#404040",
+    "dataSourceUrl": "https://dp4p6x0xfi5o9.cloudfront.net/sdvx",
+    "accessCounterUrl": "https://www.f-counter.net/j/45/1610979366/"
+  },
+  {
+    "gameCode": "jubeat",
+    "gameTitle": "jubeat",
+    "themeColor": "#134c43",
+    "dataSourceUrl": "https://dp4p6x0xfi5o9.cloudfront.net/jubeat",
+    "accessCounterUrl": "https://www.f-counter.net/j/45/1611304929/"
+  },
+  {
+    "gameCode": "taiko",
+    "gameTitle": "太鼓の達人",
+    "themeColor": "#f50000",
+    "dataSourceUrl": "https://dp4p6x0xfi5o9.cloudfront.net/taiko",
+    "accessCounterUrl": "https://www.f-counter.net/j/45/1612282353/"
+  },
+  {
+    "gameCode": "ongeki",
+    "gameTitle": "オンゲキ",
+    "themeColor": "#32b9cc",
+    "dataSourceUrl": "https://dp4p6x0xfi5o9.cloudfront.net/ongeki",
+    "accessCounterUrl": "https://www.f-counter.net/j/46/1629440181/"
+  },
+  {
+    "gameCode": "gc",
+    "gameTitle": "GROOVE COASTER",
+    "themeColor": "#22125b",
+    "dataSourceUrl": "https://dp4p6x0xfi5o9.cloudfront.net/gc",
+    "accessCounterUrl": "https://www.f-counter.net/j/46/1629730777/"
+  },
+  {
+    "gameCode": "diva",
+    "gameTitle": "Project DIVA Arcade",
+    "themeColor": "#6d8c8d",
+    "dataSourceUrl": "https://dp4p6x0xfi5o9.cloudfront.net/diva",
+    "accessCounterUrl": "https://www.f-counter.net/j/46/1632203900/"
+  },
+  {
+    "isHidden": true,
+    "gameCode": "any",
+    "gameTitle": "???",
+    "themeColor": "#000000",
+    "dataSourceUrl": "https://dp4p6x0xfi5o9.cloudfront.net/any",
+    "accessCounterUrl": "https://www.f-counter.net/j/48/1651407538/"
+  }
+]
