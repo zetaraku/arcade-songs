@@ -33,7 +33,7 @@ const extraSheetHeaders = computed(() => {
     return ['tap', 'hold', 'slide', 'touch', 'break', 'total']
       .map((key) => ({
         key,
-        title: key.toUpperCase(),
+        title: key !== 'total' ? key.toUpperCase() : vm.$t('term.totalNotes'),
         get: (sheet: Sheet) => sheet.noteCounts?.[key],
       }));
   }
