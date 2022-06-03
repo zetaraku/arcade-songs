@@ -68,7 +68,8 @@ page:
         href="https://zh.wikipedia.org/wiki/MIT%E8%A8%B1%E5%8F%AF%E8%AD%89"
         target="_blank"
         class="text-decoration-none"
-      >MIT许可协议</a> 授权开源，你可以在这里找到完整的源代码，如果你有兴趣，也可以一起来改善这个项目 ⭐ :)
+      >MIT许可协议</a> 授权开源，你可以在这里找到完整的源代码。
+      如果你有兴趣，也可以一起来改善这个项目！ ⭐ :)
     updateRecord: 更新记录
     disclaimer: 版权声明
   error:

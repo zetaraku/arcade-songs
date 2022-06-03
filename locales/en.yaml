@@ -68,7 +68,8 @@ page:
         href="https://en.wikipedia.org/wiki/MIT_License"
         target="_blank"
         class="text-decoration-none"
-      >MIT License</a>, and you can find the complete source code here. If you're interested, you can join us to improve the project too! ⭐ :)
+      >MIT License</a>, and you can find the complete source code here.
+      If you're interested, you can join us to improve the project too! ⭐ :)
     updateRecord: Update Record
     disclaimer: Copyright Notice
   error:
