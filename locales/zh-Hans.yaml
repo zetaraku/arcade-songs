@@ -87,11 +87,11 @@ sfc:
     filterMode: 筛选模式
     myListMode: 我的歌单
     copyFilterLink: 将当前筛选条件复制成链接
-    noFilterWarn: 请先指定至少一个筛选条件
+    noFilterWarn: 请先指定至少一个筛选条件。
     exportMyList: 汇出我的歌单到文件
     myListEmptyWarn: "「我的歌单」是空的！\n没有可以汇出的项目。"
     importMyList: 从文件汇入我的歌单
-    sheetsLoaded: '成功汇入 {n} 谱面'
+    sheetsLoaded: '成功汇入 {n} 谱面。'
   SheetDrawerPanel:
     drawRandomSheet: 随机抽取谱面！
     drawRandomCombo: 随机抽取组曲！

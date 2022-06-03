@@ -87,11 +87,11 @@ sfc:
     filterMode: フィルターモード
     myListMode: マイリスト
     copyFilterLink: フィルターをリンクにコピーする
-    noFilterWarn: まずはフィルターを一つ以上適用してください
+    noFilterWarn: まずはフィルターを一つ以上適用してください。
     exportMyList: マイリストをエクスポートする
     myListEmptyWarn: "「マイリスト」は空です。\nエクスポートするものがありません。"
     importMyList: マイリストをインポートする
-    sheetsLoaded: '{n} 譜面をインポートしました'
+    sheetsLoaded: '{n} 譜面をインポートしました。'
   SheetDrawerPanel:
     drawRandomSheet: 譜面を抽選する！
     drawRandomCombo: セットを抽選する！
