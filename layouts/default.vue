@@ -49,8 +49,6 @@ const menu = computed(() => [
 ]);
 
 useHead(() => {
-  const i18nHead = vm.$nuxtI18nHead({ addSeoAttributes: true });
-
   const subSiteTitle = gameTitle.value ? `${gameTitle.value} | ${siteTitle}` : siteTitle;
   const siteUrl = new URL(`${gameCode.value ?? ''}/`, vm.$config.siteUrl!).toString();
   const logoUrl = new URL('logo.png?v=1', vm.$config.siteUrl!).toString();
@@ -59,11 +57,7 @@ useHead(() => {
 
   return {
     titleTemplate: `%s | ${subSiteTitle}`,
-    htmlAttrs: {
-      ...i18nHead.htmlAttrs,
-    },
     meta: [
-      ...i18nHead.meta,
       { property: 'og:type', content: 'website' },
       { property: 'og:title', content: subSiteTitle },
       { property: 'og:site_name', content: subSiteTitle },
@@ -79,9 +73,6 @@ useHead(() => {
       { name: 'msapplication-TileColor', content: themeColor.value },
       { name: 'apple-mobile-web-app-title', content: subSiteTitle },
     ].map((e) => ({ ...e, hid: e.name ?? e.property })),
-    link: [
-      ...i18nHead.link,
-    ],
   };
 });
 
@@ -117,7 +108,9 @@ import { defineComponent } from '@nuxtjs/composition-api';
 
 export default defineComponent({
   name: 'DefaultLayout',
-  head: {},
+  head() {
+    return this.$nuxtI18nHead({ addSeoAttributes: true });
+  },
 });
 </script>
 
