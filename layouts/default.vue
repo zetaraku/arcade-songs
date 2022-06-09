@@ -1,16 +1,16 @@
 <script setup lang="ts">
 /* eslint-disable import/first, import/no-duplicates */
-import { ref, computed, watch, provide, useRoute, useMeta as useHead, nextTick } from '@nuxtjs/composition-api';
+import { ref, computed, watch, provide, useRoute, useMeta as useHead, useContext, nextTick } from '@nuxtjs/composition-api';
+import { useI18n } from 'nuxt-i18n-composable';
 import useDataStore from '~/stores/data';
-import useVM from '~/composables/useVM';
 import useGameInfo from '~/composables/useGameInfo';
 import LoadingStatus from '~/enums/LoadingStatus';
 import sites from '~/assets/sites.json';
 import { PageNotFoundError } from '~/utils';
 
-const vm = useVM();
+const context = useContext();
 const route = useRoute();
-const siteTitle = vm.$config.siteTitle!;
+const i18n = useI18n();
 const dataStore = useDataStore();
 const {
   gameCode,
@@ -22,38 +22,45 @@ const {
 const menu = computed(() => [
   {
     icon: 'mdi-apps',
-    title: vm.$t('page-title.home'),
+    title: i18n.t('page-title.home'),
     to: { name: 'gameCode' },
   },
   {
     icon: 'mdi-database',
-    title: vm.$t('page-title.songs'),
+    title: i18n.t('page-title.songs'),
     to: { name: 'gameCode-songs' },
   },
   {
     icon: 'mdi-script-text',
-    title: vm.$t('page-title.gallery'),
+    title: i18n.t('page-title.gallery'),
     to: { name: 'gameCode-gallery' },
     disabled: dataStore.currentGallery.length === 0,
   },
   {
     icon: 'mdi-information-outline',
-    title: vm.$t('page-title.about'),
+    title: i18n.t('page-title.about'),
     to: { name: 'gameCode-about' },
   },
   {
     icon: 'mdi-comment-question',
-    title: vm.$t('page-title.bug-report'),
-    href: vm.$config.siteReportUrl,
+    title: i18n.t('page-title.bug-report'),
+    href: context.$config.siteReportUrl,
   },
 ]);
 
 useHead(() => {
+  const {
+    siteTitle,
+    siteUrl,
+    siteDescriptionEn,
+    siteDescriptionJp,
+  } = context.$config;
+
   const subSiteTitle = gameTitle.value ? `${gameTitle.value} | ${siteTitle}` : siteTitle;
-  const siteUrl = new URL(`${gameCode.value ?? ''}/`, vm.$config.siteUrl!).toString();
-  const logoUrl = new URL('logo.png?v=1', vm.$config.siteUrl!).toString();
-  const descriptionEn = String(vm.$config.siteDescriptionEn!).replace('______', gameTitle.value || 'arcade games');
-  const descriptionJp = String(vm.$config.siteDescriptionJp!).replace('______', gameTitle.value || '音ゲー');
+  const pageUrl = new URL(gameCode.value ?? '', siteUrl).toString();
+  const logoUrl = new URL('logo.png?v=1', siteUrl).toString();
+  const descriptionEn = String(siteDescriptionEn).replace('______', gameTitle.value || 'arcade games');
+  const descriptionJp = String(siteDescriptionJp).replace('______', gameTitle.value || '音ゲー');
 
   return {
     titleTemplate: `%s | ${subSiteTitle}`,
@@ -61,7 +68,7 @@ useHead(() => {
       { property: 'og:type', content: 'website' },
       { property: 'og:title', content: subSiteTitle },
       { property: 'og:site_name', content: subSiteTitle },
-      { property: 'og:url', content: siteUrl },
+      { property: 'og:url', content: pageUrl },
       { property: 'og:image', content: logoUrl },
       { property: 'og:description', content: descriptionEn },
       { name: 'description', content: descriptionEn },
@@ -81,12 +88,12 @@ const isDrawerOpened = ref(false);
 const isPortalOpened = ref(false);
 
 function adaptSiteStyle() {
-  vm.$vuetify.theme.themes.light.primary = themeColor.value;
-  vm.$vuetify.theme.themes.dark.primary = '#FFAC1C';
+  context.$vuetify.theme.themes.light.primary = themeColor.value;
+  context.$vuetify.theme.themes.dark.primary = '#FFAC1C';
 }
 function validateGameCode() {
   if (route.value.params.gameCode !== undefined && gameCode.value === undefined) {
-    vm.$nuxt.error(new PageNotFoundError());
+    context.error(new PageNotFoundError());
   }
 }
 
@@ -97,7 +104,7 @@ watch(gameCode, async () => {
   await dataStore.switchGameCode(gameCode.value!);
 }, { immediate: true });
 watch(isDarkMode, () => {
-  vm.$vuetify.theme.dark = isDarkMode.value;
+  context.$vuetify.theme.dark = isDarkMode.value;
 });
 
 provide('isDarkMode', isDarkMode);
@@ -135,7 +142,7 @@ export default defineComponent({
             <v-list-item-content>
               <v-list-item-title
                 class="text-h6 font-weight-medium"
-                v-text="siteTitle"
+                v-text="$config.siteTitle"
               />
               <v-list-item-subtitle
                 v-text="gameTitle || 'Home'"
@@ -210,7 +217,7 @@ export default defineComponent({
               class="font-weight-medium mb-0"
               :class="$vuetify.breakpoint.smAndUp ? 'text-h5' : 'text-h6'"
               style="line-height: 1.8rem;"
-              v-text="siteTitle"
+              v-text="$config.siteTitle"
             />
             <v-list-item-subtitle
               v-text="gameTitle || 'Home'"

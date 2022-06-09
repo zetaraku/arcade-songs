@@ -1,14 +1,14 @@
 <script setup lang="ts">
 /* eslint-disable import/first, import/no-duplicates */
 import { computed, useRoute, useMeta as useHead } from '@nuxtjs/composition-api';
+import { useI18n } from 'nuxt-i18n-composable';
 import useDataStore from '~/stores/data';
-import useVM from '~/composables/useVM';
 import useGameInfo from '~/composables/useGameInfo';
 import useGameData from '~/composables/useGameData';
 import useSheetDialog from '~/composables/useSheetDialog';
 import { validateNoteCounts } from '~/utils';
 
-const vm = useVM();
+const i18n = useI18n();
 const route = useRoute();
 const dataStore = useDataStore();
 const {
@@ -33,7 +33,7 @@ const extraSheetHeaders = computed(() => {
     return ['tap', 'hold', 'slide', 'touch', 'break', 'total']
       .map((key) => ({
         key,
-        title: key !== 'total' ? key.toUpperCase() : vm.$t('term.totalNotes'),
+        title: key !== 'total' ? key.toUpperCase() : i18n.t('term.totalNotes'),
         get: (sheet: Sheet) => sheet.noteCounts?.[key],
       }));
   }
@@ -42,7 +42,7 @@ const extraSheetHeaders = computed(() => {
 });
 
 useHead(() => ({
-  title: `${title} | ${vm.$t('page-title.songs')}`,
+  title: `${title} | ${i18n.t('page-title.songs')}`,
 }));
 </script>
 

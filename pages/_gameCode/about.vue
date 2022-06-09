@@ -1,16 +1,16 @@
 <script setup lang="ts">
 /* eslint-disable import/first, import/no-duplicates */
 import { inject, useMeta as useHead, Ref } from '@nuxtjs/composition-api';
-import useVM from '~/composables/useVM';
+import { useI18n } from 'nuxt-i18n-composable';
 import useGameInfo from '~/composables/useGameInfo';
 
 const isDarkMode: Ref<boolean> = inject('isDarkMode')!;
 
-const vm = useVM();
+const i18n = useI18n();
 const { gameCode } = useGameInfo();
 
 useHead(() => ({
-  title: vm.$t('page-title.about') as string,
+  title: i18n.t('page-title.about') as string,
 }));
 </script>
 

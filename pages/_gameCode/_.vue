@@ -1,11 +1,11 @@
 <script setup lang="ts">
 //! This file is explicitly added to ensure gameCode is properly set for 404 page within this route.
-import useVM from '~/composables/useVM';
+import { useContext } from '@nuxtjs/composition-api';
 import { PageNotFoundError } from '~/utils';
 
-const vm = useVM();
+const context = useContext();
 
-vm.$nuxt.error(new PageNotFoundError());
+context.error(new PageNotFoundError());
 </script>
 
 <template>

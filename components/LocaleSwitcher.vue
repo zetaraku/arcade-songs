@@ -1,15 +1,14 @@
 <script setup lang="ts">
-import { computed } from '@nuxtjs/composition-api';
-import useVM from '~/composables/useVM';
+import { computed, useContext } from '@nuxtjs/composition-api';
 import type { LocaleObject } from '@nuxtjs/i18n';
 
-const vm = useVM();
+const context = useContext();
 
-const currentLocaleOption = computed(() => vm.$i18n.localeProperties);
-const localeOptions = computed(() => vm.$i18n.locales as LocaleObject[]);
+const currentLocaleOption = computed(() => context.i18n.localeProperties);
+const localeOptions = computed(() => context.i18n.locales as LocaleObject[]);
 
 function setLocale(locale: string) {
-  vm.$i18n.setLocale(locale);
+  context.i18n.setLocale(locale);
 }
 </script>
 

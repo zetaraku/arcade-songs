@@ -2,7 +2,7 @@
 import { ref, computed, watch, inject, Ref } from '@nuxtjs/composition-api';
 import copy from 'copy-to-clipboard';
 import useDataStore from '~/stores/data';
-import useVM from '~/composables/useVM';
+import useGtag from '~/composables/useGtag';
 import useGameInfo from '~/composables/useGameInfo';
 import useGameData from '~/composables/useGameData';
 import useSheetDialog from '~/composables/useSheetDialog';
@@ -10,7 +10,7 @@ import cat from '~/assets/cat.png';
 
 const isDarkMode: Ref<boolean> = inject('isDarkMode')!;
 
-const vm = useVM();
+const gtag = useGtag();
 const dataStore = useDataStore();
 const { gameCode } = useGameInfo();
 const {
@@ -55,7 +55,7 @@ async function drawSheet() {
   const isFinished = await startDrawingSheet();
 
   if (isFinished) {
-    (vm as any).$gtag('event', 'RandomSheetDrawn', { game_code: gameCode.value });
+    gtag('event', 'RandomSheetDrawn', { game_code: gameCode.value });
   }
 }
 

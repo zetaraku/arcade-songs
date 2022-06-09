@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import { inject, Ref } from '@nuxtjs/composition-api';
+import { useI18n } from 'nuxt-i18n-composable';
 import QueryString from 'query-string';
 import copyToClipboard from 'copy-to-clipboard';
 import FileSaver from 'file-saver';
 import selectFiles from 'select-files';
 import useDataStore from '~/stores/data';
-import useVM from '~/composables/useVM';
+import useGtag from '~/composables/useGtag';
 import useGameInfo from '~/composables/useGameInfo';
 import { saveFiltersAsQuery, computeSheetExpr, makeDummySheet, toLocalISODateString } from '~/utils';
 import { Sheet, Filters } from '~/types';
@@ -15,7 +16,8 @@ const filterMode: Ref<string> = inject('filterMode')!;
 const filters: Ref<Filters> = inject('filters')!;
 const selectedSheets: Ref<Sheet[]> = inject('selectedSheets')!;
 
-const vm = useVM();
+const i18n = useI18n();
+const gtag = useGtag();
 const dataStore = useDataStore();
 const { gameCode } = useGameInfo();
 
@@ -24,7 +26,7 @@ function copyFilterLink() {
 
   if (Object.keys(query).length === 0) {
     // eslint-disable-next-line no-alert
-    window.alert(vm.$t('sfc.ModeSelector.noFilterWarn'));
+    window.alert(i18n.t('sfc.ModeSelector.noFilterWarn'));
     return;
   }
 
@@ -32,14 +34,14 @@ function copyFilterLink() {
   copyToClipboard(url, { format: 'text/plain' });
 
   // eslint-disable-next-line no-alert
-  window.alert(`${url}\n${vm.$t('description.copied')}`);
+  window.alert(`${url}\n${i18n.t('description.copied')}`);
 
-  (vm as any).$gtag('event', 'FilterLinkCopied', { game_code: gameCode.value });
+  gtag('event', 'FilterLinkCopied', { game_code: gameCode.value });
 }
 async function exportSelectedSheets() {
   if (selectedSheets.value.length === 0) {
     // eslint-disable-next-line no-alert
-    window.alert(vm.$t('sfc.ModeSelector.myListEmptyWarn'));
+    window.alert(i18n.t('sfc.ModeSelector.myListEmptyWarn'));
     return;
   }
 
@@ -54,7 +56,7 @@ async function exportSelectedSheets() {
       `${gameCode.value}-mylist-${toLocalISODateString(new Date()).replaceAll('-', '')}.json`,
     );
 
-    (vm as any).$gtag('event', 'ExportSelectedSheets', { game_code: gameCode.value });
+    gtag('event', 'ExportSelectedSheets', { game_code: gameCode.value });
   } catch (e) {
     // eslint-disable-next-line no-alert
     window.alert(`An error occurred while saving MY LIST:\n${e}`);
@@ -77,9 +79,9 @@ async function importSelectedSheets() {
     selectedSheets.value = loadedSheets;
 
     // eslint-disable-next-line no-alert
-    window.alert(vm.$t('sfc.ModeSelector.sheetsLoaded', { n: loadedSheets.length }));
+    window.alert(i18n.t('sfc.ModeSelector.sheetsLoaded', { n: loadedSheets.length }));
 
-    (vm as any).$gtag('event', 'ImportSelectedSheets', { game_code: gameCode.value });
+    gtag('event', 'ImportSelectedSheets', { game_code: gameCode.value });
   } catch (e) {
     // eslint-disable-next-line no-alert
     window.alert(`An error occurred while loading '${files[0].name}':\n\n${e}`);

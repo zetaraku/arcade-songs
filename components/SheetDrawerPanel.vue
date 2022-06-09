@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { ref, watch, inject, Ref, ComputedRef } from '@nuxtjs/composition-api';
+import { useI18n } from 'nuxt-i18n-composable';
 import confetti from 'canvas-confetti';
-import useVM from '~/composables/useVM';
+import useGtag from '~/composables/useGtag';
 import useGameInfo from '~/composables/useGameInfo';
 import useSheetDialog from '~/composables/useSheetDialog';
 import { mod, RICK_SHEET } from '~/utils';
@@ -13,7 +14,8 @@ const isDarkMode: Ref<boolean> = inject('isDarkMode')!;
 const comboDrawer: ItemDrawer<Sheet> = inject('comboDrawer')!;
 const drawingPool: ComputedRef<Sheet[]> = inject('drawingPool')!;
 
-const vm = useVM();
+const i18n = useI18n();
+const gtag = useGtag();
 const { gameCode, themeColor } = useGameInfo();
 const {
   viewSheet,
@@ -27,7 +29,7 @@ const drawModeIndex = ref(0);
 async function drawSheet() {
   if (drawingPool.value.length === 0) {
     // eslint-disable-next-line no-alert
-    window.alert(vm.$t('description.drawPoolEmpty'));
+    window.alert(i18n.t('description.drawPoolEmpty'));
     return;
   }
 
@@ -35,13 +37,13 @@ async function drawSheet() {
   const isFinished = await startDrawingSheet();
 
   if (isFinished) {
-    (vm as any).$gtag('event', 'RandomSongDrawn', { game_code: gameCode.value });
+    gtag('event', 'RandomSongDrawn', { game_code: gameCode.value });
   }
 }
 async function drawCombo() {
   if (drawingPool.value.length === 0) {
     // eslint-disable-next-line no-alert
-    window.alert(vm.$t('description.drawPoolEmpty'));
+    window.alert(i18n.t('description.drawPoolEmpty'));
     return;
   }
 
@@ -53,7 +55,7 @@ async function drawCombo() {
   const isFinished = await comboDrawer.startDrawing();
 
   if (isFinished) {
-    (vm as any).$gtag('event', 'RandomComboDrawn', { game_code: gameCode.value });
+    gtag('event', 'RandomComboDrawn', { game_code: gameCode.value });
   }
 }
 async function toggleLightSwitch() {
@@ -62,7 +64,7 @@ async function toggleLightSwitch() {
   confetti({ particleCount: 100, spread: 60, origin: { y: 0.6 }, zIndex: 999 });
 
   if (isDarkMode.value) {
-    (vm as any).$gtag('event', 'SecretFound', { game_code: gameCode.value, no: 1 });
+    gtag('event', 'SecretFound', { game_code: gameCode.value, no: 1 });
   }
 }
 

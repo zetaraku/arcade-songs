@@ -1,14 +1,14 @@
 <script setup lang="ts">
 /* eslint-disable import/first, import/no-duplicates */
 import { ref, computed, watch, inject, useMeta as useHead, Ref } from '@nuxtjs/composition-api';
+import { useI18n } from 'nuxt-i18n-composable';
 import useDataStore from '~/stores/data';
-import useVM from '~/composables/useVM';
 import useSheetDialog from '~/composables/useSheetDialog';
 import type { GalleryList } from '~/types';
 
 const isDarkMode: Ref<boolean> = inject('isDarkMode')!;
 
-const vm = useVM();
+const i18n = useI18n();
 const dataStore = useDataStore();
 const { viewSheet } = useSheetDialog();
 
@@ -19,7 +19,7 @@ const lists = computed(
 );
 
 useHead(() => ({
-  title: vm.$t('page-title.gallery') as string,
+  title: i18n.t('page-title.gallery') as string,
 }));
 
 watch(lists, () => {

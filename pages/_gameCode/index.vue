@@ -1,8 +1,8 @@
 <script setup lang="ts">
 /* eslint-disable import/first, import/no-duplicates */
-import { ref, computed, watch, provide, inject, onMounted, useMeta as useHead, Ref } from '@nuxtjs/composition-api';
+import { ref, computed, watch, provide, inject, onMounted, useRoute, useRouter, useMeta as useHead, useContext, Ref } from '@nuxtjs/composition-api';
+import { useI18n } from 'nuxt-i18n-composable';
 import useDataStore from '~/stores/data';
-import useVM from '~/composables/useVM';
 import useGameInfo from '~/composables/useGameInfo';
 import { buildEmptyFilters, buildFilterOptions, loadFiltersFromQuery, filterSheets, NULL_SHEET, RICK_SHEET } from '~/utils';
 import ItemDrawer from '~/utils/ItemDrawer';
@@ -10,7 +10,10 @@ import type { Sheet } from '~/types';
 
 const isDarkMode: Ref<boolean> = inject('isDarkMode')!;
 
-const vm = useVM();
+const context = useContext();
+const route = useRoute();
+const router = useRouter();
+const i18n = useI18n();
 const { gameTitle } = useGameInfo();
 const dataStore = useDataStore();
 const data = computed(() => dataStore.currentData);
@@ -20,7 +23,7 @@ const displayMode = ref('grid');
 const drawMode = ref('single');
 
 const filters = ref(buildEmptyFilters());
-const filterOptions = computed(() => buildFilterOptions(data.value, vm.$t.bind(vm)));
+const filterOptions = computed(() => buildFilterOptions(data.value, i18n.t));
 
 const comboDrawer = new ItemDrawer<Sheet>({ drawSize: 4 });
 
@@ -47,8 +50,8 @@ const displayingSheets = computed(() => {
 });
 
 onMounted(() => {
-  filters.value = loadFiltersFromQuery(vm.$route.query as Record<string, string>);
-  vm.$router.replace({ query: {} }).catch((err) => {
+  filters.value = loadFiltersFromQuery(route.value.query as Record<string, string>);
+  router.replace({ query: {} }).catch((err) => {
     // Ignore the error regarding navigating to the page they are already on.
     if (err.name !== 'NavigationDuplicated') throw err;
   });
@@ -56,7 +59,7 @@ onMounted(() => {
 
 useHead(() => ({
   titleTemplate: '%s',
-  title: `${gameTitle.value} | ${vm.$config.siteTitle}`,
+  title: `${gameTitle.value} | ${context.$config.siteTitle}`,
 }));
 
 watch(drawMode, () => {

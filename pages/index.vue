@@ -1,15 +1,15 @@
 <script setup lang="ts">
 /* eslint-disable import/first, import/no-duplicates */
 import { inject, useMeta as useHead, Ref } from '@nuxtjs/composition-api';
-import useVM from '~/composables/useVM';
+import { useI18n } from 'nuxt-i18n-composable';
 import sites from '~/assets/sites.json';
 
 const isDarkMode: Ref<boolean> = inject('isDarkMode')!;
 
-const vm = useVM();
+const i18n = useI18n();
 
 useHead(() => ({
-  title: vm.$t('page-title.home') as string,
+  title: i18n.t('page-title.home') as string,
 }));
 </script>
 

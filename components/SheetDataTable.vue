@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, watch, inject, Ref } from '@nuxtjs/composition-api';
-import useVM from '~/composables/useVM';
+import { useI18n } from 'nuxt-i18n-composable';
 import useGameInfo from '~/composables/useGameInfo';
 import useGameData from '~/composables/useGameData';
 import useSheetDialog from '~/composables/useSheetDialog';
@@ -16,7 +16,7 @@ const pageCount: Ref<number> = inject('pageCount')!;
 const currentPage: Ref<number> = inject('currentPage')!;
 const currentSheets: Ref<Sheet[]> = inject('currentSheets')!;
 
-const vm = useVM();
+const i18n = useI18n();
 const { gameCode } = useGameInfo();
 const {
   getCategoryIndex,
@@ -87,7 +87,7 @@ const optionalHeaders: Record<string, DataTableHeader[]> = {
       width: 50,
     },
     {
-      text: vm.$t('term.totalNotes') as string,
+      text: i18n.t('term.totalNotes') as string,
       value: 'noteCounts.total',
       width: 50,
     },
@@ -100,30 +100,30 @@ const headers = computed<DataTableHeader[]>(() => [
     width: 10,
   },
   {
-    text: vm.$t('term.category') as string,
+    text: i18n.t('term.category') as string,
     value: 'category',
     width: 200,
     sort: (a: string, b: string) => getCategoryIndex(a) - getCategoryIndex(b),
   },
   {
-    text: vm.$t('term.title') as string,
+    text: i18n.t('term.title') as string,
     value: 'title',
     width: 300,
   },
   {
-    text: vm.$t('term.type') as string,
+    text: i18n.t('term.type') as string,
     value: 'type',
     width: 75,
     sort: (a: string, b: string) => getTypeIndex(a) - getTypeIndex(b),
   },
   {
-    text: vm.$t('term.difficulty') as string,
+    text: i18n.t('term.difficulty') as string,
     value: 'difficulty',
     width: 100,
     sort: (a: string, b: string) => getDifficultyIndex(a) - getDifficultyIndex(b),
   },
   {
-    text: vm.$t('term.level') as string,
+    text: i18n.t('term.level') as string,
     value: 'levelValue',
     width: 100,
   },
@@ -131,17 +131,17 @@ const headers = computed<DataTableHeader[]>(() => [
   ...(optionalHeaders[gameCode.value!] ?? []),
 
   {
-    text: vm.$t('term.bpm') as string,
+    text: i18n.t('term.bpm') as string,
     value: 'bpm',
     width: 50,
   },
   {
-    text: vm.$t('term.noteDesigner') as string,
+    text: i18n.t('term.noteDesigner') as string,
     value: 'noteDesigner',
     width: 150,
   },
   {
-    text: vm.$t('term.version') as string,
+    text: i18n.t('term.version') as string,
     value: 'version',
     width: 150,
     sort: (a: string, b: string) => getVersionIndex(a) - getVersionIndex(b),
