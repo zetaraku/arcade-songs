@@ -390,28 +390,28 @@ export function filterSheets(sheets: Sheet[], filters: Filters) {
   }
   if (filters.categories.length !== 0) {
     result = result.filter((sheet) => filters.categories.some(
-      (category) => sheet.category != null && sheet.category.split('|').includes(category),
+      (category) => sheet.category === category || (sheet.category?.split('|').includes(category) ?? false),
     ));
   }
   if (filters.title != null) {
     const normalizedTitle = filters.title.toLowerCase();
     result = result.filter(
-      (sheet) => sheet.title != null && sheet.title.toLowerCase().includes(normalizedTitle),
+      (sheet) => sheet.title?.toLowerCase().includes(normalizedTitle) ?? false,
     );
   }
   if (filters.versions.length !== 0) {
     result = result.filter(
-      (sheet) => sheet.version != null && filters.versions.includes(sheet.version),
+      (sheet) => filters.versions.includes(sheet.version!),
     );
   }
   if (filters.types.length !== 0) {
     result = result.filter(
-      (sheet) => sheet.type != null && filters.types.includes(sheet.type),
+      (sheet) => filters.types.includes(sheet.type!),
     );
   }
   if (filters.difficulties.length !== 0) {
     result = result.filter(
-      (sheet) => sheet.difficulty != null && filters.difficulties.includes(sheet.difficulty),
+      (sheet) => filters.difficulties.includes(sheet.difficulty!),
     );
   }
   if (typeof filters.minLevelValue === 'number') {
@@ -437,12 +437,12 @@ export function filterSheets(sheets: Sheet[], filters: Filters) {
   if (filters.artist != null) {
     const normalizedArtist = filters.artist.toLowerCase();
     result = result.filter(
-      (sheet) => sheet.artist != null && sheet.artist.toLowerCase().includes(normalizedArtist),
+      (sheet) => sheet.artist?.toLowerCase().includes(normalizedArtist) ?? false,
     );
   }
   if (filters.noteDesigners.length !== 0) {
     result = result.filter(
-      (sheet) => sheet.noteDesigner != null && filters.noteDesigners.includes(sheet.noteDesigner),
+      (sheet) => filters.noteDesigners.includes(sheet.noteDesigner!),
     );
   }
 
