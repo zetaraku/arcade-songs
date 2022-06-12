@@ -12,6 +12,7 @@ export class PageNotFoundError extends Error {
 }
 
 export const NULL_SHEET: Sheet = {
+  songId: null,
   songNo: 0,
 
   category: '???',
@@ -32,6 +33,7 @@ export const NULL_SHEET: Sheet = {
 };
 
 export const RICK_SHEET: Sheet = {
+  songId: null,
   songNo: -1,
 
   category: 'Whenever You Need Somebody',
@@ -75,7 +77,7 @@ export function toPercentageString(n: number | undefined) {
 }
 
 export function computeSheetExpr(sheet: Sheet) {
-  return `${sheet.title}|${sheet.type}-${sheet.difficulty}`;
+  return `${sheet.songId}|${sheet.type}-${sheet.difficulty}`;
 }
 
 export function makeDummySheet(sheetExpr: string): Sheet {
@@ -86,6 +88,7 @@ export function makeDummySheet(sheetExpr: string): Sheet {
 
   if (match === null) {
     return {
+      songId: null,
       songNo: 0,
 
       category: 'INVALID SHEET EXPR',
@@ -108,6 +111,7 @@ export function makeDummySheet(sheetExpr: string): Sheet {
 
   const [, title, type, difficulty] = match;
   return {
+    songId: null,
     songNo: 0,
 
     category: 'UNMATCHED SHEET',

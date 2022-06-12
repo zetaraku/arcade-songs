@@ -1,6 +1,8 @@
 import type { Sheet } from './Sheet';
 
 export type Song = {
+  songId: string | null;
+
   category?: string;
   title?: string;
   artist?: string;

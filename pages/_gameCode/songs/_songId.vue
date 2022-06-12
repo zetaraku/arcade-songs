@@ -1,13 +1,15 @@
 <script setup lang="ts">
 /* eslint-disable import/first, import/no-duplicates */
-import { computed, useRoute, useMeta as useHead } from '@nuxtjs/composition-api';
+import { computed, useRoute, useMeta as useHead, useContext } from '@nuxtjs/composition-api';
 import { useI18n } from 'nuxt-i18n-composable';
 import useDataStore from '~/stores/data';
 import useGameInfo from '~/composables/useGameInfo';
 import useGameData from '~/composables/useGameData';
 import useSheetDialog from '~/composables/useSheetDialog';
-import { validateNoteCounts } from '~/utils';
+import LoadingStatus from '~/enums/LoadingStatus';
+import { validateNoteCounts, PageNotFoundError } from '~/utils';
 
+const context = useContext();
 const i18n = useI18n();
 const route = useRoute();
 const dataStore = useDataStore();
@@ -23,9 +25,18 @@ const {
   viewSheet,
 } = useSheetDialog();
 
-const title = route.value.params.title!;
+const { songId } = route.value.params;
 const song = computed(
-  () => dataStore.currentData.songs.find((song) => song.title === title) ?? null,
+  () => {
+    const foundSong = dataStore.currentData.songs.find((song) => song.songId === songId);
+    if (foundSong !== undefined) {
+      return foundSong;
+    }
+    if (dataStore.currentLoadingStatus === LoadingStatus.LOADED) {
+      context.error(new PageNotFoundError());
+    }
+    return null;
+  },
 );
 
 const extraSheetHeaders = computed(() => {
@@ -42,7 +53,7 @@ const extraSheetHeaders = computed(() => {
 });
 
 useHead(() => ({
-  title: `${title} | ${i18n.t('page-title.songs')}`,
+  title: `${song.value?.title} | ${i18n.t('page-title.songs')}`,
 }));
 </script>
 
