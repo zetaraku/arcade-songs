@@ -34,6 +34,7 @@ term:
   level: レベル
   minLevel: 最小レベル
   maxLevel: 最大レベル
+  internalLevel: 譜面定数
   noteDesigner: 譜面制作者
   totalNotes: ノーツ総数
   region: 地区

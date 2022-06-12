@@ -127,6 +127,11 @@ const headers = computed<DataTableHeader[]>(() => [
     value: 'levelValue',
     width: 100,
   },
+  {
+    text: i18n.t('term.internalLevel') as string,
+    value: 'internalLevelValue',
+    width: 100,
+  },
 
   ...(optionalHeaders[gameCode.value!] ?? []),
 

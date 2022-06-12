@@ -34,6 +34,7 @@ term:
   level: 等級
   minLevel: 最低等級
   maxLevel: 最高等級
+  internalLevel: 譜面定數
   noteDesigner: 譜面製作者
   totalNotes: 總計
   region: 地區

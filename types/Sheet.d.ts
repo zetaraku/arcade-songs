@@ -5,6 +5,8 @@ export type Sheet = (Omit<Song, 'sheets'> & {
   difficulty?: string;
   level?: string;
   levelValue?: number;
+  internalLevel?: string;
+  internalLevelValue?: number;
 
   noteDesigner?: string;
   noteCounts?: Record<string, number | null>;

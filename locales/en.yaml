@@ -34,6 +34,7 @@ term:
   level: Level
   minLevel: Min Level
   maxLevel: Max Level
+  internalLevel: Internal Level
   noteDesigner: Notes Designer
   totalNotes: TOTAL
   region: Region

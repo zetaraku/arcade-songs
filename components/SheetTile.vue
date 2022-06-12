@@ -89,6 +89,13 @@ const {
                 transform: translate(0%, +50%);
                 vertical-align: middle;"
             >
+
+            <!-- sheet internal level -->
+            <span
+              v-if="sheet.internalLevel != null"
+              class="SheetInternalLevel"
+              v-text="sheet.internalLevel"
+            />
           </div>
         </div>
       </template>
@@ -181,6 +188,21 @@ const {
       overflow: hidden;
       max-width: 100%;
       max-height: 100%;
+    }
+    .SheetInternalLevel {
+      display: inline-block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 0 3px;
+      min-width: 40px;
+      border-radius: 3px;
+      transform: translate(-50%, -50%);
+
+      font-weight: bold;
+      text-align: center;
+      color: white;
+      background-color: gray;
     }
 
     &.dark-style {

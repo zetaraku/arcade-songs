@@ -34,6 +34,7 @@ term:
   level: 等级
   minLevel: 最低等级
   maxLevel: 最高等级
+  internalLevel: 谱面定数
   noteDesigner: 谱面制作者
   totalNotes: 总计
   region: 地区

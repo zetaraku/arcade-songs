@@ -167,6 +167,9 @@ export default defineComponent({
               <th class="px-2">
                 <span v-text="$t('term.level')" />
               </th>
+              <th class="px-2">
+                <span v-text="$t('term.internalLevel')" />
+              </th>
               <th
                 v-for="(header, j) in extraSheetHeaders"
                 :key="j"
@@ -199,6 +202,9 @@ export default defineComponent({
                 </td>
                 <td>
                   <span v-text="sheet.level" />
+                </td>
+                <td>
+                  <span v-text="sheet.internalLevel" />
                 </td>
                 <td
                   v-for="(header, j) in extraSheetHeaders"
