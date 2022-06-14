@@ -81,7 +81,7 @@ export function computeSheetExpr(sheet: Sheet) {
 }
 
 export function makeDummySheet(sheetExpr: string): Sheet {
-  const match = sheetExpr.match(/^(.*)\|(\w*)-(\w*)$/);
+  const match = sheetExpr.match(/^(.*)\|(.*)-(.*)$/);
 
   // eslint-disable-next-line no-console
   console.warn(`Sheet for expr '${sheetExpr}' is not found.`);
