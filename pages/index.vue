@@ -30,11 +30,9 @@ export default defineComponent({
           mdi-music-box-multiple
         </v-icon>
         <h1 class="mb-5">
-          arcade-songs
+          <span>arcade-songs</span>
         </h1>
-        <p>
-          Search songs of your favorite arcade music games, now all in one.
-        </p>
+        <p v-text="$t('page.index.description')" />
       </v-col>
       <v-col cols="12" md="6">
         <v-list

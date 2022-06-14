@@ -53,6 +53,8 @@ description:
 
 # Pages
 page:
+  index:
+    description: 在这里搜索你最喜欢的音乐游戏乐曲！
   gallery:
     selectList: 选择乐曲列表
   songs:

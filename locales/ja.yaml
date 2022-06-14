@@ -53,6 +53,8 @@ description:
 
 # Pages
 page:
+  index:
+    description: 好きな音ゲー楽曲をここで探してみよう！
   gallery:
     selectList: 曲リスト選択
   songs:

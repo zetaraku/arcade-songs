@@ -53,6 +53,8 @@ description:
 
 # Pages
 page:
+  index:
+    description: 在這裡搜尋你最喜歡的音樂遊戲歌曲！
   gallery:
     selectList: 選擇歌曲列表
   songs:
