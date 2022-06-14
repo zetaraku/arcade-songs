@@ -77,16 +77,16 @@ export function toPercentageString(n: number | undefined) {
 }
 
 export function computeSheetExpr(sheet: Sheet) {
-  return `${sheet.songId}|${sheet.type}-${sheet.difficulty}`;
+  return `${sheet.songId}|${sheet.type}|${sheet.difficulty}`;
 }
 
 export function makeDummySheet(sheetExpr: string): Sheet {
-  const match = sheetExpr.match(/^(.*)\|(.*)-(.*)$/);
+  const match = sheetExpr.split('|');
 
   // eslint-disable-next-line no-console
   console.warn(`Sheet for expr '${sheetExpr}' is not found.`);
 
-  if (match === null) {
+  if (match.length !== 3) {
     return {
       songId: null,
       songNo: 0,
@@ -109,7 +109,7 @@ export function makeDummySheet(sheetExpr: string): Sheet {
     };
   }
 
-  const [, title, type, difficulty] = match;
+  const [title, type, difficulty] = match;
   return {
     songId: null,
     songNo: 0,
