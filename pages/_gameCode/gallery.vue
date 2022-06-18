@@ -66,9 +66,11 @@ export default defineComponent({
         :class="{ 'yellow--text': currentList.isHidden }"
       >
         <!-- Section title -->
-        <h1 class="text-pre-wrap mb-4">
-          <span v-text="section.title" />
-        </h1>
+        <h1
+          v-if="section.title != null"
+          class="text-pre-wrap mb-4"
+          v-text="section.title"
+        />
 
         <!-- Section description -->
         <p
@@ -78,7 +80,10 @@ export default defineComponent({
         />
 
         <!-- Sheets -->
-        <div class="d-flex flex-wrap justify-center">
+        <div
+          v-if="section.sheets != null"
+          class="d-flex flex-wrap justify-center"
+        >
           <!-- Sheet tile -->
           <SheetTile
             v-for="(sheet, j) in section.sheets"

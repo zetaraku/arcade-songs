@@ -78,7 +78,7 @@ export default defineStore('data', {
           ...page,
           sections: page.sections.map((section: Record<string, any>) => ({
             ...section,
-            sheets: section.sheets.map(
+            sheets: section.sheets?.map(
               (sheetExpr: string) => this.currentData.sheets.find(
                 (sheet) => sheet.sheetExpr === sheetExpr,
               ) ?? makeDummySheet(sheetExpr),
