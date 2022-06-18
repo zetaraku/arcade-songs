@@ -101,7 +101,7 @@ export default defineComponent({
         </li>
         <li>
           {{ $t('page.about.sheetInfo') }} －
-          <a href="http://bemaniwiki.com/index.php?SOUND%20VOLTEX%20VIVID%20WAVE" target="_blank">SOUND VOLTEX - BEMANIWiki 2nd</a>
+          <a href="https://w.atwiki.jp/sdvx/" target="_blank">SOUND VOLTEX @ wiki | サウンドボルテックス - atwiki（アットウィキ）</a>
           － {{ $t('page.about.sheetInfoDescription') }}
         </li>
       </template>
