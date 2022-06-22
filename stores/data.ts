@@ -1,3 +1,4 @@
+import YAML from 'yaml';
 import { defineStore } from 'pinia';
 import LoadingStatus from '~/enums/LoadingStatus';
 import sites from '~/assets/sites.json';
@@ -71,8 +72,8 @@ export default defineStore('data', {
       try {
         const { dataSourceUrl } = sites.find((site) => site.gameCode === gameCode)!;
 
-        const response = await fetch(`${dataSourceUrl}/gallery.json`);
-        const data = await response.json();
+        const response = await fetch(`${dataSourceUrl}/gallery.yaml`);
+        const data = YAML.parse(await response.text());
 
         const gallery = data.map((page: Record<string, any>) => ({
           ...page,
