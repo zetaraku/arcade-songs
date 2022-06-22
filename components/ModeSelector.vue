@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { inject, Ref } from '@nuxtjs/composition-api';
 import { useI18n } from 'nuxt-i18n-composable';
+import YAML from 'yaml';
 import QueryString from 'query-string';
 import copyToClipboard from 'copy-to-clipboard';
 import FileSaver from 'file-saver';
@@ -46,14 +47,12 @@ async function exportSelectedSheets() {
   }
 
   try {
-    const json = JSON.stringify(
+    const yaml = YAML.stringify(
       [...selectedSheets.value.map((sheet) => computeSheetExpr(sheet))],
-      null,
-      '\t',
     );
     FileSaver.saveAs(
-      new Blob([json], { type: 'application/json; charset=utf-8;' }),
-      `${gameCode.value}-mylist-${toLocalISODateString(new Date()).replaceAll('-', '')}.json`,
+      new Blob([yaml], { type: 'application/yaml; charset=utf-8;' }),
+      `${gameCode.value}-mylist-${toLocalISODateString(new Date()).replaceAll('-', '')}.yaml`,
     );
 
     gtag('event', 'ExportSelectedSheets', { game_code: gameCode.value });
@@ -63,13 +62,13 @@ async function exportSelectedSheets() {
   }
 }
 async function importSelectedSheets() {
-  const files = await selectFiles({ accept: 'application/json', multiple: false });
+  const files = await selectFiles({ accept: '.yaml', multiple: false });
 
   if (files === null || files.length === 0) return;
 
   try {
     const file = files[0];
-    const sheetExprs = [...new Set(JSON.parse(await file.text()))] as string[];
+    const sheetExprs = [...new Set(YAML.parse(await file.text()))] as string[];
 
     const loadedSheets = sheetExprs.map(
       (sheetExpr) => dataStore.currentData.sheets.find(
