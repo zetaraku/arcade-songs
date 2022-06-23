@@ -6,11 +6,13 @@ export type Song = {
   category?: string;
   title?: string;
   artist?: string;
+  bpm?: number;
+
   imageName?: string;
 
   version?: string;
   releaseDate?: string;
-  bpm?: number;
+
   isNew?: boolean;
   isLocked?: boolean;
 

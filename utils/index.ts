@@ -94,17 +94,22 @@ export function makeDummySheet(sheetExpr: string): Sheet {
       category: 'INVALID SHEET EXPR',
       title: sheetExpr,
       artist: undefined,
+      bpm: undefined,
+
+      imageName: undefined,
       imageUrl: undefined,
 
       version: undefined,
-      bpm: undefined,
+      releaseDate: undefined,
 
       type: '??',
       difficulty: 'invalid',
+
       level: undefined,
       levelValue: undefined,
 
       noteDesigner: 'This sheet expr is not in a valid format.',
+
       searchUrl: null,
     };
   }
@@ -117,17 +122,22 @@ export function makeDummySheet(sheetExpr: string): Sheet {
     category: 'UNMATCHED SHEET',
     title,
     artist: undefined,
+    bpm: undefined,
+
+    imageName: undefined,
     imageUrl: undefined,
 
     version: undefined,
-    bpm: undefined,
+    releaseDate: undefined,
 
     type,
     difficulty,
+
     level: undefined,
     levelValue: undefined,
 
     noteDesigner: 'This sheet expr doesn\'t match with any sheets.',
+
     searchUrl: null,
   };
 }
