@@ -86,7 +86,7 @@ export function makeDummySheet(sheetExpr: string): Sheet {
   // eslint-disable-next-line no-console
   console.warn(`Sheet for expr '${sheetExpr}' is not found.`);
 
-  if (match.length !== 3) {
+  if (match.length < 3) {
     return {
       songId: null,
       songNo: 0,
@@ -114,7 +114,8 @@ export function makeDummySheet(sheetExpr: string): Sheet {
     };
   }
 
-  const [title, type, difficulty] = match;
+  const [title, type, difficulty, level = undefined] = match;
+
   return {
     songId: null,
     songNo: 0,
@@ -133,7 +134,7 @@ export function makeDummySheet(sheetExpr: string): Sheet {
     type,
     difficulty,
 
-    level: undefined,
+    level,
     levelValue: undefined,
 
     noteDesigner: 'This sheet expr doesn\'t match with any sheets.',
