@@ -67,9 +67,10 @@ export default defineComponent({
           － {{ $t('page.about.sheetInfoDescription') }}
         </li>
         <li>
-          中国版 (舞萌DX) {{ $t('page.about.sheetInfo') }}
-          － <a href="https://github.com/CrazyKidCN/maimaiDX-CN-songs-database" target="_blank">CrazyKidCN/maimaiDX-CN-songs-database</a>
-          <i class="ml-1">(Thanks <a href="https://github.com/CrazyKidCN" target="_blank">@CrazyKidCN</a> !)</i>
+          中国版 (舞萌DX) {{ $t('page.about.sheetInfo') }} －
+          <a class="text-decoration-none" href="https://github.com/CrazyKidCN/maimaiDX-CN-songs-database" target="_blank">
+            <v-icon small left color="#24292e">mdi-github</v-icon><span>CrazyKidCN/maimaiDX-CN-songs-database</span>
+          </a> <i>(Thanks <a href="https://github.com/CrazyKidCN" target="_blank">@CrazyKidCN</a> !)</i>
         </li>
       </template>
       <template v-if="gameCode === 'wacca'">
@@ -236,8 +237,9 @@ export default defineComponent({
           <li>feature: (Filter) region filter "China ver. (舞萌DX)" is now available</li>
           <li>
             Data source:
-            <v-icon small color="#24292e" class="mr-1">mdi-github</v-icon><a href="https://github.com/CrazyKidCN/maimaiDX-CN-songs-database" target="_blank">CrazyKidCN/maimaiDX-CN-songs-database</a>
-            <i class="ml-1">(Thanks <a href="https://github.com/CrazyKidCN" target="_blank">@CrazyKidCN</a> !)</i>
+            <a class="text-decoration-none" href="https://github.com/CrazyKidCN/maimaiDX-CN-songs-database" target="_blank">
+              <v-icon small left color="#24292e">mdi-github</v-icon><span>CrazyKidCN/maimaiDX-CN-songs-database</span>
+            </a> <i>(Thanks <a href="https://github.com/CrazyKidCN" target="_blank">@CrazyKidCN</a> !)</i>
           </li>
         </ul>
       </v-timeline-item>
