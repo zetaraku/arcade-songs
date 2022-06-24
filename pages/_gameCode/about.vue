@@ -67,6 +67,12 @@ export default defineComponent({
           － {{ $t('page.about.sheetInfoDescription') }}
         </li>
         <li>
+          {{ $t('term.internalLevel') }} －
+          <a class="text-decoration-none" href="https://twitter.com/rcmf_maimai" target="_blank">
+            <v-icon small left color="#1da1f2">mdi-twitter</v-icon><span>maimai譜面定数メインフレーム</span>
+          </a> <i>(Thanks <a href="https://twitter.com/rcmf_maimai" target="_blank">@RCMF_maimai</a> !)</i>
+        </li>
+        <li>
           中国版 (舞萌DX) {{ $t('page.about.sheetInfo') }} －
           <a class="text-decoration-none" href="https://github.com/CrazyKidCN/maimaiDX-CN-songs-database" target="_blank">
             <v-icon small left color="#24292e">mdi-github</v-icon><span>CrazyKidCN/maimaiDX-CN-songs-database</span>
@@ -186,6 +192,19 @@ export default defineComponent({
 
     <h3>{{ $t('page.about.updateRecord') }}</h3>
     <v-timeline dense align-top class="mt-2">
+      <v-timeline-item>
+        <span class="font-weight-bold">2022/06/12 － v2.14 Update</span>
+        <ul>
+          <li>feature: (Data) add sheet internal level information (maimai)</li>
+          <li>
+            Data source:
+            <a class="text-decoration-none" href="https://twitter.com/rcmf_maimai" target="_blank">
+              <v-icon small left color="#1da1f2">mdi-twitter</v-icon><span>maimai譜面定数メインフレーム</span>
+            </a> <i>(Thanks <a href="https://twitter.com/rcmf_maimai" target="_blank">@RCMF_maimai</a> !)</i>
+          </li>
+          <li>misc: (Data) now each song will have an unique id</li>
+        </ul>
+      </v-timeline-item>
       <v-timeline-item>
         <span class="font-weight-bold">2022/04/24 － v2.13 Update</span>
         <ul>
