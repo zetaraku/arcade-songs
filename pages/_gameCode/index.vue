@@ -95,7 +95,6 @@ export default defineComponent({
     <DataInfoBar class="mb-6" />
 
     <SheetFilter class="px-3" />
-    <div id="drawComboAnchor" />
     <ModeSelector class="px-3 py-3" />
 
     <SheetDrawerPanel />

@@ -124,6 +124,8 @@ async function importSelectedSheets() {
         sm="6"
         class="d-flex justify-center align-center"
       >
+        <div id="drawComboAnchor" />
+
         <v-radio-group
           v-model="filterMode"
           row
