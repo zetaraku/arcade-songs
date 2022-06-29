@@ -192,6 +192,12 @@ export default defineComponent({
 
     <h3>{{ $t('page.about.updateRecord') }}</h3>
     <v-timeline dense align-top class="mt-2">
+      <v-timeline-item small color="grey">
+        <span class="font-weight-bold">2022/06/29 － v2.14.1 Update</span>
+        <ul>
+          <li>misc: (Data) adapt .webp format for cover images to speed up the loading time 🚅⚡</li>
+        </ul>
+      </v-timeline-item>
       <v-timeline-item icon="mdi-flag-variant">
         <span class="font-weight-bold">2022/06/24 － 30000 visits reached</span>
         <ul>

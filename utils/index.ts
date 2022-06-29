@@ -181,6 +181,7 @@ export function preprocessData(data: Data, dataSourceUrl: string) {
     lastSongNo += 1;
     song.songNo = lastSongNo;
     song.imageUrl = resolveUrl(song.imageName, `${dataSourceUrl}/img/cover/`);
+    song.imageUrlM = resolveUrl(song.imageName, `${dataSourceUrl}/img/cover-m/`);
 
     for (const sheet of song.sheets) {
       Object.setPrototypeOf(sheet, song);

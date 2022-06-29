@@ -21,4 +21,5 @@ export type Song = {
   // added by preprocessing
   songNo: number;
   imageUrl?: string;
+  imageUrlM?: string;
 };

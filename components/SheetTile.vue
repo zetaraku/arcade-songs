@@ -52,11 +52,17 @@ const {
             :class="{ 'dark-style': isDarkMode }"
           >
             <!-- sheet cover image -->
-            <img
-              :src="sheet.imageUrl"
-              alt=""
-              class="CoverImage"
-            >
+            <picture>
+              <source
+                :srcset="sheet.imageUrlM"
+                type="image/webp"
+              >
+              <img
+                :src="sheet.imageUrl"
+                alt=""
+                class="CoverImage"
+              >
+            </picture>
 
             <!-- sheet title (if the default cover image is used) -->
             <span
