@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, computed, watch, inject, Ref } from '@nuxtjs/composition-api';
-import copy from 'copy-to-clipboard';
+import copyToClipboard from 'copy-to-clipboard';
 import useDataStore from '~/stores/data';
 import useGtag from '~/composables/useGtag';
 import useGameInfo from '~/composables/useGameInfo';
@@ -44,7 +44,7 @@ const imageSrc = computed(() => {
 function copyText(text: string | undefined) {
   if (text == null) return;
 
-  copy(text, {
+  copyToClipboard(text, {
     format: 'text/plain',
   });
 
