@@ -46,6 +46,11 @@ const menu = computed(() => [
     title: i18n.t('page-title.bug-report'),
     href: context.$config.siteReportUrl,
   },
+  {
+    icon: 'mdi-github',
+    title: i18n.t('page-title.source-code'),
+    href: context.$config.sourceCodeUrl,
+  },
 ]);
 
 useHead(() => {
