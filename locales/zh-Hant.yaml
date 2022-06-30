@@ -18,6 +18,9 @@ ui:
   search: 搜尋
   goBack: 返回
   all: 全部
+  default: 預設
+  sort-asc: 升序
+  sort-desc: 降序
 
 # Terminologies
 term:

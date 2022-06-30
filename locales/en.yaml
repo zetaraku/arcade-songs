@@ -18,6 +18,9 @@ ui:
   search: Search
   goBack: Go Back
   all: ALL
+  default: Default
+  sort-asc: ASC
+  sort-desc: DESC
 
 # Terminologies
 term:

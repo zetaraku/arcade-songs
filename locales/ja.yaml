@@ -18,6 +18,9 @@ ui:
   search: 検索
   goBack: 戻る
   all: すべて
+  default: デフォルト
+  sort-asc: 昇順
+  sort-desc: 降順
 
 # Terminologies
 term:
