@@ -14,6 +14,8 @@ const sheetsPerPage: Ref<number> = inject('sheetsPerPage')!;
 const pageCount: Ref<number> = inject('pageCount')!;
 const currentPage: Ref<number> = inject('currentPage')!;
 const currentSheets: Ref<Sheet[]> = inject('currentSheets')!;
+const sortBy: Ref<string> = inject('sortBy')!;
+const sortDesc: Ref<boolean> = inject('sortDesc')!;
 
 const { gameCode } = useGameInfo();
 const {
@@ -55,6 +57,8 @@ watch(sheets, () => {
       :item-class="getItemClass"
       :items-per-page="sheetsPerPage"
       :page.sync="currentPage"
+      :sort-by.sync="sortBy"
+      :sort-desc.sync="sortDesc"
       must-sort
       hide-default-footer
       @page-count="pageCount = $event;"

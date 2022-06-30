@@ -11,12 +11,16 @@ const sheetsPerPage = ref(48);
 const pageCount = ref(0);
 const currentPage = ref(1);
 const currentSheets = ref([]);
+const sortBy = ref(undefined);
+const sortDesc = ref(true);
 
 provide('sheets', toRef(props, 'sheets'));
 provide('sheetsPerPage', sheetsPerPage);
 provide('pageCount', pageCount);
 provide('currentPage', currentPage);
 provide('currentSheets', currentSheets);
+provide('sortBy', sortBy);
+provide('sortDesc', sortDesc);
 </script>
 
 <template>
