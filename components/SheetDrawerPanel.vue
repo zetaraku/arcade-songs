@@ -95,9 +95,8 @@ watch(drawModeIndex, () => {
     <v-btn
       v-if="drawMode === 'single'"
       large
-      dark
       :color="themeColor"
-      class="text-h6 ma-3"
+      class="text-h6 ma-3 white--text"
       @click="drawSheet();"
     >
       {{ $t('sfc.SheetDrawerPanel.drawRandomSheet') }}

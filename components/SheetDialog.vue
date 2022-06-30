@@ -113,12 +113,12 @@ watch(isOpened, () => {
           <v-tooltip v-if="sheet.searchUrl !== null" top>
             <template #activator="{ on }">
               <v-btn
-                dark
                 :fab="$vuetify.breakpoint.xsOnly"
                 :text="$vuetify.breakpoint.smAndUp"
                 :color="getSheetSearchLinkColor(sheet)"
                 :href="getSheetSearchLink(sheet)"
                 target="_blank"
+                class="white--text"
                 v-on="on"
                 @click="$gtag('event', 'SheetVideoSearched', { game_code: gameCode });"
               >
