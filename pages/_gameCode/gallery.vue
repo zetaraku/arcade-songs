@@ -3,6 +3,7 @@
 import { ref, computed, watch, inject, useMeta as useHead, Ref } from '@nuxtjs/composition-api';
 import { useI18n } from 'nuxt-i18n-composable';
 import useDataStore from '~/stores/data';
+import useGameInfo from '~/composables/useGameInfo';
 import useSheetDialog from '~/composables/useSheetDialog';
 import type { GalleryList } from '~/types';
 
@@ -10,6 +11,7 @@ const isDarkMode: Ref<boolean> = inject('isDarkMode')!;
 
 const i18n = useI18n();
 const dataStore = useDataStore();
+const { gameCode } = useGameInfo();
 const { viewSheet } = useSheetDialog();
 
 const currentList: Ref<GalleryList| null> = ref(null);
@@ -89,7 +91,7 @@ export default defineComponent({
             v-for="(sheet, j) in section.sheets"
             :key="j"
             :sheet="sheet"
-            @click="viewSheet(sheet);"
+            @click="viewSheet(sheet); $gtag('event', 'SheetViewed', { game_code: gameCode });"
           >
             <!-- Sheet description -->
             <template #description>

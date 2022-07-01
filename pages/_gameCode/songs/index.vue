@@ -3,12 +3,14 @@
 import { ref, computed, useMeta as useHead, ComputedRef } from '@nuxtjs/composition-api';
 import { useI18n } from 'nuxt-i18n-composable';
 import useDataStore from '~/stores/data';
+import useGameInfo from '~/composables/useGameInfo';
 import useGameData from '~/composables/useGameData';
 import useSheetDialog from '~/composables/useSheetDialog';
 import type { DataTableHeader } from 'vuetify';
 
 const i18n = useI18n();
 const dataStore = useDataStore();
+const { gameCode } = useGameInfo();
 const {
   getCategoryIndex,
   getVersionIndex,
@@ -118,7 +120,7 @@ export default defineComponent({
           rounded
           class="font-weight-bold text-none"
           :style="{ 'color': getDifficultyColor(sheet.difficulty) }"
-          @click="viewSheet(sheet);"
+          @click="viewSheet(sheet); $gtag('event', 'SheetViewed', { game_code: gameCode });"
         >
           <sub v-text="getTypeAbbr(sheet.type)" />
           <span v-text="sheet.level" />

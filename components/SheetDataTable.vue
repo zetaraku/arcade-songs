@@ -78,7 +78,7 @@ watch(sheets, () => {
         <v-btn
           icon
           color="cyan"
-          @click="viewSheet(sheet);"
+          @click="viewSheet(sheet); $gtag('event', 'SheetViewed', { game_code: gameCode });"
         >
           <v-icon>mdi-file-image</v-icon>
         </v-btn>
