@@ -1,15 +1,15 @@
 <script setup lang="ts">
 /* eslint-disable import/first, import/no-duplicates */
-import { inject, useMeta as useHead, Ref } from '@nuxtjs/composition-api';
-import { useI18n } from 'nuxt-i18n-composable';
+import { inject, useMeta as useHead, useContext, Ref } from '@nuxtjs/composition-api';
 import sites from '~/assets/sites.json';
 
 const isDarkMode: Ref<boolean> = inject('isDarkMode')!;
 
-const i18n = useI18n();
+const context = useContext();
 
 useHead(() => ({
-  title: i18n.t('page-title.home') as string,
+  titleTemplate: '%s',
+  title: `${context.$config.siteTitle}`,
 }));
 </script>
 
