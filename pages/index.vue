@@ -1,11 +1,44 @@
 <script setup lang="ts">
 /* eslint-disable import/first, import/no-duplicates */
-import { inject, useMeta as useHead, useContext, Ref } from '@nuxtjs/composition-api';
+import { ref, inject, useMeta as useHead, useContext, Ref } from '@nuxtjs/composition-api';
+import confetti from 'canvas-confetti';
+import sleep from 'sleep-promise';
+import useGtag from '~/composables/useGtag';
+import useGameInfo from '~/composables/useGameInfo';
+import useSheetDialog from '~/composables/useSheetDialog';
 import sites from '~/assets/sites.json';
+import { RICK_SHEET } from '~/utils';
 
 const isDarkMode: Ref<boolean> = inject('isDarkMode')!;
 
 const context = useContext();
+const gtag = useGtag();
+const { gameCode } = useGameInfo();
+const { viewSheet } = useSheetDialog();
+
+const toggleDuration = 6000;
+const toggle = ref(isDarkMode.value);
+const toggleTimeoutId = ref<number | undefined>(undefined);
+
+async function toggleLightSwitch() {
+  window.clearTimeout(toggleTimeoutId.value);
+  toggleTimeoutId.value = undefined;
+
+  toggle.value = !toggle.value;
+
+  toggleTimeoutId.value = window.setTimeout(async () => {
+    if (isDarkMode.value === toggle.value) return;
+
+    isDarkMode.value = toggle.value;
+
+    if (isDarkMode.value) {
+      await sleep(1000);
+      viewSheet(RICK_SHEET);
+      confetti({ particleCount: 100, spread: 60, origin: { y: 0.6 }, zIndex: 999 });
+      gtag('event', 'SecretFound', { game_code: gameCode.value, no: 1 });
+    }
+  }, toggleDuration);
+}
 
 useHead(() => ({
   titleTemplate: '%s',
@@ -25,8 +58,14 @@ export default defineComponent({
 <template>
   <v-container class="fill-height pa-8">
     <v-row class="align-center">
-      <v-col cols="12" md="6" class="text-center">
-        <v-icon :size="120" class="my-6">
+      <v-col cols="12" md="6" class="text-center" style="user-select: none;">
+        <v-icon
+          :size="120"
+          class="MagicLogo__icon my-6"
+          :class="{ 'MagicLogo__icon--active': toggle, 'MagicLogo__icon--dark': isDarkMode }"
+          :style="{ 'transition': `transform ${toggleDuration}ms !important` }"
+          @click="toggleLightSwitch();"
+        >
           mdi-music-box-multiple
         </v-icon>
         <h1 class="mb-5">
@@ -57,3 +96,26 @@ export default defineComponent({
     </v-row>
   </v-container>
 </template>
+
+<style lang="scss">
+.MagicLogo {
+  &__icon {
+    &::before {
+      transition: color 1000ms;
+    }
+    &::after {
+      display: none !important;
+    }
+
+    &--dark {
+      &::before {
+        color: yellow;
+      }
+    }
+
+    &--active {
+      transform: rotateZ(+5.125turn);
+    }
+  }
+}
+</style>
