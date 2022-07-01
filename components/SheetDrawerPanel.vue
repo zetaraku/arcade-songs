@@ -34,7 +34,7 @@ async function drawSheet() {
   const isFinished = await startDrawingSheet();
 
   if (isFinished) {
-    gtag('event', 'RandomSongDrawn', { game_code: gameCode.value });
+    gtag('event', 'RandomSheetDrawn', { game_code: gameCode.value });
   }
 }
 async function drawCombo() {
