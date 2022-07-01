@@ -103,7 +103,6 @@ sfc:
   SheetDrawerPanel:
     drawRandomSheet: DRAW RANDOM SHEET!
     drawRandomCombo: DRAW RANDOM SET!
-    toggleDarkMode: TOGGLE THE LIGHT!
   FilterInfoBar:
     sheetsCount: '{n} sheets'
     songsCount: '{n} songs'

@@ -1,14 +1,12 @@
 <script setup lang="ts">
 /* eslint-disable import/first, import/no-duplicates */
-import { ref, computed, watch, provide, inject, onMounted, useRoute, useRouter, useMeta as useHead, useContext, Ref } from '@nuxtjs/composition-api';
+import { ref, computed, watch, provide, onMounted, useRoute, useRouter, useMeta as useHead, useContext } from '@nuxtjs/composition-api';
 import { useI18n } from 'nuxt-i18n-composable';
 import useDataStore from '~/stores/data';
 import useGameInfo from '~/composables/useGameInfo';
-import { buildEmptyFilters, buildFilterOptions, loadFiltersFromQuery, filterSheets, NULL_SHEET, RICK_SHEET } from '~/utils';
+import { buildEmptyFilters, buildFilterOptions, loadFiltersFromQuery, filterSheets, NULL_SHEET } from '~/utils';
 import ItemDrawer from '~/utils/ItemDrawer';
 import type { Sheet } from '~/types';
-
-const isDarkMode: Ref<boolean> = inject('isDarkMode')!;
 
 const context = useContext();
 const route = useRoute();
@@ -34,9 +32,6 @@ const selectedSheets = ref<Sheet[]>([]);
 const comboSheets = computed(
   () => comboDrawer.currentItems.value.map((sheet) => sheet ?? NULL_SHEET),
 );
-const secretSheets = computed(
-  () => [...Array(4)].map(() => (isDarkMode.value ? RICK_SHEET : NULL_SHEET)),
-);
 
 const drawingPool = computed(() => {
   if (filterMode.value === 'filter') return filteredSheets.value;
@@ -45,7 +40,6 @@ const drawingPool = computed(() => {
 });
 const displayingSheets = computed(() => {
   if (drawMode.value === 'combo') return comboSheets.value;
-  if (drawMode.value === 'secret') return secretSheets.value;
   return drawingPool.value;
 });
 

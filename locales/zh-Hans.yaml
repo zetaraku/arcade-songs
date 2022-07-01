@@ -103,7 +103,6 @@ sfc:
   SheetDrawerPanel:
     drawRandomSheet: 随机抽取谱面！
     drawRandomCombo: 随机抽取组曲！
-    toggleDarkMode: 切换电灯开关！
   FilterInfoBar:
     sheetsCount: '{n} 谱面'
     songsCount: '{n} 乐曲'

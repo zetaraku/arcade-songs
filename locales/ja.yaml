@@ -103,7 +103,6 @@ sfc:
   SheetDrawerPanel:
     drawRandomSheet: 譜面を抽選する！
     drawRandomCombo: セットを抽選する！
-    toggleDarkMode: 電気を切り替え！
   FilterInfoBar:
     sheetsCount: '{n} 譜面'
     songsCount: '{n} 歌曲'

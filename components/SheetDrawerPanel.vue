@@ -1,16 +1,14 @@
 <script setup lang="ts">
 import { ref, watch, inject, Ref, ComputedRef } from '@nuxtjs/composition-api';
 import { useI18n } from 'nuxt-i18n-composable';
-import confetti from 'canvas-confetti';
 import useGtag from '~/composables/useGtag';
 import useGameInfo from '~/composables/useGameInfo';
 import useSheetDialog from '~/composables/useSheetDialog';
-import { mod, RICK_SHEET } from '~/utils';
+import { mod } from '~/utils';
 import ItemDrawer from '~/utils/ItemDrawer';
 import { Sheet } from '~/types';
 
 const drawMode: Ref<string> = inject('drawMode')!;
-const isDarkMode: Ref<boolean> = inject('isDarkMode')!;
 const comboDrawer: ItemDrawer<Sheet> = inject('comboDrawer')!;
 const drawingPool: ComputedRef<Sheet[]> = inject('drawingPool')!;
 
@@ -18,7 +16,6 @@ const i18n = useI18n();
 const gtag = useGtag();
 const { gameCode, themeColor } = useGameInfo();
 const {
-  viewSheet,
   setDrawingPool,
   startDrawingSheet,
 } = useSheetDialog();
@@ -58,22 +55,9 @@ async function drawCombo() {
     gtag('event', 'RandomComboDrawn', { game_code: gameCode.value });
   }
 }
-async function toggleLightSwitch() {
-  isDarkMode.value = !isDarkMode.value;
-  viewSheet(RICK_SHEET);
-  confetti({ particleCount: 100, spread: 60, origin: { y: 0.6 }, zIndex: 999 });
-
-  if (isDarkMode.value) {
-    gtag('event', 'SecretFound', { game_code: gameCode.value, no: 1 });
-  }
-}
 
 watch(drawModeIndex, () => {
   drawMode.value = drawModes.value[mod(drawModeIndex.value, drawModes.value.length)];
-
-  if (drawModeIndex.value === -3) {
-    drawMode.value = 'secret';
-  }
 });
 </script>
 
@@ -81,7 +65,6 @@ watch(drawModeIndex, () => {
   <div class="d-flex justify-center align-center">
     <!-- This is explicitly added for the variables used in v-on to be exposed correctly -->
     <template v-if="false">
-      {{ isDarkMode }}
       {{ drawModeIndex }}
     </template>
 
@@ -109,15 +92,6 @@ watch(drawModeIndex, () => {
       @click="drawCombo();"
     >
       {{ $t('sfc.SheetDrawerPanel.drawRandomCombo') }}
-    </v-btn>
-    <v-btn
-      v-else-if="drawMode === 'secret'"
-      large
-      color="warning"
-      class="text-h6 ma-3"
-      @click="toggleLightSwitch();"
-    >
-      {{ $t('sfc.SheetDrawerPanel.toggleDarkMode') }}
     </v-btn>
     <v-btn
       v-if="drawModes.length > 1"
