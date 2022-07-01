@@ -93,7 +93,7 @@ sfc:
     gridMode: Grid View
     tableMode: Table View
     filterMode: Filter Mode
-    myListMode: MY LIST Mode
+    myListMode: MY LIST
     copyFilterLink: Copy current filters as link
     noFilterWarn: Please select at least one filter first.
     exportMyList: Export MY LIST to file

@@ -92,7 +92,7 @@ sfc:
   ModeSelector:
     gridMode: グリッド表示
     tableMode: テーブル表示
-    filterMode: フィルターモード
+    filterMode: フィルター
     myListMode: マイリスト
     copyFilterLink: フィルターをリンクにコピーする
     noFilterWarn: まずはフィルターを一つ以上適用してください。
