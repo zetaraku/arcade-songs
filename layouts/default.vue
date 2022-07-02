@@ -151,7 +151,7 @@ export default defineComponent({
                 v-text="$config.siteTitle"
               />
               <v-list-item-subtitle
-                v-text="gameTitle || 'Home'"
+                v-text="gameTitle"
               />
             </v-list-item-content>
           </template>
@@ -227,7 +227,7 @@ export default defineComponent({
               v-text="$config.siteTitle"
             />
             <v-list-item-subtitle
-              v-text="gameTitle || 'Home'"
+              v-text="gameTitle || 'made by @zetaraku'"
             />
           </v-list-item-content>
         </v-toolbar-title>
@@ -256,7 +256,7 @@ export default defineComponent({
         <img :src="accessCounterUrl" alt="アクセスカウンター" width="70" height="12">
       </a>
       <span>
-        &copy; {{ new Date().getFullYear() }} / made by zetaraku with &lt;3
+        &copy; {{ new Date().getFullYear() }} / made by @zetaraku with &lt;3
       </span>
     </v-footer>
 
