@@ -37,11 +37,6 @@ const menu = computed(() => [
     disabled: dataStore.currentGallery.length === 0,
   },
   {
-    icon: 'mdi-information-outline',
-    title: i18n.t('page-title.about'),
-    to: { name: 'gameCode-about' },
-  },
-  {
     icon: 'mdi-comment-question',
     title: i18n.t('page-title.bug-report'),
     href: context.$config.siteReportUrl,
@@ -50,6 +45,11 @@ const menu = computed(() => [
     icon: 'mdi-github',
     title: i18n.t('page-title.source-code'),
     href: context.$config.sourceCodeUrl,
+  },
+  {
+    icon: 'mdi-information-outline',
+    title: i18n.t('page-title.about'),
+    to: { name: 'gameCode-about' },
   },
 ]);
 
