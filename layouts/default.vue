@@ -131,6 +131,7 @@ export default defineComponent({
     <LoadingOverlay v-if="dataStore.currentLoadingStatus === LoadingStatus.LOADING" />
 
     <v-navigation-drawer
+      v-if="gameCode !== undefined"
       v-model="isDrawerOpened"
       width="300"
       temporary
@@ -206,6 +207,7 @@ export default defineComponent({
       app
     >
       <v-app-bar-nav-icon
+        :disabled="gameCode === undefined"
         @click="isDrawerOpened = !isDrawerOpened;"
       />
       <NuxtLink
