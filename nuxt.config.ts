@@ -16,6 +16,7 @@ const nuxtConfig: NuxtConfig = {
     sourceCodeUrl: process.env.SOURCE_CODE_URL,
     siteDescriptionEn: process.env.SITE_DESCRIPTION_EN,
     siteDescriptionJp: process.env.SITE_DESCRIPTION_JP,
+    indexAccessCounterUrl: process.env.INDEX_ACCESS_COUNTER_URL,
   },
 
   // Global page headers: https://go.nuxtjs.dev/config-head

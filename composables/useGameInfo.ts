@@ -1,7 +1,8 @@
-import { computed, useRoute } from '@nuxtjs/composition-api';
+import { computed, useRoute, useContext } from '@nuxtjs/composition-api';
 import sites from '~/assets/sites.json';
 
 export default function useGameInfo() {
+  const context = useContext();
   const route = useRoute();
 
   const siteInfo = computed(
@@ -12,7 +13,9 @@ export default function useGameInfo() {
   const gameTitle = computed(() => siteInfo.value?.gameTitle ?? undefined);
   const themeColor = computed(() => siteInfo.value?.themeColor ?? '#424242');
   const dataSourceUrl = computed(() => siteInfo.value?.dataSourceUrl ?? undefined);
-  const accessCounterUrl = computed(() => siteInfo.value?.accessCounterUrl ?? undefined);
+  const accessCounterUrl = computed(() => (
+    siteInfo.value?.accessCounterUrl ?? context.$config.indexAccessCounterUrl
+  ));
 
   return {
     gameCode,
