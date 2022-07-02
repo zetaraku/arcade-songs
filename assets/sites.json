@@ -7,18 +7,18 @@
     "accessCounterUrl": "https://www.f-counter.net/j/33/1600361536/"
   },
   {
-    "gameCode": "wacca",
-    "gameTitle": "WACCA",
-    "themeColor": "#e50065",
-    "dataSourceUrl": "https://dp4p6x0xfi5o9.cloudfront.net/wacca",
-    "accessCounterUrl": "https://www.f-counter.net/j/45/1609244286/"
-  },
-  {
     "gameCode": "chunithm",
     "gameTitle": "CHUNITHM",
     "themeColor": "#f3a607",
     "dataSourceUrl": "https://dp4p6x0xfi5o9.cloudfront.net/chunithm",
     "accessCounterUrl": "https://www.f-counter.net/j/45/1609244179/"
+  },
+  {
+    "gameCode": "wacca",
+    "gameTitle": "WACCA",
+    "themeColor": "#e50065",
+    "dataSourceUrl": "https://dp4p6x0xfi5o9.cloudfront.net/wacca",
+    "accessCounterUrl": "https://www.f-counter.net/j/45/1609244286/"
   },
   {
     "gameCode": "sdvx",
@@ -28,18 +28,18 @@
     "accessCounterUrl": "https://www.f-counter.net/j/45/1610979366/"
   },
   {
-    "gameCode": "jubeat",
-    "gameTitle": "jubeat",
-    "themeColor": "#134c43",
-    "dataSourceUrl": "https://dp4p6x0xfi5o9.cloudfront.net/jubeat",
-    "accessCounterUrl": "https://www.f-counter.net/j/45/1611304929/"
-  },
-  {
     "gameCode": "taiko",
     "gameTitle": "太鼓の達人",
     "themeColor": "#f50000",
     "dataSourceUrl": "https://dp4p6x0xfi5o9.cloudfront.net/taiko",
     "accessCounterUrl": "https://www.f-counter.net/j/45/1612282353/"
+  },
+  {
+    "gameCode": "jubeat",
+    "gameTitle": "jubeat",
+    "themeColor": "#134c43",
+    "dataSourceUrl": "https://dp4p6x0xfi5o9.cloudfront.net/jubeat",
+    "accessCounterUrl": "https://www.f-counter.net/j/45/1611304929/"
   },
   {
     "gameCode": "ongeki",
