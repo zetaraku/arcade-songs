@@ -3,12 +3,14 @@ import { inject, Ref } from '@nuxtjs/composition-api';
 import useGameInfo from '~/composables/useGameInfo';
 import useSheetDialog from '~/composables/useSheetDialog';
 import useSheetHeaders from '~/composables/useSheetHeaders';
+import ItemDrawer from '~/utils/ItemDrawer';
 import type { Sheet } from '~/types';
 
 const selectedSheets: Ref<Sheet[]> = inject('selectedSheets')!;
 const currentSheets: Ref<Sheet[]> = inject('currentSheets')!;
 const sortBy: Ref<string> = inject('sortBy')!;
 const sortDesc: Ref<boolean> = inject('sortDesc')!;
+const comboDrawer: Ref<ItemDrawer<Sheet>> = inject('comboDrawer')!;
 
 const { gameCode } = useGameInfo();
 const { viewSheet } = useSheetDialog();
@@ -63,6 +65,7 @@ function toggleSheetSelection(sheet: Sheet) {
         v-for="(sheet, i) in currentSheets"
         :key="i"
         :sheet="sheet"
+        :suppress="{ cover: comboDrawer.isDrawing.value }"
         :class="{ 'selected-sheet': selectedSheets.includes(sheet) }"
         @click.left="viewSheet(sheet); $gtag('event', 'SheetViewed', { game_code: gameCode });"
         @click.right="toggleSheetSelection(sheet);"
