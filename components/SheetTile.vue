@@ -50,6 +50,7 @@ const {
           <div
             class="CoverContainer grey"
             :class="{ 'dark-style': isDarkMode }"
+            style="vertical-align: middle;"
           >
             <!-- sheet cover image -->
             <picture>
