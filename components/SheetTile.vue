@@ -1,11 +1,18 @@
 <script setup lang="ts">
-import { inject, Ref } from '@nuxtjs/composition-api';
+import { inject, Ref, PropType } from '@nuxtjs/composition-api';
 import useGameData from '~/composables/useGameData';
 import type { Sheet } from '~/types';
 
-defineProps<{
-  sheet: Sheet;
-}>();
+defineProps({
+  sheet: {
+    type: Object as PropType<Sheet>,
+    required: true,
+  },
+  suppress: {
+    type: Object as PropType<Record<'title'|'cover'|'level'|'lock', boolean>>,
+    default: () => ({}),
+  },
+});
 
 const isDarkMode: Ref<boolean> = inject('isDarkMode')!;
 
@@ -30,7 +37,7 @@ const {
     <v-tooltip
       top
       :nudge-bottom="95"
-      :disabled="$vuetify.breakpoint.mobile"
+      :disabled="$vuetify.breakpoint.mobile || suppress.title"
     >
       <template #activator="{ on }">
         <!-- invisible blocking panel (prevent long-press and right-click on images) -->
@@ -53,7 +60,7 @@ const {
             style="vertical-align: middle;"
           >
             <!-- sheet cover image -->
-            <picture>
+            <picture v-if="!suppress.cover">
               <source
                 :srcset="sheet.imageUrlM"
                 type="image/webp"
@@ -64,17 +71,23 @@ const {
                 class="CoverImage"
               >
             </picture>
+            <div
+              v-else
+              class="CoverImage d-flex justify-center align-center grey white--text"
+            >
+              <span style="font-size: 2em;" v-text="sheet.songNo" />
+            </div>
 
             <!-- sheet title (if the default cover image is used) -->
             <span
-              v-if="sheet.imageName === 'default-cover.png'"
+              v-if="sheet.imageName === 'default-cover.png' && !suppress.cover"
               class="CoverTitle"
               v-text="sheet.title"
             />
 
             <!-- locked icon -->
             <img
-              v-if="sheet.isLocked"
+              v-if="sheet.isLocked && !suppress.lock"
               :src="getLockedIconUrl()"
               :height="getLockedIconHeight()"
               alt=""
@@ -99,7 +112,7 @@ const {
 
             <!-- sheet internal level -->
             <span
-              v-if="sheet.internalLevel != null"
+              v-if="sheet.internalLevel != null && !suppress.level"
               class="SheetInternalLevel"
               v-text="sheet.internalLevel"
             />
@@ -136,7 +149,7 @@ const {
         </template>
 
         <!-- sheet level -->
-        <span v-text="sheet.level" />
+        <span v-if="!suppress.level" v-text="sheet.level" />
       </div>
       <div class="text-pre-wrap">
         <slot name="description" />
