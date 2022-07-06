@@ -39,6 +39,10 @@ $ yarn run generate
 
 - This project is not ready for Server-Side Rendering (SSR), do not use the `yarn run build` and `yarn run start` scripts.
 
+## Data Source
+
+See: <https://github.com/zetaraku/arcade-songs-fetch>
+
 ## Contributing
 
 The translations for **Japanese** and **Simplified Chinese** need to be refined, and I am also planning to add the **Korean** translation but I don't understand Korean.
