@@ -37,7 +37,7 @@ function copyFilterLink() {
   // eslint-disable-next-line no-alert
   window.alert(`${url}\n${i18n.t('description.copied')}`);
 
-  gtag('event', 'FilterLinkCopied', { game_code: gameCode.value });
+  gtag('event', 'FilterLinkCopied', { gameCode: gameCode.value, eventSource: 'ModeSelector' });
 }
 async function exportSelectedSheets() {
   if (selectedSheets.value.length === 0) {
@@ -55,7 +55,7 @@ async function exportSelectedSheets() {
       `${gameCode.value}-mylist-${toLocalISODateString(new Date()).replaceAll('-', '')}.yaml`,
     );
 
-    gtag('event', 'ExportSelectedSheets', { game_code: gameCode.value });
+    gtag('event', 'MyListExported', { gameCode: gameCode.value, eventSource: 'ModeSelector' });
   } catch (e) {
     // eslint-disable-next-line no-alert
     window.alert(`An error occurred while saving MY LIST:\n${e}`);
@@ -80,7 +80,7 @@ async function importSelectedSheets() {
     // eslint-disable-next-line no-alert
     window.alert(i18n.t('sfc.ModeSelector.sheetsLoaded', { n: loadedSheets.length }));
 
-    gtag('event', 'ImportSelectedSheets', { game_code: gameCode.value });
+    gtag('event', 'MyListImported', { gameCode: gameCode.value, eventSource: 'ModeSelector' });
   } catch (e) {
     // eslint-disable-next-line no-alert
     window.alert(`An error occurred while loading '${files[0].name}':\n\n${e}`);

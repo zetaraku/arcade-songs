@@ -91,7 +91,10 @@ export default defineComponent({
             v-for="(sheet, j) in section.sheets"
             :key="j"
             :sheet="sheet"
-            @click="viewSheet(sheet); $gtag('event', 'SheetViewed', { game_code: gameCode });"
+            @click="
+              viewSheet(sheet);
+              $gtag('event', 'SheetViewed', { gameCode, eventSource: 'GalleryPage' });
+            "
           >
             <!-- Sheet description -->
             <template #description>

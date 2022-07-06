@@ -67,7 +67,10 @@ function toggleSheetSelection(sheet: Sheet) {
         :sheet="sheet"
         :suppress="{ cover: comboDrawer.isDrawing.value }"
         :class="{ 'selected-sheet': selectedSheets.includes(sheet) }"
-        @click.left="viewSheet(sheet); $gtag('event', 'SheetViewed', { game_code: gameCode });"
+        @click.left="
+          viewSheet(sheet);
+          $gtag('event', 'SheetViewed', { gameCode, eventSource: 'SheetDataGrid' });
+        "
         @click.right="toggleSheetSelection(sheet);"
       />
     </div>

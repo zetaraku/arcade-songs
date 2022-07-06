@@ -35,7 +35,7 @@ async function toggleLightSwitch() {
       await sleep(1000);
       viewSheet(RICK_SHEET);
       confetti({ particleCount: 100, spread: 60, origin: { y: 0.6 }, zIndex: 999 });
-      gtag('event', 'SecretFound', { game_code: gameCode.value, no: 1 });
+      gtag('event', 'SecretFound', { gameCode: gameCode.value, eventSource: 'IndexPage', no: 1 });
     }
   }, toggleDuration);
 }

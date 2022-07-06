@@ -34,10 +34,10 @@ async function drawSheet() {
   const isFinished = await startDrawingSheet();
 
   if (isFinished) {
-    gtag('event', 'RandomSheetDrawn', { game_code: gameCode.value });
+    gtag('event', 'RandomSheetDrawn', { gameCode: gameCode.value, eventSource: 'SheetDrawerPanel' });
   }
 }
-async function drawCombo() {
+async function drawSheetCombo() {
   if (drawingPool.value.length === 0) {
     // eslint-disable-next-line no-alert
     window.alert(i18n.t('description.drawPoolEmpty'));
@@ -52,7 +52,7 @@ async function drawCombo() {
   const isFinished = await comboDrawer.startDrawing();
 
   if (isFinished) {
-    gtag('event', 'RandomComboDrawn', { game_code: gameCode.value });
+    gtag('event', 'RandomSheetComboDrawn', { gameCode: gameCode.value, eventSource: 'SheetDrawerPanel' });
   }
 }
 
@@ -89,7 +89,7 @@ watch(drawModeIndex, () => {
       large
       color="success"
       class="text-h6 ma-3"
-      @click="drawCombo();"
+      @click="drawSheetCombo();"
     >
       {{ $t('sfc.SheetDrawerPanel.drawRandomCombo') }}
     </v-btn>

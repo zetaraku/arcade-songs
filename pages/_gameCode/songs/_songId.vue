@@ -195,7 +195,10 @@ export default defineComponent({
                     rounded
                     class="font-weight-bold text-none"
                     :style="{ 'color': getDifficultyColor(sheet.difficulty) }"
-                    @click="viewSheet(sheet); $gtag('event', 'SheetViewed', { game_code: gameCode });"
+                    @click="
+                      viewSheet(sheet);
+                      $gtag('event', 'SheetViewed', { gameCode, eventSource: 'GameSongPage' });
+                    "
                   >
                     <span v-text="getDifficultyName(sheet.difficulty)" />
                   </v-btn>

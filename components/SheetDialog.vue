@@ -55,7 +55,7 @@ async function drawSheet() {
   const isFinished = await startDrawingSheet();
 
   if (isFinished) {
-    gtag('event', 'RandomSheetDrawn', { game_code: gameCode.value });
+    gtag('event', 'RandomSheetDrawn', { gameCode: gameCode.value, eventSource: 'SheetDialog' });
   }
 }
 
@@ -120,7 +120,9 @@ watch(isOpened, () => {
                 target="_blank"
                 class="white--text"
                 v-on="on"
-                @click="$gtag('event', 'SheetVideoSearched', { game_code: gameCode });"
+                @click="
+                  $gtag('event', 'SheetVideoSearched', { gameCode, eventSource: 'SheetDialog' });
+                "
               >
                 <v-icon
                   :large="$vuetify.breakpoint.smAndUp"
