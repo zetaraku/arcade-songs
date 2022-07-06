@@ -107,6 +107,7 @@ const nuxtConfig: NuxtConfig = {
 
   'google-gtag': {
     id: process.env.GTAG_TRACK_ID,
+    debug: process.env.NODE_ENV === 'development',
   },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
