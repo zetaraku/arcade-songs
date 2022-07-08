@@ -100,6 +100,11 @@ export default defineComponent({
           <a href="https://chunithm.gamerch.com/" target="_blank">CHUNITHM【チュウニズム】攻略wiki</a>
           － {{ $t('page.about.sheetInfoDescription') }}
         </li>
+        <li>
+          {{ $t('term.internalLevel') }} －
+          <a href="https://developer.chunirec.net/" target="_blank">chunirec 開発者向けサイト</a>
+          <i>(Thanks <a href="https://twitter.com/chunirec" target="_blank">@chunirec</a> !)</i>
+        </li>
       </template>
       <template v-if="gameCode === 'sdvx'">
         <li>
@@ -192,6 +197,19 @@ export default defineComponent({
 
     <h3>{{ $t('page.about.updateRecord') }}</h3>
     <v-timeline dense align-top class="mt-2">
+      <v-timeline-item>
+        <span class="font-weight-bold">2022/07/08 － v2.15 Update</span>
+        <ul>
+          <li>feature: (Data) add sheet internal level information (chunithm)</li>
+          <li>
+            Data source:
+            <a href="https://developer.chunirec.net/" target="_blank">chunirec 開発者向けサイト</a>
+            <i>(Thanks <a href="https://twitter.com/chunirec" target="_blank">@chunirec</a> !)</i>
+          </li>
+          <li>feature: (Grid View) sorting is now available on Grid View too</li>
+          <li>misc: (Grid View) cover images will not be displayed when drawing sheet combo</li>
+        </ul>
+      </v-timeline-item>
       <v-timeline-item small color="grey">
         <span class="font-weight-bold">2022/06/29 － v2.14.1 Update</span>
         <ul>
