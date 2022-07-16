@@ -5,7 +5,7 @@ import { useI18n } from 'nuxt-i18n-composable';
 import useDataStore from '~/stores/data';
 import useGameInfo from '~/composables/useGameInfo';
 import LoadingStatus from '~/enums/LoadingStatus';
-import sites from '~/assets/sites.json';
+import sites from '~/data/sites.json';
 import { PageNotFoundError } from '~/utils';
 
 const context = useContext();

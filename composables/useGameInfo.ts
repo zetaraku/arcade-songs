@@ -1,5 +1,5 @@
 import { computed, useRoute, useContext } from '@nuxtjs/composition-api';
-import sites from '~/assets/sites.json';
+import sites from '~/data/sites.json';
 
 export default function useGameInfo() {
   const context = useContext();

@@ -6,7 +6,7 @@ import sleep from 'sleep-promise';
 import useGtag from '~/composables/useGtag';
 import useGameInfo from '~/composables/useGameInfo';
 import useSheetDialog from '~/composables/useSheetDialog';
-import sites from '~/assets/sites.json';
+import sites from '~/data/sites.json';
 import { RICK_SHEET } from '~/utils';
 
 const isDarkMode: Ref<boolean> = inject('isDarkMode')!;

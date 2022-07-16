@@ -1,7 +1,7 @@
 import YAML from 'yaml';
 import { defineStore } from 'pinia';
 import LoadingStatus from '~/enums/LoadingStatus';
-import sites from '~/assets/sites.json';
+import sites from '~/data/sites.json';
 import { buildEmptyData, preprocessData, makeDummySheet } from '~/utils';
 import type { Data, GalleryList } from '~/types';
 
