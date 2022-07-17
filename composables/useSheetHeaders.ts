@@ -4,18 +4,11 @@ import useGameInfo from '~/composables/useGameInfo';
 import useGameData from '~/composables/useGameData';
 import type { DataTableHeader } from 'vuetify';
 
-export default function useSheetHeaders() {
+function useOptionalHeaders(gameCode: string): DataTableHeader[] {
   const i18n = useI18n();
-  const { gameCode } = useGameInfo();
-  const {
-    getCategoryIndex,
-    getVersionIndex,
-    getTypeIndex,
-    getDifficultyIndex,
-  } = useGameData();
 
-  const optionalHeaders = computed<Record<string, DataTableHeader[]>>(() => ({
-    maimai: [
+  if (gameCode === 'maimai') {
+    return [
       {
         text: 'TAP',
         value: 'noteCounts.tap',
@@ -71,9 +64,27 @@ export default function useSheetHeaders() {
         value: 'noteCounts.total',
         width: 50,
       },
-    ],
-  }));
-  const headers = computed<DataTableHeader[]>(() => [
+    ];
+  }
+
+  return [];
+}
+
+function useHeaders(): DataTableHeader[] {
+  const i18n = useI18n();
+  const {
+    gameCode,
+  } = useGameInfo();
+  const {
+    getCategoryIndex,
+    getVersionIndex,
+    getTypeIndex,
+    getDifficultyIndex,
+  } = useGameData();
+
+  const optionalHeaders = useOptionalHeaders(gameCode.value!);
+
+  return [
     {
       text: 'No.',
       value: 'songNo',
@@ -113,7 +124,7 @@ export default function useSheetHeaders() {
       width: 100,
     },
 
-    ...(optionalHeaders.value[gameCode.value!] ?? []),
+    ...optionalHeaders,
 
     {
       text: i18n.t('term.bpm') as string,
@@ -131,7 +142,9 @@ export default function useSheetHeaders() {
       width: 150,
       sort: (a: string, b: string) => getVersionIndex(a) - getVersionIndex(b),
     },
-  ]);
+  ];
+}
 
-  return headers;
+export default function useSheetHeaders() {
+  return computed<DataTableHeader[]>(() => useHeaders());
 }
