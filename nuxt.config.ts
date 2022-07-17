@@ -54,7 +54,7 @@ const nuxtConfig: NuxtConfig = {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    '~/assets/global.scss',
+    '~/assets/styles/global.scss',
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -128,7 +128,7 @@ const nuxtConfig: NuxtConfig = {
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
-    customVariables: ['~/assets/variables.scss'],
+    customVariables: ['~/assets/styles/variables.scss'],
     optionsPath: '~/vuetify.options.ts',
   },
 
