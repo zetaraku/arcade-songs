@@ -6,7 +6,7 @@ import useGtag from '~/composables/useGtag';
 import useGameInfo from '~/composables/useGameInfo';
 import useGameData from '~/composables/useGameData';
 import useSheetDialog from '~/composables/useSheetDialog';
-import cat from '~/assets/cat.png';
+import catImageUrl from '~/assets/images/cat.png';
 
 const isDarkMode: Ref<boolean> = inject('isDarkMode')!;
 
@@ -37,7 +37,7 @@ const copyHintOpened = ref(false);
 
 const data = computed(() => dataStore.currentData);
 const imageSrc = computed(() => {
-  if (imageErrorOccurred.value) return cat;
+  if (imageErrorOccurred.value) return catImageUrl;
   return isStatic.value ? sheet.value.imageUrl : undefined;
 });
 

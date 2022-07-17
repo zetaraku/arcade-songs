@@ -1,5 +1,5 @@
-import cat from '~/assets/cat.png';
-import rick from '~/assets/rick.png';
+import catImageUrl from '~/assets/images/cat.png';
+import rickImageUrl from '~/assets/images/rick.png';
 import type { Sheet } from '~/types';
 
 export const NULL_SHEET: Sheet = {
@@ -9,7 +9,7 @@ export const NULL_SHEET: Sheet = {
   category: '???',
   title: 'ฅ•ω•ฅ',
   artist: ':3',
-  imageUrl: cat,
+  imageUrl: catImageUrl,
 
   version: undefined,
   bpm: undefined,
@@ -30,7 +30,7 @@ export const RICK_SHEET: Sheet = {
   category: 'Whenever You Need Somebody',
   title: 'Never Gonna Give You Up',
   artist: 'Rick Astley',
-  imageUrl: rick,
+  imageUrl: rickImageUrl,
 
   version: undefined,
   releaseDate: '1987-11-16',
