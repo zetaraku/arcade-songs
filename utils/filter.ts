@@ -39,24 +39,28 @@ export function buildEmptyFilters(): Filters {
   };
 }
 
+export function buildEmptyFilterOptions(): FilterOptions {
+  return {
+    categories: [],
+    titles: [],
+    artists: [],
+
+    versions: [],
+    bpms: [],
+
+    types: [],
+    difficulties: [],
+    levels: [],
+
+    noteDesigners: [],
+    regions: [],
+  };
+}
+
 export function buildFilterOptions(data: Data, $t: InstanceType<VueConstructor>['$t']): FilterOptions {
   if (data.updateTime === '0000-00-00') {
     // return empty array instead of null to preserve all filters ui before the data is loaded
-    return {
-      categories: [],
-      titles: [],
-      artists: [],
-
-      versions: [],
-      bpms: [],
-
-      types: [],
-      difficulties: [],
-      levels: [],
-
-      noteDesigners: [],
-      regions: [],
-    };
+    return buildEmptyFilterOptions();
   }
 
   const nonEmptyOrNull = <T>(arr: T[]) => (arr.length !== 0 ? arr : null);
