@@ -1,11 +1,13 @@
 import { ref, Ref } from '@nuxtjs/composition-api';
 import sleep from 'sleep-promise';
-import { pickItems } from '~/utils';
+import { pickItems, pickUniqueItems } from '~/utils';
 
 export default class ItemDrawer<T> {
   drawingPool: T[];
 
   drawSize: number;
+
+  drawWithReplacement: boolean;
 
   currentItems: Ref<(T | undefined)[]>;
 
@@ -15,14 +17,17 @@ export default class ItemDrawer<T> {
 
   #isRestarting: boolean;
 
-  constructor({ drawingPool = [] as T[], drawSize = 1 } = {}) {
+  constructor({ drawingPool = [] as T[], drawSize = 1, drawWithReplacement = false } = {}) {
     this.drawingPool = drawingPool;
     this.drawSize = drawSize;
-    this.currentItems = ref([...Array(drawSize)].fill(undefined));
+    this.drawWithReplacement = drawWithReplacement;
+    this.currentItems = ref([]);
 
     this.isDrawing = ref(false);
     this.#isStopping = false;
     this.#isRestarting = false;
+
+    this.resetCurrentItems();
   }
 
   resetCurrentItems() {
@@ -38,6 +43,10 @@ export default class ItemDrawer<T> {
     this.resetCurrentItems();
   }
 
+  setDrawWithReplacement(drawWithReplacement: boolean) {
+    this.drawWithReplacement = drawWithReplacement;
+  }
+
   async startDrawing() {
     if (this.isDrawing.value) {
       this.#isRestarting = true;
@@ -51,11 +60,19 @@ export default class ItemDrawer<T> {
       this.#isRestarting = false;
 
       if (this.drawingPool.length === 0) {
-        this.currentItems.value = [...Array(this.drawSize)].fill(undefined);
+        this.currentItems.value = (
+          this.drawWithReplacement
+            ? []
+            : [...Array(this.drawSize)].fill(undefined)
+        );
         break;
       }
       if (this.drawingPool.length === 1) {
-        this.currentItems.value = [...Array(this.drawSize)].fill(this.drawingPool[0]);
+        this.currentItems.value = (
+          this.drawWithReplacement
+            ? [this.drawingPool[0]]
+            : [...Array(this.drawSize)].fill(this.drawingPool[0])
+        );
         break;
       }
 
@@ -66,7 +83,11 @@ export default class ItemDrawer<T> {
       for (let speed = initialSpeed; speed > 0; speed -= speedDecrement) {
         if (this.#isStopping || this.#isRestarting) break;
 
-        this.currentItems.value = pickItems(this.drawingPool, this.drawSize);
+        this.currentItems.value = (
+          this.drawWithReplacement
+            ? pickUniqueItems(this.drawingPool, this.drawSize)
+            : pickItems(this.drawingPool, this.drawSize)
+        );
 
         // eslint-disable-next-line no-await-in-loop
         await sleep(tickDistance / speed);
