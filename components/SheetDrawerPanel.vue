@@ -4,7 +4,6 @@ import { useI18n } from 'nuxt-i18n-composable';
 import useGtag from '~/composables/useGtag';
 import useGameInfo from '~/composables/useGameInfo';
 import useSheetDialog from '~/composables/useSheetDialog';
-import { mod } from '~/utils';
 import ItemDrawer from '~/utils/ItemDrawer';
 import { Sheet } from '~/types';
 
@@ -57,7 +56,7 @@ async function drawSheetCombo() {
 }
 
 watch(drawModeIndex, () => {
-  drawMode.value = drawModes.value[mod(drawModeIndex.value, drawModes.value.length)];
+  drawMode.value = drawModes.value[drawModeIndex.value];
 });
 </script>
 
@@ -71,6 +70,7 @@ watch(drawModeIndex, () => {
     <v-btn
       v-if="drawModes.length > 1"
       icon
+      :disabled="drawModeIndex === 0"
       @click="drawModeIndex -= 1;"
     >
       <v-icon>mdi-chevron-left</v-icon>
@@ -96,6 +96,7 @@ watch(drawModeIndex, () => {
     <v-btn
       v-if="drawModes.length > 1"
       icon
+      :disabled="drawModeIndex === drawModes.length - 1"
       @click="drawModeIndex += 1;"
     >
       <v-icon>mdi-chevron-right</v-icon>
