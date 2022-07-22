@@ -91,7 +91,7 @@ watch(drawModeIndex, () => {
       class="text-h6 ma-3"
       @click="drawSheetCombo();"
     >
-      {{ $t('sfc.SheetDrawerPanel.drawRandomCombo') }}
+      {{ $t('sfc.SheetDrawerPanel.drawRandomSheetCombo') }}
     </v-btn>
     <v-btn
       v-if="drawModes.length > 1"

@@ -102,7 +102,7 @@ sfc:
     sheetsLoaded: 'Imported {n} sheet(s) successfully.'
   SheetDrawerPanel:
     drawRandomSheet: DRAW RANDOM SHEET!
-    drawRandomCombo: DRAW RANDOM SET!
+    drawRandomSheetCombo: DRAW RANDOM SET!
   FilterInfoBar:
     sheetsCount: '{n} sheets'
     songsCount: '{n} songs'

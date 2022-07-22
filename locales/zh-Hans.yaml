@@ -102,7 +102,7 @@ sfc:
     sheetsLoaded: '成功汇入 {n} 谱面。'
   SheetDrawerPanel:
     drawRandomSheet: 随机抽取谱面！
-    drawRandomCombo: 随机抽取组曲！
+    drawRandomSheetCombo: 随机抽取组曲！
   FilterInfoBar:
     sheetsCount: '{n} 谱面'
     songsCount: '{n} 乐曲'

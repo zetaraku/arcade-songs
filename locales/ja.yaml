@@ -102,7 +102,7 @@ sfc:
     sheetsLoaded: '{n} 譜面をインポートしました。'
   SheetDrawerPanel:
     drawRandomSheet: 譜面を抽選する！
-    drawRandomCombo: セットを抽選する！
+    drawRandomSheetCombo: セットを抽選する！
   FilterInfoBar:
     sheetsCount: '{n} 譜面'
     songsCount: '{n} 歌曲'
