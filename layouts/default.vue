@@ -261,5 +261,6 @@ export default defineComponent({
     </v-footer>
 
     <SheetDialog />
+    <SheetComboDialog />
   </v-app>
 </template>
