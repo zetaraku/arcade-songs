@@ -1,11 +1,10 @@
 <script setup lang="ts">
 /* eslint-disable import/first, import/no-duplicates */
-import { ref, computed, watch, provide, onMounted, useRoute, useRouter, useMeta as useHead, useContext } from '@nuxtjs/composition-api';
+import { ref, computed, provide, onMounted, useRoute, useRouter, useMeta as useHead, useContext } from '@nuxtjs/composition-api';
 import { useI18n } from 'nuxt-i18n-composable';
 import useDataStore from '~/stores/data';
 import useGameInfo from '~/composables/useGameInfo';
 import { buildEmptyFilters, buildFilterOptions, loadFiltersFromQuery, filterSheets } from '~/utils';
-import ItemDrawer from '~/utils/ItemDrawer';
 import type { Sheet } from '~/types';
 
 const context = useContext();
@@ -18,12 +17,9 @@ const data = computed(() => dataStore.currentData);
 
 const filterMode = ref('filter');
 const displayMode = ref('grid');
-const drawMode = ref('single');
 
 const filters = ref(buildEmptyFilters());
 const filterOptions = computed(() => buildFilterOptions(data.value, i18n.t));
-
-const comboDrawer = new ItemDrawer<Sheet>({ drawSize: 4 });
 
 const filteredSheets = computed(
   () => filterSheets(data.value.sheets, filters.value),
@@ -49,14 +45,6 @@ useHead(() => ({
   title: `${gameTitle.value} | ${context.$config.siteTitle}`,
 }));
 
-watch(drawMode, () => {
-  if (drawMode.value !== 'combo') {
-    comboDrawer.stopDrawing();
-    comboDrawer.resetCurrentItems();
-  }
-});
-
-provide('comboDrawer', comboDrawer);
 provide('drawingPool', displayingSheets);
 provide('selectedSheets', selectedSheets);
 
@@ -65,7 +53,6 @@ provide('filterOptions', filterOptions);
 
 provide('displayMode', displayMode);
 provide('filterMode', filterMode);
-provide('drawMode', drawMode);
 </script>
 
 <script lang="ts">
