@@ -1,25 +1,28 @@
 <script setup lang="ts">
-import { ref, watch, inject, Ref, ComputedRef } from '@nuxtjs/composition-api';
+import { ref, watch, inject, ComputedRef } from '@nuxtjs/composition-api';
 import { useI18n } from 'nuxt-i18n-composable';
 import useGtag from '~/composables/useGtag';
 import useGameInfo from '~/composables/useGameInfo';
 import useSheetDialog from '~/composables/useSheetDialog';
-import ItemDrawer from '~/utils/ItemDrawer';
+import useSheetComboDialog from '~/composables/useSheetComboDialog';
 import { Sheet } from '~/types';
 
-const drawMode: Ref<string> = inject('drawMode')!;
-const comboDrawer: ItemDrawer<Sheet> = inject('comboDrawer')!;
 const drawingPool: ComputedRef<Sheet[]> = inject('drawingPool')!;
 
 const i18n = useI18n();
 const gtag = useGtag();
 const { gameCode, themeColor } = useGameInfo();
 const {
-  setDrawingPool,
+  setDrawingPool: setSheetDrawingPool,
   startDrawingSheet,
 } = useSheetDialog();
+const {
+  setDrawingPool: setSheetComboDrawingPool,
+  startDrawingSheetCombo,
+} = useSheetComboDialog();
 
 const drawModes = ref(['single', 'combo']);
+const drawMode = ref('single');
 const drawModeIndex = ref(0);
 
 async function drawSheet() {
@@ -29,7 +32,7 @@ async function drawSheet() {
     return;
   }
 
-  setDrawingPool(drawingPool.value);
+  setSheetDrawingPool(drawingPool.value);
   const isFinished = await startDrawingSheet();
 
   if (isFinished) {
@@ -43,12 +46,8 @@ async function drawSheetCombo() {
     return;
   }
 
-  document.getElementById('drawComboAnchor')?.scrollIntoView({
-    behavior: 'smooth',
-  });
-
-  comboDrawer.setDrawingPool(drawingPool.value);
-  const isFinished = await comboDrawer.startDrawing();
+  setSheetComboDrawingPool(drawingPool.value);
+  const isFinished = await startDrawingSheetCombo();
 
   if (isFinished) {
     gtag('event', 'RandomSheetComboDrawn', { gameCode: gameCode.value, eventSource: 'SheetDrawerPanel' });
