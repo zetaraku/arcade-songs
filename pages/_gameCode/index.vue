@@ -4,7 +4,7 @@ import { ref, computed, watch, provide, onMounted, useRoute, useRouter, useMeta 
 import { useI18n } from 'nuxt-i18n-composable';
 import useDataStore from '~/stores/data';
 import useGameInfo from '~/composables/useGameInfo';
-import { buildEmptyFilters, buildFilterOptions, loadFiltersFromQuery, filterSheets, NULL_SHEET } from '~/utils';
+import { buildEmptyFilters, buildFilterOptions, loadFiltersFromQuery, filterSheets } from '~/utils';
 import ItemDrawer from '~/utils/ItemDrawer';
 import type { Sheet } from '~/types';
 
@@ -29,18 +29,11 @@ const filteredSheets = computed(
   () => filterSheets(data.value.sheets, filters.value),
 );
 const selectedSheets = ref<Sheet[]>([]);
-const comboSheets = computed(
-  () => comboDrawer.currentItems.value.map((sheet) => sheet ?? NULL_SHEET),
-);
 
-const drawingPool = computed(() => {
+const displayingSheets = computed(() => {
   if (filterMode.value === 'filter') return filteredSheets.value;
   if (filterMode.value === 'my-list') return selectedSheets.value;
-  throw new Error('Invalid drawing pool');
-});
-const displayingSheets = computed(() => {
-  if (drawMode.value === 'combo') return comboSheets.value;
-  return drawingPool.value;
+  throw new Error('Invalid filter mode');
 });
 
 onMounted(() => {
@@ -64,7 +57,7 @@ watch(drawMode, () => {
 });
 
 provide('comboDrawer', comboDrawer);
-provide('drawingPool', drawingPool);
+provide('drawingPool', displayingSheets);
 provide('selectedSheets', selectedSheets);
 
 provide('filters', filters);
