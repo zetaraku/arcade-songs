@@ -109,3 +109,6 @@ sfc:
   SheetDialog:
     searchOnYouTube: YouTube で検索
     tryAgain: もう一回
+  SheetComboDialog:
+    drawResults: 抽選結果
+    noDuplicate: 重複なし

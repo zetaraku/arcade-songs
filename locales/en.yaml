@@ -109,3 +109,6 @@ sfc:
   SheetDialog:
     searchOnYouTube: Search on YouTube
     tryAgain: TRY AGAIN
+  SheetComboDialog:
+    drawResults: Draw Results
+    noDuplicate: No Duplicate

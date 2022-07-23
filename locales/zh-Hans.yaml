@@ -109,3 +109,6 @@ sfc:
   SheetDialog:
     searchOnYouTube: 在 YouTube 上搜索
     tryAgain: 再抽一次
+  SheetComboDialog:
+    drawResults: 抽选结果
+    noDuplicate: 不重复
