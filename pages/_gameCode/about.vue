@@ -198,6 +198,12 @@ export default defineComponent({
     <h3>{{ $t('page.about.updateRecord') }}</h3>
     <v-timeline dense align-top class="mt-2">
       <v-timeline-item>
+        <span class="font-weight-bold">2022/07/23 － v2.16 Update</span>
+        <ul>
+          <li>feature: (Sheet Drawer) brand new Sheet Combo Drawer is available!</li>
+        </ul>
+      </v-timeline-item>
+      <v-timeline-item>
         <span class="font-weight-bold">2022/07/08 － v2.15 Update</span>
         <ul>
           <li>feature: (Data) add sheet internal level information (chunithm)</li>
