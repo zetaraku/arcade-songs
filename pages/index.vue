@@ -16,15 +16,15 @@ const gtag = useGtag();
 const { gameCode } = useGameInfo();
 const { viewSheet } = useSheetDialog();
 
-const toggleDuration = 6000;
+const toggleDuration = 5000;
 const toggle = ref(isDarkMode.value);
 const toggleTimeoutId = ref<number | undefined>(undefined);
 
-async function toggleLightSwitch() {
+async function toggleLightSwitch(buttonPressed: boolean) {
   window.clearTimeout(toggleTimeoutId.value);
   toggleTimeoutId.value = undefined;
 
-  toggle.value = !toggle.value;
+  toggle.value = buttonPressed ? !isDarkMode.value : isDarkMode.value;
 
   toggleTimeoutId.value = window.setTimeout(async () => {
     if (isDarkMode.value === toggle.value) return;
@@ -64,7 +64,9 @@ export default defineComponent({
           class="MagicLogo__icon my-6"
           :class="{ 'MagicLogo__icon--active': toggle, 'MagicLogo__icon--dark': isDarkMode }"
           :style="{ 'transition': `transform ${toggleDuration}ms !important` }"
-          @click="toggleLightSwitch();"
+          @pointerdown="toggleLightSwitch(true);"
+          @pointerup="toggleLightSwitch(false);"
+          @pointerleave="toggleLightSwitch(false);"
         >
           mdi-music-box-multiple
         </v-icon>
