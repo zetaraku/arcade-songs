@@ -660,8 +660,8 @@ export default defineComponent({
       </template>
       <li>
         <div v-if="!isDarkMode">
-          <strong>HOLD ON</strong> a second!
-          This site contains a <i>secret</i>. Can you find it?
+          This site contains a <strong><i>secret</i></strong>. Can you find it?<br>
+          Read the sign and <strong>HOLD ON</strong> a second before you go into the forest!
         </div>
         <div v-else class="yellow--text">
           <strong>You found the <i>secret</i> :D!</strong> Isn't that kinda cool :)?
