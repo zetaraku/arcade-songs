@@ -80,7 +80,7 @@ const {
 
             <!-- sheet title (if the default cover image is used) -->
             <span
-              v-if="sheet.imageName === 'default-cover.png' && !suppress.cover"
+              v-if="(sheet.imageName || '').endsWith('default-cover.png') && !suppress.cover"
               class="CoverTitle"
               v-text="sheet.title"
             />
