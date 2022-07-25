@@ -59,6 +59,7 @@ export default defineComponent({
   <v-container class="fill-height pa-8">
     <v-row class="align-center">
       <v-col cols="12" md="6" class="text-center" style="user-select: none;">
+        <link v-if="toggle" rel="preload" :href="RICK_SHEET.imageUrl" as="image">
         <v-icon
           :size="120"
           class="MagicLogo__icon my-6"
