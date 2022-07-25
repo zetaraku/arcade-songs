@@ -1,14 +1,19 @@
 <script setup lang="ts">
 import { computed, useContext } from '@nuxtjs/composition-api';
+import useGtag from '~/composables/useGtag';
+import useGameInfo from '~/composables/useGameInfo';
 import type { LocaleObject } from '@nuxtjs/i18n';
 
 const context = useContext();
+const gtag = useGtag();
+const { gameCode } = useGameInfo();
 
 const currentLocaleOption = computed(() => context.i18n.localeProperties);
 const localeOptions = computed(() => context.i18n.locales as LocaleObject[]);
 
 function setLocale(locale: string) {
   context.i18n.setLocale(locale);
+  gtag('event', 'LocaleChanged', { gameCode: gameCode.value, eventSource: 'LocaleSwitcher', locale });
 }
 </script>
 
