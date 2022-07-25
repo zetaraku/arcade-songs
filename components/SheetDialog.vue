@@ -249,7 +249,12 @@ watch(isOpened, () => {
                 top
               >
                 <template #activator="{ on }">
-                  <v-icon large class="pa-1" v-on="on">
+                  <v-icon
+                    large
+                    class="pa-1"
+                    :style="{ 'transform': region !== 'jp' ? 'rotateY(180deg)' : 'none' }"
+                    v-on="on"
+                  >
                     {{ region === 'jp' ? 'mdi-circle-off-outline' : '' }}
                     {{ region === 'intl' ? 'mdi-earth-off' : '' }}
                     {{ region === 'cn' ? 'mdi-earth-box-off' : '' }}
