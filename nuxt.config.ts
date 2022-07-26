@@ -3,7 +3,7 @@ import { NuxtConfig } from '@nuxt/types';
 import locales from './locales';
 
 const nuxtConfig: NuxtConfig = {
-  // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
+  // Server-Side Rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
 
   // Target: https://go.nuxtjs.dev/config-target
