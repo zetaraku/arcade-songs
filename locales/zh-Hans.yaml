@@ -4,6 +4,7 @@ hello: 你好世界！
 # Page titles
 page-title:
   home: 首页
+  song: 乐曲数据
   songs: 乐曲一览
   gallery: 段位歌单
   about: 关于本站

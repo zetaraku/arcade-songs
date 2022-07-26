@@ -25,7 +25,7 @@ const {
   viewSheet,
 } = useSheetDialog();
 
-const { songId } = route.value.params;
+const { id: songId } = route.value.query;
 const song = computed(
   () => {
     const foundSong = dataStore.currentData.songs.find((song) => song.songId === songId);
@@ -53,7 +53,7 @@ const extraSheetHeaders = computed(() => {
 });
 
 useHead(() => ({
-  title: `${song.value?.title} | ${i18n.t('page-title.songs')}`,
+  title: `${song.value?.title} | ${i18n.t('page-title.song')}`,
 }));
 </script>
 

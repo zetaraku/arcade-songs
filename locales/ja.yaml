@@ -4,6 +4,7 @@ hello: こんにちは世界！
 # Page titles
 page-title:
   home: ホーム
+  song: 楽曲データ
   songs: 楽曲一覧
   gallery: 段位認定リスト
   about: このサイトについて

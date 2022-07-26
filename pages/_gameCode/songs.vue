@@ -108,7 +108,7 @@ export default defineComponent({
       </template>
       <template #item.title="{ item: song }">
         <router-link
-          :to="{ name: 'gameCode-songs-songId', params: { songId: song.songId } }"
+          :to="{ name: 'gameCode-song', query: { id: song.songId } }"
           v-text="song.title"
         />
       </template>
