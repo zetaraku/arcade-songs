@@ -91,7 +91,7 @@ sfc:
     loadFailed: 数据加载失败。
   ModeSelector:
     gridMode: 格状检视
-    tableMode: 表格检视
+    tableMode: 详细检视
     filterMode: 筛选模式
     myListMode: 我的歌单
     copyFilterLink: 将当前筛选条件复制成链接

@@ -91,7 +91,7 @@ sfc:
     loadFailed: Failed while loading data.
   ModeSelector:
     gridMode: Grid View
-    tableMode: Table View
+    tableMode: Detail View
     filterMode: Filter Mode
     myListMode: MY LIST
     copyFilterLink: Copy current filters as link

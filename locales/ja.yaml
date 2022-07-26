@@ -91,7 +91,7 @@ sfc:
     loadFailed: データの読み込みに失敗しました。
   ModeSelector:
     gridMode: グリッド表示
-    tableMode: テーブル表示
+    tableMode: 詳細表示
     filterMode: フィルター
     myListMode: マイリスト
     copyFilterLink: フィルターをリンクにコピーする
