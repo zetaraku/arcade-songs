@@ -1,6 +1,6 @@
 <script setup lang="ts">
 /* eslint-disable import/first, import/no-duplicates */
-import { ref, computed, watch, provide, useRoute, useMeta as useHead, useContext, nextTick } from '@nuxtjs/composition-api';
+import { ref, computed, watch, provide, onMounted, useRoute, useMeta as useHead, useContext } from '@nuxtjs/composition-api';
 import { useI18n } from 'nuxt-i18n-composable';
 import useDataStore from '~/stores/data';
 import useGameInfo from '~/composables/useGameInfo';
@@ -101,16 +101,18 @@ function validateGameCode() {
     context.error(new PageNotFoundError());
   }
 }
-
-watch(gameCode, async () => {
-  await nextTick();
+async function detectGameCode() {
   adaptSiteStyle();
   validateGameCode();
   await dataStore.switchGameCode(gameCode.value!);
-}, { immediate: true });
+}
+
+watch(gameCode, () => detectGameCode());
 watch(isDarkMode, () => {
   context.$vuetify.theme.dark = isDarkMode.value;
 });
+
+onMounted(() => detectGameCode());
 
 provide('isDarkMode', isDarkMode);
 </script>
