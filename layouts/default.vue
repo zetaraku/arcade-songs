@@ -68,8 +68,12 @@ useHead(() => {
   const descriptionJp = String(siteDescriptionJp).replace('______', gameTitle.value || '音ゲー');
 
   return {
+    title: 'N/A',
     titleTemplate: `%s | ${subSiteTitle}`,
     meta: [
+      { charset: 'utf-8', hid: 'charset' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' },
+      { name: 'format-detection', content: 'telephone=no' },
       { property: 'og:type', content: 'website' },
       { property: 'og:title', content: subSiteTitle },
       { property: 'og:site_name', content: subSiteTitle },
@@ -84,7 +88,16 @@ useHead(() => {
       { name: 'theme-color', content: themeColor.value },
       { name: 'msapplication-TileColor', content: themeColor.value },
       { name: 'apple-mobile-web-app-title', content: subSiteTitle },
-    ].map((e) => ({ ...e, hid: e.name ?? e.property })),
+    ].map((e) => ({ ...e, hid: e.hid ?? e.name ?? e.property })),
+    link: [
+      { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png?v=1', hid: 'icon-32' },
+      { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png?v=1', hid: 'icon-16' },
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico?v=1', hid: 'icon-ico' },
+      { rel: 'manifest', href: '/site.webmanifest?v=1' },
+      { rel: 'mask-icon', href: '/safari-pinned-tab.svg?v=1' },
+      { rel: 'shortcut-icon', href: '/favicon.ico?v=1' },
+      { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png?v=1' },
+    ].map((e) => ({ ...e, hid: e.hid ?? e.rel })),
   };
 });
 

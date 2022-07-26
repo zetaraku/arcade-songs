@@ -21,35 +21,6 @@ const nuxtConfig: NuxtConfig = {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: process.env.SITE_TITLE!,
-    meta: [
-      { charset: 'utf-8', hid: 'charset' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' },
-      { name: 'format-detection', content: 'telephone=no' },
-      { property: 'og:type', content: 'website' },
-      { property: 'og:title', content: process.env.SITE_TITLE! },
-      { property: 'og:site_name', content: process.env.SITE_TITLE! },
-      { property: 'og:url', content: process.env.SITE_URL! },
-      { property: 'og:image', content: new URL('logo.png?v=1', process.env.SITE_URL!).toString() },
-      { property: 'og:description', content: String(process.env.SITE_DESCRIPTION_EN!).replace('______', 'arcade games') },
-      { name: 'description', content: String(process.env.SITE_DESCRIPTION_EN!).replace('______', 'arcade games') },
-      { name: 'twitter:card', content: 'summary' },
-      { name: 'twitter:title', content: process.env.SITE_TITLE! },
-      { name: 'twitter:image', content: new URL('logo.png?v=1', process.env.SITE_URL!).toString() },
-      { name: 'twitter:description', content: String(process.env.SITE_DESCRIPTION_JP!).replace('______', '音ゲー') },
-      { name: 'theme-color', content: '#424242' },
-      { name: 'msapplication-TileColor', content: '#424242' },
-      { name: 'apple-mobile-web-app-title', content: process.env.SITE_TITLE! },
-    ].map((e) => ({ ...e, hid: e.hid ?? e.name ?? e.property })),
-    link: [
-      { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png?v=1', hid: 'icon-32' },
-      { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png?v=1', hid: 'icon-16' },
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico?v=1', hid: 'icon-ico' },
-      { rel: 'manifest', href: '/site.webmanifest?v=1' },
-      { rel: 'mask-icon', href: '/safari-pinned-tab.svg?v=1' },
-      { rel: 'shortcut-icon', href: '/favicon.ico?v=1' },
-      { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png?v=1' },
-    ].map((e) => ({ ...e, hid: e.hid ?? e.rel })),
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
