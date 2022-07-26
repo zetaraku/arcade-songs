@@ -213,8 +213,8 @@ export default defineComponent({
         @click="isDrawerOpened = !isDrawerOpened;"
       />
       <NuxtLink
-        class="d-flex"
-        style="text-decoration: none; color: inherit; user-select: none;"
+        class="d-flex text-decoration-none"
+        style="color: inherit; user-select: none;"
         to="/"
       >
         <v-icon large left right>
