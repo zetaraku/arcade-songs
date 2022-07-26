@@ -33,7 +33,7 @@ yarn run dev:host
 ## Build for production
 
 ```sh
-# generate static site into dist/ (CSR)
+# generate static site into dist/ (SSG)
 yarn run generate
 ```
 

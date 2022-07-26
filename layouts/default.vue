@@ -62,7 +62,7 @@ useHead(() => {
   } = context.$config;
 
   const subSiteTitle = gameTitle.value ? `${gameTitle.value} | ${siteTitle}` : siteTitle;
-  const pageUrl = new URL(gameCode.value ?? '', siteUrl).toString();
+  const pageUrl = new URL(`${gameCode.value ?? ''}/`, siteUrl).toString();
   const logoUrl = new URL('logo.png?v=1', siteUrl).toString();
   const descriptionEn = String(siteDescriptionEn).replace('______', gameTitle.value || 'arcade games');
   const descriptionJp = String(siteDescriptionJp).replace('______', gameTitle.value || '音ゲー');

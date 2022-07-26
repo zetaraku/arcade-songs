@@ -4,7 +4,7 @@ import locales from './locales';
 
 const nuxtConfig: NuxtConfig = {
   // Server-Side Rendering: https://go.nuxtjs.dev/ssr-mode
-  ssr: false,
+  ssr: true,
 
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
