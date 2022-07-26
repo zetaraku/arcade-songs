@@ -33,11 +33,9 @@ yarn run dev:host
 ## Build for production
 
 ```sh
-# generate static project
-$ yarn run generate
+# generate static site into dist/ (CSR)
+yarn run generate
 ```
-
-- This project is not ready for Server-Side Rendering (SSR), do not use the `yarn run build` and `yarn run start` scripts.
 
 ## Data Source
 
