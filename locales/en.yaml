@@ -4,7 +4,7 @@ hello: Hello world!
 # Page titles
 page-title:
   home: Home
-  songs: Songs
+  songs: List of Songs
   gallery: Track Lists
   about: About
   bug-report: Report Issue
