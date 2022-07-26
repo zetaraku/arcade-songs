@@ -26,15 +26,15 @@ const menu = computed(() => [
     to: { name: 'gameCode' },
   },
   {
-    icon: 'mdi-database',
-    title: i18n.t('page-title.songs'),
-    to: { name: 'gameCode-songs' },
-  },
-  {
     icon: 'mdi-script-text',
     title: i18n.t('page-title.gallery'),
     to: { name: 'gameCode-gallery' },
     disabled: dataStore.currentGallery.length === 0,
+  },
+  {
+    icon: 'mdi-database',
+    title: i18n.t('page-title.songs'),
+    to: { name: 'gameCode-songs' },
   },
   {
     icon: 'mdi-comment-question',
