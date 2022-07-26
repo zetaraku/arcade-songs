@@ -62,7 +62,7 @@ watch(isOpened, () => {
             v-for="(sheet, i) in currentSheets"
             :key="i"
             :sheet="sheet"
-            :suppress="{ cover: !isStatic }"
+            :hide-cover="!isStatic"
             @click.left="
               viewSheet(sheet);
               $gtag('event', 'SheetViewed', { gameCode, eventSource: 'SheetComboDialog' });

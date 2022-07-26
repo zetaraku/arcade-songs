@@ -8,9 +8,21 @@ defineProps({
     type: Object as PropType<Sheet>,
     required: true,
   },
-  suppress: {
-    type: Object as PropType<Record<'title'|'cover'|'level'|'lock', boolean>>,
-    default: () => ({}),
+  hideTitle: {
+    type: Boolean,
+    default: false,
+  },
+  hideCover: {
+    type: Boolean,
+    default: false,
+  },
+  hideLevel: {
+    type: Boolean,
+    default: false,
+  },
+  hideLock: {
+    type: Boolean,
+    default: false,
   },
 });
 
@@ -37,7 +49,7 @@ const {
     <v-tooltip
       top
       :nudge-bottom="95"
-      :disabled="$vuetify.breakpoint.mobile || suppress.title"
+      :disabled="$vuetify.breakpoint.mobile || hideTitle"
     >
       <template #activator="{ on }">
         <!-- invisible blocking panel (prevent long-press and right-click on images) -->
@@ -60,7 +72,7 @@ const {
             style="vertical-align: middle;"
           >
             <!-- sheet cover image -->
-            <picture v-if="!suppress.cover">
+            <picture v-if="!hideCover">
               <source
                 :srcset="sheet.imageUrlM"
                 type="image/webp"
@@ -80,14 +92,14 @@ const {
 
             <!-- sheet title (if the default cover image is used) -->
             <span
-              v-if="(sheet.imageName || '').endsWith('default-cover.png') && !suppress.cover"
+              v-if="(sheet.imageName || '').endsWith('default-cover.png') && !hideCover"
               class="CoverTitle"
               v-text="sheet.title"
             />
 
             <!-- locked icon -->
             <img
-              v-if="sheet.isLocked && !suppress.lock"
+              v-if="sheet.isLocked && !hideLock"
               :src="getLockedIconUrl()"
               :height="getLockedIconHeight()"
               alt=""
@@ -112,7 +124,7 @@ const {
 
             <!-- sheet internal level -->
             <span
-              v-if="sheet.internalLevel != null && !suppress.level"
+              v-if="sheet.internalLevel != null && !hideLevel"
               class="SheetInternalLevel"
               v-text="sheet.internalLevel"
             />
@@ -149,7 +161,7 @@ const {
         </template>
 
         <!-- sheet level -->
-        <span v-if="!suppress.level" v-text="sheet.level" />
+        <span v-if="!hideLevel" v-text="sheet.level" />
       </div>
       <div class="text-pre-wrap">
         <slot name="description" />
