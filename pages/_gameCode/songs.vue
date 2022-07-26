@@ -88,6 +88,12 @@ export default defineComponent({
       <span v-text="$t('page-title.songs')" />
     </h1>
 
+    <!--
+      A placeholder link for Nuxt to crawl in SSG mode.
+      See: https://nuxtjs.org/docs/configuration-glossary/configuration-generate#routes
+    -->
+    <router-link v-show="false" :to="{ name: 'gameCode-song' }" />
+
     <v-data-table
       :headers="headers"
       :items="songs"
