@@ -46,6 +46,7 @@ term:
 
 # Descriptions & Tooltips
 description:
+  pending: 等待中
   loading: 資料載入中...
   newSong: 新歌曲！
   unlockNeeded: 需要解禁的歌曲

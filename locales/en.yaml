@@ -46,6 +46,7 @@ term:
 
 # Descriptions & Tooltips
 description:
+  pending: Pending
   loading: Loading data...
   newSong: New song!
   unlockNeeded: This song needs to be unlocked.

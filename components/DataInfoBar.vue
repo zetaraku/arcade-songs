@@ -14,6 +14,14 @@ const errorMessage = computed(() => dataStore.currentLoadingErrorMessage);
 <template>
   <div>
     <v-alert
+      v-if="loadingStatus === LoadingStatus.PENDING"
+      type="info"
+      dense
+      outlined
+    >
+      {{ $t('description.pending') }}
+    </v-alert>
+    <v-alert
       v-if="loadingStatus === LoadingStatus.LOADING"
       type="info"
       dense
