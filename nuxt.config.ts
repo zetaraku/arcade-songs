@@ -3,12 +3,6 @@ import { NuxtConfig } from '@nuxt/types';
 import locales from './locales';
 
 const nuxtConfig: NuxtConfig = {
-  // Server-Side Rendering: https://go.nuxtjs.dev/ssr-mode
-  ssr: true,
-
-  // Target: https://go.nuxtjs.dev/config-target
-  target: 'static',
-
   publicRuntimeConfig: {
     siteTitle: process.env.SITE_TITLE,
     siteUrl: process.env.SITE_URL,
