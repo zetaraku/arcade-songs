@@ -102,8 +102,10 @@ export default defineComponent({
         </li>
         <li>
           {{ $t('term.internalLevel') }} －
-          <a href="https://developer.chunirec.net/" target="_blank">chunirec 開発者向けサイト</a>
-          <i>(Thanks <a href="https://twitter.com/chunirec" target="_blank">@chunirec</a> !)</i>
+          <a class="text-decoration-none" href="https://twitter.com/RCMF_chunithm" target="_blank">
+            <v-icon small left color="#1da1f2">mdi-twitter</v-icon><span>CHUNITHM譜面定数メインフレーム</span>
+          </a> / <a href="https://developer.chunirec.net/" target="_blank">chunirec 開発者向けサイト</a>
+          <i>(Thanks <a href="https://twitter.com/RCMF_chunithm" target="_blank">@RCMF_chunithm</a> &amp; <a href="https://twitter.com/chunirec" target="_blank">@chunirec</a> !)</i>
         </li>
       </template>
       <template v-if="gameCode === 'sdvx'">
@@ -209,8 +211,10 @@ export default defineComponent({
           <li>feature: (Data) add sheet internal level information (chunithm)</li>
           <li>
             Data source:
-            <a href="https://developer.chunirec.net/" target="_blank">chunirec 開発者向けサイト</a>
-            <i>(Thanks <a href="https://twitter.com/chunirec" target="_blank">@chunirec</a> !)</i>
+            <a class="text-decoration-none" href="https://twitter.com/RCMF_chunithm" target="_blank">
+              <v-icon small left color="#1da1f2">mdi-twitter</v-icon><span>CHUNITHM譜面定数メインフレーム</span>
+            </a> / <a href="https://developer.chunirec.net/" target="_blank">chunirec 開発者向けサイト</a>
+            <i>(Thanks <a href="https://twitter.com/RCMF_chunithm" target="_blank">@RCMF_chunithm</a> &amp; <a href="https://twitter.com/chunirec" target="_blank">@chunirec</a> !)</i>
           </li>
           <li>feature: (Grid View) sorting is now available on Grid View too</li>
           <li>misc: (Grid View) cover images will not be displayed when drawing sheet combo</li>
