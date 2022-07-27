@@ -199,10 +199,20 @@ export default defineComponent({
 
     <h3>{{ $t('page.about.updateRecord') }}</h3>
     <v-timeline dense align-top class="mt-2">
-      <v-timeline-item>
-        <span class="font-weight-bold">2022/07/23 － v2.16 Update</span>
+      <v-timeline-item large icon="mdi-star">
+        <span class="font-weight-bold">2022/07/28 － v3.0 Convergence</span>
         <ul>
-          <li>feature: (Sheet Drawer) brand new Sheet Combo Drawer is available!</li>
+          <li>
+            <i>"Search songs of your favorite music games, now all in one!"</i>
+          </li>
+          <li>
+            project: each <strong>*-songs</strong> site is now moved under >> <a href="https://arcade-songs.zetaraku.dev/" target="_blank">arcade-songs.zetaraku.dev</a>
+          </li>
+          <li>
+            project: this project is now open-source! ⭐ >> <a href="https://github.com/zetaraku/arcade-songs" target="_blank">zetaraku/arcade-songs</a>
+          </li>
+          <li>feature: (Sheet Drawer) brand new Sheet Combo Drawer is now available!</li>
+          <li>misc!: (My List) the import/export feature for My List now uses a new format (.yaml)</li>
         </ul>
       </v-timeline-item>
       <v-timeline-item>
