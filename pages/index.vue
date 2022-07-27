@@ -86,6 +86,7 @@ export default defineComponent({
             v-for="(site, i) in sites.filter((e) => !e.isHidden || isDarkMode)"
             :key="i"
             :to="{ name: 'gameCode', params: { gameCode: site.gameCode }}"
+            class="SiteList__item px-4"
           >
             <v-list-item-icon>
               <v-icon :color="site.themeColor">
@@ -93,6 +94,9 @@ export default defineComponent({
               </v-icon>
             </v-list-item-icon>
             <v-list-item-title v-text="site.gameTitle" />
+            <v-list-item-icon class="SiteList__arrow">
+              <v-icon>mdi-arrow-right</v-icon>
+            </v-list-item-icon>
           </v-list-item>
         </v-list>
       </v-col>
@@ -101,6 +105,16 @@ export default defineComponent({
 </template>
 
 <style lang="scss">
+.SiteList {
+  &__arrow {
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
+
+  &__item:hover &__arrow {
+    opacity: 1;
+  }
+}
 .MagicLogo {
   &__icon {
     &::before {
