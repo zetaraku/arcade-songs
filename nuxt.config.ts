@@ -3,6 +3,10 @@ import { NuxtConfig } from '@nuxt/types';
 import locales from './locales';
 
 const nuxtConfig: NuxtConfig = {
+  generate: {
+    fallback: '404.html',
+  },
+
   publicRuntimeConfig: {
     siteTitle: process.env.SITE_TITLE,
     siteUrl: process.env.SITE_URL,
