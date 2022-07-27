@@ -32,9 +32,24 @@ yarn run dev:host
 
 ## Build for production
 
+### Static hosting with SSG (recommended)
+
 ```sh
-# generate static site into dist/ (SSG)
+# Build the application (if needed), generate every route as a HTML file and statically export to dist/ directory (used for static hosting).
 yarn run generate
+
+# serve the dist/ directory like your static hosting would do (Netlify, Vercel, Surge, etc), great for testing before deploying.
+yarn run serve
+```
+
+### Server hosting with SSR
+
+```sh
+# Build and optimize your application with webpack for production.
+yarn run build
+
+# Start the production server (after running nuxt build). Use it for Node.js hosting like Heroku, Digital Ocean, etc.
+yarn run start
 ```
 
 ## Data Source
