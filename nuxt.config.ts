@@ -7,6 +7,10 @@ const nuxtConfig: NuxtConfig = {
     fallback: '404.html',
   },
 
+  router: {
+    trailingSlash: true,
+  },
+
   publicRuntimeConfig: {
     siteTitle: process.env.SITE_TITLE,
     siteUrl: process.env.SITE_URL,
