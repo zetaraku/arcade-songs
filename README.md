@@ -6,7 +6,7 @@ A utility site that provides a searching interface for arcade games songs and sh
 
 ## Prerequisites
 
-- [Node.js](https://nodejs.org/)
+- [Node.js](https://nodejs.org/) (LTS version or above)
 - [Yarn](https://yarnpkg.com/)
 
 ## Setup
@@ -58,11 +58,23 @@ See: <https://github.com/zetaraku/arcade-songs-fetch>
 
 ## Contributing
 
-The translations for **Japanese** and **Simplified Chinese** need to be refined, and I am also planning to add the **Korean** translation but I don't understand Korean.
+The translations for **Japanese** and **Simplified Chinese** need to be refined.
 
 If you are familiar with these languages, you can help improve the translation by [opening an issue](https://github.com/zetaraku/arcade-songs/issues) or [creating a pull request](https://github.com/zetaraku/arcade-songs/pulls). The translation files are located in `locales/`.
 
 If you have any ideas or suggestions, you can [open an issue](https://github.com/zetaraku/arcade-songs/issues) or [use the ask form](https://arcade-songs-report.zetaraku.dev/). Improvement to the code is welcome.
+
+## Contributors ✨
+
+- [Sungsoo Han (lomotos10)](https://github.com/lomotos10) - Korean translation
+
+## Special Thanks ✨
+
+- [maimai譜面定数メインフレーム (@RCMF_maimai)](https://twitter.com/rcmf_maimai) - Internal level information for maimai
+- [CrazyKid (@CrazyKidCN)](https://github.com/CrazyKidCN) - Sheet information for maimai China ver. (舞萌DX)
+- [CHUNITHM譜面定数メインフレーム (@RCMF_chunithm)](https://twitter.com/RCMF_chunithm) - Internal level information for CHUNITHM
+- [chunirec チュウニズム非公式スコア管理ツール (@chunirec)](https://twitter.com/chunirec) - Internal level information API for CHUNITHM
+- ... and all the players contributing sheet data and reporting issues!
 
 ## License
 
