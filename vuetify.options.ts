@@ -1,4 +1,4 @@
-import { en, ja, zhHant, zhHans } from 'vuetify/src/locale';
+import { en, ja, ko, zhHant, zhHans } from 'vuetify/src/locale';
 
 export default {
   breakpoint: {},
@@ -7,6 +7,7 @@ export default {
     locales: {
       en,
       ja,
+      ko,
       'zh-Hant': zhHant,
       'zh-Hans': zhHans,
     },
