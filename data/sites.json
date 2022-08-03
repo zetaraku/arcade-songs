@@ -14,13 +14,6 @@
     "accessCounterUrl": "https://www.f-counter.net/j/45/1609244179/"
   },
   {
-    "gameCode": "wacca",
-    "gameTitle": "WACCA",
-    "themeColor": "#e50065",
-    "dataSourceUrl": "https://dp4p6x0xfi5o9.cloudfront.net/wacca",
-    "accessCounterUrl": "https://www.f-counter.net/j/45/1609244286/"
-  },
-  {
     "gameCode": "sdvx",
     "gameTitle": "SOUND VOLTEX",
     "themeColor": "#404040",
@@ -28,18 +21,25 @@
     "accessCounterUrl": "https://www.f-counter.net/j/45/1610979366/"
   },
   {
-    "gameCode": "taiko",
-    "gameTitle": "太鼓の達人",
-    "themeColor": "#f50000",
-    "dataSourceUrl": "https://dp4p6x0xfi5o9.cloudfront.net/taiko",
-    "accessCounterUrl": "https://www.f-counter.net/j/45/1612282353/"
-  },
-  {
     "gameCode": "jubeat",
     "gameTitle": "jubeat",
     "themeColor": "#134c43",
     "dataSourceUrl": "https://dp4p6x0xfi5o9.cloudfront.net/jubeat",
     "accessCounterUrl": "https://www.f-counter.net/j/45/1611304929/"
+  },
+  {
+    "gameCode": "wacca",
+    "gameTitle": "WACCA",
+    "themeColor": "#e50065",
+    "dataSourceUrl": "https://dp4p6x0xfi5o9.cloudfront.net/wacca",
+    "accessCounterUrl": "https://www.f-counter.net/j/45/1609244286/"
+  },
+  {
+    "gameCode": "taiko",
+    "gameTitle": "太鼓の達人",
+    "themeColor": "#f50000",
+    "dataSourceUrl": "https://dp4p6x0xfi5o9.cloudfront.net/taiko",
+    "accessCounterUrl": "https://www.f-counter.net/j/45/1612282353/"
   },
   {
     "gameCode": "ongeki",
