@@ -122,7 +122,7 @@ export default defineComponent({
       <template v-if="gameCode === 'jubeat'">
         <li>
           {{ $t('page.about.songInfo') }} －
-          <a href="https://p.eagate.573.jp/game/jubeat/festo/top/" target="_blank">jubeat festo</a>
+          <a href="https://p.eagate.573.jp/game/jubeat/ave/" target="_blank">jubeat Ave.</a>
         </li>
         <li>
           {{ $t('page.about.sheetInfo') }} －
