@@ -252,12 +252,15 @@ watch(isOpened, () => {
                   <v-icon
                     large
                     class="pa-1"
-                    :style="{ 'transform': region !== 'jp' ? 'rotateY(180deg)' : 'none' }"
+                    :style="{
+                      'transform': !['jp', 'offline'].includes(region) ? 'rotateY(180deg)' : 'none',
+                    }"
                     v-on="on"
                   >
                     {{ region === 'jp' ? 'mdi-circle-off-outline' : '' }}
                     {{ region === 'intl' ? 'mdi-earth-off' : '' }}
                     {{ region === 'cn' ? 'mdi-earth-box-off' : '' }}
+                    {{ region === 'offline' ? 'mdi-signal-off' : '' }}
                   </v-icon>
                 </template>
                 <span>
