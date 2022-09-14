@@ -1,6 +1,6 @@
 # arcade-songs
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/1c32f773-3a20-42a1-a8f7-ace6ec1a3ebc/deploy-status)](https://app.netlify.com/sites/arcade-songs/deploys) [![Coding Style](https://img.shields.io/badge/code_style-airbnb-%234B32C3)](https://github.com/airbnb/javascript) [![Gitmoji](https://img.shields.io/badge/commit_style-%20😜%20😍-%23FFDD67)](https://gitmoji.dev)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/1c32f773-3a20-42a1-a8f7-ace6ec1a3ebc/deploy-status)](https://app.netlify.com/sites/arcade-songs/deploys) [![Coding Style](https://img.shields.io/badge/code_style-airbnb-%234B32C3)](https://github.com/airbnb/javascript) [![Gitmoji](https://img.shields.io/badge/commit_style-%20😜%20😍-%23FFDD67)](https://gitmoji.dev) [![Translation status](https://hosted.weblate.org/widgets/arcade-songs/-/svg-badge.svg)](https://hosted.weblate.org/engage/arcade-songs/)
 
 A utility site that provides a searching interface for arcade games songs and sheets.
 
@@ -58,11 +58,21 @@ See: <https://github.com/zetaraku/arcade-songs-fetch>
 
 ## Contributing
 
-The translations for **Japanese** and **Simplified Chinese** need to be refined.
+[![Translation status](https://hosted.weblate.org/widgets/arcade-songs/-/287x66-grey.png)](https://hosted.weblate.org/engage/arcade-songs/)
 
-If you are familiar with these languages, you can help improve the translation by [opening an issue](https://github.com/zetaraku/arcade-songs/issues) or [creating a pull request](https://github.com/zetaraku/arcade-songs/pulls). The translation files are located in `locales/`.
+**arcade-songs** is now being translated using [Weblate](https://weblate.org/), a web tool designed to ease translating for both developers and translators. 
 
-If you have any ideas or suggestions, you can [open an issue](https://github.com/zetaraku/arcade-songs/issues) or [use the ask form](https://arcade-songs-report.zetaraku.dev/). Improvement to the code is welcome.
+The translation for **Japanese** and **Simplified Chinese** needs to be refined.
+
+If you are familiar with these languages, you can help improve the translation by any of:
+
+- [Editing on Weblate](https://hosted.weblate.org/projects/arcade-songs/arcade-songs/) directly.
+- [Opening an issue](https://github.com/zetaraku/arcade-songs/issues) to point out the problem.
+- [Creating a pull request](https://github.com/zetaraku/arcade-songs/pulls) to submit your edit.
+
+The translation files are located in `locales/`.
+
+If you have any ideas or suggestions, you can [open an issue](https://github.com/zetaraku/arcade-songs/issues) or [use the ask form](https://arcade-songs-report.zetaraku.dev/).
 
 ## Contributors ✨
 
