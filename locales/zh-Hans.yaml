@@ -47,7 +47,7 @@ term:
 # Descriptions & Tooltips
 description:
   pending: 等待中
-  loading: 正在加载数据...
+  loading: 正在加载数据…
   newSong: 新乐曲！
   unlockNeeded: 需要解禁的乐曲
   unavailableInRegion: '{region} 未收录'
