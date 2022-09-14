@@ -47,7 +47,7 @@ term:
 # Descriptions & Tooltips
 description:
   pending: 保留中
-  loading: データを読み込んでいます．．．
+  loading: データを読み込んでいます…
   newSong: 新曲！
   unlockNeeded: 解禁が必要な楽曲です
   unavailableInRegion: '{region} 未追加'
@@ -55,7 +55,7 @@ description:
   invalidNoteCounts: 無効なノーツ数量
   filterResultEmpty: フィルター条件を満たす譜面が見つかりません。
   myListEmpty: 譜面を右クリックまたは長押しで「マイリスト」に追加すると、ここに選択した譜面が見られます。
-  drawPoolEmpty: 譜面プールは空です。
+  drawPoolEmpty: 譜面プールは空です！
 
 # Pages
 page:
