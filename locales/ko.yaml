@@ -47,15 +47,15 @@ term:
 # Descriptions & Tooltips
 description:
   pending: 처리 중
-  loading: 데이터 로딩 중...
+  loading: 데이터 로딩 중…
   newSong: 신곡!
   unlockNeeded: 해금 필요
   unavailableInRegion: '{region} 미수록'
   copied: 클립보드에 복사되었습니다!
-  invalidNoteCounts: 노트 수가 유효하지 않습니다.
+  invalidNoteCounts: 노트 수가 유효하지 않습니다
   filterResultEmpty: 필터 값을 만족하는 보면을 찾을 수 없습니다.
   myListEmpty: 보면을 우클릭하거나 길게 눌러 마이리스트에 추가하여 모아볼 수 있습니다.
-  drawPoolEmpty: 리스트가 비어있습니다.
+  drawPoolEmpty: 리스트가 비어있습니다!
 
 # Pages
 page:
@@ -83,7 +83,7 @@ page:
     disclaimer: 저작권 정보
   error:
     error: 에러
-    notFound: 페이지를 찾을 수 없습니다.
+    notFound: 페이지를 찾을 수 없습니다
     backToHome: 홈으로
 
 # Components
@@ -96,11 +96,11 @@ sfc:
     tableMode: 상세 보기
     filterMode: 필터
     myListMode: 마이리스트
-    copyFilterLink: 현재 필터를 링크로 복사합니다.
+    copyFilterLink: 현재 필터를 링크로 복사합니다
     noFilterWarn: 최소 1개의 필터를 설정해주세요.
-    exportMyList: 마이리스트를 파일로 저장합니다.
+    exportMyList: 마이리스트를 파일로 저장합니다
     myListEmptyWarn: "마이리스트가 비어있습니다.\n저장할 수 없습니다."
-    importMyList: 마이리스트를 파일에서 불러옵니다.
+    importMyList: 마이리스트를 파일에서 불러옵니다
     sheetsLoaded: '{n}개의 보면을 성공적으로 불러왔습니다.'
   SheetDrawerPanel:
     drawRandomSheet: 무작위 보면 선곡!
