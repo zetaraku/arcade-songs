@@ -47,15 +47,15 @@ term:
 # Descriptions & Tooltips
 description:
   pending: Pending
-  loading: Loading data...
+  loading: Loading data…
   newSong: New song!
-  unlockNeeded: This song needs to be unlocked.
+  unlockNeeded: This song needs to be unlocked
   unavailableInRegion: 'Currently Unavailable in {region}'
   copied: Copied to clipboard!
   invalidNoteCounts: Invalid NOTE counts
   filterResultEmpty: Cannot find any sheet that satisfies the filter.
   myListEmpty: Right-click or long-press a sheet to add it to MY LIST, and then you can see your selected sheets here.
-  drawPoolEmpty: Current drawing pool is empty!
+  drawPoolEmpty: Current drawing pool is empty.
 
 # Pages
 page:
@@ -84,7 +84,7 @@ page:
   error:
     error: Error
     notFound: Page Not Found
-    backToHome:  Back to Home
+    backToHome: Back to Home
 
 # Components
 sfc:
@@ -101,7 +101,7 @@ sfc:
     exportMyList: Export MY LIST to file
     myListEmptyWarn: "MY LIST is empty!\nNothing to export."
     importMyList: Import MY LIST from file
-    sheetsLoaded: 'Imported {n} sheet(s) successfully.'
+    sheetsLoaded: 'Imported {n} sheets successfully.'
   SheetDrawerPanel:
     drawRandomSheet: DRAW RANDOM SHEET!
     drawRandomSheetCombo: DRAW RANDOM SET!

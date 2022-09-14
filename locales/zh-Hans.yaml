@@ -47,7 +47,7 @@ term:
 # Descriptions & Tooltips
 description:
   pending: 等待中
-  loading: 正在加载数据...
+  loading: 正在加载数据…
   newSong: 新乐曲！
   unlockNeeded: 需要解禁的乐曲
   unavailableInRegion: '{region} 未收录'
@@ -55,7 +55,7 @@ description:
   invalidNoteCounts: 无效的 NOTE 数量
   filterResultEmpty: 找不到符合当前筛选条件的谱面。
   myListEmpty: 鼠标右击或长按谱面将谱面加入【我的歌单】后，就能在这里看到你选择的谱面。
-  drawPoolEmpty: 当前的谱面池是空的！
+  drawPoolEmpty: 当前的谱面池是空的。
 
 # Pages
 page:
