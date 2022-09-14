@@ -47,7 +47,7 @@ term:
 # Descriptions & Tooltips
 description:
   pending: 保留中
-  loading: データを読み込んでいます．．．
+  loading: データを読み込んでいます…
   newSong: 新曲！
   unlockNeeded: 解禁が必要な楽曲です
   unavailableInRegion: '{region} 未追加'
