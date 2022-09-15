@@ -56,7 +56,7 @@ export default defineComponent({
       <template v-if="gameCode === 'maimai'">
         <li>
           {{ $t('page.about.songInfo') }} －
-          <a href="https://maimai.sega.jp/" target="_blank">maimai でらっくす UNiVERSE PLUS公式サイト｜セガ音ゲー</a>
+          <a href="https://maimai.sega.jp/" target="_blank">maimai でらっくす FESTiVAL公式サイト｜セガ音ゲー</a>
         </li>
         <li>
           {{ $t('page.about.sheetInfo') }} －
