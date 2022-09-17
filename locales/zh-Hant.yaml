@@ -84,7 +84,7 @@ page:
   error:
     error: 錯誤
     notFound: 頁面不存在
-    backToHome: 回首頁
+    backToHome: 回到首頁
 
 # Components
 sfc:
