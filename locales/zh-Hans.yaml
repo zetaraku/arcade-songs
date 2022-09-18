@@ -4,8 +4,8 @@ hello: 你好世界！
 # Page titles
 page-title:
   home: 首页
-  song: 乐曲数据
-  songs: 乐曲一览
+  song: 歌曲数据
+  songs: 歌曲一览
   gallery: 段位歌单
   about: 关于本站
   bug-report: 报告问题
@@ -48,8 +48,8 @@ term:
 description:
   pending: 等待中
   loading: 正在加载数据…
-  newSong: 新乐曲！
-  unlockNeeded: 需要解禁的乐曲
+  newSong: 新歌曲！
+  unlockNeeded: 需要解禁的歌曲
   unavailableInRegion: '{region} 未收录'
   copied: 已复制到剪贴板！
   invalidNoteCounts: 无效的 NOTE 数量
@@ -60,7 +60,7 @@ description:
 # Pages
 page:
   index:
-    description: 在这里搜索你最喜欢的音乐游戏乐曲！
+    description: 在这里搜索你最喜欢的音乐游戏歌曲！
   gallery:
     selectList: 选择乐曲列表
   songs:
@@ -84,7 +84,7 @@ page:
   error:
     error: 错误
     notFound: 页面不存在
-    backToHome: 回首页
+    backToHome: 返回首页
 
 # Components
 sfc:
