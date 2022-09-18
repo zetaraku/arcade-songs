@@ -84,7 +84,7 @@ page:
   error:
     error: 错误
     notFound: 页面不存在
-    backToHome: 回到首页
+    backToHome: 返回首页
 
 # Components
 sfc:
