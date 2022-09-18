@@ -4,8 +4,8 @@ hello: 你好世界！
 # Page titles
 page-title:
   home: 首页
-  song: 音乐数据
-  songs: 音乐一览
+  song: 歌曲数据
+  songs: 歌曲一览
   gallery: 段位歌单
   about: 关于本站
   bug-report: 报告问题
@@ -48,8 +48,8 @@ term:
 description:
   pending: 等待中
   loading: 正在加载数据…
-  newSong: 新音乐！
-  unlockNeeded: 需要解禁的音乐
+  newSong: 新歌曲！
+  unlockNeeded: 需要解禁的歌曲
   unavailableInRegion: '{region} 未收录'
   copied: 已复制到剪贴板！
   invalidNoteCounts: 无效的 NOTE 数量
@@ -60,15 +60,15 @@ description:
 # Pages
 page:
   index:
-    description: 在这里搜索你最喜欢的音乐游戏音乐！
+    description: 在这里搜索你最喜欢的音乐游戏歌曲！
   gallery:
-    selectList: 选择音乐列表
+    selectList: 选择乐曲列表
   songs:
     sheetData: 谱面数据
   about:
     author: 作者
     dataSource: 数据源
-    songInfo: 音乐信息
+    songInfo: 乐曲信息
     sheetInfo: 谱面信息
     sheetInfoDescription: 在此特别感谢所有贡献谱面信息的玩家们！
     openSource: 项目源代码
@@ -107,7 +107,7 @@ sfc:
     drawRandomSheetCombo: 随机抽取组曲！
   FilterInfoBar:
     sheetsCount: '{n} 谱面'
-    songsCount: '{n} 音乐'
+    songsCount: '{n} 乐曲'
   SheetDialog:
     searchOnYouTube: 在 YouTube 上搜索
     tryAgain: 再抽一次
