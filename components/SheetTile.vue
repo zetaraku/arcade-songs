@@ -163,7 +163,7 @@ const {
         <!-- sheet level -->
         <span v-if="!hideLevel" v-text="sheet.level" />
       </div>
-      <div class="text-pre-wrap">
+      <div class="text-pre-wrap mt-1">
         <slot name="description" />
       </div>
     </div>
@@ -216,6 +216,7 @@ const {
       -webkit-text-stroke: 5px black;
       paint-order: stroke;
 
+      text-align: left;
       word-wrap: break-word;
       overflow: hidden;
       max-width: 100%;
