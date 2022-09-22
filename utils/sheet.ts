@@ -80,14 +80,14 @@ export function makeInvalidDummySheet(sheetExprMatches: string[]) {
 }
 
 export function makeUnmatchedDummySheet(sheetExprMatches: string[]) {
-  const [title, type, difficulty, level = undefined] = sheetExprMatches;
+  const [songId, type, difficulty, level = undefined] = sheetExprMatches;
 
   return {
-    songId: null,
+    songId,
     songNo: 0,
 
     category: 'UNMATCHED SHEET',
-    title,
+    title: songId,
     artist: undefined,
     bpm: undefined,
 
