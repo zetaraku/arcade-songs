@@ -151,6 +151,20 @@ export default defineComponent({
           <a href="https://ongeki.gamerch.com/" target="_blank">オンゲキ【音撃‐O.N.G.E.K.I-】攻略wiki - Gamerch</a>
           － {{ $t('page.about.sheetInfoDescription') }}
         </li>
+        <li>
+          {{ $t('term.internalLevel') }} －
+          <a class="text-decoration-none" href="https://twitter.com/ongeki_score" target="_blank">
+            <v-icon small left color="#1da1f2">mdi-twitter</v-icon><span>OngekiScoreLog - オンゲキ非公式スコアツール</span>
+          </a> / <a href="https://ongeki-score.net/" target="_blank">OngekiScoreLog - オンゲキ非公式スコアツール</a>
+          <i>
+            (Thanks
+            <a href="https://twitter.com/Rinsaku471" target="_blank">@Rinsaku471</a> &amp;
+            <a href="https://twitter.com/RKS49019722" target="_blank">@RKS49019722</a> &amp;
+            <a href="https://twitter.com/masa_9713" target="_blank">@masa_9713</a> &amp;
+            <a href="https://twitter.com/ongeki_score" target="_blank">@ongeki_score</a>
+            !)
+          </i>
+        </li>
       </template>
       <template v-if="gameCode === 'gc'">
         <li>
@@ -199,6 +213,27 @@ export default defineComponent({
 
     <h3>{{ $t('page.about.updateRecord') }}</h3>
     <v-timeline dense align-top class="mt-2">
+      <v-timeline-item>
+        <span class="font-weight-bold">2022/09/22 － v3.1 Update</span>
+        <ul>
+          <li>feature: (Data) add sheet internal level information for <strong>オンゲキ</strong></li>
+          <li>
+            Data source:
+            <a class="text-decoration-none" href="https://twitter.com/ongeki_score" target="_blank">
+              <v-icon small left color="#1da1f2">mdi-twitter</v-icon><span>OngekiScoreLog - オンゲキ非公式スコアツール</span>
+            </a> / <a href="https://ongeki-score.net/" target="_blank">OngekiScoreLog - オンゲキ非公式スコアツール</a>
+            <i>
+              (Thanks
+              <a href="https://twitter.com/Rinsaku471" target="_blank">@Rinsaku471</a> &amp;
+              <a href="https://twitter.com/RKS49019722" target="_blank">@RKS49019722</a> &amp;
+              <a href="https://twitter.com/masa_9713" target="_blank">@masa_9713</a> &amp;
+              <a href="https://twitter.com/ongeki_score" target="_blank">@ongeki_score</a>
+              !)
+            </i>
+          </li>
+          <li>misc: (My List) preserve song id for unmatched imported sheets</li>
+        </ul>
+      </v-timeline-item>
       <v-timeline-item small color="grey">
         <span class="font-weight-bold">2022/08/02 － v3.0.1 Update</span>
         <ul>
@@ -227,7 +262,7 @@ export default defineComponent({
       <v-timeline-item>
         <span class="font-weight-bold">2022/07/08 － v2.15 Update</span>
         <ul>
-          <li>feature: (Data) add sheet internal level information (chunithm)</li>
+          <li>feature: (Data) add sheet internal level information for <strong>CHUNITHM</strong></li>
           <li>
             Data source:
             <a class="text-decoration-none" href="https://twitter.com/RCMF_chunithm" target="_blank">
@@ -256,7 +291,7 @@ export default defineComponent({
       <v-timeline-item>
         <span class="font-weight-bold">2022/06/12 － v2.14 Update</span>
         <ul>
-          <li>feature: (Data) add sheet internal level information (maimai)</li>
+          <li>feature: (Data) add sheet internal level information for <strong>maimai</strong></li>
           <li>
             Data source:
             <a class="text-decoration-none" href="https://twitter.com/rcmf_maimai" target="_blank">
