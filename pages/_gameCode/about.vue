@@ -214,6 +214,13 @@ export default defineComponent({
     <h3>{{ $t('page.about.updateRecord') }}</h3>
     <v-timeline dense align-top class="mt-2">
       <v-timeline-item>
+        <span class="font-weight-bold">2022/09/23 － v3.2 Update</span>
+        <ul>
+          <li>feature: (Gallery) now each list in gallery will have its respective url</li>
+          <li>ui: (Gallery) list title is now shown and the size of section titles is adjusted</li>
+        </ul>
+      </v-timeline-item>
+      <v-timeline-item>
         <span class="font-weight-bold">2022/09/22 － v3.1 Update</span>
         <ul>
           <li>feature: (Data) add sheet internal level information for <strong>オンゲキ</strong></li>
