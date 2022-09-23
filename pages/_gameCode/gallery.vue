@@ -1,6 +1,6 @@
 <script setup lang="ts">
 /* eslint-disable import/first, import/no-duplicates */
-import { ref, computed, watch, inject, useMeta as useHead, Ref } from '@nuxtjs/composition-api';
+import { ref, computed, watch, inject, useRoute, useRouter, useMeta as useHead, Ref } from '@nuxtjs/composition-api';
 import { useI18n } from 'nuxt-i18n-composable';
 import useDataStore from '~/stores/data';
 import useGameInfo from '~/composables/useGameInfo';
@@ -10,6 +10,8 @@ import type { GalleryList } from '~/types';
 const isDarkMode: Ref<boolean> = inject('isDarkMode')!;
 
 const i18n = useI18n();
+const route = useRoute();
+const router = useRouter();
 const dataStore = useDataStore();
 const { gameCode } = useGameInfo();
 const { viewSheet } = useSheetDialog();
@@ -21,11 +23,24 @@ const lists = computed(
 );
 
 useHead(() => ({
-  title: i18n.t('page-title.gallery') as string,
+  title: (
+    currentList.value !== null
+      ? `${currentList.value.title} | ${i18n.t('page-title.gallery')}`
+      : i18n.t('page-title.gallery') as string
+  ),
 }));
 
-watch(lists, () => {
-  currentList.value = lists.value[0] ?? null;
+watch([lists, route], () => {
+  if (route.value.query.title !== undefined) {
+    currentList.value = lists.value.find((list) => list.title === route.value.query.title) ?? null;
+  } else {
+    currentList.value = lists.value[0] ?? null;
+  }
+}, { immediate: true });
+watch(currentList, () => {
+  if (currentList.value !== null) {
+    router.push({ query: { title: currentList.value.title } });
+  }
 }, { immediate: true });
 </script>
 
