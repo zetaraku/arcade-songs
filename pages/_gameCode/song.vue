@@ -25,17 +25,19 @@ const {
   viewSheet,
 } = useSheetDialog();
 
-const { id: songId } = route.value.query;
 const song = computed(
   () => {
-    const foundSong = dataStore.currentData.songs.find((song) => song.songId === songId);
-    if (foundSong !== undefined) {
-      return foundSong;
-    }
-    if (dataStore.currentLoadingStatus === LoadingStatus.LOADED) {
+    const songId = route.value.query.id;
+    const foundSong = dataStore.currentData.songs.find((song) => song.songId === songId) ?? null;
+
+    if (
+      songId !== undefined && foundSong === null
+      && dataStore.currentLoadingStatus === LoadingStatus.LOADED
+    ) {
       context.error(new PageNotFoundError());
     }
-    return null;
+
+    return foundSong;
   },
 );
 
