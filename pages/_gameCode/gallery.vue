@@ -68,6 +68,12 @@ export default defineComponent({
 
     <!-- Current List -->
     <template v-if="currentList !== null">
+      <!-- List title -->
+      <h1
+        class="text-pre-wrap mb-8"
+        v-text="currentList.title"
+      />
+
       <!-- List description -->
       <p
         v-if="currentList.description != null"
@@ -83,7 +89,7 @@ export default defineComponent({
         :class="{ 'yellow--text': currentList.isHidden }"
       >
         <!-- Section title -->
-        <h1
+        <h2
           v-if="section.title != null"
           class="text-pre-wrap mb-4"
           v-text="section.title"
