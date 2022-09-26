@@ -113,13 +113,16 @@ const {
             <!-- type icon -->
             <img
               :src="getTypeIconUrl(sheet.type)"
-              :height="getTypeIconHeight(sheet.type)"
               alt=""
               style="
                 position: absolute;
                 bottom: 0; left: -15px;
                 transform: translate(0%, +50%);
                 vertical-align: middle;"
+              :style="{
+                'width': 'auto',
+                'height': `${getTypeIconHeight(sheet.type)}px`,
+              }"
             >
 
             <!-- sheet internal level -->
