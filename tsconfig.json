@@ -23,6 +23,7 @@
       "@nuxtjs/i18n",
       "@nuxtjs/axios",
       "@nuxtjs/vuetify",
+      "@nuxtjs/sentry",
       "@pinia/nuxt",
       "unplugin-vue2-script-setup/types"
     ]

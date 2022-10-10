@@ -69,6 +69,8 @@ const nuxtConfig: NuxtConfig = {
     '@nuxtjs/sitemap',
     // https://github.com/nuxt-community/google-gtag-module
     '@nuxtjs/google-gtag',
+    // https://sentry.nuxtjs.org/
+    '@nuxtjs/sentry',
   ],
 
   i18n: {
@@ -106,6 +108,18 @@ const nuxtConfig: NuxtConfig = {
   'google-gtag': {
     id: process.env.GTAG_TRACK_ID,
     debug: process.env.NODE_ENV === 'development',
+  },
+
+  sentry: {
+    dsn: process.env.SENTRY_DSN,
+
+    // Additional Module Options go here
+    // https://sentry.nuxtjs.org/sentry/options
+
+    config: {
+      // Add native Sentry config here
+      // https://docs.sentry.io/platforms/javascript/guides/vue/configuration/options/
+    },
   },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
