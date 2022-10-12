@@ -33,13 +33,13 @@ term:
   bpm: BPM
   minBPM: 최소 BPM
   maxBPM: 최대 BPM
-  sheets: 악보
+  sheets: 채보
   type: 유형
   difficulty: 난이도
-  level: 수준
-  minLevel: 최소 수준
-  maxLevel: 최대 수준
-  internalLevel: 내부 수준
+  level: 레벨
+  minLevel: 최소 레벨
+  maxLevel: 최대 레벨
+  internalLevel: 보면상수
   noteDesigner: 노트 제작자
   totalNotes: 전체 노트 수
   region: 지역
@@ -53,24 +53,24 @@ description:
   unavailableInRegion: '현재 {region}에서 사용할 수 없음'
   copied: 클립보드에 복사했습니다!
   invalidNoteCounts: 잘못된 노트 수
-  filterResultEmpty: 필터를 만족하는 악보를 찾을 수 없습니다.
-  myListEmpty: 악보를 마우스 오른쪽 버튼으로 클릭하거나 길게 눌러 내 목록에 추가하면 여기에서 선택한 악보를 볼 수 있습니다..
-  drawPoolEmpty: 현재 악보 풀이 비어 있습니다.
+  filterResultEmpty: 필터를 만족하는 채보를 찾을 수 없습니다.
+  myListEmpty: 채보를 마우스 오른쪽 버튼으로 클릭하거나 길게 눌러 내 목록에 추가하면 여기에서 선택한 채보를 볼 수 있습니다.
+  drawPoolEmpty: 현재 채보 풀이 비어 있습니다.
 
 # Pages
 page:
   index:
-    description: 좋아하는 음악 게임의 곡을 이제 모두 하나로 검색하세요!
+    description: 좋아하는 음악 게임의 곡을 이제 한 곳에서 검색하세요!
   gallery:
     selectList: 곡 목록 선택
   songs:
-    sheetData: 악보 데이터
+    sheetData: 채보 데이터
   about:
     author: 제작자
     dataSource: 데이터 소스
     songInfo: 곡 정보
-    sheetInfo: 악보 정보
-    sheetInfoDescription: 악보 데이터를 제공하는 모든 플레이어에게 깊은 감사를 드립니다!
+    sheetInfo: 채보 정보
+    sheetInfoDescription: 채보 데이터를 제공하는 모든 플레이어에게 깊은 감사를 드립니다!
     openSource: 프로젝트 소스 코드
     openSourceDescription: |
       이 프로젝트는 <a
@@ -101,12 +101,12 @@ sfc:
     exportMyList: 내 목록을 파일로 내보내기
     myListEmptyWarn: "내 목록이 비어 있습니다! \n내보낼 항목이 없습니다."
     importMyList: 파일에서 내 목록 가져오기
-    sheetsLoaded: '{n} 악보를 성공적으로 가져왔습니다.'
+    sheetsLoaded: '{n} 채보를 성공적으로 가져왔습니다.'
   SheetDrawerPanel:
-    drawRandomSheet: 무작위 악보를 선곡합니다!
+    drawRandomSheet: 무작위 채보를 선곡합니다!
     drawRandomSheetCombo: 무작위 세트를 선곡합니다!
   FilterInfoBar:
-    sheetsCount: '{n} 개 악보'
+    sheetsCount: '{n} 개 채보'
     songsCount: '{n} 개 곡'
   SheetDialog:
     searchOnYouTube: 유튜브에서 검색
