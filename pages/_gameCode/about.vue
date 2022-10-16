@@ -93,7 +93,7 @@ export default defineComponent({
       <template v-if="gameCode === 'chunithm'">
         <li>
           {{ $t('page.about.songInfo') }} －
-          <a href="https://chunithm.sega.jp/" target="_blank">CHUNITHM NEW PLUS (チュウニズム ニュー プラス)｜セガ新作音ゲー</a>
+          <a href="https://chunithm.sega.jp/" target="_blank">CHUNITHM SUN (チュウニズム サン)｜セガ新作音ゲー</a>
         </li>
         <li>
           {{ $t('page.about.sheetInfo') }} －
@@ -213,6 +213,14 @@ export default defineComponent({
 
     <h3>{{ $t('page.about.updateRecord') }}</h3>
     <v-timeline dense align-top class="mt-2">
+      <v-timeline-item icon="mdi-flag-variant">
+        <span class="font-weight-bold">2022/10/14 － 50000 visits reached</span>
+        <ul>
+          <li>
+            milestone: 50000 visits reached on <a href="https://arcade-songs.zetaraku.dev/maimai/" target="_blank">arcade-songs/maimai</a>!
+          </li>
+        </ul>
+      </v-timeline-item>
       <v-timeline-item>
         <span class="font-weight-bold">2022/09/23 － v3.2 Update</span>
         <ul>
