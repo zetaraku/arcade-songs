@@ -6,111 +6,111 @@ page-title:
   home: 홈
   song: 곡 정보
   songs: 곡 목록
-  gallery: 단위인정
-  about: 사이트 정보
-  bug-report: 문의
+  gallery: 트랙 목록
+  about: 정보
+  bug-report: 문제 보고
   source-code: 소스 코드
 
 # General UIs
 ui:
-  ok: OK
+  ok: 확인
   cancel: 취소
   close: 닫기
   search: 검색
-  goBack: 뒤로
-  all: 전체
+  goBack: 뒤로 가기
+  all: 모두
   default: 기본값
   sort-asc: 오름차순
   sort-desc: 내림차순
 
 # Terminologies
 term:
-  category: 카테고리
+  category: 범주
   title: 제목
-  artist: 아티스트명
+  artist: 아티스트
   version: 버전
   releaseDate: 수록일
   bpm: BPM
   minBPM: 최소 BPM
   maxBPM: 최대 BPM
-  sheets: 보면
-  type: 타입
+  sheets: 채보
+  type: 유형
   difficulty: 난이도
   level: 레벨
   minLevel: 최소 레벨
   maxLevel: 최대 레벨
   internalLevel: 보면상수
-  noteDesigner: 보면 제작자
+  noteDesigner: 노트 제작자
   totalNotes: 전체 노트 수
-  region: 국가
+  region: 지역
 
 # Descriptions & Tooltips
 description:
-  pending: 처리 중
-  loading: 데이터 로딩 중…
+  pending: 보류 중
+  loading: 데이터 불러오기 중…
   newSong: 신곡!
-  unlockNeeded: 해금 필요
-  unavailableInRegion: '{region} 미수록'
-  copied: 클립보드에 복사되었습니다!
-  invalidNoteCounts: 노트 수가 유효하지 않습니다
-  filterResultEmpty: 필터 값을 만족하는 보면을 찾을 수 없습니다.
-  myListEmpty: 보면을 우클릭하거나 길게 눌러 마이리스트에 추가하여 모아볼 수 있습니다.
-  drawPoolEmpty: 리스트가 비어있습니다.
+  unlockNeeded: 해금이 필요한 곡
+  unavailableInRegion: '현재 {region}에서 사용할 수 없음'
+  copied: 클립보드에 복사했습니다!
+  invalidNoteCounts: 잘못된 노트 수
+  filterResultEmpty: 필터를 만족하는 채보를 찾을 수 없습니다.
+  myListEmpty: 채보를 마우스 오른쪽 버튼으로 클릭하거나 길게 눌러 내 목록에 추가하면 여기에서 선택한 채보를 볼 수 있습니다.
+  drawPoolEmpty: 현재 채보 풀이 비어 있습니다.
 
 # Pages
 page:
   index:
-    description: 좋아하는 리듬게임의 노래정보를 한 곳에서 모아보세요!
+    description: 좋아하는 음악 게임의 곡을 이제 한 곳에서 검색하세요!
   gallery:
-    selectList: 곡 리스트 선택
+    selectList: 곡 목록 선택
   songs:
-    sheetData: 보면 정보
+    sheetData: 채보 데이터
   about:
     author: 제작자
-    dataSource: 정보 제공
+    dataSource: 데이터 소스
     songInfo: 곡 정보
-    sheetInfo: 보면 정보
-    sheetInfoDescription: 보면 정보를 제공해주시는 분들께 항상 감사 드립니다!
+    sheetInfo: 채보 정보
+    sheetInfoDescription: 채보 데이터를 제공하는 모든 플레이어에게 깊은 감사를 드립니다!
     openSource: 프로젝트 소스 코드
     openSourceDescription: |
       이 프로젝트는 <a
         href="https://ko.wikipedia.org/wiki/MIT_%ED%97%88%EA%B0%80%EC%84%9C"
         target="_blank"
         class="text-decoration-none"
-      >MIT 허가서</a> 아래의 오픈소스 프로젝트이며, 전체 소스코드를 여기서 확인할 수 있습니다.
+      >MIT 라이센스</a> 아래의 오픈소스 프로젝트이며, 전체 소스 코드를 여기서 확인할 수 있습니다.
       관심이 있으시다면 저희를 도와 프로젝트를 개선해주세요! ⭐ :)
     updateRecord: 업데이트 내역
     disclaimer: 저작권 정보
   error:
-    error: 에러
-    notFound: 페이지를 찾을 수 없습니다
+    error: 오류
+    notFound: 페이지를 찾을 수 없음
     backToHome: 홈으로
 
 # Components
 sfc:
   DataInfoBar:
-    updateTime: '정보 갱신일: {time}'
-    loadFailed: 정보 로딩에 실패했습니다.
+    updateTime: '데이터 업데이트 시간: {time}'
+    loadFailed: 데이터를 불러오는 동안 실패했습니다.
   ModeSelector:
-    gridMode: 자켓 보기
+    gridMode: 그리드 보기
     tableMode: 상세 보기
-    filterMode: 필터
-    myListMode: 마이리스트
-    copyFilterLink: 현재 필터를 링크로 복사합니다
-    noFilterWarn: 최소 1개의 필터를 설정해주세요.
-    exportMyList: 마이리스트를 파일로 저장합니다
-    myListEmptyWarn: "마이리스트가 비어있습니다.\n저장할 수 없습니다."
-    importMyList: 마이리스트를 파일에서 불러옵니다
-    sheetsLoaded: '{n}개의 보면을 성공적으로 불러왔습니다.'
+    filterMode: 필터 모드
+    myListMode: 내 목록
+    copyFilterLink: 현재 필터를 링크로 복사
+    noFilterWarn: 먼저 필터를 하나 이상 선택하세요.
+    exportMyList: 내 목록을 파일로 내보내기
+    myListEmptyWarn: "내 목록이 비어 있습니다! \n내보낼 항목이 없습니다."
+    importMyList: 파일에서 내 목록 가져오기
+    sheetsLoaded: '{n} 채보를 성공적으로 가져왔습니다.'
   SheetDrawerPanel:
-    drawRandomSheet: 무작위 보면 선곡!
-    drawRandomSheetCombo: 무작위 세트 선곡!
+    drawRandomSheet: 무작위 채보를 선곡합니다!
+    drawRandomSheetCombo: 무작위 세트를 선곡합니다!
   FilterInfoBar:
-    sheetsCount: '{n}개 보면'
-    songsCount: '{n}개 곡'
+    sheetsCount: '{n} 개 채보'
+    songsCount: '{n} 개 곡'
   SheetDialog:
-    searchOnYouTube: YouTube에서 검색
-    tryAgain: 한 번 더
+    searchOnYouTube: 유튜브에서 검색
+    tryAgain: 다시 시도
   SheetComboDialog:
     drawResults: 선곡 결과
-    noDuplicate: 중복 없이 추첨
+    noDuplicate: 중복 없음
