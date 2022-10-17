@@ -99,7 +99,7 @@ sfc:
     copyFilterLink: 현재 필터를 링크로 복사
     noFilterWarn: 먼저 필터를 하나 이상 선택하세요.
     exportMyList: 내 목록을 파일로 내보내기
-    myListEmptyWarn: "내 목록이 비어 있습니다! \n내보낼 항목이 없습니다."
+    myListEmptyWarn: "내 목록이 비어 있습니다!\n내보낼 항목이 없습니다."
     importMyList: 파일에서 내 목록 가져오기
     sheetsLoaded: '{n} 채보를 성공적으로 가져왔습니다.'
   SheetDrawerPanel:
