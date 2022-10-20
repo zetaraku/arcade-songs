@@ -43,7 +43,7 @@ const song = computed(
 
 const extraSheetHeaders = computed(() => {
   if (gameCode.value === 'maimai') {
-    return ['tap', 'hold', 'slide', 'touch', 'break', 'total']
+    return ['total', 'tap', 'hold', 'slide', 'touch', 'break']
       .map((key) => ({
         key,
         title: key !== 'total' ? key.toUpperCase() : i18n.t('term.totalNotes'),
