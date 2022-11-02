@@ -6,3 +6,4 @@ export * from './format';
 export * from './random';
 export * from './math';
 export * from './nuxt';
+export * from './misc';
