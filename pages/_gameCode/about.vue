@@ -213,6 +213,12 @@ export default defineComponent({
 
     <h3>{{ $t('page.about.updateRecord') }}</h3>
     <v-timeline dense align-top class="mt-2">
+      <v-timeline-item>
+        <span class="font-weight-bold">2022/11/02 － v3.3 Update</span>
+        <ul>
+          <li>feature: (Gallery) now it's possible to load external gallery from url or local file [beta]</li>
+        </ul>
+      </v-timeline-item>
       <v-timeline-item icon="mdi-flag-variant">
         <span class="font-weight-bold">2022/10/14 － 50000 visits reached</span>
         <ul>
