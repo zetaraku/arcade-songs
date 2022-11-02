@@ -18,7 +18,7 @@ const { viewSheet } = useSheetDialog();
 
 const currentList: Ref<GalleryList| null> = ref(null);
 
-const lists = computed(
+const currentLists = computed(
   () => dataStore.currentGallery.filter((list) => !list.isHidden || isDarkMode.value),
 );
 
@@ -30,11 +30,12 @@ useHead(() => ({
   ),
 }));
 
-watch([lists, route], () => {
+watch([currentLists, route], () => {
   if (route.value.query.title !== undefined) {
-    currentList.value = lists.value.find((list) => list.title === route.value.query.title) ?? null;
+    currentList.value = currentLists.value
+      .find((list) => list.title === route.value.query.title) ?? null;
   } else {
-    currentList.value = lists.value[0] ?? null;
+    currentList.value = currentLists.value[0] ?? null;
   }
 }, { immediate: true });
 watch(currentList, () => {
@@ -57,7 +58,7 @@ export default defineComponent({
   <v-container class="text-center pa-8">
     <v-select
       v-model="currentList"
-      :items="lists"
+      :items="currentLists"
       :label="$t('page.gallery.selectList')"
       item-text="title"
       return-object
