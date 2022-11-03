@@ -216,7 +216,12 @@ export default defineComponent({
       <v-timeline-item>
         <span class="font-weight-bold">2022/11/02 － v3.3 Update</span>
         <ul>
-          <li>feature: (Gallery) now it's possible to load external gallery from url or local file [beta]</li>
+          <li>
+            feature: (Gallery) now it's possible to load external gallery from url or local file [beta]
+            👉 <a href="https://arcade-songs.zetaraku.dev/maimai/gallery/?url=https%3A%2F%2Fgist.githubusercontent.com%2Fzetaraku%2Fc8a28b5bbd17cd421278ec45f4e4e953%2Fraw%2F" target="_blank">
+              DEMO HERE
+            </a>
+          </li>
         </ul>
       </v-timeline-item>
       <v-timeline-item icon="mdi-flag-variant">
