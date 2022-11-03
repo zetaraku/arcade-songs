@@ -268,7 +268,7 @@ export default defineComponent({
       outlined
     >
       You are currently viewing an external gallery from
-      <a :href="externalGalleryUrl" target="_blank">this URL</a>.<br>
+      👉 <a :href="externalGalleryUrl" target="_blank">this URL</a>.<br>
       The content is not created by this site and we have no control over it.
     </v-alert>
     <v-alert
