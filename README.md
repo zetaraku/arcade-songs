@@ -62,9 +62,7 @@ See: <https://github.com/zetaraku/arcade-songs-fetch>
 
 **arcade-songs** is now being translated using [Weblate](https://weblate.org/), a web tool designed to ease translating for both developers and translators. 
 
-The translation for **Japanese** and **Simplified Chinese** needs to be refined.
-
-If you are familiar with these languages, you can help improve the translation by any of:
+If you found any problem in the translation, you can help improve it by any of:
 
 - [Editing on Weblate](https://hosted.weblate.org/projects/arcade-songs/arcade-songs/) directly.
 - [Opening an issue](https://github.com/zetaraku/arcade-songs/issues) to point out the problem.
