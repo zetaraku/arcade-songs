@@ -56,6 +56,13 @@
     "accessCounterUrl": "https://www.f-counter.net/j/46/1629730777/"
   },
   {
+    "gameCode": "popn",
+    "gameTitle": "pop'n music",
+    "themeColor": "#ffaa00",
+    "dataSourceUrl": "https://dp4p6x0xfi5o9.cloudfront.net/popn",
+    "accessCounterUrl": "https://www.f-counter.net/j/49/1668223495/"
+  },
+  {
     "gameCode": "diva",
     "gameTitle": "Project DIVA Arcade",
     "themeColor": "#6d8c8d",
