@@ -177,6 +177,17 @@ export default defineComponent({
           － {{ $t('page.about.sheetInfoDescription') }}
         </li>
       </template>
+      <template v-if="gameCode === 'popn'">
+        <li>
+          {{ $t('page.about.songInfo') }} －
+          <a href="https://p.eagate.573.jp/game/popn/unilab/" target="_blank">pop'n music UniLab</a>
+        </li>
+        <li>
+          {{ $t('page.about.sheetInfo') }} －
+          <a href="https://popnmusic.fandom.com/wiki/" target="_blank">Pop'n Music Wiki | Fandom</a>
+          － {{ $t('page.about.sheetInfoDescription') }}
+        </li>
+      </template>
       <template v-if="gameCode === 'diva'">
         <li>
           {{ $t('page.about.songInfo') }} －
@@ -213,6 +224,15 @@ export default defineComponent({
 
     <h3>{{ $t('page.about.updateRecord') }}</h3>
     <v-timeline dense align-top class="mt-2">
+      <v-timeline-item icon="mdi-star">
+        <span class="font-weight-bold">2022/11/17－ v3.4 Update</span>
+        <ul>
+          <li>
+            project: add new site for <strong>pop'n music</strong>
+            >> <a href="https://arcade-songs.zetaraku.dev/popn/" target="_blank">pop'n music | arcade-songs</a>
+          </li>
+        </ul>
+      </v-timeline-item>
       <v-timeline-item>
         <span class="font-weight-bold">2022/11/02 － v3.3 Update</span>
         <ul>
@@ -730,6 +750,16 @@ export default defineComponent({
         <li>
           This site is not associated or officially connected with
           <strong>GROOVE COASTER</strong> or <strong>TAITO Corporation</strong>
+        </li>
+      </template>
+      <template v-if="gameCode === 'popn'">
+        <li>
+          <strong>pop'n music</strong> and <strong>ポップンミュージック</strong>
+          are trademarks of <strong>Konami Amusement Co., Ltd.</strong>
+        </li>
+        <li>
+          This site is not associated or officially connected with
+          <strong>pop'n music</strong> or <strong>Konami Amusement Co., Ltd.</strong>
         </li>
       </template>
       <template v-if="gameCode === 'diva'">
