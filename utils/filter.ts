@@ -69,7 +69,7 @@ export function buildFilterOptions(data: Data, $t: InstanceType<VueConstructor>[
     categories: nonEmptyOrNull(
       data.categories
         .map(({ category }) => ({
-          text: category,
+          text: category ?? 'N/A',
           value: category,
         })),
     ),
