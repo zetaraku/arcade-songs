@@ -62,6 +62,8 @@ const nuxtConfig: NuxtConfig = {
     '@nuxt/content',
     // https://i18n.nuxtjs.org/
     '@nuxtjs/i18n',
+    // https://sitemap.nuxtjs.org/
+    '@nuxtjs/sitemap',
     // https://github.com/nuxt-community/google-gtag-module
     '@nuxtjs/google-gtag',
   ],
