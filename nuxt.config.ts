@@ -1,6 +1,9 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import type { NuxtConfig } from '@nuxt/types';
+import fetch from 'node-fetch';
 import locales from './locales';
+import sites from './data/sites.json';
+import { Data } from './types';
 
 const nuxtConfig: NuxtConfig = {
   generate: {
@@ -78,6 +81,26 @@ const nuxtConfig: NuxtConfig = {
     vueI18n: {
       fallbackLocale: 'en',
     },
+  },
+
+  sitemap: {
+    hostname: process.env.SITE_URL,
+    path: '/sitemap.xml',
+    sitemaps: sites.filter((site) => !site.isHidden).map((site) => ({
+      path: `/sitemap-${site.gameCode}.xml`,
+      async routes() {
+        const response = await fetch(`${site.dataSourceUrl}/data.json`);
+        const data = await response.json() as Data;
+
+        return [
+          `/${site.gameCode}/`,
+          `/${site.gameCode}/gallery/`,
+          `/${site.gameCode}/songs/`,
+          `/${site.gameCode}/about/`,
+          ...data.songs.map((song) => `/${site.gameCode}/song/?id=${song.songId}`),
+        ];
+      },
+    })),
   },
 
   'google-gtag': {
