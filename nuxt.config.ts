@@ -1,5 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import { NuxtConfig } from '@nuxt/types';
+import type { NuxtConfig } from '@nuxt/types';
 import locales from './locales';
 
 const nuxtConfig: NuxtConfig = {
