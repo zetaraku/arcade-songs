@@ -99,7 +99,7 @@ const nuxtConfig: NuxtConfig = {
           `/${site.gameCode}/gallery/`,
           `/${site.gameCode}/songs/`,
           `/${site.gameCode}/about/`,
-          ...data.songs.map((song) => `/${site.gameCode}/song/?id=${song.songId}`),
+          ...data.songs.map((song) => `/${site.gameCode}/song/?id=${encodeURIComponent(song.songId!)}`),
         ];
       },
     })),
