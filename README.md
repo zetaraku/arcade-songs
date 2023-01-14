@@ -6,7 +6,7 @@ A utility site that provides a search interface for arcade games songs and sheet
 
 ## Prerequisites
 
-- [Node.js](https://nodejs.org/) (LTS version or above)
+- [Node.js](https://nodejs.org/) **16.x** (or higher by setting `--openssl-legacy-provider` option in [`NODE_OPTIONS`](https://nodejs.org/api/cli.html#node_optionsoptions))
 - [Yarn](https://yarnpkg.com/)
 
 ## Setup
