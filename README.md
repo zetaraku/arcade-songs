@@ -60,7 +60,7 @@ See: <https://github.com/zetaraku/arcade-songs-fetch>
 
 [![Translation status](https://hosted.weblate.org/widgets/arcade-songs/-/287x66-grey.png)](https://hosted.weblate.org/engage/arcade-songs/)
 
-**arcade-songs** is now being translated using [Weblate](https://weblate.org/), a web tool designed to ease translating for both developers and translators. 
+**arcade-songs** is now being translated using [Weblate](https://weblate.org/), a web tool designed to ease translating for both developers and translators.
 
 If you found any problem in the translation, you can help improve it by any of:
 
