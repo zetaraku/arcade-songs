@@ -6,8 +6,10 @@ A utility site that provides a search interface for arcade games songs and sheet
 
 ## Prerequisites
 
-- [Node.js](https://nodejs.org/) (LTS version or above)
+- [Node.js](https://nodejs.org/) **16.x**
 - [Yarn](https://yarnpkg.com/)
+
+>  :warning: Note: **Node.js** with higher versions may not work for now. (https://github.com/nuxt/nuxt.js/issues/10844)
 
 ## Setup
 
