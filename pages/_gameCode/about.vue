@@ -68,9 +68,9 @@ export default defineComponent({
         </li>
         <li>
           {{ $t('term.internalLevel') }} －
-          <a class="text-decoration-none" href="https://twitter.com/rcmf_maimai" target="_blank">
-            <v-icon small left color="#1da1f2">mdi-twitter</v-icon><span>maimai譜面定数メインフレーム</span>
-          </a> <i>(Thanks <a href="https://twitter.com/rcmf_maimai" target="_blank">@RCMF_maimai</a> !)</i>
+          <a class="text-decoration-none" href="https://twitter.com/maiLv_Chihooooo" target="_blank">
+            <v-icon small left color="#1da1f2">mdi-twitter</v-icon><span>maimai譜面定数ちほー🏖☀️</span>
+          </a> <i>(Thanks <a href="https://twitter.com/maiLv_Chihooooo" target="_blank">@maiLv_Chihooooo</a> !)</i>
         </li>
         <li>
           中国版 (舞萌DX) {{ $t('page.about.sheetInfo') }} －

@@ -80,7 +80,7 @@ If you have any ideas or suggestions, you can [open an issue](https://github.com
 
 ## Special Thanks ✨
 
-- [maimai譜面定数メインフレーム (@RCMF_maimai)](https://twitter.com/rcmf_maimai) - Internal level information for maimai
+- [maimai譜面定数ちほー🏖☀️ (@maiLv_Chihooooo)](https://twitter.com/maiLv_Chihooooo) - Internal level information for maimai
 - [CrazyKid (@CrazyKidCN)](https://github.com/CrazyKidCN) - Sheet information for maimai China ver. (舞萌DX)
 - [CHUNITHM譜面定数メインフレーム (@RCMF_chunithm)](https://twitter.com/RCMF_chunithm) - Internal level information for CHUNITHM
 - [chunirec チュウニズム非公式スコア管理ツール (@chunirec)](https://twitter.com/chunirec) - Internal level information API for CHUNITHM
