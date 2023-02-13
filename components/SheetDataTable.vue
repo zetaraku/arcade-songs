@@ -140,6 +140,11 @@ watch(sheets, () => {
           <span v-text="sheet.level" />
         </div>
       </template>
+      <template #item.internalLevelValue="{ item: sheet }">
+        <div>
+          <span v-text="sheet.internalLevel" />
+        </div>
+      </template>
 
       <!-- Note counts and Note percents -->
       <template #item.notePercents.tap="{ item: sheet }">
