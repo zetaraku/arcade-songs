@@ -40,6 +40,8 @@ term:
   minLevel: 最小レベル
   maxLevel: 最大レベル
   internalLevel: 譜面定数
+  minInternalLevel: 最小譜面定数
+  maxInternalLevel: 最大譜面定数
   noteDesigner: 譜面制作者
   totalNotes: ノーツ総数
   region: 地区

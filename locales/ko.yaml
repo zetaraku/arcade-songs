@@ -40,6 +40,8 @@ term:
   minLevel: 최소 레벨
   maxLevel: 최대 레벨
   internalLevel: 보면상수
+  minInternalLevel: 최소 보면상수
+  maxInternalLevel: 최대 보면상수
   noteDesigner: 노트 제작자
   totalNotes: 전체 노트 수
   region: 지역
