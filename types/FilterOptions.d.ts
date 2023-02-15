@@ -11,6 +11,7 @@ export type FilterOptions = {
   types: FilterOption<string>[] | null;
   difficulties: FilterOption<string>[] | null;
   levels: FilterOption<number>[] | null;
+  internalLevels: FilterOption<number>[] | null;
 
   noteDesigners: FilterOption<string>[] | null;
   regions: FilterOption<string>[] | null;

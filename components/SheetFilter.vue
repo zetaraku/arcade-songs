@@ -72,10 +72,10 @@ const filterOptions: Ref<FilterOptions> = inject('filterOptions')!;
         <div class="d-flex flex-grow-1 align-end">
           <v-select
             v-model="filters.minLevelValue"
-            :items="filterOptions.levels"
+            :items="(!filters.useInternalLevel ? filterOptions.levels : filterOptions.internalLevels)"
             prepend-icon="mdi-numeric-9-plus-box-multiple-outline"
-            :label="$t('term.minLevel')"
-            :placeholder="(filterOptions.levels[0] || { text: '?' }).text"
+            :label="(!filters.useInternalLevel ? $t('term.minLevel') : $t('term.minInternalLevel'))"
+            :placeholder="(((!filters.useInternalLevel ? filterOptions.levels : filterOptions.internalLevels) || [])[0] || { text: '?' }).text"
             persistent-placeholder
             clearable
           />
@@ -83,12 +83,25 @@ const filterOptions: Ref<FilterOptions> = inject('filterOptions')!;
         <div class="d-flex flex-grow-1 align-end pl-6">
           <v-select
             v-model="filters.maxLevelValue"
-            :items="filterOptions.levels"
-            :label="$t('term.maxLevel')"
-            :placeholder="(filterOptions.levels.slice(-1)[0] || { text: '?' }).text"
+            :items="(!filters.useInternalLevel ? filterOptions.levels : filterOptions.internalLevels)"
+            :label="(!filters.useInternalLevel ? $t('term.maxLevel') : $t('term.maxInternalLevel'))"
+            :placeholder="(((!filters.useInternalLevel ? filterOptions.levels : filterOptions.internalLevels) || []).slice(-1)[0] || { text: '?' }).text"
             persistent-placeholder
             clearable
           />
+        </div>
+        <div
+          v-if="filterOptions.internalLevels != null && filterOptions.internalLevels.length !== 0"
+          class="d-flex flex-grow-0 align-center pl-6 align-self-stretch"
+        >
+          <v-btn
+            icon
+            @click="filters.useInternalLevel = !filters.useInternalLevel || null;"
+          >
+            <v-icon size="2.4em">
+              {{ !filters.useInternalLevel ? 'mdi-closed-caption-outline' : 'mdi-closed-caption' }}
+            </v-icon>
+          </v-btn>
         </div>
       </v-col>
       <v-col

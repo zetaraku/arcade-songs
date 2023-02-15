@@ -14,6 +14,7 @@ const filterTypes = {
   difficulties: 'string[]',
   minLevelValue: 'number',
   maxLevelValue: 'number',
+  useInternalLevel: 'boolean',
 
   noteDesigners: 'string[]',
   region: 'string',
@@ -33,6 +34,7 @@ export function buildEmptyFilters(): Filters {
     difficulties: [],
     minLevelValue: null,
     maxLevelValue: null,
+    useInternalLevel: null,
 
     noteDesigners: [],
     region: null,
@@ -51,6 +53,7 @@ export function buildEmptyFilterOptions(): FilterOptions {
     types: [],
     difficulties: [],
     levels: [],
+    internalLevels: [],
 
     noteDesigners: [],
     regions: [],
@@ -114,6 +117,18 @@ export function buildFilterOptions(data: Data, $t: InstanceType<VueConstructor>[
         data.sheets
           .filter((sheet) => sheet.levelValue != null && sheet.level != null)
           .map((sheet) => [sheet.levelValue!, sheet.level!])
+      ).entries()]
+        .sort(([aLevelValue], [bLevelValue]) => aLevelValue - bLevelValue)
+        .map(([levelValue, level]) => ({
+          text: level,
+          value: levelValue,
+        })),
+    ),
+    internalLevels: nonEmptyOrNull(
+      [...new Map(
+        data.sheets
+          .filter((sheet) => sheet.internalLevelValue != null)
+          .map((sheet) => [sheet.internalLevelValue!, sheet.internalLevelValue!.toFixed(1)])
       ).entries()]
         .sort(([aLevelValue], [bLevelValue]) => aLevelValue - bLevelValue)
         .map(([levelValue, level]) => ({
@@ -189,14 +204,26 @@ export function filterSheets(sheets: Sheet[], filters: Filters) {
     );
   }
   if (typeof filters.minLevelValue === 'number') {
-    result = result.filter(
-      (sheet) => sheet.levelValue != null && sheet.levelValue >= filters.minLevelValue!,
-    );
+    if (filters.useInternalLevel) {
+      result = result.filter(
+        (sheet) => sheet.internalLevelValue != null && sheet.internalLevelValue >= filters.minLevelValue!,
+      );
+    } else {
+      result = result.filter(
+        (sheet) => sheet.levelValue != null && sheet.levelValue >= filters.minLevelValue!,
+      );
+    }
   }
   if (typeof filters.maxLevelValue === 'number') {
-    result = result.filter(
-      (sheet) => sheet.levelValue != null && sheet.levelValue <= filters.maxLevelValue!,
-    );
+    if (filters.useInternalLevel) {
+      result = result.filter(
+        (sheet) => sheet.internalLevelValue != null && sheet.internalLevelValue <= filters.maxLevelValue!,
+      );
+    } else {
+      result = result.filter(
+        (sheet) => sheet.levelValue != null && sheet.levelValue <= filters.maxLevelValue!,
+      );
+    }
   }
   if (typeof filters.minBPM === 'number') {
     result = result.filter(
@@ -225,6 +252,7 @@ export function filterSheets(sheets: Sheet[], filters: Filters) {
 
 export function loadFiltersFromQuery(query: Record<string, string>): Filters {
   const QueryReader = {
+    boolean: (str: string) => (str === 'true' ? true : str === 'false' ? false : null),
     string: (str: string) => String(str),
     number: (str: string) => Number(str),
     'string[]': (str: string) => str.split('|').map(QueryReader.string),
@@ -247,6 +275,7 @@ export function loadFiltersFromQuery(query: Record<string, string>): Filters {
 
 export function saveFiltersAsQuery(filters: Filters): Record<string, string> {
   const QueryWriter = {
+    boolean: (value: boolean) => String(Boolean(value)),
     string: (value: string) => String(String(value)),
     number: (value: number) => String(Number(value)),
     'string[]': (values: string[]) => values.map(QueryWriter.string).join('|'),

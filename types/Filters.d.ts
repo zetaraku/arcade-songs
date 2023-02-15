@@ -11,6 +11,7 @@ export type Filters = {
   difficulties: string[];
   minLevelValue: number | null;
   maxLevelValue: number | null;
+  useInternalLevel: boolean | null;
 
   noteDesigners: string[];
   region: string | null;
