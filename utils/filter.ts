@@ -110,8 +110,11 @@ export function buildFilterOptions(data: Data, $t: InstanceType<VueConstructor>[
         })),
     ),
     levels: nonEmptyOrNull(
-      [...new Map(data.sheets.map((sheet) => [sheet.levelValue!, sheet.level!])).entries()]
-        .filter(([levelValue, level]) => levelValue != null && level != null)
+      [...new Map(
+        data.sheets
+          .filter((sheet) => sheet.levelValue != null && sheet.level != null)
+          .map((sheet) => [sheet.levelValue!, sheet.level!])
+      ).entries()]
         .sort(([aLevelValue], [bLevelValue]) => aLevelValue - bLevelValue)
         .map(([levelValue, level]) => ({
           text: level,
