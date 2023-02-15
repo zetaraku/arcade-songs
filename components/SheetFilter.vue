@@ -69,35 +69,27 @@ const filterOptions: Ref<FilterOptions> = inject('filterOptions')!;
         md="6"
         class="d-flex align-end"
       >
-        <v-row no-gutters>
-          <v-col
-            cols="6"
-            class="d-flex align-end"
-          >
-            <v-select
-              v-model="filters.minLevelValue"
-              :items="filterOptions.levels"
-              prepend-icon="mdi-numeric-9-plus-box-multiple-outline"
-              :label="$t('term.minLevel')"
-              :placeholder="(filterOptions.levels[0] || { text: '?' }).text"
-              persistent-placeholder
-              clearable
-            />
-          </v-col>
-          <v-col
-            cols="6"
-            class="d-flex align-end pl-6"
-          >
-            <v-select
-              v-model="filters.maxLevelValue"
-              :items="filterOptions.levels"
-              :label="$t('term.maxLevel')"
-              :placeholder="(filterOptions.levels.slice(-1)[0] || { text: '?' }).text"
-              persistent-placeholder
-              clearable
-            />
-          </v-col>
-        </v-row>
+        <div class="d-flex flex-grow-1 align-end">
+          <v-select
+            v-model="filters.minLevelValue"
+            :items="filterOptions.levels"
+            prepend-icon="mdi-numeric-9-plus-box-multiple-outline"
+            :label="$t('term.minLevel')"
+            :placeholder="(filterOptions.levels[0] || { text: '?' }).text"
+            persistent-placeholder
+            clearable
+          />
+        </div>
+        <div class="d-flex flex-grow-1 align-end pl-6">
+          <v-select
+            v-model="filters.maxLevelValue"
+            :items="filterOptions.levels"
+            :label="$t('term.maxLevel')"
+            :placeholder="(filterOptions.levels.slice(-1)[0] || { text: '?' }).text"
+            persistent-placeholder
+            clearable
+          />
+        </div>
       </v-col>
       <v-col
         v-if="filterOptions.versions != null"
