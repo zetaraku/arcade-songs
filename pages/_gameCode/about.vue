@@ -224,6 +224,16 @@ export default defineComponent({
 
     <h3>{{ $t('page.about.updateRecord') }}</h3>
     <v-timeline dense align-top class="mt-2">
+      <v-timeline-item>
+        <span class="font-weight-bold">2023/02/15－ v3.5 Update</span>
+        <ul>
+          <li>feature: (Filter) add "Internal Level" filter</li>
+          <li>misc!: (Data) now <code>levelValue</code> reflects the lower bound of its internal level (e.g. <code>levelValue</code> of level 12+ is <i>12.5</i> in CHUNITHM but <i>12.7</i> in maimai, オンゲキ and WACCA)</li>
+          <li>misc!: (Data) unknown <code>internalLevelValue</code> is now inferred as the lowest possible value from its level (see above)</li>
+          <li>misc: (Site) add sitemap</li>
+          <li>misc: (Site) add Sentry app monitoring service</li>
+        </ul>
+      </v-timeline-item>
       <v-timeline-item icon="mdi-star">
         <span class="font-weight-bold">2022/11/17－ v3.4 Update</span>
         <ul>
