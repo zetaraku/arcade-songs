@@ -63,7 +63,7 @@ export default defineComponent({
           <a href="http://maimai.wiki.fc2.com/" target="_blank">maimai wiki</a>
           (<a href="https://web.archive.org/web/20220327004356/https://maimai.wiki.fc2.com/" target="_blank">archive</a>)
           /
-          <a href="https://maimai.gamerch.com/" target="_blank">maimai 攻略wiki - Gamerch</a>
+          <a href="https://gamerch.com/maimai/" target="_blank">maimai　攻略wiki | Gamerch</a>
           － {{ $t('page.about.sheetInfoDescription') }}
         </li>
         <li>
@@ -86,7 +86,7 @@ export default defineComponent({
         </li>
         <li>
           {{ $t('page.about.sheetInfo') }} －
-          <a href="https://wacca.gamerch.com/" target="_blank">WACCA 攻略wiki</a>
+          <a href="https://gamerch.com/wacca-wiki/" target="_blank">WACCA【ワッカ】攻略wiki | Gamerch</a>
           － {{ $t('page.about.sheetInfoDescription') }}
         </li>
       </template>
@@ -97,7 +97,7 @@ export default defineComponent({
         </li>
         <li>
           {{ $t('page.about.sheetInfo') }} －
-          <a href="https://chunithm.gamerch.com/" target="_blank">CHUNITHM【チュウニズム】攻略wiki</a>
+          <a href="https://gamerch.com/chunithm/" target="_blank">CHUNITHM【チュウニズム】攻略wiki | Gamerch</a>
           － {{ $t('page.about.sheetInfoDescription') }}
         </li>
         <li>
@@ -148,19 +148,17 @@ export default defineComponent({
         </li>
         <li>
           {{ $t('page.about.sheetInfo') }} －
-          <a href="https://ongeki.gamerch.com/" target="_blank">オンゲキ【音撃‐O.N.G.E.K.I-】攻略wiki - Gamerch</a>
+          <a href="https://gamerch.com/ongeki/" target="_blank">オンゲキ【音撃‐O.N.G.E.K.I-】攻略wiki | Gamerch</a>
           － {{ $t('page.about.sheetInfoDescription') }}
         </li>
         <li>
           {{ $t('term.internalLevel') }} －
-          <a class="text-decoration-none" href="https://twitter.com/ongeki_score" target="_blank">
-            <v-icon small left color="#1da1f2">mdi-twitter</v-icon><span>OngekiScoreLog - オンゲキ非公式スコアツール</span>
+          <a class="text-decoration-none" href="https://twitter.com/ongeki_level" target="_blank">
+            <v-icon small left color="#1da1f2">mdi-twitter</v-icon><span>オンゲキ譜面定数部</span>
           </a> / <a href="https://ongeki-score.net/" target="_blank">OngekiScoreLog - オンゲキ非公式スコアツール</a>
           <i>
             (Thanks
-            <a href="https://twitter.com/Rinsaku471" target="_blank">@Rinsaku471</a> &amp;
-            <a href="https://twitter.com/RKS49019722" target="_blank">@RKS49019722</a> &amp;
-            <a href="https://twitter.com/masa_9713" target="_blank">@masa_9713</a> &amp;
+            <a href="https://twitter.com/ongeki_level" target="_blank">@ongeki_level</a> &amp;
             <a href="https://twitter.com/ongeki_score" target="_blank">@ongeki_score</a>
             !)
           </i>
