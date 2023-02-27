@@ -1,1 +1,97 @@
-{}
+hello: ¡Hola Mundo!
+page-title:
+  home: Página principal
+  song: Datos de la canción
+  songs: Lista de canciones
+  gallery: Listas de pistas
+  about: Acerca de
+  source-code: Código fuente
+  bug-report: Reportar problemas
+ui:
+  ok: DE ACUERDO
+  cancel: Cancelar
+  close: Cerrar
+  search: Buscar en
+  goBack: Atrás
+  all: TODAS
+  default: Predeterminado
+  sort-asc: orden ascendente
+  sort-desc: orden descendente
+term:
+  category: Categoría
+  artist: Artista
+  version: Versión
+  releaseDate: Fecha de publicación
+  bpm: BPM
+  minBPM: BPM mínimo
+  maxBPM: BPM máximo
+  sheets: cuadro
+  type: Tipo
+  difficulty: Dificultad
+  level: Nivel
+  minLevel: Nivel mínimo
+  maxLevel: Nivel máximo
+  internalLevel: Nivel interno
+  noteDesigner: Notas del Diseñador
+  totalNotes: TOTAL
+  region: Región
+  title: Título
+description:
+  pending: Pendiente
+  loading: Cargando datos…
+  newSong: ¡Nueva canción!
+  unlockNeeded: Hay que desbloquear esta canción
+  unavailableInRegion: No disponible en {region}
+  copied: ¡Copiado al portapapeles!
+  drawPoolEmpty: El grupo de dibujo actual está vacío.
+  invalidNoteCounts: Recuentos de NOTA no válidos
+  filterResultEmpty: No se encuentra ninguna hoja que cumpla el filtro.
+  myListEmpty: Haga clic con el botón derecho del ratón o mantenga pulsada una hoja para añadirla a MI LISTA y, a continuación, podrá ver aquí las hojas seleccionadas.
+page:
+  index:
+    description: Busca canciones de tus juegos musicales favoritos, ¡ahora todo en uno!
+  songs:
+    sheetData: Hoja de datos
+  about:
+    author: Autor
+    openSource: Código fuente del proyecto
+    updateRecord: Actualizar el registro
+    disclaimer: Aviso de los derechos de autor
+    sheetInfo: Información
+    songInfo: Información de la canción
+    sheetInfoDescription: ¡Muchas gracias a todos los jugadores que aportan los datos!
+    dataSource: Origen de los datos
+    openSourceDescription: "Este proyecto está sujeto a la licencia <a\n  href=\"https://en.wikipedia.org/wiki/MIT_License\"\n  target=\"_blank\"\n  class=\"text-decoration-none\"\n>MIT License</a>, y puede encontrar el código fuente completo aquí.\nSi te interesa, ¡también puedes unirte a nosotros para mejorar el proyecto! ⭐ :)\n"
+  error:
+    error: Fallo
+    notFound: Página no encontrada
+    backToHome: Volver al inicio
+  gallery:
+    selectList: Seleccione la lista de canciones
+sfc:
+  ModeSelector:
+    gridMode: Vista en cuadrícula
+    filterMode: Modo de filtrado
+    myListMode: MI LISTA
+    copyFilterLink: Copiar los filtros actuales como enlace
+    noFilterWarn: Seleccione primero al menos un filtro.
+    myListEmptyWarn: "¡MI LISTA está vacía!\nNo hay nada que exportar."
+    importMyList: Importar MI LISTA desde un archivo
+    sheetsLoaded: Importadas {n} hojas con éxito.
+    tableMode: Vista detallada
+    exportMyList: Exportar MI LISTA a un archivo
+  SheetDrawerPanel:
+    drawRandomSheet: ¡Dibuja gráficos al azar!
+    drawRandomSheetCombo: ¡Dibuja suites al azar!
+  FilterInfoBar:
+    sheetsCount: '{n} hojas'
+    songsCount: '{n} temas'
+  SheetDialog:
+    searchOnYouTube: Buscar en YouTube
+    tryAgain: INTENTAR DE NUEVO
+  SheetComboDialog:
+    drawResults: Resultados del sorteo
+    noDuplicate: Sin duplicados
+  DataInfoBar:
+    updateTime: 'Tiempo de actualización de los datos: {time}'
+    loadFailed: Error al cargar los datos.
