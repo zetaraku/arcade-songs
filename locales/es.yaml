@@ -1,12 +1,17 @@
+# Test entry
 hello: ¡Hola Mundo!
+
+# Page titles
 page-title:
   home: Página principal
   song: Datos de la canción
   songs: Lista de canciones
   gallery: Listas de pistas
   about: Acerca de
-  source-code: Código fuente
   bug-report: Reportar problemas
+  source-code: Código fuente
+
+# General UIs
 ui:
   ok: DE ACUERDO
   cancel: Cancelar
@@ -17,8 +22,11 @@ ui:
   default: Predeterminado
   sort-asc: orden ascendente
   sort-desc: orden descendente
+
+# Terminologies
 term:
   category: Categoría
+  title: Título
   artist: Artista
   version: Versión
   releaseDate: Fecha de publicación
@@ -32,56 +40,70 @@ term:
   minLevel: Nivel mínimo
   maxLevel: Nivel máximo
   internalLevel: Nivel interno
+  minInternalLevel: Nivel mínimo interno
+  maxInternalLevel: Nivel máximo interno
   noteDesigner: Notas del Diseñador
   totalNotes: TOTAL
   region: Región
-  title: Título
-  minInternalLevel: Nivel mínimo interno
-  maxInternalLevel: Nivel máximo interno
+
+# Descriptions & Tooltips
 description:
   pending: Pendiente
   loading: Cargando datos…
   newSong: ¡Nueva canción!
   unlockNeeded: Hay que desbloquear esta canción
-  unavailableInRegion: No disponible en {region}
+  unavailableInRegion: 'No disponible en {region}'
   copied: ¡Copiado al portapapeles!
-  drawPoolEmpty: El grupo de dibujo actual está vacío.
   invalidNoteCounts: Recuentos de NOTA no válidos
   filterResultEmpty: No se encuentra ninguna hoja que cumpla el filtro.
   myListEmpty: Haga clic con el botón derecho del ratón o mantenga pulsada una hoja para añadirla a MI LISTA y, a continuación, podrá ver aquí las hojas seleccionadas.
+  drawPoolEmpty: El grupo de dibujo actual está vacío.
+
+# Pages
 page:
   index:
     description: Busca canciones de tus juegos musicales favoritos, ¡ahora todo en uno!
+  gallery:
+    selectList: Seleccione la lista de canciones
   songs:
     sheetData: Hoja de datos
   about:
     author: Autor
+    dataSource: Origen de los datos
+    songInfo: Información de la canción
+    sheetInfo: Información
+    sheetInfoDescription: ¡Muchas gracias a todos los jugadores que aportan los datos!
     openSource: Código fuente del proyecto
+    openSourceDescription: |
+      Este proyecto está sujeto a la licencia <a
+        href="https://en.wikipedia.org/wiki/MIT_License"
+        target="_blank"
+        class="text-decoration-none"
+      >MIT License</a>, y puede encontrar el código fuente completo aquí.
+      Si te interesa, ¡también puedes unirte a nosotros para mejorar el proyecto! ⭐ :)
     updateRecord: Actualizar el registro
     disclaimer: Aviso de los derechos de autor
-    sheetInfo: Información
-    songInfo: Información de la canción
-    sheetInfoDescription: ¡Muchas gracias a todos los jugadores que aportan los datos!
-    dataSource: Origen de los datos
-    openSourceDescription: "Este proyecto está sujeto a la licencia <a\n  href=\"https://en.wikipedia.org/wiki/MIT_License\"\n  target=\"_blank\"\n  class=\"text-decoration-none\"\n>MIT License</a>, y puede encontrar el código fuente completo aquí.\nSi te interesa, ¡también puedes unirte a nosotros para mejorar el proyecto! ⭐ :)\n"
   error:
     error: Fallo
     notFound: Página no encontrada
     backToHome: Volver al inicio
-  gallery:
-    selectList: Seleccione la lista de canciones
+
+# Components
 sfc:
+  DataInfoBar:
+    updateTime: 'Tiempo de actualización de los datos: {time}'
+    loadFailed: Error al cargar los datos.
   ModeSelector:
     gridMode: Vista en cuadrícula
+    tableMode: Vista detallada
     filterMode: Modo de filtrado
     myListMode: MI LISTA
     copyFilterLink: Copiar los filtros actuales como enlace
     noFilterWarn: Seleccione primero al menos un filtro.
+    exportMyList: Exportar MI LISTA a un archivo
     myListEmptyWarn: "¡MI LISTA está vacía!\nNo hay nada que exportar."
     importMyList: Importar MI LISTA desde un archivo
-    sheetsLoaded: Importadas {n} hojas con éxito.
-    tableMode: Vista detallada
-    exportMyList: Exportar MI LISTA a un archivo
+    sheetsLoaded: 'Importadas {n} hojas con éxito.'
   SheetDrawerPanel:
     drawRandomSheet: ¡Dibuja gráficos al azar!
     drawRandomSheetCombo: ¡Dibuja suites al azar!
@@ -94,6 +116,3 @@ sfc:
   SheetComboDialog:
     drawResults: Resultados del sorteo
     noDuplicate: Sin duplicados
-  DataInfoBar:
-    updateTime: 'Tiempo de actualización de los datos: {time}'
-    loadFailed: Error al cargar los datos.
