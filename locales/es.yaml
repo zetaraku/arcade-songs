@@ -36,6 +36,8 @@ term:
   totalNotes: TOTAL
   region: Región
   title: Título
+  minInternalLevel: Nivel mínimo interno
+  maxInternalLevel: Nivel máximo interno
 description:
   pending: Pendiente
   loading: Cargando datos…
