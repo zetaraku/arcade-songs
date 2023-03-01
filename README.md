@@ -78,6 +78,7 @@ If you have any ideas or suggestions, you can [open an issue](https://github.com
 
 - [Sungsoo Han (lomotos10)](https://github.com/lomotos10) - Korean translation
 - [gallegonovato (gallegonovato)](https://github.com/gallegonovato) - Spanish translation
+- [Echo (echocentrical)](https://github.com/echocentrical) - Indonesian translation
 
 ## Special Thanks ✨
 
