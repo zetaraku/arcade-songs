@@ -8,6 +8,9 @@ const locales: LocaleObject[] = [
     code: 'es', iso: 'es', abbr: 'es', name: 'Español', file: 'es.yaml',
   },
   {
+    code: 'id', iso: 'id', abbr: 'id', name: 'Bahasa Indonesia', file: 'id.yaml',
+  },
+  {
     code: 'ja', iso: 'ja', abbr: 'ja', name: '日本語', file: 'ja.yaml',
   },
   {
