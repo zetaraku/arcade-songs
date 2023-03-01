@@ -75,11 +75,11 @@ page:
     sheetInfoDescription: ¡Muchas gracias a todos los jugadores que aportan los datos!
     openSource: Código fuente del proyecto
     openSourceDescription: |
-      Este proyecto está sujeto a la licencia <a
-        href="https://en.wikipedia.org/wiki/MIT_License"
+      Este proyecto está sujeto a la <a
+        href="https://es.wikipedia.org/wiki/Licencia_MIT"
         target="_blank"
         class="text-decoration-none"
-      >MIT License</a>, y puede encontrar el código fuente completo aquí.
+      >Licencia MIT</a>, y puede encontrar el código fuente completo aquí.
       Si te interesa, ¡también puedes unirte a nosotros para mejorar el proyecto! ⭐ :)
     updateRecord: Actualizar el registro
     disclaimer: Aviso de los derechos de autor
