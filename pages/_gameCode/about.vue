@@ -222,6 +222,15 @@ export default defineComponent({
 
     <h3>{{ $t('page.about.updateRecord') }}</h3>
     <v-timeline dense align-top class="mt-2">
+      <v-timeline-item small color="grey">
+        <span class="font-weight-bold">2023/03/01 － v3.5.1 Update</span>
+        <ul>
+          <li>
+            i18n: (Site) Spanish (es) locale is now available!
+            <i>(Thanks <a href="https://github.com/gallegonovato" target="_blank">@gallegonovato</a> !)</i>
+          </li>
+        </ul>
+      </v-timeline-item>
       <v-timeline-item>
         <span class="font-weight-bold">2023/02/15－ v3.5 Update</span>
         <ul>
