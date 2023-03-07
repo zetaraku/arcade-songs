@@ -35,13 +35,13 @@ term:
   bpm: BPM
   minBPM: BPM Minimal
   maxBPM: BPM Maksimal
-  sheets: Sheets
+  sheets: Lembar
   type: Jenis
   difficulty: Kesulitan
   level: Level
   minLevel: Level Minimal
   maxLevel: Level Maksimal
-  internalLevel: Internal Level
+  internalLevel: Level Internal
   minInternalLevel: Level Internal Minimal
   maxInternalLevel: Level Internal Maksimal
   noteDesigner: Perancang Note
