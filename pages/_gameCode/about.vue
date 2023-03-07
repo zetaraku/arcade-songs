@@ -222,6 +222,14 @@ export default defineComponent({
 
     <h3>{{ $t('page.about.updateRecord') }}</h3>
     <v-timeline dense align-top class="mt-2">
+      <v-timeline-item>
+        <span class="font-weight-bold">2023/03/07 － v3.6 Update</span>
+        <ul>
+          <li>feature: (My List) add export preview for My List</li>
+          <li>feature: (Gallery) add external gallery example in provider menu</li>
+          <li>misc: (Site) track more interaction event for development insight &gt;:)</li>
+        </ul>
+      </v-timeline-item>
       <v-timeline-item small color="grey">
         <span class="font-weight-bold">2023/03/02 － v3.5.2 Update</span>
         <ul>
