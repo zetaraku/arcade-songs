@@ -1,15 +1,14 @@
 <script setup lang="ts">
-import { inject, Ref } from '@nuxtjs/composition-api';
+import { ref, inject, Ref } from '@nuxtjs/composition-api';
 import { useI18n } from 'nuxt-i18n-composable';
 import YAML from 'yaml';
 import QueryString from 'query-string';
 import copyToClipboard from 'copy-to-clipboard';
-import FileSaver from 'file-saver';
 import selectFiles from 'select-files';
 import useDataStore from '~/stores/data';
 import useGtag from '~/composables/useGtag';
 import useGameInfo from '~/composables/useGameInfo';
-import { saveFiltersAsQuery, computeSheetExpr, makeDummySheet, toLocalISODateString } from '~/utils';
+import { saveFiltersAsQuery, makeDummySheet } from '~/utils';
 import type { Sheet, Filters } from '~/types';
 
 const displayMode: Ref<string> = inject('displayMode')!;
@@ -21,6 +20,8 @@ const i18n = useI18n();
 const gtag = useGtag();
 const dataStore = useDataStore();
 const { gameCode } = useGameInfo();
+
+const isMyListExportDialogOpened = ref(false);
 
 function copyFilterLink() {
   const query = saveFiltersAsQuery(filters.value);
@@ -39,27 +40,14 @@ function copyFilterLink() {
 
   gtag('event', 'FilterLinkCopied', { gameCode: gameCode.value, eventSource: 'ModeSelector' });
 }
-async function exportSelectedSheets() {
+async function showMyListExportDialog() {
   if (selectedSheets.value.length === 0) {
     // eslint-disable-next-line no-alert
     window.alert(i18n.t('sfc.ModeSelector.myListEmptyWarn'));
     return;
   }
 
-  try {
-    const yaml = YAML.stringify(
-      [...selectedSheets.value.map((sheet) => computeSheetExpr(sheet))],
-    );
-    FileSaver.saveAs(
-      new Blob([yaml], { type: 'application/yaml; charset=utf-8;' }),
-      `${gameCode.value}-mylist-${toLocalISODateString(new Date()).replaceAll('-', '')}.yaml`,
-    );
-
-    gtag('event', 'MyListExported', { gameCode: gameCode.value, eventSource: 'ModeSelector' });
-  } catch (e) {
-    // eslint-disable-next-line no-alert
-    window.alert(`An error occurred while saving MY LIST:\n${e}`);
-  }
+  isMyListExportDialogOpened.value = true;
 }
 async function importSelectedSheets() {
   const files = await selectFiles({ accept: '.yaml', multiple: false });
@@ -171,7 +159,7 @@ async function importSelectedSheets() {
                 icon
                 large
                 color="cyan"
-                @click="exportSelectedSheets"
+                @click="showMyListExportDialog"
                 v-on="on"
               >
                 <v-icon>mdi-download</v-icon>
@@ -196,5 +184,7 @@ async function importSelectedSheets() {
         </template>
       </v-col>
     </v-row>
+
+    <MyListExportDialog v-model="isMyListExportDialogOpened" />
   </div>
 </template>
