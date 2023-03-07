@@ -17,6 +17,8 @@ ui:
   cancel: Cancel
   close: Close
   search: Search
+  preview: Preview
+  download: Download
   goBack: Go Back
   all: ALL
   default: Default

@@ -17,6 +17,8 @@ ui:
   cancel: 取消
   close: 關閉
   search: 搜尋
+  preview: 預覽
+  download: 下載
   goBack: 返回
   all: 全部
   default: 預設

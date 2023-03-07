@@ -17,6 +17,8 @@ ui:
   cancel: キャンセル
   close: 閉じる
   search: 検索
+  preview: プレビュー
+  download: ダウンロード
   goBack: 戻る
   all: すべて
   default: デフォルト

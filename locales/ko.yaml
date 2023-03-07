@@ -17,6 +17,8 @@ ui:
   cancel: 취소
   close: 닫기
   search: 검색
+  preview: 미리보기
+  download: 다운로드
   goBack: 뒤로 가기
   all: 모두
   default: 기본값

@@ -17,6 +17,8 @@ ui:
   cancel: Batal
   close: Tutup
   search: Cari
+  preview: Pratinjau
+  download: Unduh
   goBack: Kembali
   all: SEMUA
   default: Standar

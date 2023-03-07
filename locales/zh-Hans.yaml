@@ -17,6 +17,8 @@ ui:
   cancel: 取消
   close: 关闭
   search: 搜索
+  preview: 预览
+  download: 下载
   goBack: 返回
   all: 全部
   default: 默认
