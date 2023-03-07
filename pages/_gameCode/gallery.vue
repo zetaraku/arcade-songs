@@ -6,6 +6,7 @@ import { until } from '@vueuse/core';
 import YAML from 'yaml';
 import selectFiles from 'select-files';
 import useDataStore from '~/stores/data';
+import useGtag from '~/composables/useGtag';
 import useGameInfo from '~/composables/useGameInfo';
 import useSheetDialog from '~/composables/useSheetDialog';
 import LoadingStatus from '~/enums/LoadingStatus';
@@ -16,6 +17,7 @@ import type { Gallery, GalleryList } from '~/types';
 const isDarkMode: Ref<boolean> = inject('isDarkMode')!;
 
 const i18n = useI18n();
+const gtag = useGtag();
 const route = useRoute();
 const router = useRouter();
 const dataStore = useDataStore();
@@ -105,6 +107,8 @@ async function loadExternalGalleryFromUrl(galleryUrl: string) {
     return false;
   }
   currentLoadingStatus.value = LoadingStatus.LOADED;
+
+  gtag('event', 'ExternalGalleryLoaded', { gameCode: gameCode.value, eventSource: 'GalleryPage', url: galleryUrl });
 
   return true;
 }
