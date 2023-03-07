@@ -73,7 +73,7 @@ export default defineComponent({
           </a> <i>(Thanks <a href="https://twitter.com/maiLv_Chihooooo" target="_blank">@maiLv_Chihooooo</a> !)</i>
         </li>
         <li>
-          中国版 (舞萌DX) {{ $t('page.about.sheetInfo') }} －
+          {{ $t('page.about.sheetInfoOf', { region: '中国版 (舞萌DX)' }) }} －
           <a class="text-decoration-none" href="https://github.com/CrazyKidCN/maimaiDX-CN-songs-database" target="_blank">
             <v-icon small left color="#24292e">mdi-github</v-icon><span>CrazyKidCN/maimaiDX-CN-songs-database</span>
           </a> <i>(Thanks <a href="https://github.com/CrazyKidCN" target="_blank">@CrazyKidCN</a> !)</i>
