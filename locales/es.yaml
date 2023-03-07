@@ -73,7 +73,7 @@ page:
     author: Autor
     dataSource: Origen de los datos
     songInfo: Información de la canción
-    sheetInfo: Información
+    sheetInfo: Información de la hoja
     sheetInfoDescription: ¡Muchas gracias a todos los jugadores que aportan los datos!
     openSource: Código fuente del proyecto
     openSourceDescription: |
