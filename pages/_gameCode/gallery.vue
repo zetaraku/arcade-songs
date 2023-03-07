@@ -26,6 +26,7 @@ const galleryProviders = computed(() => [
   { type: 'default', title: 'Load from default' },
   { type: 'url', title: 'Load from URL' },
   { type: 'file', title: 'Load from File' },
+  { type: 'example', title: 'View an Example!' },
 ]);
 
 const currentGalleryProvider: Ref<string> = ref('');
@@ -162,6 +163,8 @@ async function changeGalleryProvider(providerType: string) {
     const galleryFile = files[0];
 
     await loadExternalGalleryFromFile(galleryFile);
+  } else if (providerType === 'example') {
+    window.open('/maimai/gallery/?url=https%3A%2F%2Fgist.githubusercontent.com%2Fzetaraku%2Fc8a28b5bbd17cd421278ec45f4e4e953%2Fraw%2F');
   }
 }
 
