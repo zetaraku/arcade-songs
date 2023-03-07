@@ -32,13 +32,15 @@ function copyFilterLink() {
     return;
   }
 
+  const rawQuery = QueryString.stringify(query);
+
   const url = QueryString.stringifyUrl({ url: window.location.href, query });
   copyToClipboard(url, { format: 'text/plain' });
 
   // eslint-disable-next-line no-alert
   window.alert(`${url}\n${i18n.t('description.copied')}`);
 
-  gtag('event', 'FilterLinkCopied', { gameCode: gameCode.value, eventSource: 'ModeSelector' });
+  gtag('event', 'FilterLinkCopied', { gameCode: gameCode.value, eventSource: 'ModeSelector', query: rawQuery });
 }
 async function showMyListExportDialog() {
   if (selectedSheets.value.length === 0) {
