@@ -10,7 +10,7 @@ import useDataStore from '~/stores/data';
 import useGtag from '~/composables/useGtag';
 import useGameInfo from '~/composables/useGameInfo';
 import { saveFiltersAsQuery, computeSheetExpr, makeDummySheet, toLocalISODateString } from '~/utils';
-import { Sheet, Filters } from '~/types';
+import type { Sheet, Filters } from '~/types';
 
 const displayMode: Ref<string> = inject('displayMode')!;
 const filterMode: Ref<string> = inject('filterMode')!;

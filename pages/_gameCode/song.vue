@@ -61,7 +61,7 @@ useHead(() => ({
 
 <script lang="ts">
 import { defineComponent } from '@nuxtjs/composition-api';
-import { Sheet } from '~/types';
+import type { Sheet } from '~/types';
 
 export default defineComponent({
   name: 'GameSongPage',

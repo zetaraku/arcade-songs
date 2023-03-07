@@ -5,7 +5,7 @@ import useGtag from '~/composables/useGtag';
 import useGameInfo from '~/composables/useGameInfo';
 import useSheetDialog from '~/composables/useSheetDialog';
 import useSheetComboDialog from '~/composables/useSheetComboDialog';
-import { Sheet } from '~/types';
+import type { Sheet } from '~/types';
 
 const drawingPool: ComputedRef<Sheet[]> = inject('drawingPool')!;
 

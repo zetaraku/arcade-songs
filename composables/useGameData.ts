@@ -1,7 +1,7 @@
 import { computed } from '@nuxtjs/composition-api';
 import useDataStore from '~/stores/data';
 import useGameInfo from '~/composables/useGameInfo';
-import { Sheet } from '~/types';
+import type { Sheet } from '~/types';
 
 export default function useGameData() {
   const dataStore = useDataStore();
