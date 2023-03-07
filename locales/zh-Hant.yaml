@@ -74,6 +74,7 @@ page:
     dataSource: 資料來源
     songInfo: 歌曲資訊
     sheetInfo: 譜面資訊
+    sheetInfoOf: '{region} 譜面資訊'
     sheetInfoDescription: 在此特別感謝所有貢獻譜面資訊的玩家們！
     openSource: 專案原始碼
     openSourceDescription: |

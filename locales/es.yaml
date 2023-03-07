@@ -74,6 +74,7 @@ page:
     dataSource: Origen de los datos
     songInfo: Información de la canción
     sheetInfo: Información de la hoja
+    sheetInfoOf: 'Información de la hoja de {region}'
     sheetInfoDescription: ¡Muchas gracias a todos los jugadores que aportan los datos!
     openSource: Código fuente del proyecto
     openSourceDescription: |

@@ -74,6 +74,7 @@ page:
     dataSource: Data Source
     songInfo: Song Info
     sheetInfo: Sheet Info
+    sheetInfoOf: 'Sheet Info of {region}'
     sheetInfoDescription: Much thanks to all the players contributing the sheet data!
     openSource: Project Source Code
     openSourceDescription: |

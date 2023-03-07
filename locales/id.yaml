@@ -74,6 +74,7 @@ page:
     dataSource: Sumber Data
     songInfo: Info Lagu
     sheetInfo: Info Lembar
+    sheetInfoOf: 'Info Lembar {region}'
     sheetInfoDescription: Terima kasih untuk semua pemain yang berkontribusi ke dalam lembaran data ini!
     openSource: Kode Sumber Proyek
     openSourceDescription: |

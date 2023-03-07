@@ -74,6 +74,7 @@ page:
     dataSource: 데이터 소스
     songInfo: 곡 정보
     sheetInfo: 채보 정보
+    sheetInfoOf: '{region} 채보 정보'
     sheetInfoDescription: 채보 데이터를 제공하는 모든 플레이어에게 깊은 감사를 드립니다!
     openSource: 프로젝트 소스 코드
     openSourceDescription: |

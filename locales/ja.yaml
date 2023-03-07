@@ -74,6 +74,7 @@ page:
     dataSource: 情報源
     songInfo: 曲情報
     sheetInfo: 譜面情報
+    sheetInfoOf: '{region} 譜面情報'
     sheetInfoDescription: 譜面情報を提供してくれたプレイヤーの皆さん、本当にありがとうございます！
     openSource: プロジェクトソースコード
     openSourceDescription: |
