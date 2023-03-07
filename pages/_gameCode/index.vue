@@ -8,11 +8,12 @@ import { buildEmptyFilters, buildFilterOptions, loadFiltersFromQuery, filterShee
 import type { Sheet } from '~/types';
 
 const context = useContext();
+const i18n = useI18n();
 const route = useRoute();
 const router = useRouter();
-const i18n = useI18n();
-const { gameTitle } = useGameInfo();
 const dataStore = useDataStore();
+const { gameTitle } = useGameInfo();
+
 const data = computed(() => dataStore.currentData);
 
 const filterMode = ref('filter');
