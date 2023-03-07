@@ -2,6 +2,7 @@
 /* eslint-disable import/first, import/no-duplicates */
 import { ref, computed, provide, onMounted, useRoute, useRouter, useMeta as useHead, useContext } from '@nuxtjs/composition-api';
 import { useI18n } from 'nuxt-i18n-composable';
+import useGtag from '~/composables/useGtag';
 import useDataStore from '~/stores/data';
 import useGameInfo from '~/composables/useGameInfo';
 import { buildEmptyFilters, buildFilterOptions, loadFiltersFromQuery, filterSheets } from '~/utils';
@@ -9,10 +10,11 @@ import type { Sheet } from '~/types';
 
 const context = useContext();
 const i18n = useI18n();
+const gtag = useGtag();
 const route = useRoute();
 const router = useRouter();
 const dataStore = useDataStore();
-const { gameTitle } = useGameInfo();
+const { gameCode, gameTitle } = useGameInfo();
 
 const data = computed(() => dataStore.currentData);
 
@@ -34,11 +36,20 @@ const displayingSheets = computed(() => {
 });
 
 onMounted(() => {
+  const rawQuery = window.location.search.substring(1);
+
   filters.value = loadFiltersFromQuery(route.value.query as Record<string, string>);
-  router.replace({ query: {} }).catch((err) => {
-    // Ignore the error regarding navigating to the page they are already on.
-    if (err.name !== 'NavigationDuplicated') throw err;
-  });
+
+  // clear the query params
+  router.replace({ query: {} })
+    .then(() => {
+      // Some filters are loaded from link if some query params are cleared
+      gtag('event', 'FilterLinkLoaded', { gameCode: gameCode.value, eventSource: 'GameIndexPage', query: rawQuery });
+    })
+    .catch((err) => {
+      // Ignore the error regarding navigating to the page they are already on.
+      if (err.name !== 'NavigationDuplicated') throw err;
+    });
 });
 
 useHead(() => ({
