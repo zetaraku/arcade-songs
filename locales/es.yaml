@@ -4,26 +4,26 @@ hello: ¡Hola Mundo!
 # Page titles
 page-title:
   home: Página principal
-  song: Datos de la canción
+  song: Datos de canción
   songs: Lista de canciones
-  gallery: Listas de pistas
+  gallery: Lista de pistas
   about: Acerca de
   bug-report: Reportar problemas
   source-code: Código fuente
 
 # General UIs
 ui:
-  ok: DE ACUERDO
+  ok: De acuerdo
   cancel: Cancelar
   close: Cerrar
-  search: Buscar en
-  preview: Vista Previa
+  search: Buscar
+  preview: Vista previa
   download: Descargar
   goBack: Atrás
-  all: TODAS
+  all: Todas
   default: Predeterminado
-  sort-asc: orden ascendente
-  sort-desc: orden descendente
+  sort-asc: Orden ascendente
+  sort-desc: Orden descendente
 
 # Terminologies
 term:
@@ -32,10 +32,10 @@ term:
   artist: Artista
   version: Versión
   releaseDate: Fecha de publicación
-  bpm: BPM
-  minBPM: BPM mínimo
-  maxBPM: BPM máximo
-  sheets: cuadro
+  bpm: PPM
+  minBPM: PPM mínimo
+  maxBPM: PPM máximo
+  sheets: Mapas
   type: Tipo
   difficulty: Dificultad
   level: Nivel
@@ -44,8 +44,8 @@ term:
   internalLevel: Nivel interno
   minInternalLevel: Nivel mínimo interno
   maxInternalLevel: Nivel máximo interno
-  noteDesigner: Notas del Diseñador
-  totalNotes: TOTAL
+  noteDesigner: Diseñador del mapa
+  totalNotes: Total
   region: Región
 
 # Descriptions & Tooltips
@@ -53,28 +53,28 @@ description:
   pending: Pendiente
   loading: Cargando datos…
   newSong: ¡Nueva canción!
-  unlockNeeded: Hay que desbloquear esta canción
+  unlockNeeded: Hay que desbloquear esta canción.
   unavailableInRegion: 'No disponible en {region}'
   copied: ¡Copiado al portapapeles!
-  invalidNoteCounts: Recuentos de NOTA no válidos
-  filterResultEmpty: No se encuentra ninguna hoja que cumpla el filtro.
-  myListEmpty: Haga clic con el botón derecho del ratón o mantenga pulsada una hoja para añadirla a MI LISTA y, a continuación, podrá ver aquí las hojas seleccionadas.
-  drawPoolEmpty: El grupo de dibujo actual está vacío.
+  invalidNoteCounts: Recuentos de nota no válidos
+  filterResultEmpty: No se encuentra ningún mapa que cumpla el filtro.
+  myListEmpty: Haga clic con el botón derecho del ratón o mantenga pulsada un mapa para añadirlo a MI LISTA y, a continuación, podrás ver aquí los mapas seleccionados.
+  drawPoolEmpty: El recipiente de extracción actual está vacío.
 
 # Pages
 page:
   index:
     description: Busca canciones de tus juegos musicales favoritos, ¡ahora todo en uno!
   gallery:
-    selectList: Seleccione la lista de canciones
+    selectList: Seleccionar lista de canciones
   songs:
-    sheetData: Hoja de datos
+    sheetData: Datos de mapa
   about:
     author: Autor
     dataSource: Origen de los datos
     songInfo: Información de la canción
-    sheetInfo: Información de la hoja
-    sheetInfoOf: 'Información de la hoja de {region}'
+    sheetInfo: Información del mapa
+    sheetInfoOf: 'Información del mapa de {region}'
     sheetInfoDescription: ¡Muchas gracias a todos los jugadores que aportan los datos!
     openSource: Código fuente del proyecto
     openSourceDescription: |
@@ -82,9 +82,9 @@ page:
         href="https://es.wikipedia.org/wiki/Licencia_MIT"
         target="_blank"
         class="text-decoration-none"
-      >Licencia MIT</a>, y puede encontrar el código fuente completo aquí.
+      >Licencia MIT</a>, y se puede encontrar el código fuente completo aquí.
       Si te interesa, ¡también puedes unirte a nosotros para mejorar el proyecto! ⭐ :)
-    updateRecord: Actualizar el registro
+    updateRecord: Registro de actualizaciones
     disclaimer: Aviso de los derechos de autor
   error:
     error: Fallo
@@ -99,23 +99,23 @@ sfc:
   ModeSelector:
     gridMode: Vista en cuadrícula
     tableMode: Vista detallada
-    filterMode: Modo de filtrado
+    filterMode: Modo filtrado
     myListMode: MI LISTA
     copyFilterLink: Copiar los filtros actuales como enlace
     noFilterWarn: Seleccione primero al menos un filtro.
     exportMyList: Exportar MI LISTA a un archivo
-    myListEmptyWarn: "¡MI LISTA está vacía!\nNo hay nada que exportar."
+    myListEmptyWarn: "¡MI LISTA está vacía!\No hay nada que exportar."
     importMyList: Importar MI LISTA desde un archivo
-    sheetsLoaded: 'Importadas {n} hojas con éxito.'
+    sheetsLoaded: 'Importados {n} mapas con éxito.'
   SheetDrawerPanel:
-    drawRandomSheet: ¡Dibuja gráficos al azar!
-    drawRandomSheetCombo: ¡Dibuja suites al azar!
+    drawRandomSheet: ¡Sacar mapa al azar!
+    drawRandomSheetCombo: ¡Sacar conjunto de mapas al azar!
   FilterInfoBar:
-    sheetsCount: '{n} hojas'
-    songsCount: '{n} temas'
+    sheetsCount: '{n} mapas'
+    songsCount: '{n} canciones'
   SheetDialog:
     searchOnYouTube: Buscar en YouTube
-    tryAgain: INTENTAR DE NUEVO
+    tryAgain: Intentar de nuevo
   SheetComboDialog:
-    drawResults: Resultados del sorteo
+    drawResults: Resultados de la extracción
     noDuplicate: Sin duplicados
