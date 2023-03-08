@@ -13,7 +13,7 @@ page-title:
 
 # General UIs
 ui:
-  ok: De acuerdo
+  ok: DE ACUERDO
   cancel: Cancelar
   close: Cerrar
   search: Buscar
@@ -115,7 +115,7 @@ sfc:
     songsCount: '{n} canciones'
   SheetDialog:
     searchOnYouTube: Buscar en YouTube
-    tryAgain: Intentar de nuevo
+    tryAgain: INTENTAR DE NUEVO
   SheetComboDialog:
     drawResults: Resultados de la extracción
     noDuplicate: Sin duplicados
