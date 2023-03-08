@@ -76,9 +76,14 @@ If you have any ideas or suggestions, you can [open an issue](https://github.com
 
 ## Contributors ✨
 
-- [Sungsoo Han (lomotos10)](https://github.com/lomotos10) - Korean translation
-- [gallegonovato (gallegonovato)](https://github.com/gallegonovato) - Spanish translation
-- [Echo (echocentrical)](https://github.com/echocentrical) - Indonesian translation
+- Korean translation
+  - [Sungsoo Han (lomotos10)](https://github.com/lomotos10)
+  - [DDinghoya (DDinghoya)](https://github.com/DDinghoya)
+- Spanish translation
+  - [gallegonovato (gallegonovato)](https://github.com/gallegonovato)
+  - [Onyx (VendettaCalls)](https://github.com/VendettaCalls)
+- Indonesian translation
+  - [Echo (echocentrical)](https://github.com/echocentrical)
 
 ## Special Thanks ✨
 
