@@ -20,7 +20,7 @@ ui:
   preview: Vista previa
   download: Descargar
   goBack: Atrás
-  all: Todas
+  all: TODAS
   default: Predeterminado
   sort-asc: Orden ascendente
   sort-desc: Orden descendente
@@ -45,7 +45,7 @@ term:
   minInternalLevel: Nivel mínimo interno
   maxInternalLevel: Nivel máximo interno
   noteDesigner: Diseñador del mapa
-  totalNotes: Total
+  totalNotes: TOTAL
   region: Región
 
 # Descriptions & Tooltips
@@ -53,10 +53,10 @@ description:
   pending: Pendiente
   loading: Cargando datos…
   newSong: ¡Nueva canción!
-  unlockNeeded: Hay que desbloquear esta canción.
+  unlockNeeded: Hay que desbloquear esta canción
   unavailableInRegion: 'No disponible en {region}'
   copied: ¡Copiado al portapapeles!
-  invalidNoteCounts: Recuentos de nota no válidos
+  invalidNoteCounts: Recuentos de NOTA no válidos
   filterResultEmpty: No se encuentra ningún mapa que cumpla el filtro.
   myListEmpty: Haga clic con el botón derecho del ratón o mantenga pulsada un mapa para añadirlo a MI LISTA y, a continuación, podrás ver aquí los mapas seleccionados.
   drawPoolEmpty: El recipiente de extracción actual está vacío.
@@ -104,7 +104,7 @@ sfc:
     copyFilterLink: Copiar los filtros actuales como enlace
     noFilterWarn: Seleccione primero al menos un filtro.
     exportMyList: Exportar MI LISTA a un archivo
-    myListEmptyWarn: "¡MI LISTA está vacía!\No hay nada que exportar."
+    myListEmptyWarn: "¡MI LISTA está vacía!\nNo hay nada que exportar."
     importMyList: Importar MI LISTA desde un archivo
     sheetsLoaded: 'Importados {n} mapas con éxito.'
   SheetDrawerPanel:
