@@ -49,6 +49,13 @@
     "accessCounterUrl": "https://www.f-counter.net/j/46/1629440181/"
   },
   {
+    "gameCode": "drs",
+    "gameTitle": "DANCERUSH STARDOM",
+    "themeColor": "#06a6fb",
+    "dataSourceUrl": "https://dp4p6x0xfi5o9.cloudfront.net/drs",
+    "accessCounterUrl": "https://www.f-counter.net/j/61/1680617223/"
+  },
+  {
     "gameCode": "gc",
     "gameTitle": "GROOVE COASTER",
     "themeColor": "#22125b",
