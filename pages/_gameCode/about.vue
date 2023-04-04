@@ -164,6 +164,17 @@ export default defineComponent({
           </i>
         </li>
       </template>
+      <template v-if="gameCode === 'drs'">
+        <li>
+          {{ $t('page.about.songInfo') }} －
+          <a href="https://p.eagate.573.jp/game/dan/1st/" target="_blank">DANCERUSH STARDOM</a>
+        </li>
+        <li>
+          {{ $t('page.about.sheetInfo') }} －
+          <a href="https://remywiki.com/AC_DRS" target="_blank">DANCERUSH STARDOM - RemyWiki</a>
+          － {{ $t('page.about.sheetInfoDescription') }}
+        </li>
+      </template>
       <template v-if="gameCode === 'gc'">
         <li>
           {{ $t('page.about.songInfo') }} －
@@ -222,6 +233,15 @@ export default defineComponent({
 
     <h3>{{ $t('page.about.updateRecord') }}</h3>
     <v-timeline dense align-top class="mt-2">
+      <v-timeline-item icon="mdi-star">
+        <span class="font-weight-bold">2023/04/04－ v3.7 Update</span>
+        <ul>
+          <li>
+            project: add new site for <strong>DANCERUSH STARDOM</strong>
+            >> <a href="https://arcade-songs.zetaraku.dev/drs/" target="_blank">DANCERUSH STARDOM | arcade-songs</a>
+          </li>
+        </ul>
+      </v-timeline-item>
       <v-timeline-item>
         <span class="font-weight-bold">2023/03/07 － v3.6 Update</span>
         <ul>
@@ -774,6 +794,16 @@ export default defineComponent({
         <li>
           This site is not associated or officially connected with
           <strong>オンゲキ</strong> or <strong>SEGA Interactive Co., Ltd.</strong>
+        </li>
+      </template>
+      <template v-if="gameCode === 'drs'">
+        <li>
+          <strong>DANCERUSH STARDOM</strong> and <strong>ダンスラッシュ</strong>
+          are trademarks of <strong>Konami Amusement Co., Ltd.</strong>
+        </li>
+        <li>
+          This site is not associated or officially connected with
+          <strong>DANCERUSH STARDOM</strong> or <strong>Konami Amusement Co., Ltd.</strong>
         </li>
       </template>
       <template v-if="gameCode === 'gc'">
