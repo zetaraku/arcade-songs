@@ -233,6 +233,14 @@ export default defineComponent({
 
     <h3>{{ $t('page.about.updateRecord') }}</h3>
     <v-timeline dense align-top class="mt-2">
+      <v-timeline-item icon="mdi-flag-variant">
+        <span class="font-weight-bold">2023/04/08 － 100000 visits reached</span>
+        <ul>
+          <li>
+            milestone: 100000 visits reached on <a href="https://arcade-songs.zetaraku.dev/maimai/" target="_blank">arcade-songs/maimai</a>!
+          </li>
+        </ul>
+      </v-timeline-item>
       <v-timeline-item icon="mdi-star">
         <span class="font-weight-bold">2023/04/04－ v3.7 Update</span>
         <ul>
