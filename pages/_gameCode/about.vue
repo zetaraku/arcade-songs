@@ -56,7 +56,7 @@ export default defineComponent({
       <template v-if="gameCode === 'maimai'">
         <li>
           {{ $t('page.about.songInfo') }} －
-          <a href="https://maimai.sega.jp/" target="_blank">maimai でらっくす FESTiVAL公式サイト｜セガ音ゲー</a>
+          <a href="https://maimai.sega.jp/" target="_blank">maimai でらっくす FESTiVAL PLUS公式サイト｜セガ音ゲー</a>
         </li>
         <li>
           {{ $t('page.about.sheetInfo') }} －
@@ -93,7 +93,7 @@ export default defineComponent({
       <template v-if="gameCode === 'chunithm'">
         <li>
           {{ $t('page.about.songInfo') }} －
-          <a href="https://chunithm.sega.jp/" target="_blank">CHUNITHM SUN (チュウニズム サン)｜セガ新作音ゲー</a>
+          <a href="https://chunithm.sega.jp/" target="_blank">CHUNITHM SUN PLUS (チュウニズム サン プラス)｜セガ新作音ゲー</a>
         </li>
         <li>
           {{ $t('page.about.sheetInfo') }} －
