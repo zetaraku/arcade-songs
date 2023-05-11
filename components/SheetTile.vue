@@ -252,6 +252,7 @@ const {
 
   &:hover {
     box-shadow: 0 0 10px 5px rgb(0, 0, 0, 0.25);
+    z-index: 1;
 
     .CoverContainer {
       transform: scale(1.2);
