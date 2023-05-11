@@ -65,7 +65,7 @@
   {
     "gameCode": "popn",
     "gameTitle": "pop'n music",
-    "themeColor": "#ffaa00",
+    "themeColor": "#00009d",
     "dataSourceUrl": "https://dp4p6x0xfi5o9.cloudfront.net/popn",
     "accessCounterUrl": "https://www.f-counter.net/j/49/1668223495/"
   },
