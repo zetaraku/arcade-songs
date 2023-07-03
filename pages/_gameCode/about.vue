@@ -164,6 +164,17 @@ export default defineComponent({
           </i>
         </li>
       </template>
+      <template v-if="gameCode === 'ddr'">
+        <li>
+          {{ $t('page.about.songInfo') }} －
+          <a href="https://p.eagate.573.jp/game/ddr/ddra3/" target="_blank">DanceDanceRevolution A3</a>
+        </li>
+        <li>
+          {{ $t('page.about.sheetInfo') }} －
+          <a href="https://remywiki.com/AC_DDR_A3" target="_blank">DanceDanceRevolution A3 - RemyWiki</a>
+          － {{ $t('page.about.sheetInfoDescription') }}
+        </li>
+      </template>
       <template v-if="gameCode === 'drs'">
         <li>
           {{ $t('page.about.songInfo') }} －
@@ -233,6 +244,15 @@ export default defineComponent({
 
     <h3>{{ $t('page.about.updateRecord') }}</h3>
     <v-timeline dense align-top class="mt-2">
+      <v-timeline-item icon="mdi-star">
+        <span class="font-weight-bold">2023/07/03－ v3.8 Update</span>
+        <ul>
+          <li>
+            project: add new site for <strong>DanceDanceRevolution</strong>
+            >> <a href="https://arcade-songs.zetaraku.dev/ddr/" target="_blank">DanceDanceRevolution | arcade-songs</a>
+          </li>
+        </ul>
+      </v-timeline-item>
       <v-timeline-item icon="mdi-flag-variant">
         <span class="font-weight-bold">2023/04/08 － 100000 visits reached</span>
         <ul>
@@ -802,6 +822,16 @@ export default defineComponent({
         <li>
           This site is not associated or officially connected with
           <strong>オンゲキ</strong> or <strong>SEGA Interactive Co., Ltd.</strong>
+        </li>
+      </template>
+      <template v-if="gameCode === 'ddr'">
+        <li>
+          <strong>DanceDanceRevolution</strong> and <strong>ダンスダンスレボリューション</strong>
+          are trademarks of <strong>Konami Amusement Co., Ltd.</strong>
+        </li>
+        <li>
+          This site is not associated or officially connected with
+          <strong>DanceDanceRevolution</strong> or <strong>Konami Amusement Co., Ltd.</strong>
         </li>
       </template>
       <template v-if="gameCode === 'drs'">
