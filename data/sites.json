@@ -77,6 +77,13 @@
     "accessCounterUrl": "https://www.f-counter.net/j/49/1668223495/"
   },
   {
+    "gameCode": "nostalgia",
+    "gameTitle": "NOSTALGIA",
+    "themeColor": "#633300",
+    "dataSourceUrl": "https://dp4p6x0xfi5o9.cloudfront.net/nostalgia",
+    "accessCounterUrl": "https://www.f-counter.net/j/62/1688396436/"
+  },
+  {
     "gameCode": "diva",
     "gameTitle": "Project DIVA Arcade",
     "themeColor": "#6d8c8d",
