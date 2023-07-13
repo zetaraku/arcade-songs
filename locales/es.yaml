@@ -13,7 +13,7 @@ page-title:
 
 # General UIs
 ui:
-  ok: DE ACUERDO
+  ok: OK
   cancel: Cancelar
   close: Cerrar
   search: Buscar
