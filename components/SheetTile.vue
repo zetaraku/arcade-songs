@@ -180,10 +180,7 @@ const {
 
   .BlockingPanel {
     position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    inset: 0;
     z-index: 1;
   }
 
@@ -198,8 +195,8 @@ const {
     height: 100px;
     box-shadow:
       // the gray shadows
-      0px 14px 28px rgba(0, 0, 0, 0.25),
-      0px 10px 10px rgba(0, 0, 0, 0.22);
+      0 14px 28px rgb(0 0 0 / 25%),
+      0 10px 10px rgb(0 0 0 / 22%);
     transition: transform 250ms;
 
     .CoverImage {
@@ -208,24 +205,30 @@ const {
       object-fit: cover;
       vertical-align: middle;
     }
+
     .CoverTitle {
+      // placement
       position: absolute;
       top: 0;
       left: 0;
       padding: 3px 6px;
 
+      // text
       font-weight: bold;
       color: white;
       -webkit-text-stroke: 5px black;
       paint-order: stroke;
 
+      // alignment
       text-align: left;
       word-wrap: break-word;
       overflow: hidden;
       max-width: 100%;
       max-height: 100%;
     }
+
     .SheetInternalLevel {
+      // placement
       display: inline-block;
       position: absolute;
       top: 0;
@@ -235,6 +238,7 @@ const {
       border-radius: 3px;
       transform: translate(-50%, -50%);
 
+      // text
       font-weight: bold;
       text-align: center;
       color: white;
@@ -244,14 +248,14 @@ const {
     &.dark-style {
       box-shadow:
         // the yellow glowing effect
-        0px 14px 28px 5px rgba(255, 255, 0, 0.50),
+        0 14px 28px 5px rgb(255 255 0 / 50%),
         // the white glowing square
-        0px 0px 0px 10px rgba(255, 255, 255, 0.22);
+        0 0 0 10px rgb(255 255 255 / 22%);
     }
   }
 
   &:hover {
-    box-shadow: 0 0 10px 5px rgb(0, 0, 0, 0.25);
+    box-shadow: 0 0 10px 5px rgb(0 0 0 / 25%);
     z-index: 1;
 
     .CoverContainer {

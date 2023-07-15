@@ -115,11 +115,13 @@ export default defineComponent({
     opacity: 1;
   }
 }
+
 .MagicLogo {
   &__icon {
     &::before {
       transition: color 1000ms;
     }
+
     &::after {
       display: none !important;
     }

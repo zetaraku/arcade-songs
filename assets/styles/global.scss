@@ -1,14 +1,9 @@
 .rainbow-background {
-  background-image: linear-gradient(
-    135deg,
-    red, orange, yellow, green, blue, indigo, violet
-  );
+  background-image: linear-gradient(135deg, red, orange, yellow, green, blue, indigo, violet);
 }
+
 .rainbow-text {
   color: transparent;
   background-clip: text;
-  background-image: linear-gradient(
-    135deg,
-    red, orange, yellow, green, blue, indigo, violet
-  );
+  background-image: linear-gradient(135deg, red, orange, yellow, green, blue, indigo, violet);
 }

@@ -190,7 +190,7 @@ watch(sheets, () => {
 <style lang="scss" scoped>
 ::v-deep {
   .selected-sheet {
-    background-color: #4EDA !important;
+    background-color: #4eda !important;
   }
 }
 </style>
