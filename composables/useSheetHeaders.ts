@@ -1,11 +1,10 @@
-import { computed } from '@nuxtjs/composition-api';
-import { useI18n } from 'nuxt-i18n-composable';
+import { computed, useContext } from '@nuxtjs/composition-api';
 import useGameInfo from '~/composables/useGameInfo';
 import useGameData from '~/composables/useGameData';
 import type { DataTableHeader } from 'vuetify';
 
 function useOptionalHeaders(gameCode: string): DataTableHeader[] {
-  const i18n = useI18n();
+  const { i18n } = useContext();
 
   if (gameCode === 'maimai') {
     return [
@@ -71,7 +70,7 @@ function useOptionalHeaders(gameCode: string): DataTableHeader[] {
 }
 
 function useHeaders(): DataTableHeader[] {
-  const i18n = useI18n();
+  const { i18n } = useContext();
   const {
     gameCode,
   } = useGameInfo();

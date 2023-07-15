@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { ref, watch, inject, ComputedRef } from '@nuxtjs/composition-api';
-import { useI18n } from 'nuxt-i18n-composable';
+import { ref, watch, inject, ComputedRef, useContext } from '@nuxtjs/composition-api';
 import useGtag from '~/composables/useGtag';
 import useGameInfo from '~/composables/useGameInfo';
 import useSheetDialog from '~/composables/useSheetDialog';
@@ -9,7 +8,7 @@ import type { Sheet } from '~/types';
 
 const drawingPool: ComputedRef<Sheet[]> = inject('drawingPool')!;
 
-const i18n = useI18n();
+const { i18n } = useContext();
 const gtag = useGtag();
 const { gameCode, themeColor } = useGameInfo();
 const {

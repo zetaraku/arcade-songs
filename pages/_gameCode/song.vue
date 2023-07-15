@@ -1,7 +1,6 @@
 <script setup lang="ts">
 /* eslint-disable import/first, import/no-duplicates */
 import { computed, useRoute, useMeta as useHead, useContext } from '@nuxtjs/composition-api';
-import { useI18n } from 'nuxt-i18n-composable';
 import useDataStore from '~/stores/data';
 import useGameInfo from '~/composables/useGameInfo';
 import useGameData from '~/composables/useGameData';
@@ -9,8 +8,7 @@ import useSheetDialog from '~/composables/useSheetDialog';
 import LoadingStatus from '~/enums/LoadingStatus';
 import { validateNoteCounts, PageNotFoundError } from '~/utils';
 
-const context = useContext();
-const i18n = useI18n();
+const { i18n, error } = useContext();
 const route = useRoute();
 const dataStore = useDataStore();
 const {
@@ -34,7 +32,7 @@ const song = computed(
       songId !== undefined && foundSong === null
       && dataStore.currentLoadingStatus === LoadingStatus.LOADED
     ) {
-      context.error(new PageNotFoundError());
+      error(new PageNotFoundError());
     }
 
     return foundSong;

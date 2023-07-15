@@ -1,14 +1,13 @@
 <script setup lang="ts">
 /* eslint-disable import/first, import/no-duplicates */
-import { ref, computed, useMeta as useHead, ComputedRef } from '@nuxtjs/composition-api';
-import { useI18n } from 'nuxt-i18n-composable';
+import { ref, computed, useMeta as useHead, useContext, ComputedRef } from '@nuxtjs/composition-api';
 import useDataStore from '~/stores/data';
 import useGameInfo from '~/composables/useGameInfo';
 import useGameData from '~/composables/useGameData';
 import useSheetDialog from '~/composables/useSheetDialog';
 import type { DataTableHeader } from 'vuetify';
 
-const i18n = useI18n();
+const { i18n } = useContext();
 const dataStore = useDataStore();
 const { gameCode } = useGameInfo();
 const {

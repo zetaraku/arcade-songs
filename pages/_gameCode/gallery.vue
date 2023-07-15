@@ -1,7 +1,6 @@
 <script setup lang="ts">
 /* eslint-disable import/first, import/no-duplicates */
-import { ref, computed, watch, inject, onMounted, useRoute, useRouter, useMeta as useHead, Ref } from '@nuxtjs/composition-api';
-import { useI18n } from 'nuxt-i18n-composable';
+import { ref, computed, watch, inject, onMounted, useRoute, useRouter, useMeta as useHead, useContext, Ref } from '@nuxtjs/composition-api';
 import { until } from '@vueuse/core';
 import YAML from 'yaml';
 import selectFiles from 'select-files';
@@ -16,7 +15,7 @@ import type { Gallery, GalleryList } from '~/types';
 
 const isDarkMode: Ref<boolean> = inject('isDarkMode')!;
 
-const i18n = useI18n();
+const { i18n } = useContext();
 const gtag = useGtag();
 const route = useRoute();
 const router = useRouter();

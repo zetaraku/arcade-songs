@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { ref, inject, Ref } from '@nuxtjs/composition-api';
-import { useI18n } from 'nuxt-i18n-composable';
+import { ref, inject, Ref, useContext } from '@nuxtjs/composition-api';
 import YAML from 'yaml';
 import QueryString from 'query-string';
 import copyToClipboard from 'copy-to-clipboard';
@@ -16,7 +15,7 @@ const filterMode: Ref<string> = inject('filterMode')!;
 const filters: Ref<Filters> = inject('filters')!;
 const selectedSheets: Ref<Sheet[]> = inject('selectedSheets')!;
 
-const i18n = useI18n();
+const { i18n } = useContext();
 const gtag = useGtag();
 const dataStore = useDataStore();
 const { gameCode } = useGameInfo();

@@ -1,14 +1,13 @@
 <script setup lang="ts">
 /* eslint-disable import/first, import/no-duplicates */
-import { computed, useMeta as useHead } from '@nuxtjs/composition-api';
-import { useI18n } from 'nuxt-i18n-composable';
+import { computed, useMeta as useHead, useContext } from '@nuxtjs/composition-api';
 import useGameInfo from '~/composables/useGameInfo';
 
 const props = defineProps<{
   error: Record<string, any>;
 }>();
 
-const i18n = useI18n();
+const { i18n } = useContext();
 const { gameCode } = useGameInfo();
 
 const isNotFound = computed(() => props.error.statusCode === 404);

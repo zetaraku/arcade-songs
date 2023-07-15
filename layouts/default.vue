@@ -1,16 +1,14 @@
 <script setup lang="ts">
 /* eslint-disable import/first, import/no-duplicates */
 import { ref, computed, watch, provide, onMounted, useRoute, useMeta as useHead, useContext } from '@nuxtjs/composition-api';
-import { useI18n } from 'nuxt-i18n-composable';
 import useDataStore from '~/stores/data';
 import useGameInfo from '~/composables/useGameInfo';
 import LoadingStatus from '~/enums/LoadingStatus';
 import sites from '~/data/sites.json';
 import { PageNotFoundError } from '~/utils';
 
-const context = useContext();
+const { i18n, error, $config, $vuetify } = useContext();
 const route = useRoute();
-const i18n = useI18n();
 const dataStore = useDataStore();
 const {
   gameCode,
@@ -38,12 +36,12 @@ const menu = computed(() => [
   {
     icon: 'mdi-comment-question',
     title: i18n.t('page-title.bug-report'),
-    href: context.$config.siteReportUrl,
+    href: $config.siteReportUrl,
   },
   {
     icon: 'mdi-github',
     title: i18n.t('page-title.source-code'),
-    href: context.$config.sourceCodeUrl,
+    href: $config.sourceCodeUrl,
   },
   {
     icon: 'mdi-information-outline',
@@ -58,7 +56,7 @@ useHead(() => {
     siteUrl,
     siteDescriptionEn,
     siteDescriptionJp,
-  } = context.$config;
+  } = $config;
 
   const subSiteTitle = gameTitle.value ? `${gameTitle.value} | ${siteTitle}` : siteTitle;
   const pageUrl = new URL(`${gameCode.value ?? ''}/`, siteUrl).toString();
@@ -105,12 +103,12 @@ const isDrawerOpened = ref(false);
 const isPortalOpened = ref(false);
 
 function adaptSiteStyle() {
-  context.$vuetify.theme.themes.light.primary = themeColor.value;
-  context.$vuetify.theme.themes.dark.primary = '#FFAC1C';
+  $vuetify.theme.themes.light.primary = themeColor.value;
+  $vuetify.theme.themes.dark.primary = '#FFAC1C';
 }
 function validateGameCode() {
   if (route.value.params.gameCode !== undefined && gameCode.value === undefined) {
-    context.error(new PageNotFoundError());
+    error(new PageNotFoundError());
   }
 }
 async function detectGameCode() {
@@ -121,7 +119,7 @@ async function detectGameCode() {
 
 watch(gameCode, () => detectGameCode());
 watch(isDarkMode, () => {
-  context.$vuetify.theme.dark = isDarkMode.value;
+  $vuetify.theme.dark = isDarkMode.value;
 });
 
 onMounted(() => detectGameCode());

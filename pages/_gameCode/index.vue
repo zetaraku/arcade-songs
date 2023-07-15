@@ -1,15 +1,13 @@
 <script setup lang="ts">
 /* eslint-disable import/first, import/no-duplicates */
 import { ref, computed, provide, onMounted, useRoute, useRouter, useMeta as useHead, useContext } from '@nuxtjs/composition-api';
-import { useI18n } from 'nuxt-i18n-composable';
 import useGtag from '~/composables/useGtag';
 import useDataStore from '~/stores/data';
 import useGameInfo from '~/composables/useGameInfo';
 import { buildEmptyFilters, buildFilterOptions, loadFiltersFromQuery, filterSheets } from '~/utils';
 import type { Sheet } from '~/types';
 
-const context = useContext();
-const i18n = useI18n();
+const { i18n, $config } = useContext();
 const gtag = useGtag();
 const route = useRoute();
 const router = useRouter();
@@ -54,7 +52,7 @@ onMounted(() => {
 
 useHead(() => ({
   titleTemplate: '%s',
-  title: `${gameTitle.value} | ${context.$config.siteTitle}`,
+  title: `${gameTitle.value} | ${$config.siteTitle}`,
 }));
 
 provide('drawingPool', displayingSheets);

@@ -11,7 +11,7 @@ import { RICK_SHEET } from '~/utils';
 
 const isDarkMode: Ref<boolean> = inject('isDarkMode')!;
 
-const context = useContext();
+const { $config } = useContext();
 const gtag = useGtag();
 const { gameCode } = useGameInfo();
 const { viewSheet } = useSheetDialog();
@@ -42,7 +42,7 @@ async function toggleLightSwitch(buttonPressed: boolean) {
 
 useHead(() => ({
   titleTemplate: '%s',
-  title: `${context.$config.siteTitle}`,
+  title: `${$config.siteTitle}`,
 }));
 </script>
 
