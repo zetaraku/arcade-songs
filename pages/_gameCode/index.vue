@@ -20,7 +20,7 @@ const filterMode = ref('filter');
 const displayMode = ref('grid');
 
 const filters = ref(buildEmptyFilters());
-const filterOptions = computed(() => buildFilterOptions(data.value, i18n.t));
+const filterOptions = computed(() => buildFilterOptions(data.value, i18n));
 
 const filteredSheets = computed(
   () => filterSheets(data.value.sheets, filters.value),

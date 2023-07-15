@@ -1,4 +1,4 @@
-import type { VueConstructor } from 'vue';
+import type { NuxtI18nInstance } from '@nuxtjs/i18n';
 import type { Data, Sheet, Filters, FilterOptions } from '~/types';
 
 const filterTypes = {
@@ -60,7 +60,7 @@ export function buildEmptyFilterOptions(): FilterOptions {
   };
 }
 
-export function buildFilterOptions(data: Data, $t: InstanceType<VueConstructor>['$t']): FilterOptions {
+export function buildFilterOptions(data: Data, i18n: NuxtI18nInstance): FilterOptions {
   if (data.updateTime === '0000-00-00') {
     // return empty array instead of null to preserve all filters ui before the data is loaded
     return buildEmptyFilterOptions();
@@ -116,7 +116,7 @@ export function buildFilterOptions(data: Data, $t: InstanceType<VueConstructor>[
       [...new Map(
         data.sheets
           .filter((sheet) => sheet.levelValue != null && sheet.level != null)
-          .map((sheet) => [sheet.levelValue!, sheet.level!])
+          .map((sheet) => [sheet.levelValue!, sheet.level!]),
       ).entries()]
         .sort(([aLevelValue], [bLevelValue]) => aLevelValue - bLevelValue)
         .map(([levelValue, level]) => ({
@@ -128,7 +128,7 @@ export function buildFilterOptions(data: Data, $t: InstanceType<VueConstructor>[
       [...new Map(
         data.sheets
           .filter((sheet) => sheet.internalLevelValue != null)
-          .map((sheet) => [sheet.internalLevelValue!, sheet.internalLevelValue!.toFixed(1)])
+          .map((sheet) => [sheet.internalLevelValue!, sheet.internalLevelValue!.toFixed(1)]),
       ).entries()]
         .sort(([aLevelValue], [bLevelValue]) => aLevelValue - bLevelValue)
         .map(([levelValue, level]) => ({
@@ -157,7 +157,7 @@ export function buildFilterOptions(data: Data, $t: InstanceType<VueConstructor>[
           value: `${region}`,
         },
         {
-          text: $t('description.unavailableInRegion', { region: name }) as string,
+          text: i18n.t('description.unavailableInRegion', { region: name }) as string,
           value: `!${region}`,
         },
       ]),
