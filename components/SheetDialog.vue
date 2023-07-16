@@ -242,7 +242,7 @@ watch(isOpened, () => {
             </v-tooltip>
 
             <!-- Unavailable in regions -->
-            <template v-for="({ region, name: regionName }, i) in data.regions">
+            <template v-for="{ region, name: regionName }, i in data.regions">
               <v-tooltip
                 v-if="sheet.regions && sheet.regions[region] === false"
                 :key="i"
