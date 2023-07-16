@@ -1,6 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import type { NuxtConfig } from '@nuxt/types';
-import fetch from 'node-fetch';
 import locales from './locales';
 import sites from './data/sites.json';
 import { Data } from './types';
