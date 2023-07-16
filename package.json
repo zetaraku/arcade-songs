@@ -31,7 +31,6 @@
     "core-js": "^3.29.0",
     "file-saver": "^2.0.5",
     "nuxt": "^2.16.3",
-    "nuxt-i18n-composable": "^1.0.0",
     "pinia": "^2.0.32",
     "query-string": "^7.1.1",
     "select-files": "^1.0.1",

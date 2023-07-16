@@ -8763,11 +8763,6 @@ nth-check@^2.0.1:
   dependencies:
     boolbase "^1.0.0"
 
-nuxt-i18n-composable@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/nuxt-i18n-composable/-/nuxt-i18n-composable-1.0.0.tgz#5b2662568cfc3d0c15f189aaf9edba96fe2f7046"
-  integrity sha512-mx5aB37LOyQ6LMmP2qgpafFRceOYg/UFr8du/U4vEqp/GSQyTWZ8XBWDCDWgYQqbo2kuFvsRguKkRMMldLG2wA==
-
 nuxt@^2.16.3:
   version "2.16.3"
   resolved "https://registry.yarnpkg.com/nuxt/-/nuxt-2.16.3.tgz#d0338ab9145bc60aa3d927f03d20e439b9adddf4"
