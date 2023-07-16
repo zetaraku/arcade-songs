@@ -49,7 +49,9 @@ async function exportSelectedSheets() {
   >
     <v-card>
       <v-card-title>
-        <v-icon left>mdi-download</v-icon>
+        <v-icon left>
+          mdi-download
+        </v-icon>
         {{ $t('sfc.ModeSelector.exportMyList') }}
       </v-card-title>
       <v-card-text>
