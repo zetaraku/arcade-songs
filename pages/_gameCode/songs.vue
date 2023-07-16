@@ -109,7 +109,7 @@ export default defineComponent({
       </template>
 
       <template #item.category="{ item: song }">
-        <span>{{ (song.category || '').replaceAll('|', '｜') }}</span>
+        <span>{{ (song.category ?? '').replaceAll('|', '｜') }}</span>
       </template>
       <template #item.title="{ item: song }">
         <router-link

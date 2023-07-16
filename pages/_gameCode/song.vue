@@ -134,7 +134,7 @@ export default defineComponent({
                   <span v-text="$t('term.releaseDate')" />
                 </th>
                 <td>
-                  <span>{{ (song.releaseDate || '').replaceAll('-', '/') }}</span>
+                  <span>{{ (song.releaseDate ?? '').replaceAll('-', '/') }}</span>
                 </td>
               </tr>
               <tr>

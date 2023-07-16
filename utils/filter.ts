@@ -179,7 +179,7 @@ export function filterSheets(sheets: Sheet[], filters: Filters) {
   }
   if (filters.categories.length !== 0) {
     result = result.filter((sheet) => filters.categories.some(
-      (category) => sheet.category === category || (sheet.category?.split('|').includes(category) ?? false),
+      (category) => sheet.category === category || (sheet.category != null && sheet.category.split('|').includes(category)),
     ));
   }
   if (filters.title != null) {

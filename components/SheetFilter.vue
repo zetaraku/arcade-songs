@@ -75,7 +75,7 @@ const filterOptions: Ref<FilterOptions> = inject('filterOptions')!;
             :items="(!filters.useInternalLevel ? filterOptions.levels : filterOptions.internalLevels)"
             prepend-icon="mdi-numeric-9-plus-box-multiple-outline"
             :label="(!filters.useInternalLevel ? $t('term.minLevel') : $t('term.minInternalLevel'))"
-            :placeholder="(((!filters.useInternalLevel ? filterOptions.levels : filterOptions.internalLevels) || [])[0] || { text: '?' }).text"
+            :placeholder="((!filters.useInternalLevel ? filterOptions.levels : filterOptions.internalLevels)?.[0] ?? { text: '?' }).text"
             persistent-placeholder
             clearable
           />
@@ -85,7 +85,7 @@ const filterOptions: Ref<FilterOptions> = inject('filterOptions')!;
             v-model="filters.maxLevelValue"
             :items="(!filters.useInternalLevel ? filterOptions.levels : filterOptions.internalLevels)"
             :label="(!filters.useInternalLevel ? $t('term.maxLevel') : $t('term.maxInternalLevel'))"
-            :placeholder="(((!filters.useInternalLevel ? filterOptions.levels : filterOptions.internalLevels) || []).slice(-1)[0] || { text: '?' }).text"
+            :placeholder="((!filters.useInternalLevel ? filterOptions.levels : filterOptions.internalLevels)?.at(-1) ?? { text: '?' }).text"
             persistent-placeholder
             clearable
           />
@@ -210,7 +210,7 @@ const filterOptions: Ref<FilterOptions> = inject('filterOptions')!;
               :min="0"
               prepend-icon="mdi-metronome"
               :label="$t('term.minBPM')"
-              :placeholder="String(filterOptions.bpms[0] || 0)"
+              :placeholder="String(filterOptions.bpms[0] ?? 0)"
               persistent-placeholder
               clearable
             />
@@ -221,7 +221,7 @@ const filterOptions: Ref<FilterOptions> = inject('filterOptions')!;
               type="number"
               :min="0"
               :label="$t('term.maxBPM')"
-              :placeholder="String(filterOptions.bpms.slice(-1)[0] || 999)"
+              :placeholder="String(filterOptions.bpms.slice(-1)[0] ?? 999)"
               persistent-placeholder
               clearable
             />

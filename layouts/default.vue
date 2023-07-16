@@ -58,11 +58,11 @@ useHead(() => {
     siteDescriptionJp,
   } = context.$config;
 
-  const subSiteTitle = gameTitle.value ? `${gameTitle.value} | ${siteTitle}` : siteTitle;
+  const subSiteTitle = gameTitle.value != null ? `${gameTitle.value} | ${siteTitle}` : siteTitle;
   const pageUrl = new URL(`${gameCode.value ?? ''}/`, siteUrl).toString();
   const logoUrl = new URL('logo.png?v=1', siteUrl).toString();
-  const descriptionEn = String(siteDescriptionEn).replace('______', gameTitle.value || 'arcade games');
-  const descriptionJp = String(siteDescriptionJp).replace('______', gameTitle.value || '音ゲー');
+  const descriptionEn = String(siteDescriptionEn).replace('______', gameTitle.value ?? 'arcade games');
+  const descriptionJp = String(siteDescriptionJp).replace('______', gameTitle.value ?? '音ゲー');
 
   return {
     title: 'N/A',
@@ -238,7 +238,7 @@ export default defineComponent({
               v-text="$config.siteTitle"
             />
             <v-list-item-subtitle
-              v-text="gameTitle || 'made by @zetaraku'"
+              v-text="gameTitle ?? 'made by @zetaraku'"
             />
           </v-list-item-content>
         </v-toolbar-title>
