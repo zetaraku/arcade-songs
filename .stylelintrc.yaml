@@ -1,6 +1,7 @@
 customSyntax: 'postcss-html'
 extends:
   - 'stylelint-config-standard-scss'
+  - 'stylelint-stylistic/config'
   - 'stylelint-config-standard-vue/scss' # this should be place last
 # add your custom config here
 # https://stylelint.io/user-guide/configuration
