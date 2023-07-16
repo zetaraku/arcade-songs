@@ -61,6 +61,7 @@
     "stylelint": "^15.10.1",
     "stylelint-config-standard-scss": "^10.0.0",
     "stylelint-config-standard-vue": "^1.0.0",
+    "stylelint-stylistic": "^0.4.3",
     "webpack": "^4.46.0",
     "yaml-loader": "^0.8.0"
   }
