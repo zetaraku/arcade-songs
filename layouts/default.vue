@@ -7,7 +7,7 @@ import LoadingStatus from '~/enums/LoadingStatus';
 import sites from '~/data/sites.json';
 import { PageNotFoundError } from '~/utils';
 
-const { i18n, error, $config, $vuetify } = useContext();
+const context = useContext();
 const route = useRoute();
 const dataStore = useDataStore();
 const {
@@ -20,32 +20,32 @@ const {
 const menu = computed(() => [
   {
     icon: 'mdi-apps',
-    title: i18n.t('page-title.home'),
+    title: context.i18n.t('page-title.home'),
     to: { name: 'gameCode' },
   },
   {
     icon: 'mdi-script-text',
-    title: i18n.t('page-title.gallery'),
+    title: context.i18n.t('page-title.gallery'),
     to: { name: 'gameCode-gallery' },
   },
   {
     icon: 'mdi-database',
-    title: i18n.t('page-title.songs'),
+    title: context.i18n.t('page-title.songs'),
     to: { name: 'gameCode-songs' },
   },
   {
     icon: 'mdi-comment-question',
-    title: i18n.t('page-title.bug-report'),
-    href: $config.siteReportUrl,
+    title: context.i18n.t('page-title.bug-report'),
+    href: context.$config.siteReportUrl,
   },
   {
     icon: 'mdi-github',
-    title: i18n.t('page-title.source-code'),
-    href: $config.sourceCodeUrl,
+    title: context.i18n.t('page-title.source-code'),
+    href: context.$config.sourceCodeUrl,
   },
   {
     icon: 'mdi-information-outline',
-    title: i18n.t('page-title.about'),
+    title: context.i18n.t('page-title.about'),
     to: { name: 'gameCode-about' },
   },
 ]);
@@ -56,7 +56,7 @@ useHead(() => {
     siteUrl,
     siteDescriptionEn,
     siteDescriptionJp,
-  } = $config;
+  } = context.$config;
 
   const subSiteTitle = gameTitle.value ? `${gameTitle.value} | ${siteTitle}` : siteTitle;
   const pageUrl = new URL(`${gameCode.value ?? ''}/`, siteUrl).toString();
@@ -103,12 +103,12 @@ const isDrawerOpened = ref(false);
 const isPortalOpened = ref(false);
 
 function adaptSiteStyle() {
-  $vuetify.theme.themes.light.primary = themeColor.value;
-  $vuetify.theme.themes.dark.primary = '#FFAC1C';
+  context.$vuetify.theme.themes.light.primary = themeColor.value;
+  context.$vuetify.theme.themes.dark.primary = '#FFAC1C';
 }
 function validateGameCode() {
   if (route.value.params.gameCode !== undefined && gameCode.value === undefined) {
-    error(new PageNotFoundError());
+    context.error(new PageNotFoundError());
   }
 }
 async function detectGameCode() {
@@ -119,7 +119,7 @@ async function detectGameCode() {
 
 watch(gameCode, () => detectGameCode());
 watch(isDarkMode, () => {
-  $vuetify.theme.dark = isDarkMode.value;
+  context.$vuetify.theme.dark = isDarkMode.value;
 });
 
 onMounted(() => detectGameCode());

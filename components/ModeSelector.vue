@@ -15,7 +15,7 @@ const filterMode: Ref<string> = inject('filterMode')!;
 const filters: Ref<Filters> = inject('filters')!;
 const selectedSheets: Ref<Sheet[]> = inject('selectedSheets')!;
 
-const { i18n } = useContext();
+const context = useContext();
 const gtag = useGtag();
 const dataStore = useDataStore();
 const { gameCode } = useGameInfo();
@@ -27,7 +27,7 @@ function copyFilterLink() {
 
   if (Object.keys(query).length === 0) {
     // eslint-disable-next-line no-alert
-    window.alert(i18n.t('sfc.ModeSelector.noFilterWarn'));
+    window.alert(context.i18n.t('sfc.ModeSelector.noFilterWarn'));
     return;
   }
 
@@ -37,14 +37,14 @@ function copyFilterLink() {
   copyToClipboard(url, { format: 'text/plain' });
 
   // eslint-disable-next-line no-alert
-  window.alert(`${url}\n${i18n.t('description.copied')}`);
+  window.alert(`${url}\n${context.i18n.t('description.copied')}`);
 
   gtag('event', 'FilterLinkCopied', { gameCode: gameCode.value, eventSource: 'ModeSelector', query: rawQuery });
 }
 async function showMyListExportDialog() {
   if (selectedSheets.value.length === 0) {
     // eslint-disable-next-line no-alert
-    window.alert(i18n.t('sfc.ModeSelector.myListEmptyWarn'));
+    window.alert(context.i18n.t('sfc.ModeSelector.myListEmptyWarn'));
     return;
   }
 
@@ -67,7 +67,7 @@ async function importSelectedSheets() {
     selectedSheets.value = loadedSheets;
 
     // eslint-disable-next-line no-alert
-    window.alert(i18n.t('sfc.ModeSelector.sheetsLoaded', { n: loadedSheets.length }));
+    window.alert(context.i18n.t('sfc.ModeSelector.sheetsLoaded', { n: loadedSheets.length }));
 
     gtag('event', 'MyListImported', { gameCode: gameCode.value, eventSource: 'ModeSelector' });
   } catch (e) {

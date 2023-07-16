@@ -8,7 +8,7 @@ import useSheetDialog from '~/composables/useSheetDialog';
 import LoadingStatus from '~/enums/LoadingStatus';
 import { validateNoteCounts, PageNotFoundError } from '~/utils';
 
-const { i18n, error } = useContext();
+const context = useContext();
 const route = useRoute();
 const dataStore = useDataStore();
 const {
@@ -32,7 +32,7 @@ const song = computed(
       songId !== undefined && foundSong === null
       && dataStore.currentLoadingStatus === LoadingStatus.LOADED
     ) {
-      error(new PageNotFoundError());
+      context.error(new PageNotFoundError());
     }
 
     return foundSong;
@@ -44,7 +44,7 @@ const extraSheetHeaders = computed(() => {
     return ['total', 'tap', 'hold', 'slide', 'touch', 'break']
       .map((key) => ({
         key,
-        title: key !== 'total' ? key.toUpperCase() : i18n.t('term.totalNotes'),
+        title: key !== 'total' ? key.toUpperCase() : context.i18n.t('term.totalNotes'),
         get: (sheet: Sheet) => sheet.noteCounts?.[key],
       }));
   }
@@ -53,7 +53,7 @@ const extraSheetHeaders = computed(() => {
 });
 
 useHead(() => ({
-  title: `${song.value?.title} | ${i18n.t('page-title.song')}`,
+  title: `${song.value?.title} | ${context.i18n.t('page-title.song')}`,
 }));
 </script>
 

@@ -8,7 +8,7 @@ import type { Sheet } from '~/types';
 
 const drawingPool: ComputedRef<Sheet[]> = inject('drawingPool')!;
 
-const { i18n } = useContext();
+const context = useContext();
 const gtag = useGtag();
 const { gameCode, themeColor } = useGameInfo();
 const {
@@ -27,7 +27,7 @@ const drawModeIndex = ref(0);
 async function drawSheet() {
   if (drawingPool.value.length === 0) {
     // eslint-disable-next-line no-alert
-    window.alert(i18n.t('description.drawPoolEmpty'));
+    window.alert(context.i18n.t('description.drawPoolEmpty'));
     return;
   }
 
@@ -41,7 +41,7 @@ async function drawSheet() {
 async function drawSheetCombo() {
   if (drawingPool.value.length === 0) {
     // eslint-disable-next-line no-alert
-    window.alert(i18n.t('description.drawPoolEmpty'));
+    window.alert(context.i18n.t('description.drawPoolEmpty'));
     return;
   }
 

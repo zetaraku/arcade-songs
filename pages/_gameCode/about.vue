@@ -5,11 +5,11 @@ import useGameInfo from '~/composables/useGameInfo';
 
 const isDarkMode: Ref<boolean> = inject('isDarkMode')!;
 
-const { i18n } = useContext();
+const context = useContext();
 const { gameCode } = useGameInfo();
 
 useHead(() => ({
-  title: i18n.t('page-title.about') as string,
+  title: context.i18n.t('page-title.about') as string,
 }));
 </script>
 

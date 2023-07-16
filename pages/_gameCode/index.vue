@@ -7,7 +7,7 @@ import useGameInfo from '~/composables/useGameInfo';
 import { buildEmptyFilters, buildFilterOptions, loadFiltersFromQuery, filterSheets } from '~/utils';
 import type { Sheet } from '~/types';
 
-const { i18n, $config } = useContext();
+const context = useContext();
 const gtag = useGtag();
 const route = useRoute();
 const router = useRouter();
@@ -20,7 +20,7 @@ const filterMode = ref('filter');
 const displayMode = ref('grid');
 
 const filters = ref(buildEmptyFilters());
-const filterOptions = computed(() => buildFilterOptions(data.value, i18n));
+const filterOptions = computed(() => buildFilterOptions(data.value, context.i18n));
 
 const filteredSheets = computed(
   () => filterSheets(data.value.sheets, filters.value),
@@ -52,7 +52,7 @@ onMounted(() => {
 
 useHead(() => ({
   titleTemplate: '%s',
-  title: `${gameTitle.value} | ${$config.siteTitle}`,
+  title: `${gameTitle.value} | ${context.$config.siteTitle}`,
 }));
 
 provide('drawingPool', displayingSheets);

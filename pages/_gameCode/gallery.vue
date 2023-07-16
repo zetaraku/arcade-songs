@@ -15,7 +15,7 @@ import type { Gallery, GalleryList } from '~/types';
 
 const isDarkMode: Ref<boolean> = inject('isDarkMode')!;
 
-const { i18n } = useContext();
+const context = useContext();
 const gtag = useGtag();
 const route = useRoute();
 const router = useRouter();
@@ -174,8 +174,8 @@ async function changeGalleryProvider(providerType: string) {
 useHead(() => ({
   title: (
     currentList.value !== null
-      ? `${currentList.value.title} | ${i18n.t('page-title.gallery')}`
-      : i18n.t('page-title.gallery') as string
+      ? `${currentList.value.title} | ${context.i18n.t('page-title.gallery')}`
+      : context.i18n.t('page-title.gallery') as string
   ),
 }));
 

@@ -7,11 +7,11 @@ const props = defineProps<{
   error: Record<string, any>;
 }>();
 
-const { i18n } = useContext();
+const context = useContext();
 const { gameCode } = useGameInfo();
 
 const isNotFound = computed(() => props.error.statusCode === 404);
-const title = computed(() => (isNotFound.value ? i18n.t('page.error.notFound') : i18n.t('page.error.error')) as string);
+const title = computed(() => (isNotFound.value ? context.i18n.t('page.error.notFound') : context.i18n.t('page.error.error')) as string);
 
 useHead(() => ({
   title: title.value,
