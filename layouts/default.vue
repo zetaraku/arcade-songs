@@ -195,7 +195,6 @@ export default defineComponent({
           :to="menuItem.to"
           :href="menuItem.href"
           :target="menuItem.href !== undefined ? '_blank' : undefined"
-          :disabled="menuItem.disabled"
           exact
         >
           <v-list-item-icon>
