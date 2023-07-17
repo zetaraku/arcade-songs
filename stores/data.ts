@@ -1,3 +1,4 @@
+import { ref, computed } from '@nuxtjs/composition-api';
 import { defineStore } from 'pinia';
 import LoadingStatus from '~/enums/LoadingStatus';
 import sites from '~/data/sites.json';
@@ -5,59 +6,65 @@ import { buildEmptyData, preprocessData } from '~/utils';
 import type { Data } from '~/types';
 
 // eslint-disable-next-line import/prefer-default-export
-export const useDataStore = defineStore('data', {
-  state: () => ({
-    gameCode: '',
-    loadedData: new Map<string, Data>(),
-    loadingStatuses: new Map<string, LoadingStatus>(),
-    loadingErrorMessages: new Map<string, string>(),
-  }),
-  getters: {
-    currentData(state) {
-      return state.loadedData.get(state.gameCode) ?? buildEmptyData();
-    },
-    currentLoadingStatus(state) {
-      return state.loadingStatuses.get(state.gameCode) ?? LoadingStatus.PENDING;
-    },
-    currentLoadingErrorMessage(state) {
-      return state.loadingErrorMessages.get(state.gameCode) ?? '';
-    },
-  },
-  actions: {
-    // we need these setters as Map is not reactive
-    setLoadedData(gameCode: string, data: Data) {
-      this.loadedData = new Map(this.loadedData.set(gameCode, data));
-    },
-    setLoadingStatus(gameCode: string, status: LoadingStatus) {
-      this.loadingStatuses = new Map(this.loadingStatuses.set(gameCode, status));
-    },
-    setLoadingErrorMessage(gameCode: string, message: string) {
-      this.loadingErrorMessages = new Map(this.loadingErrorMessages.set(gameCode, message));
-    },
+export const useDataStore = defineStore('data', () => {
+  const currentGameCode = ref('');
 
-    async switchGameCode(gameCode: string) {
-      this.gameCode = gameCode;
+  const loadedData = ref(new Map<string, Data>());
+  const loadingStatuses = ref(new Map<string, LoadingStatus>());
+  const loadingErrorMessages = ref(new Map<string, string>());
 
-      if (this.currentLoadingStatus === LoadingStatus.PENDING) {
-        await this.loadData(gameCode);
-      }
-    },
-    async loadData(gameCode: string) {
-      this.setLoadingStatus(gameCode, LoadingStatus.LOADING);
-      try {
-        const { dataSourceUrl } = sites.find((site) => site.gameCode === gameCode)!;
+  const currentData = computed(
+    () => loadedData.value.get(currentGameCode.value) ?? buildEmptyData(),
+  );
+  const currentLoadingStatus = computed(
+    () => loadingStatuses.value.get(currentGameCode.value) ?? LoadingStatus.PENDING,
+  );
+  const currentLoadingErrorMessage = computed(
+    () => loadingErrorMessages.value.get(currentGameCode.value) ?? '',
+  );
 
-        const response = await fetch(`${dataSourceUrl}/data.json`);
-        const data: Data = await response.json();
+  async function loadData(gameCode: string) {
+    // helper functions
+    function setLoadedData(data: Data) {
+      loadedData.value = new Map(loadedData.value.set(gameCode, data));
+    }
+    function setLoadingStatus(status: LoadingStatus) {
+      loadingStatuses.value = new Map(loadingStatuses.value.set(gameCode, status));
+    }
+    function setLoadingErrorMessage(message: string) {
+      loadingErrorMessages.value = new Map(loadingErrorMessages.value.set(gameCode, message));
+    }
 
-        preprocessData(data, dataSourceUrl);
-        this.setLoadedData(gameCode, data);
+    try {
+      setLoadingStatus(LoadingStatus.LOADING);
 
-        this.setLoadingStatus(gameCode, LoadingStatus.LOADED);
-      } catch (error: any) {
-        this.setLoadingErrorMessage(gameCode, error.message);
-        this.setLoadingStatus(gameCode, LoadingStatus.ERROR);
-      }
-    },
-  },
+      const { dataSourceUrl } = sites.find((site) => site.gameCode === gameCode)!;
+
+      const response = await fetch(`${dataSourceUrl}/data.json`);
+      const data = await response.json() as Data;
+
+      preprocessData(data, dataSourceUrl);
+
+      setLoadedData(data);
+      setLoadingStatus(LoadingStatus.LOADED);
+    } catch (error: any) {
+      setLoadingErrorMessage(error.message);
+      setLoadingStatus(LoadingStatus.ERROR);
+    }
+  }
+  async function switchGameCode(gameCode: string) {
+    currentGameCode.value = gameCode;
+
+    if (currentLoadingStatus.value === LoadingStatus.PENDING) {
+      await loadData(gameCode);
+    }
+  }
+
+  return {
+    gameCode: currentGameCode,
+    currentData,
+    currentLoadingStatus,
+    currentLoadingErrorMessage,
+    switchGameCode,
+  };
 });
