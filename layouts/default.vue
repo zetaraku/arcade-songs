@@ -114,7 +114,7 @@ function validateGameCode() {
 async function detectGameCode() {
   adaptSiteStyle();
   validateGameCode();
-  await dataStore.switchGameCode(gameCode.value!);
+  dataStore.gameCode = gameCode.value!;
 }
 
 watch(gameCode, () => detectGameCode());

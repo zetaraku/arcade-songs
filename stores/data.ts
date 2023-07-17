@@ -1,4 +1,4 @@
-import { ref, computed } from '@nuxtjs/composition-api';
+import { ref, computed, watch } from '@nuxtjs/composition-api';
 import { defineStore } from 'pinia';
 import LoadingStatus from '~/enums/LoadingStatus';
 import sites from '~/data/sites.json';
@@ -52,19 +52,17 @@ export const useDataStore = defineStore('data', () => {
       setLoadingStatus(LoadingStatus.ERROR);
     }
   }
-  async function switchGameCode(gameCode: string) {
-    currentGameCode.value = gameCode;
 
+  watch(currentGameCode, async () => {
     if (currentLoadingStatus.value === LoadingStatus.PENDING) {
-      await loadData(gameCode);
+      await loadData(currentGameCode.value);
     }
-  }
+  });
 
   return {
     gameCode: currentGameCode,
     currentData,
     currentLoadingStatus,
     currentLoadingErrorMessage,
-    switchGameCode,
   };
 });
