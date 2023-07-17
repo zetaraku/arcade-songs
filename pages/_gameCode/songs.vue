@@ -1,7 +1,7 @@
 <script setup lang="ts">
 /* eslint-disable import/first, import/no-duplicates */
 import { ref, computed, useMeta as useHead, useContext, ComputedRef } from '@nuxtjs/composition-api';
-import useDataStore from '~/stores/data';
+import { useDataStore } from '~/stores/data';
 import useGameInfo from '~/composables/useGameInfo';
 import useGameData from '~/composables/useGameData';
 import useSheetDialog from '~/composables/useSheetDialog';

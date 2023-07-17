@@ -4,7 +4,7 @@ import YAML from 'yaml';
 import QueryString from 'query-string';
 import copyToClipboard from 'copy-to-clipboard';
 import selectFiles from 'select-files';
-import useDataStore from '~/stores/data';
+import { useDataStore } from '~/stores/data';
 import useGtag from '~/composables/useGtag';
 import useGameInfo from '~/composables/useGameInfo';
 import { saveFiltersAsQuery, makeDummySheet } from '~/utils';

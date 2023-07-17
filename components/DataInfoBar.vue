@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from '@nuxtjs/composition-api';
-import useDataStore from '~/stores/data';
+import { useDataStore } from '~/stores/data';
 import LoadingStatus from '~/enums/LoadingStatus';
 import { toLocalDateString } from '~/utils';
 

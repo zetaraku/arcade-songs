@@ -4,7 +4,7 @@ import { ref, computed, watch, inject, onMounted, useRoute, useRouter, useMeta a
 import { until } from '@vueuse/core';
 import YAML from 'yaml';
 import selectFiles from 'select-files';
-import useDataStore from '~/stores/data';
+import { useDataStore } from '~/stores/data';
 import useGtag from '~/composables/useGtag';
 import useGameInfo from '~/composables/useGameInfo';
 import useSheetDialog from '~/composables/useSheetDialog';

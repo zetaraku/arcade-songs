@@ -1,7 +1,7 @@
 <script setup lang="ts">
 /* eslint-disable import/first, import/no-duplicates */
 import { ref, computed, watch, provide, onMounted, useRoute, useMeta as useHead, useContext } from '@nuxtjs/composition-api';
-import useDataStore from '~/stores/data';
+import { useDataStore } from '~/stores/data';
 import useGameInfo from '~/composables/useGameInfo';
 import LoadingStatus from '~/enums/LoadingStatus';
 import sites from '~/data/sites.json';

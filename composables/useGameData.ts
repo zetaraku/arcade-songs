@@ -1,5 +1,5 @@
 import { computed } from '@nuxtjs/composition-api';
-import useDataStore from '~/stores/data';
+import { useDataStore } from '~/stores/data';
 import useGameInfo from '~/composables/useGameInfo';
 import type { Sheet } from '~/types';
 

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, computed, watch, inject, Ref } from '@nuxtjs/composition-api';
 import copyToClipboard from 'copy-to-clipboard';
-import useDataStore from '~/stores/data';
+import { useDataStore } from '~/stores/data';
 import useGtag from '~/composables/useGtag';
 import useGameInfo from '~/composables/useGameInfo';
 import useGameData from '~/composables/useGameData';

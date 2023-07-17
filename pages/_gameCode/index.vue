@@ -2,7 +2,7 @@
 /* eslint-disable import/first, import/no-duplicates */
 import { ref, computed, provide, onMounted, useRoute, useRouter, useMeta as useHead, useContext } from '@nuxtjs/composition-api';
 import useGtag from '~/composables/useGtag';
-import useDataStore from '~/stores/data';
+import { useDataStore } from '~/stores/data';
 import useGameInfo from '~/composables/useGameInfo';
 import { buildEmptyFilters, buildFilterOptions, loadFiltersFromQuery, filterSheets } from '~/utils';
 import type { Sheet } from '~/types';

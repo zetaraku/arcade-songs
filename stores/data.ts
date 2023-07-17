@@ -4,7 +4,8 @@ import sites from '~/data/sites.json';
 import { buildEmptyData, preprocessData } from '~/utils';
 import type { Data } from '~/types';
 
-export default defineStore('data', {
+// eslint-disable-next-line import/prefer-default-export
+export const useDataStore = defineStore('data', {
   state: () => ({
     gameCode: '',
     loadedData: new Map<string, Data>(),
