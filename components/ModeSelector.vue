@@ -7,7 +7,7 @@ import selectFiles from 'select-files';
 import { useDataStore } from '~/stores/data';
 import useGtag from '~/composables/useGtag';
 import useGameInfo from '~/composables/useGameInfo';
-import MyListExportDialog from '~/components/MyListExportDialog.vue';
+import MyListExportDialog from '~/components/dialogs/MyListExportDialog.vue';
 import { saveFiltersAsQuery, makeDummySheet } from '~/utils';
 import type { Sheet, Filters } from '~/types';
 
