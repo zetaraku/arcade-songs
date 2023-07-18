@@ -33,6 +33,15 @@ const displayingSheets = computed(() => {
   throw new Error('Invalid filter mode');
 });
 
+function toggleSheetSelection(sheet: Sheet) {
+  const index = selectedSheets.value.indexOf(sheet);
+  if (index === -1) {
+    selectedSheets.value.push(sheet);
+  } else {
+    selectedSheets.value.splice(index, 1);
+  }
+}
+
 onMounted(() => {
   const rawQuery = window.location.search.substring(1);
 
@@ -57,6 +66,7 @@ useHead(() => ({
 
 provide('drawingPool', displayingSheets);
 provide('selectedSheets', selectedSheets);
+provide('toggleSheetSelection', toggleSheetSelection);
 
 provide('filters', filters);
 provide('filterOptions', filterOptions);

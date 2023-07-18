@@ -9,6 +9,7 @@ import type { Sheet } from '~/types';
 
 const sheets: Ref<Sheet[]> = inject('sheets')!;
 const selectedSheets: Ref<Sheet[]> = inject('selectedSheets')!;
+const toggleSheetSelection: (sheet: Sheet) => void = inject('toggleSheetSelection')!;
 
 const currentSheets: Ref<Sheet[]> = inject('currentSheets')!;
 const sortBy: Ref<string> = inject('sortBy')!;
@@ -34,14 +35,6 @@ const headers = useSheetHeaders();
 
 function getItemClass(sheet: Sheet) {
   return selectedSheets.value.includes(sheet) ? 'selected-sheet' : '';
-}
-function toggleSheetSelection(sheet: Sheet) {
-  const index = selectedSheets.value.indexOf(sheet);
-  if (index === -1) {
-    selectedSheets.value.push(sheet);
-  } else {
-    selectedSheets.value.splice(index, 1);
-  }
 }
 
 watch(sheets, () => {

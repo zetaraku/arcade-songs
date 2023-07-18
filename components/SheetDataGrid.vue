@@ -6,6 +6,7 @@ import useSheetHeaders from '~/composables/useSheetHeaders';
 import type { Sheet } from '~/types';
 
 const selectedSheets: Ref<Sheet[]> = inject('selectedSheets')!;
+const toggleSheetSelection: (sheet: Sheet) => void = inject('toggleSheetSelection')!;
 
 const currentSheets: Ref<Sheet[]> = inject('currentSheets')!;
 const sortBy: Ref<string> = inject('sortBy')!;
@@ -14,15 +15,6 @@ const sortDesc: Ref<boolean> = inject('sortDesc')!;
 const { gameCode } = useGameInfo();
 const { viewSheet } = useSheetDialog();
 const headers = useSheetHeaders();
-
-function toggleSheetSelection(sheet: Sheet) {
-  const index = selectedSheets.value.indexOf(sheet);
-  if (index === -1) {
-    selectedSheets.value.push(sheet);
-  } else {
-    selectedSheets.value.splice(index, 1);
-  }
-}
 </script>
 
 <template>
