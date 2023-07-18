@@ -10,12 +10,13 @@ import type { Sheet } from '~/types';
 const sheets: Ref<Sheet[]> = inject('sheets')!;
 const selectedSheets: Ref<Sheet[]> = inject('selectedSheets')!;
 
-const sheetsPerPage: Ref<number> = inject('sheetsPerPage')!;
-const pageCount: Ref<number> = inject('pageCount')!;
-const currentPage: Ref<number> = inject('currentPage')!;
 const currentSheets: Ref<Sheet[]> = inject('currentSheets')!;
 const sortBy: Ref<string> = inject('sortBy')!;
 const sortDesc: Ref<boolean> = inject('sortDesc')!;
+
+const sheetsPerPage: Ref<number> = inject('sheetsPerPage')!;
+const pageCount: Ref<number> = inject('pageCount')!;
+const currentPage: Ref<number> = inject('currentPage')!;
 
 const { gameCode } = useGameInfo();
 const {

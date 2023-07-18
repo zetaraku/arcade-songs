@@ -6,6 +6,7 @@ import useSheetHeaders from '~/composables/useSheetHeaders';
 import type { Sheet } from '~/types';
 
 const selectedSheets: Ref<Sheet[]> = inject('selectedSheets')!;
+
 const currentSheets: Ref<Sheet[]> = inject('currentSheets')!;
 const sortBy: Ref<string> = inject('sortBy')!;
 const sortDesc: Ref<boolean> = inject('sortDesc')!;
