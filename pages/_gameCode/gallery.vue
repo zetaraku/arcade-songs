@@ -8,6 +8,8 @@ import { useDataStore } from '~/stores/data';
 import useGtag from '~/composables/useGtag';
 import useGameInfo from '~/composables/useGameInfo';
 import useSheetDialog from '~/composables/useSheetDialog';
+import LoadingOverlay from '~/components/LoadingOverlay.vue';
+import SheetTile from '~/components/SheetTile.vue';
 import LoadingStatus from '~/enums/LoadingStatus';
 import sites from '~/data/sites.json';
 import { buildGallery, isValidUrl } from '~/utils';

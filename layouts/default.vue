@@ -3,6 +3,10 @@
 import { ref, computed, watch, provide, onMounted, useRoute, useMeta as useHead, useContext } from '@nuxtjs/composition-api';
 import { useDataStore } from '~/stores/data';
 import useGameInfo from '~/composables/useGameInfo';
+import LoadingOverlay from '~/components/LoadingOverlay.vue';
+import LocaleSwitcher from '~/components/LocaleSwitcher.vue';
+import SheetDialog from '~/components/SheetDialog.vue';
+import SheetComboDialog from '~/components/SheetComboDialog.vue';
 import LoadingStatus from '~/enums/LoadingStatus';
 import sites from '~/data/sites.json';
 import { PageNotFoundError } from '~/utils';

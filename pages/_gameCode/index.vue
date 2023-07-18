@@ -4,6 +4,12 @@ import { ref, computed, provide, onMounted, useRoute, useRouter, useMeta as useH
 import useGtag from '~/composables/useGtag';
 import { useDataStore } from '~/stores/data';
 import useGameInfo from '~/composables/useGameInfo';
+import DataInfoBar from '~/components/DataInfoBar.vue';
+import SheetFilter from '~/components/SheetFilter.vue';
+import ModeSelector from '~/components/ModeSelector.vue';
+import SheetDrawerPanel from '~/components/SheetDrawerPanel.vue';
+import FilterInfoBar from '~/components/FilterInfoBar.vue';
+import SheetDataView from '~/components/SheetDataView.vue';
 import { buildEmptyFilters, buildFilterOptions, loadFiltersFromQuery, filterSheets } from '~/utils';
 import type { Sheet } from '~/types';
 

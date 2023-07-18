@@ -3,6 +3,7 @@ import { inject, Ref } from '@nuxtjs/composition-api';
 import useGameInfo from '~/composables/useGameInfo';
 import useSheetDialog from '~/composables/useSheetDialog';
 import useSheetHeaders from '~/composables/useSheetHeaders';
+import SheetTile from '~/components/SheetTile.vue';
 import type { Sheet } from '~/types';
 
 const selectedSheets: Ref<Sheet[]> = inject('selectedSheets')!;
