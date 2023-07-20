@@ -43,7 +43,7 @@ export const useDataStore = defineStore('data', () => {
       const response = await fetch(`${dataSourceUrl}/data.json`);
       const data = await response.json() as Data;
 
-      preprocessData(data, dataSourceUrl);
+      preprocessData(data, dataSourceUrl, gameCode);
 
       setLoadedData(data);
       setLoadingStatus(LoadingStatus.LOADED);

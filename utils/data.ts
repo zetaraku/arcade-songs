@@ -1,5 +1,5 @@
 import { markRaw } from '@nuxtjs/composition-api';
-import { computeSheetExpr } from '~/utils/sheet';
+import { computeSheetExpr, validateNoteCounts } from '~/utils/sheet';
 import type { Data } from '~/types';
 
 export function buildEmptyData(): Data {
@@ -21,7 +21,7 @@ export function buildEmptyData(): Data {
   };
 }
 
-export function preprocessData(data: Data, dataSourceUrl: string) {
+export function preprocessData(data: Data, dataSourceUrl: string, gameCode: string) {
   function resolveUrl(filePath: string | undefined, baseUrl: string) {
     return filePath != null ? new URL(filePath, baseUrl).toString() : filePath;
   }
@@ -47,6 +47,10 @@ export function preprocessData(data: Data, dataSourceUrl: string) {
 
       sheet.sheetExpr = computeSheetExpr(sheet);
       sheet.notePercents = computeNotePercentages(sheet.noteCounts);
+
+      if (!validateNoteCounts(sheet, gameCode)) {
+        console.warn('Invalid note counts:', sheet.sheetExpr, sheet.noteCounts);
+      }
 
       markRaw(sheet);
     }
