@@ -132,6 +132,16 @@ export function validateNoteCounts(sheet: Sheet, gameCode: string | undefined) {
       - sheet.noteCounts.break!
     ) === 0;
   }
+  if (gameCode === 'chunithm') {
+    return (
+      sheet.noteCounts.total!
+      - sheet.noteCounts.tap!
+      - sheet.noteCounts.hold!
+      - sheet.noteCounts.slide!
+      - sheet.noteCounts.air!
+      - sheet.noteCounts.flick!
+    ) === 0;
+  }
 
   return true;
 }

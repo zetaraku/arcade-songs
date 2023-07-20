@@ -140,7 +140,7 @@ watch(sheets, () => {
         </div>
       </template>
 
-      <!-- Note counts and Note percents -->
+      <!-- Note counts and Note percents: maimai, chunithm -->
       <template #item.notePercents.tap="{ item: sheet }">
         <span>{{ sheet.notePercents ? toPercentageString(sheet.notePercents.tap) : null }}</span>
       </template>
@@ -155,6 +155,12 @@ watch(sheets, () => {
       </template>
       <template #item.notePercents.break="{ item: sheet }">
         <span>{{ sheet.notePercents ? toPercentageString(sheet.notePercents.break) : null }}</span>
+      </template>
+      <template #item.notePercents.air="{ item: sheet }">
+        <span>{{ sheet.notePercents ? toPercentageString(sheet.notePercents.air) : null }}</span>
+      </template>
+      <template #item.notePercents.flick="{ item: sheet }">
+        <span>{{ sheet.notePercents ? toPercentageString(sheet.notePercents.flick) : null }}</span>
       </template>
       <template #item.noteCounts.total="{ item: sheet }">
         <span>{{ sheet.noteCounts ? sheet.noteCounts.total : null }}</span>

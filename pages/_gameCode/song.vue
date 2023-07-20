@@ -48,6 +48,14 @@ const extraSheetHeaders = computed(() => {
         get: (sheet: Sheet) => sheet.noteCounts?.[key],
       }));
   }
+  if (gameCode.value === 'chunithm') {
+    return ['total', 'tap', 'hold', 'slide', 'air', 'flick']
+      .map((key) => ({
+        key,
+        title: key !== 'total' ? key.toUpperCase() : context.i18n.t('term.totalNotes'),
+        get: (sheet: Sheet) => sheet.noteCounts?.[key],
+      }));
+  }
 
   return [];
 });

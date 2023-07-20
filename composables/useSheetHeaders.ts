@@ -65,6 +65,65 @@ function useOptionalHeaders(gameCode: string): DataTableHeader[] {
       },
     ];
   }
+  if (gameCode === 'chunithm') {
+    return [
+      {
+        text: 'TAP',
+        value: 'noteCounts.tap',
+        width: 50,
+      },
+      {
+        text: 'TAP %',
+        value: 'notePercents.tap',
+        width: 50,
+      },
+      {
+        text: 'HOLD',
+        value: 'noteCounts.hold',
+        width: 50,
+      },
+      {
+        text: 'HOLD %',
+        value: 'notePercents.hold',
+        width: 50,
+      },
+      {
+        text: 'SLIDE',
+        value: 'noteCounts.slide',
+        width: 50,
+      },
+      {
+        text: 'SLIDE %',
+        value: 'notePercents.slide',
+        width: 50,
+      },
+      {
+        text: 'AIR',
+        value: 'noteCounts.air',
+        width: 50,
+      },
+      {
+        text: 'AIR %',
+        value: 'notePercents.air',
+        width: 50,
+      },
+      {
+        text: 'FLICK',
+        value: 'noteCounts.flick',
+        width: 50,
+      },
+      {
+        text: 'FLICK %',
+        value: 'notePercents.flick',
+        width: 50,
+      },
+      {
+        text: context.i18n.t('term.totalNotes') as string,
+        value: 'noteCounts.total',
+        width: 50,
+      },
+    ];
+  }
 
   return [];
 }
