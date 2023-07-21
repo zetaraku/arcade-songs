@@ -98,6 +98,8 @@ export default defineComponent({
         <li>
           {{ $t('page.about.sheetInfo') }} －
           <a href="https://gamerch.com/chunithm/" target="_blank">CHUNITHM【チュウニズム】攻略wiki | Gamerch</a>
+          /
+          <a href="https://wikiwiki.jp/chunithmwiki/" target="_blank">CHUNITHM【チュウニズム】攻略wiki Wiki*</a>
           － {{ $t('page.about.sheetInfoDescription') }}
         </li>
         <li>
@@ -255,6 +257,14 @@ export default defineComponent({
 
     <h3>{{ $t('page.about.updateRecord') }}</h3>
     <v-timeline dense align-top class="mt-2">
+      <v-timeline-item>
+        <span class="font-weight-bold">2023/07/20－ v3.10 Update</span>
+        <ul>
+          <li>
+            feature: add sheet information (Notes Designer, Note Counts) for <strong>CHUNITHM</strong>
+          </li>
+        </ul>
+      </v-timeline-item>
       <v-timeline-item icon="mdi-star">
         <span class="font-weight-bold">2023/07/09－ v3.9 Update</span>
         <ul>
