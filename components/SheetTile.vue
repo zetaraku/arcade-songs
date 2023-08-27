@@ -216,8 +216,23 @@ const {
       // text
       font-weight: bold;
       color: white;
-      -webkit-text-stroke: 5px black;
-      paint-order: stroke;
+      text-shadow:
+        0 0 3px black,
+        0 0 3px black,
+        0 0 3px black,
+        0 0 3px black,
+        0 0 3px black,
+        0 0 3px black,
+        0 0 3px black,
+        0 0 3px black,
+        0 0 3px black,
+        0 0 3px black,
+        0 0 3px black,
+        0 0 3px black,
+        0 0 3px black,
+        0 0 3px black,
+        0 0 3px black,
+        0 0 3px black;
 
       // alignment
       text-align: left;
