@@ -4,16 +4,16 @@ hello: ¡Hola Mundo!
 # Page titles
 page-title:
   home: Página principal
-  song: Datos de canción
+  song: Datos de la canción
   songs: Lista de canciones
   gallery: Lista de pistas
   about: Acerca de
-  bug-report: Reportar problemas
+  bug-report: Reporta un problema
   source-code: Código fuente
 
 # General UIs
 ui:
-  ok: DE ACUERDO
+  ok: OK
   cancel: Cancelar
   close: Cerrar
   search: Buscar
@@ -33,8 +33,8 @@ term:
   version: Versión
   releaseDate: Fecha de publicación
   bpm: PPM
-  minBPM: PPM mínimo
-  maxBPM: PPM máximo
+  minBPM: PPM mínimas
+  maxBPM: PPM máximas
   sheets: Mapas
   type: Tipo
   difficulty: Dificultad
