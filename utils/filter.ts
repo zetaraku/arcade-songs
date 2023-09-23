@@ -88,7 +88,7 @@ export function buildFilterOptions(data: Data, i18n: NuxtI18nInstance): FilterOp
     versions: nonEmptyOrNull(
       data.versions
         .map(({ version, abbr }) => ({
-          text: abbr ?? version,
+          text: abbr ?? version ?? 'N/A',
           value: version,
         })),
     ),
