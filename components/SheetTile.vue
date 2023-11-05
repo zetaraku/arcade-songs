@@ -74,10 +74,12 @@ const {
             <!-- sheet cover image -->
             <picture v-if="!hideCover">
               <source
+                :key="sheet.imageUrlM"
                 :srcset="sheet.imageUrlM"
                 type="image/webp"
               >
               <img
+                :key="sheet.imageUrl"
                 :src="sheet.imageUrl"
                 alt=""
                 class="CoverImage"

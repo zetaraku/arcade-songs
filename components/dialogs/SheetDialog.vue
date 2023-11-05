@@ -80,6 +80,7 @@ watch(isOpened, () => {
 
     <v-card>
       <v-img
+        :key="imageSrc"
         contain
         class="grey lighten-2"
         :class="{ 'rainbow-background': sheet.isSpecial }"
