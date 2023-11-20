@@ -232,6 +232,17 @@ export default defineComponent({
           － {{ $t('page.about.sheetInfoDescription') }}
         </li>
       </template>
+      <template v-if="gameCode === 'crossbeats'">
+        <li>
+          {{ $t('page.about.songInfo') }} －
+          <a href="https://www.capcom.co.jp/arcade/rev/PC/" target="_blank">CAPCOM：crossbeats REV. SUNRISE公式サイト</a>
+        </li>
+        <li>
+          {{ $t('page.about.sheetInfo') }} －
+          <a href="https://crossbeatsrev.wiki.fc2.com/" target="_blank">crossbeats REV.Wiki</a>
+          － {{ $t('page.about.sheetInfoDescription') }}
+        </li>
+      </template>
     </ul>
 
     <br>
@@ -257,6 +268,32 @@ export default defineComponent({
 
     <h3>{{ $t('page.about.updateRecord') }}</h3>
     <v-timeline dense align-top class="mt-2">
+      <v-timeline-item icon="mdi-star">
+        <span class="font-weight-bold">2023/11/20－ v3.11 Update</span>
+        <ul>
+          <li>
+            project: add new site for <strong>crossbeats REV.</strong>
+            >> <a href="https://arcade-songs.zetaraku.dev/crossbeats/" target="_blank">crossbeats REV. | arcade-songs</a>
+          </li>
+          <li><i>Such marvelous songs deserve to be preserved and remembered ...</i></li>
+        </ul>
+      </v-timeline-item>
+      <v-timeline-item small color="grey">
+        <span class="font-weight-bold">2023/11/06 － v3.10.1 Update</span>
+        <ul>
+          <li>
+            bugfix: (Grid View / Sheet Dialog) prevent displaying mismatched cover images when loading
+          </li>
+        </ul>
+      </v-timeline-item>
+      <v-timeline-item icon="mdi-flag-variant">
+        <span class="font-weight-bold">2023/10/06 － 200000 visits reached</span>
+        <ul>
+          <li>
+            milestone: 200000 visits reached on <a href="https://arcade-songs.zetaraku.dev/maimai/" target="_blank">arcade-songs/maimai</a>!
+          </li>
+        </ul>
+      </v-timeline-item>
       <v-timeline-item icon="mdi-flag-variant">
         <span class="font-weight-bold">2023/07/29 － 150000 visits reached</span>
         <ul>
@@ -783,7 +820,7 @@ export default defineComponent({
       <v-timeline-item icon="mdi-alpha" color="red">
         <span class="font-weight-bold">2020/07/27 － v0.0.1 Project Started</span>
         <ul>
-          <li><i>This project was devoted to my friends...</i></li>
+          <li><i>This project was devoted to my friends ...</i></li>
         </ul>
       </v-timeline-item>
     </v-timeline>
@@ -920,6 +957,16 @@ export default defineComponent({
         <li>
           This site is not associated or officially connected with
           <strong>Project DIVA Arcade</strong> or <strong>SEGA Interactive Co., Ltd.</strong>
+        </li>
+      </template>
+      <template v-if="gameCode === 'crossbeats'">
+        <li>
+          <strong>crossbeats REV.</strong> and <strong>クロスビーツレヴ</strong>
+          are trademarks of <strong>Capcom Co., Ltd.</strong>
+        </li>
+        <li>
+          This site is not associated or officially connected with
+          <strong>crossbeats REV.</strong> or <strong>Capcom Co., Ltd.</strong>
         </li>
       </template>
       <li>
