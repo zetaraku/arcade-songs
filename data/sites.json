@@ -91,6 +91,13 @@
     "accessCounterUrl": "https://www.f-counter.net/j/46/1632203900/"
   },
   {
+    "gameCode": "crossbeats",
+    "gameTitle": "crossbeats REV.",
+    "themeColor": "#d0c334",
+    "dataSourceUrl": "https://dp4p6x0xfi5o9.cloudfront.net/crossbeats",
+    "accessCounterUrl": "https://www.f-counter.net/j/63/1699803659/"
+  },
+  {
     "isHidden": true,
     "gameCode": "any",
     "gameTitle": "???",
