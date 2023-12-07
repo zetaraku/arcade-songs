@@ -1,4 +1,28 @@
 ui:
-  search: Поикс
+  search: Поиск
+  goBack: Назад
+  ok: ОК
+  download: Скачать
+  close: Закрыть
+  cancel: Отмена
 page-title:
   home: Главная страница
+  source-code: Исходный Код
+page:
+  error:
+    error: Ошибка
+    notFound: Страница Не Найдена
+    backToHome: Вернуться домой
+  about:
+    author: Исполнитель
+    openSource: Исходный Код Проекта
+term:
+  minBPM: Мин BPM
+  bpm: BPM
+  maxBPM: Макс BPM
+  artist: Исполнитель
+  region: Регион
+description:
+  copied: Скопировано в буфер обмена!
+  loading: Загрузка данных…
+hello: Привет, мир!
