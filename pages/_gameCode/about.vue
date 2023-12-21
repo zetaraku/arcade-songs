@@ -217,7 +217,7 @@ export default defineComponent({
         </li>
         <li>
           {{ $t('page.about.sheetInfo') }} －
-          <a href="https://remywiki.com/AC_NST" target="_blank">ノスタルジア - RemyWiki</a>
+          <a href="https://remywiki.com/AC_NST_Op.3" target="_blank">ノスタルジア Op.3 - RemyWiki</a>
           － {{ $t('page.about.sheetInfoDescription') }}
         </li>
       </template>
@@ -240,6 +240,17 @@ export default defineComponent({
         <li>
           {{ $t('page.about.sheetInfo') }} －
           <a href="https://crossbeatsrev.wiki.fc2.com/" target="_blank">crossbeats REV.Wiki</a>
+          － {{ $t('page.about.sheetInfoDescription') }}
+        </li>
+      </template>
+      <template v-if="gameCode === 'rb'">
+        <li>
+          {{ $t('page.about.songInfo') }} －
+          <a href="https://p.eagate.573.jp/game/reflec/reflesia/" target="_blank">REFLEC BEAT 悠久のリフレシア</a>
+        </li>
+        <li>
+          {{ $t('page.about.sheetInfo') }} －
+          <a href="https://remywiki.com/AC_RB_Reflesia" target="_blank">REFLEC BEAT 悠久のリフレシア - RemyWiki</a>
           － {{ $t('page.about.sheetInfoDescription') }}
         </li>
       </template>
@@ -268,6 +279,24 @@ export default defineComponent({
 
     <h3>{{ $t('page.about.updateRecord') }}</h3>
     <v-timeline dense align-top class="mt-2">
+      <v-timeline-item icon="mdi-star">
+        <span class="font-weight-bold">2023/12/21－ v3.12 Update</span>
+        <ul>
+          <li>
+            project: add new site for <strong>REFLEC BEAT</strong>
+            >> <a href="https://arcade-songs.zetaraku.dev/rb/" target="_blank">REFLEC BEAT | arcade-songs</a>
+          </li>
+          <li><i>And here comes another lost game ...</i></li>
+        </ul>
+      </v-timeline-item>
+      <v-timeline-item icon="mdi-flag-variant">
+        <span class="font-weight-bold">2023/12/19 － 250000 visits reached</span>
+        <ul>
+          <li>
+            milestone: 250000 visits reached on <a href="https://arcade-songs.zetaraku.dev/maimai/" target="_blank">arcade-songs/maimai</a>!
+          </li>
+        </ul>
+      </v-timeline-item>
       <v-timeline-item icon="mdi-star">
         <span class="font-weight-bold">2023/11/20－ v3.11 Update</span>
         <ul>
@@ -967,6 +996,16 @@ export default defineComponent({
         <li>
           This site is not associated or officially connected with
           <strong>crossbeats REV.</strong> or <strong>Capcom Co., Ltd.</strong>
+        </li>
+      </template>
+      <template v-if="gameCode === 'rb'">
+        <li>
+          <strong>REFLEC BEAT</strong> and <strong>リフレクビート</strong>
+          are trademarks of <strong>Konami Amusement Co., Ltd.</strong>
+        </li>
+        <li>
+          This site is not associated or officially connected with
+          <strong>REFLEC BEAT</strong> or <strong>Konami Amusement Co., Ltd.</strong>
         </li>
       </template>
       <li>
