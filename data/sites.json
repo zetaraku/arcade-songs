@@ -91,6 +91,13 @@
     "accessCounterUrl": "https://www.f-counter.net/j/46/1632203900/"
   },
   {
+    "gameCode": "rb",
+    "gameTitle": "REFLEC BEAT",
+    "themeColor": "#52369d",
+    "dataSourceUrl": "https://dp4p6x0xfi5o9.cloudfront.net/rb",
+    "accessCounterUrl": "https://www.f-counter.net/j/63/1703162042/"
+  },
+  {
     "gameCode": "crossbeats",
     "gameTitle": "crossbeats REV.",
     "themeColor": "#d0c334",
