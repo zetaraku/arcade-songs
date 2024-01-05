@@ -5,9 +5,19 @@ ui:
   download: Скачать
   close: Закрыть
   cancel: Отмена
+  default: По умолчанию
+  preview: Предварительный просмотр
+  all: ВСЕ
+  sort-asc: АСЦ
+  sort-desc: DESC
 page-title:
   home: Главная страница
   source-code: Исходный Код
+  song: Данные песни
+  songs: Список песен
+  gallery: Списки треков
+  about: О
+  bug-report: Сообщить о проблеме
 page:
   error:
     error: Ошибка
@@ -16,13 +26,77 @@ page:
   about:
     author: Исполнитель
     openSource: Исходный Код Проекта
+    sheetInfo: Информация о листе
+    sheetInfoDescription: Большое спасибо всем игрокам, предоставившим данные таблицы!
+    openSourceDescription: "Этот проект распространяется под лицензией <a\n  href=\"https://en.wikipedia.org/wiki/MIT_License\"\n  цель=\"_blank\"\n  класс = \"текст-декорация-нет\"\n>Лицензия MIT</a>, а полный исходный код вы можете найти здесь.\nЕсли вам интересно, вы также можете присоединиться к нам, чтобы улучшить проект! ⭐ :)\n"
+    updateRecord: Обновить запись
+    disclaimer: Уведомление об авторских правах
+    dataSource: Источник данных
+    songInfo: Информация о песне
+    sheetInfoOf: Информация о листе {region}
+  index:
+    description: Ищите песни из ваших любимых музыкальных игр, теперь все в одном!
+  gallery:
+    selectList: Выберите список песен
+  songs:
+    sheetData: Данные листа
 term:
   minBPM: Мин BPM
   bpm: BPM
   maxBPM: Макс BPM
   artist: Исполнитель
   region: Регион
+  maxLevel: Максимальный уровень
+  noteDesigner: Дизайнер заметок
+  category: Категория
+  title: Заголовок
+  version: Версия
+  releaseDate: Дата выпуска
+  sheets: Листы
+  type: Тип
+  difficulty: Сложность
+  level: Уровень
+  minLevel: Минимальный уровень
+  internalLevel: Внутренний уровень
+  minInternalLevel: Минимальный внутренний уровень
+  maxInternalLevel: Максимальный внутренний уровень
+  totalNotes: ОБЩИЙ
 description:
   copied: Скопировано в буфер обмена!
   loading: Загрузка данных…
+  unavailableInRegion: В настоящее время недоступен в {region}
+  myListEmpty: Щелкните правой кнопкой мыши или удерживайте лист, чтобы добавить его в МОЙ СПИСОК, после чего вы сможете увидеть здесь выбранные листы.
+  pending: В ожидании
+  newSong: Новая песня!
+  unlockNeeded: Эту песню нужно разблокировать
+  invalidNoteCounts: Неверное количество ПРИМЕЧАНИЕ
+  filterResultEmpty: Невозможно найти лист, удовлетворяющий фильтру.
+  drawPoolEmpty: Текущий пул чертежей пуст.
 hello: Привет, мир!
+sfc:
+  ModeSelector:
+    copyFilterLink: Скопировать текущие фильтры как ссылку
+    myListEmptyWarn: "МОЙ СПИСОК пуст!\nНечего экспортировать."
+    gridMode: Вид сетки
+    tableMode: Детальный вид
+    filterMode: Режим фильтра
+    myListMode: МОЙ СПИСОК
+    noFilterWarn: Сначала выберите хотя бы один фильтр.
+    exportMyList: Экспортировать МОЙ СПИСОК в файл
+    importMyList: Импортировать МОЙ СПИСОК из файла
+    sheetsLoaded: Импортировано {n} листов.
+  SheetDialog:
+    searchOnYouTube: Поиск на YouTube
+    tryAgain: ПОПРОБУЙТЕ ЕЩЕ РАЗ
+  DataInfoBar:
+    updateTime: 'Время обновления данных: {time}'
+    loadFailed: Не удалось загрузить данные.
+  SheetDrawerPanel:
+    drawRandomSheet: НАРИСУЙТЕ СЛУЧАЙНЫЙ ЛИСТ!
+    drawRandomSheetCombo: РИСЫВАЙТЕ СЛУЧАЙНЫЙ НАБОР!
+  FilterInfoBar:
+    sheetsCount: '{n} листов'
+    songsCount: '{n} песен'
+  SheetComboDialog:
+    drawResults: Результаты розыгрыша
+    noDuplicate: Нет дубликатов
