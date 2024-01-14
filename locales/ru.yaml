@@ -1,102 +1,121 @@
-ui:
-  search: Поиск
-  goBack: Назад
-  ok: ОК
-  download: Скачать
-  close: Закрыть
-  cancel: Отмена
-  default: По умолчанию
-  preview: Предпросмотр
-  all: ВСЕ
-  sort-asc: ASC
-  sort-desc: DESC
+# Test entry
+hello: Привет мир!
+
+# Page titles
 page-title:
   home: Дом
-  source-code: Исходный код
   song: Данные Песен
   songs: Список Песен
   gallery: Листы Треков
   about: О нас
   bug-report: Сообщить о проблеме
+  source-code: Исходный код
+
+# General UIs
+ui:
+  ok: ОК
+  cancel: Отмена
+  close: Закрыть
+  search: Поиск
+  preview: Предпросмотр
+  download: Скачать
+  goBack: Назад
+  all: ВСЕ
+  default: По умолчанию
+  sort-asc: ASC
+  sort-desc: DESC
+
+# Terminologies
+term:
+  category: Категория
+  title: Название
+  artist: Артист
+  version: Версия
+  releaseDate: Дата Выпуска
+  bpm: BPM
+  minBPM: Мин. BPM
+  maxBPM: Макс. BPM
+  sheets: Листы
+  type: Тип
+  difficulty: Сложность
+  level: Уровень
+  minLevel: Мин. Уровень
+  maxLevel: Макс. Уровень
+  internalLevel: Внутренний Уровень
+  minInternalLevel: Мин. Внутренний Уровень
+  maxInternalLevel: Макс. Внутренний Уровень
+  noteDesigner: Заметки Дизайнера
+  totalNotes: ВСЕГО
+  region: Регион
+
+# Descriptions & Tooltips
+description:
+  pending: В ожидании
+  loading: Загрузка данных…
+  newSong: Новая песня!
+  unlockNeeded: Эта песня должна быть разблокирована
+  unavailableInRegion: 'В настоящее время недоступно в {region}'
+  copied: Скопировано в буфер обмена!
+  invalidNoteCounts: Неверный счёт ЗАМЕТОК
+  filterResultEmpty: Не удалось найти лист, который удовлетворяет фильтр.
+  myListEmpty: Щелкните правой кнопкой или долгим нажатием на лист, чтобы добавить его в МОЙ СПИСОК, и вы сможете увидеть ваши избранные листы здесь.
+  drawPoolEmpty: Текущий пул рисования пуст.
+
+# Pages
 page:
-  error:
-    error: Ошибка
-    notFound: Страница Не Найдена
-    backToHome: Вернуться Домой
-  about:
-    author: Автор
-    openSource: Исходный код проекта
-    sheetInfo: Информация о Листе
-    sheetInfoDescription: Большое спасибо всем игрокам, вкладывающие данные листов!
-    openSourceDescription: "Этот проект лицензирован под <a\n  href=\"https://ru.wikipedia.org/wiki/%D0%9B%D0%B8%D1%86%D0%B5%D0%BD%D0%B7%D0%B8%D1%8F_MIT\"\n  target=\"_blank\"\n  class=\"text-decoration-none\"\n>лицензией MIT</a>, и вы можете найти полный исходный код здесь\nЕсли вы заинтересованы, вы можете присоединиться к нам чтобы тоже улучшать проект! ⭐ :)\n"
-    updateRecord: Обновить Запись
-    disclaimer: Уведомление об Авторском Праве
-    dataSource: Источник Данных
-    songInfo: Информация о Песне
-    sheetInfoOf: Информация о Листе {region}
   index:
     description: Поиск песен любимых музыкальных игр, теперь все в одном!
   gallery:
     selectList: Выберите Список Песен
   songs:
     sheetData: Данные Листа
-term:
-  minBPM: Мин. BPM
-  bpm: BPM
-  maxBPM: Макс. BPM
-  artist: Артист
-  region: Регион
-  maxLevel: Макс. Уровень
-  noteDesigner: Заметки Дизайнера
-  category: Категория
-  title: Название
-  version: Версия
-  releaseDate: Дата Выпуска
-  sheets: Листы
-  type: Тип
-  difficulty: Сложность
-  level: Уровень
-  minLevel: Мин. Уровень
-  internalLevel: Внутренний Уровень
-  minInternalLevel: Мин. Внутренний Уровень
-  maxInternalLevel: Макс. Внутренний Уровень
-  totalNotes: ВСЕГО
-description:
-  copied: Скопировано в буфер обмена!
-  loading: Загрузка данных…
-  unavailableInRegion: В настоящее время недоступно в {region}
-  myListEmpty: Щелкните правой кнопкой или долгим нажатием на лист, чтобы добавить его в МОЙ СПИСОК, и вы сможете увидеть ваши избранные листы здесь.
-  pending: В ожидании
-  newSong: Новая песня!
-  unlockNeeded: Эта песня должна быть разблокирована
-  invalidNoteCounts: Неверный счёт ЗАМЕТОК
-  filterResultEmpty: Не удалось найти лист, который удовлетворяет фильтр.
-  drawPoolEmpty: Текущий пул рисования пуст.
-hello: Привет мир!
+  about:
+    author: Автор
+    dataSource: Источник Данных
+    songInfo: Информация о Песне
+    sheetInfo: Информация о Листе
+    sheetInfoOf: 'Информация о Листе {region}'
+    sheetInfoDescription: Большое спасибо всем игрокам, вкладывающие данные листов!
+    openSource: Исходный код проекта
+    openSourceDescription: |
+      Этот проект лицензирован под <a
+        href="https://ru.wikipedia.org/wiki/%D0%9B%D0%B8%D1%86%D0%B5%D0%BD%D0%B7%D0%B8%D1%8F_MIT"
+        target="_blank"
+        class="text-decoration-none"
+      >лицензией MIT</a>, и вы можете найти полный исходный код здесь.
+      Если вы заинтересованы, вы можете присоединиться к нам чтобы тоже улучшать проект! ⭐ :)
+    updateRecord: Обновить Запись
+    disclaimer: Уведомление об Авторском Праве
+  error:
+    error: Ошибка
+    notFound: Страница Не Найдена
+    backToHome: Вернуться Домой
+
+# Components
 sfc:
+  DataInfoBar:
+    updateTime: 'Время Обновления Данных: {time}'
+    loadFailed: Не удалось загрузить данные.
   ModeSelector:
-    copyFilterLink: Скопировать нынешние фильтры как ссылку
-    myListEmptyWarn: "МОЙ ЛИСТ пуст!\nНечего экспортировать."
     gridMode: Вид в Столбик
     tableMode: Детальный Вид
     filterMode: Режим Фильтра
     myListMode: МОЙ ЛИСТ
+    copyFilterLink: Скопировать нынешние фильтры как ссылку
     noFilterWarn: Пожалуйста, сначала выберите хотя бы один фильтр.
     exportMyList: Экспортировать МОЙ ЛИСТ в файл
+    myListEmptyWarn: "МОЙ ЛИСТ пуст!\nНечего экспортировать."
     importMyList: Импортировать МОЙ ЛИСТ из файла
-    sheetsLoaded: Успешно импортировано {n} лист(-ов)
-  SheetDialog:
-    searchOnYouTube: Поиск на YouTube
-    tryAgain: ПОВТОРИТЬ ПОПЫТКУ
-  DataInfoBar:
-    updateTime: 'Время Обновления Данных: {time}'
-    loadFailed: Не удалось загрузить данные.
+    sheetsLoaded: 'Успешно импортировано {n} лист(-ов)'
   SheetDrawerPanel:
     drawRandomSheet: НАРИСОВАТЬ СЛУЧАЙНЫЙ ЛИСТ!
     drawRandomSheetCombo: НАРИСОВАТЬ СЛУЧАЙНЫЙ НАБОР!
   FilterInfoBar:
     sheetsCount: '{n} лист(-ов)'
     songsCount: '{n} песен(-ня)'
+  SheetDialog:
+    searchOnYouTube: Поиск на YouTube
+    tryAgain: ПОВТОРИТЬ ПОПЫТКУ
   SheetComboDialog:
     drawResults: Нарисовать Результаты
     noDuplicate: Нету Дубликатов
