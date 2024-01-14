@@ -22,7 +22,7 @@ page:
   error:
     error: Ошибка
     notFound: Страница Не Найдена
-    backToHome: Вернуться домой
+    backToHome: Вернуться Домой
   about:
     author: Автор
     openSource: Исходный код проекта
