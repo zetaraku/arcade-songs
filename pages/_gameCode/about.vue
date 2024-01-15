@@ -279,6 +279,15 @@ export default defineComponent({
 
     <h3>{{ $t('page.about.updateRecord') }}</h3>
     <v-timeline dense align-top class="mt-2">
+      <v-timeline-item small color="grey">
+        <span class="font-weight-bold">2024/01/15 － v3.12.1 Update</span>
+        <ul>
+          <li>
+            i18n: (Site) Russian (ru) locale is now available!
+            <i>(Thanks <a href="https://github.com/SaGeDeveloper" target="_blank">@SaGeDeveloper</a> &amp; <a href="https://github.com/lookeey1" target="_blank">@lookeey1</a> !)</i>
+          </li>
+        </ul>
+      </v-timeline-item>
       <v-timeline-item icon="mdi-star">
         <span class="font-weight-bold">2023/12/21－ v3.12 Update</span>
         <ul>
