@@ -84,7 +84,7 @@ sfc:
     noFilterWarn: Пожалуйста, сначала выберите хотя бы один фильтр.
     exportMyList: Экспортировать МОЙ ЛИСТ в файл
     importMyList: Импортировать МОЙ ЛИСТ из файла
-    sheetsLoaded: Успешно импортировано {n} лист(-ов)
+    sheetsLoaded: Успешно импортировано {n} лист(-ов).
   SheetDialog:
     searchOnYouTube: Поиск на YouTube
     tryAgain: ПОВТОРИТЬ ПОПЫТКУ
