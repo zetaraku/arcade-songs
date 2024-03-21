@@ -193,6 +193,10 @@ onMounted(async () => {
     await loadDefaultGallery();
   }
 
+  if (route.value.query.id !== undefined) {
+    currentList.value = currentLists.value
+      .find((list) => list.id === route.value.query.id) ?? currentList.value;
+  }
   if (route.value.query.title !== undefined) {
     currentList.value = currentLists.value
       .find((list) => list.title === route.value.query.title) ?? currentList.value;
@@ -205,9 +209,15 @@ watch(currentLists, () => {
 watch(currentList, () => {
   if (currentList.value === null) return;
 
+  const listKey = (() => {
+    if (currentList.value.id != null) return { id: currentList.value.id };
+    if (currentList.value.title != null) return { title: currentList.value.title };
+    return {};
+  })();
+
   router.push({
     query: {
-      title: currentList.value?.title ?? undefined,
+      ...listKey,
       url: currentGalleryProvider.value === 'url' ? externalGalleryUrl.value : undefined,
     },
   });

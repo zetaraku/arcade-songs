@@ -7,6 +7,7 @@ export type RawGallerySection = {
 
 export type RawGalleryList = {
   title: string;
+  id?: string;
   description?: string;
   sections: RawGallerySection[];
   isHidden?: boolean;

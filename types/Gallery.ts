@@ -9,6 +9,7 @@ export type GallerySection = {
 
 export type GalleryList = {
   title: string;
+  id?: string;
   description?: string;
   sections: GallerySection[];
   isHidden?: boolean;
