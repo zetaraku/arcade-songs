@@ -55,7 +55,7 @@ export default defineComponent({
       <template v-if="gameCode === 'maimai'">
         <li>
           {{ $t('page.about.songInfo') }} －
-          <a href="https://maimai.sega.jp/" target="_blank">maimai でらっくす FESTiVAL PLUS公式サイト｜セガ音ゲー</a>
+          <a href="https://maimai.sega.jp/" target="_blank">maimai でらっくす BUDDiES PLUS公式サイト｜セガ音ゲー</a>
         </li>
         <li>
           {{ $t('page.about.sheetInfo') }} －
@@ -93,7 +93,7 @@ export default defineComponent({
       <template v-if="gameCode === 'chunithm'">
         <li>
           {{ $t('page.about.songInfo') }} －
-          <a href="https://chunithm.sega.jp/" target="_blank">CHUNITHM SUN PLUS (チュウニズム サン プラス)｜セガ新作音ゲー</a>
+          <a href="https://chunithm.sega.jp/" target="_blank">CHUNITHM LUMINOUS (チュウニズム ルミナス)｜セガ新作音ゲー</a>
         </li>
         <li>
           {{ $t('page.about.sheetInfo') }} －
@@ -279,6 +279,13 @@ export default defineComponent({
 
     <h3>{{ $t('page.about.updateRecord') }}</h3>
     <v-timeline dense align-top class="mt-2">
+      <v-timeline-item>
+        <span class="font-weight-bold">2024/04/06－ v3.13 Update</span>
+        <ul>
+          <li>feature: (Sheet Drawer) allow user to config draw size of Sheet Combo Drawer</li>
+          <li>misc: now gallery page will use id instead of title in the url</li>
+        </ul>
+      </v-timeline-item>
       <v-timeline-item small color="grey">
         <span class="font-weight-bold">2024/01/15 － v3.12.1 Update</span>
         <ul>
