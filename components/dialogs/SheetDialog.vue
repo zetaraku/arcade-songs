@@ -52,11 +52,9 @@ function copyText(text: string | undefined) {
 }
 
 async function drawSheet() {
-  const isFinished = await startDrawingSheet();
-
-  if (isFinished) {
+  await startDrawingSheet(() => {
     gtag('event', 'RandomSheetDrawn', { gameCode: gameCode.value, eventSource: 'SheetDialog' });
-  }
+  });
 }
 
 watch(sheet, () => {

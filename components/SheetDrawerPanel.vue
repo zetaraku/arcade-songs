@@ -32,11 +32,9 @@ async function drawSheet() {
   }
 
   setSheetDrawingPool(drawingPool.value);
-  const isFinished = await startDrawingSheet();
-
-  if (isFinished) {
+  await startDrawingSheet(() => {
     gtag('event', 'RandomSheetDrawn', { gameCode: gameCode.value, eventSource: 'SheetDrawerPanel' });
-  }
+  });
 }
 async function drawSheetCombo() {
   if (drawingPool.value.length === 0) {
@@ -46,11 +44,9 @@ async function drawSheetCombo() {
   }
 
   setSheetComboDrawingPool(drawingPool.value);
-  const isFinished = await startDrawingSheetCombo();
-
-  if (isFinished) {
+  await startDrawingSheetCombo(() => {
     gtag('event', 'RandomSheetComboDrawn', { gameCode: gameCode.value, eventSource: 'SheetDrawerPanel' });
-  }
+  });
 }
 
 watch(drawModeIndex, () => {

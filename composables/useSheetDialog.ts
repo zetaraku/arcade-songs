@@ -1,34 +1,44 @@
 import { ref, computed } from '@nuxtjs/composition-api';
 import { NULL_SHEET } from '~/utils';
-import ItemDrawer from '~/utils/ItemDrawer';
 import type { Sheet } from '~/types';
+import useItemDrawer from './useItemDrawer';
 
-const isDrawMode = ref(false);
 const isOpened = ref(false);
+const isDrawMode = ref(false);
+const drawingPool = ref<Sheet[]>([]);
 
-const sheetDrawer = new ItemDrawer<Sheet>();
-const currentSheet = computed(() => sheetDrawer.currentItems.value[0] ?? NULL_SHEET);
-const isStatic = computed(() => !sheetDrawer.isDrawing.value);
+const {
+  currentItems,
+  isDrawing,
+  setCurrentItems,
+  startDrawing,
+  stopDrawing,
+} = useItemDrawer<Sheet>({
+  drawingPool,
+  drawSize: 1,
+});
+
+const currentSheet = computed(() => currentItems.value[0] ?? NULL_SHEET);
+const isStatic = computed(() => !isDrawing.value);
 
 function viewSheet(sheet: Sheet) {
-  sheetDrawer.setCurrentItems([sheet]);
+  setCurrentItems([sheet]);
   isDrawMode.value = false;
   isOpened.value = true;
 }
 
-async function setDrawingPool(sheets: Sheet[]) {
-  sheetDrawer.setDrawingPool(sheets);
+function setDrawingPool(sheets: Sheet[]) {
+  drawingPool.value = sheets;
 }
 
-async function startDrawingSheet() {
+async function startDrawingSheet(onFinish?: (resultItems: typeof currentItems.value) => void) {
   isDrawMode.value = true;
   isOpened.value = true;
-  const isFinished = await sheetDrawer.startDrawing();
-  return isFinished;
+  await startDrawing(onFinish);
 }
 
 async function stopDrawingSheet() {
-  sheetDrawer.stopDrawing();
+  await stopDrawing();
 }
 
 export default function useSheetDialog() {

@@ -1,36 +1,54 @@
 import { ref, computed } from '@nuxtjs/composition-api';
 import { NULL_SHEET } from '~/utils';
-import ItemDrawer from '~/utils/ItemDrawer';
 import type { Sheet } from '~/types';
+import useItemDrawer from './useItemDrawer';
 
 const isOpened = ref(false);
+const drawingPool = ref<Sheet[]>([]);
+const drawSize = ref(4);
+const drawWithReplacement = ref(false);
 
-const sheetComboDrawer = new ItemDrawer<Sheet>({ drawSize: 4 });
+const {
+  currentItems,
+  isDrawing,
+  setCurrentItems,
+  startDrawing,
+  stopDrawing,
+} = useItemDrawer<Sheet>({
+  drawingPool,
+  drawSize,
+  drawWithReplacement,
+});
+
 const currentSheets = computed(
-  () => sheetComboDrawer.currentItems.value.map((sheet) => sheet ?? NULL_SHEET),
+  () => currentItems.value.map((sheet) => sheet ?? NULL_SHEET),
 );
-const isStatic = computed(() => !sheetComboDrawer.isDrawing.value);
+const isStatic = computed(() => !isDrawing.value);
 
-async function setDrawingPool(sheets: Sheet[]) {
-  sheetComboDrawer.setDrawingPool(sheets);
-}
-
-async function setDrawSize(drawSize: number) {
-  sheetComboDrawer.setDrawSize(drawSize);
-}
-
-async function setDrawWithReplacement(drawWithReplacement: boolean) {
-  sheetComboDrawer.setDrawWithReplacement(drawWithReplacement);
-}
-
-async function startDrawingSheetCombo() {
+function viewSheetCombo(sheets: Sheet[]) {
+  setCurrentItems(sheets);
   isOpened.value = true;
-  const isFinished = await sheetComboDrawer.startDrawing();
-  return isFinished;
+}
+
+function setDrawingPool(sheets: Sheet[]) {
+  drawingPool.value = sheets;
+}
+
+function setDrawSize(_drawSize: number) {
+  drawSize.value = _drawSize;
+}
+
+function setDrawWithReplacement(_drawWithReplacement: boolean) {
+  drawWithReplacement.value = _drawWithReplacement;
+}
+
+async function startDrawingSheetCombo(onFinish?: (resultItems: typeof currentItems.value) => void) {
+  isOpened.value = true;
+  await startDrawing(onFinish);
 }
 
 async function stopDrawingSheetCombo() {
-  sheetComboDrawer.stopDrawing();
+  await stopDrawing();
 }
 
 export default function useSheetComboDialog() {
@@ -38,6 +56,7 @@ export default function useSheetComboDialog() {
     currentSheets,
     isOpened,
     isStatic,
+    viewSheetCombo,
     setDrawingPool,
     setDrawSize,
     setDrawWithReplacement,

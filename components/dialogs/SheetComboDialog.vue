@@ -25,11 +25,9 @@ const {
 const drawWithReplacement = ref(true);
 
 async function drawSheets() {
-  const isFinished = await startDrawingSheetCombo();
-
-  if (isFinished) {
+  await startDrawingSheetCombo(() => {
     gtag('event', 'RandomSheetComboDrawn', { gameCode: gameCode.value, eventSource: 'SheetComboDialog' });
-  }
+  });
 }
 
 watch(drawWithReplacement, () => {
