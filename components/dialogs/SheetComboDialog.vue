@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watch, inject, Ref } from '@nuxtjs/composition-api';
+import { ref, computed, watch, inject, Ref } from '@nuxtjs/composition-api';
 import useGtag from '~/composables/useGtag';
 import useGameInfo from '~/composables/useGameInfo';
 import useSheetDialog from '~/composables/useSheetDialog';
@@ -17,6 +17,7 @@ const {
   currentSheets,
   isOpened,
   isStatic,
+  drawSize,
   setDrawWithReplacement,
   startDrawingSheetCombo,
   stopDrawingSheetCombo,
@@ -26,9 +27,18 @@ const drawWithReplacement = ref(true);
 
 async function drawSheets() {
   await startDrawingSheetCombo(() => {
-    gtag('event', 'RandomSheetComboDrawn', { gameCode: gameCode.value, eventSource: 'SheetComboDialog' });
+    gtag('event', 'RandomSheetComboDrawn', { gameCode: gameCode.value, eventSource: 'SheetComboDialog', drawSize: drawSize.value });
   });
 }
+
+const maxDialogWidth = computed(() => {
+  // 2 per line
+  if (drawSize.value <= 4) return '400px';
+  // 3 per line
+  if (drawSize.value <= 6 || drawSize.value === 9) return '550px';
+  // 4 per line
+  return '700px';
+});
 
 watch(drawWithReplacement, () => {
   setDrawWithReplacement(drawWithReplacement.value);
@@ -42,7 +52,7 @@ watch(isOpened, () => {
 <template>
   <v-dialog
     v-model="isOpened"
-    max-width="400px"
+    :max-width="maxDialogWidth"
     :overlay-color="isDarkMode ? '#FFF8' : undefined"
   >
     <v-card>

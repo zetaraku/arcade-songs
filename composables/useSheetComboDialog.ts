@@ -1,4 +1,4 @@
-import { ref, computed } from '@nuxtjs/composition-api';
+import { ref, computed, readonly } from '@nuxtjs/composition-api';
 import { NULL_SHEET } from '~/utils';
 import type { Sheet } from '~/types';
 import useItemDrawer from './useItemDrawer';
@@ -56,6 +56,7 @@ export default function useSheetComboDialog() {
     currentSheets,
     isOpened,
     isStatic,
+    drawSize: readonly(drawSize),
     viewSheetCombo,
     setDrawingPool,
     setDrawSize,
