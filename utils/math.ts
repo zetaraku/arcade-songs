@@ -1,4 +1,7 @@
-// eslint-disable-next-line import/prefer-default-export
 export function mod(n: number, m: number) {
   return ((n % m) + m) % m;
+}
+
+export function clamp(n: number, min: number, max: number) {
+  return Math.min(Math.max(min, n), max);
 }
