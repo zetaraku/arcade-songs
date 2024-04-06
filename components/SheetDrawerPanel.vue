@@ -54,7 +54,13 @@ async function drawSheetCombo() {
 
 function configDrawSize() {
   // eslint-disable-next-line no-alert
-  const newDrawSize = Number(window.prompt('Input draw size (1~12):')) || 4;
+  const userInput = window.prompt('Input draw size (1~12):');
+
+  if (userInput === null) return;
+
+  const newDrawSize = Number(userInput);
+
+  if (Number.isNaN(newDrawSize)) return;
 
   setDrawSize(clamp(Math.trunc(newDrawSize), 1, 12));
 }
