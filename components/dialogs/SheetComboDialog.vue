@@ -78,6 +78,7 @@ watch(isOpened, () => {
     v-model="isOpened"
     :max-width="maxDialogWidth"
     :overlay-color="isDarkMode ? '#FFF8' : undefined"
+    scrollable
   >
     <v-card>
       <v-card-title class="justify-center">
@@ -86,7 +87,7 @@ watch(isOpened, () => {
 
       <v-divider class="mx-4" />
 
-      <div class="py-5">
+      <div class="py-5 overflow-y-auto">
         <div
           class="d-flex flex-wrap justify-center"
           @contextmenu.prevent
