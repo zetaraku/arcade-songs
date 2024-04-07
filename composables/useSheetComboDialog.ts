@@ -1,12 +1,13 @@
 import { ref, computed } from '@nuxtjs/composition-api';
+import { useLocalStorage } from '@vueuse/core';
 import { NULL_SHEET } from '~/utils';
 import type { Sheet } from '~/types';
 import useItemDrawer from './useItemDrawer';
 
 const isOpened = ref(false);
 const drawingPool = ref<Sheet[]>([]);
-const drawSize = ref(4);
-const drawWithReplacement = ref(true);
+const drawSize = useLocalStorage('SheetComboDrawer:drawSize', 4);
+const drawWithReplacement = useLocalStorage('SheetComboDrawer:drawWithReplacement', true);
 
 const {
   currentItems,
