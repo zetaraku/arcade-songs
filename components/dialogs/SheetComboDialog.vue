@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed, watch, inject, Ref } from '@nuxtjs/composition-api';
+import { computed, watch, inject, Ref } from '@nuxtjs/composition-api';
 import useGtag from '~/composables/useGtag';
 import useGameInfo from '~/composables/useGameInfo';
 import useSheetDialog from '~/composables/useSheetDialog';
@@ -19,13 +19,10 @@ const {
   isOpened,
   isStatic,
   drawSize,
-  setDrawSize,
-  setDrawWithReplacement,
+  drawWithReplacement,
   startDrawingSheetCombo,
   stopDrawingSheetCombo,
 } = useSheetComboDialog();
-
-const drawWithReplacement = ref(true);
 
 async function drawSheets() {
   await startDrawingSheetCombo(() => {
@@ -47,7 +44,7 @@ function configDrawSize() {
     return;
   }
 
-  setDrawSize(clamp(newDrawSize, 1, 100));
+  drawSize.value = clamp(newDrawSize, 1, 100);
 }
 
 const maxDialogWidth = computed(() => {
@@ -62,10 +59,6 @@ const maxDialogWidth = computed(() => {
   // 6 per line
   return '1000px';
 });
-
-watch(drawWithReplacement, () => {
-  setDrawWithReplacement(drawWithReplacement.value);
-}, { immediate: true });
 
 watch(isOpened, () => {
   if (!isOpened.value) stopDrawingSheetCombo();

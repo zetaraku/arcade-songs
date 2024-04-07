@@ -27,10 +27,6 @@ function viewSheet(sheet: Sheet) {
   isOpened.value = true;
 }
 
-function setDrawingPool(sheets: Sheet[]) {
-  drawingPool.value = sheets;
-}
-
 async function startDrawingSheet(onFinish?: (resultItems: typeof currentItems.value) => void) {
   isDrawMode.value = true;
   isOpened.value = true;
@@ -47,8 +43,8 @@ export default function useSheetDialog() {
     isOpened,
     isDrawMode,
     isStatic,
+    drawingPool,
     viewSheet,
-    setDrawingPool,
     startDrawingSheet,
     stopDrawingSheet,
   };

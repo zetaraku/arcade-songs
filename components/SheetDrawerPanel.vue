@@ -12,12 +12,12 @@ const context = useContext();
 const gtag = useGtag();
 const { gameCode, themeColor } = useGameInfo();
 const {
-  setDrawingPool: setSheetDrawingPool,
+  drawingPool: sheetDrawingPool,
   startDrawingSheet,
 } = useSheetDialog();
 const {
+  drawingPool: sheetComboDrawingPool,
   drawSize,
-  setDrawingPool: setSheetComboDrawingPool,
   startDrawingSheetCombo,
 } = useSheetComboDialog();
 
@@ -32,7 +32,7 @@ async function drawSheet() {
     return;
   }
 
-  setSheetDrawingPool(drawingPool.value);
+  sheetDrawingPool.value = drawingPool.value;
   await startDrawingSheet(() => {
     gtag('event', 'RandomSheetDrawn', { gameCode: gameCode.value, eventSource: 'SheetDrawerPanel' });
   });
@@ -44,7 +44,7 @@ async function drawSheetCombo() {
     return;
   }
 
-  setSheetComboDrawingPool(drawingPool.value);
+  sheetComboDrawingPool.value = drawingPool.value;
   await startDrawingSheetCombo(() => {
     gtag('event', 'RandomSheetComboDrawn', { gameCode: gameCode.value, eventSource: 'SheetDrawerPanel', drawSize: drawSize.value });
   });
