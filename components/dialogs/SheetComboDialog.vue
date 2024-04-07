@@ -57,7 +57,15 @@ const maxDialogWidth = computed(() => {
   // 5 per line
   if (drawSize.value <= 25) return '850px';
   // 6 per line
-  return '1000px';
+  if (drawSize.value <= 36) return '1000px';
+  // 7 per line
+  if (drawSize.value <= 49) return '1150px';
+  // 8 per line
+  if (drawSize.value <= 64) return '1300px';
+  // 9 per line
+  if (drawSize.value <= 81) return '1450px';
+  // 10 per line
+  return '1600px';
 });
 
 watch(isOpened, () => {
