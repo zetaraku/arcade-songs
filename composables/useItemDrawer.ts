@@ -6,11 +6,11 @@ import { pickItems, pickUniqueItems } from '~/utils';
 export default function useItemDrawer<T>({
   drawingPool = [],
   drawSize = 1,
-  drawWithReplacement = false,
+  allowDuplicate = false,
 }: {
   drawingPool?: MaybeRef<T[]>,
   drawSize?: MaybeRef<number>,
-  drawWithReplacement?: MaybeRef<boolean>,
+  allowDuplicate?: MaybeRef<boolean>,
 } = {}) {
   const currentItems = ref([]) as Ref<(T | undefined)[]>;
 
@@ -33,15 +33,15 @@ export default function useItemDrawer<T>({
 
       const pool = unref(drawingPool);
       const size = unref(drawSize);
-      const replacement = unref(drawWithReplacement);
+      const duplicate = unref(allowDuplicate);
 
       // early stop
       if (pool.length === 0) {
-        currentItems.value = (!replacement ? [...Array(size)].fill(undefined) : []);
+        currentItems.value = (duplicate ? [...Array(size)].fill(undefined) : []);
         break;
       }
       if (pool.length === 1) {
-        currentItems.value = (!replacement ? [...Array(size)].fill(pool[0]) : [pool[0]]);
+        currentItems.value = (duplicate ? [...Array(size)].fill(pool[0]) : [pool[0]]);
         break;
       }
 
@@ -52,7 +52,7 @@ export default function useItemDrawer<T>({
       for (let speed = initialSpeed; speed > 0; speed -= speedDecrement) {
         if (isRestarting.value || isStopping.value) break;
 
-        currentItems.value = (!replacement ? pickItems(pool, size) : pickUniqueItems(pool, size));
+        currentItems.value = (duplicate ? pickItems(pool, size) : pickUniqueItems(pool, size));
 
         // eslint-disable-next-line no-await-in-loop
         await sleep(tickDistance / speed);
@@ -79,15 +79,15 @@ export default function useItemDrawer<T>({
   function resetCurrentItems() {
     const pool = unref(drawingPool);
     const size = unref(drawSize);
-    const replacement = unref(drawWithReplacement);
+    const duplicate = unref(allowDuplicate);
 
-    const fillSize = (!replacement ? size : Math.min(size, pool.length));
+    const fillSize = (duplicate ? size : Math.min(size, pool.length));
 
     stopDrawing();
     currentItems.value = [...Array(fillSize)].fill(undefined);
   }
 
-  watch([ref(drawingPool), ref(drawSize), ref(drawWithReplacement)], () => {
+  watch([ref(drawingPool), ref(drawSize), ref(allowDuplicate)], () => {
     resetCurrentItems();
   }, { immediate: true, flush: 'sync' });
 

@@ -7,7 +7,7 @@ import useItemDrawer from './useItemDrawer';
 const isOpened = ref(false);
 const drawingPool = ref<Sheet[]>([]);
 const drawSize = useLocalStorage('SheetComboDrawer:drawSize', 4);
-const drawWithReplacement = useLocalStorage('SheetComboDrawer:drawWithReplacement', true);
+const allowDuplicate = useLocalStorage('SheetComboDrawer:allowDuplicate', false);
 
 const isBlindfoldMode = ref(false);
 const blindfoldedIndexes = ref(new Set());
@@ -21,7 +21,7 @@ const {
 } = useItemDrawer<Sheet>({
   drawingPool,
   drawSize,
-  drawWithReplacement,
+  allowDuplicate,
 });
 
 const currentSheets = computed(
@@ -65,7 +65,7 @@ export default function useSheetComboDialog() {
     isStatic,
     drawingPool,
     drawSize,
-    drawWithReplacement,
+    allowDuplicate,
     viewSheetCombo,
     startDrawingSheetCombo,
     stopDrawingSheetCombo,

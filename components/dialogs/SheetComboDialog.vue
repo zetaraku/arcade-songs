@@ -19,7 +19,7 @@ const {
   isOpened,
   isStatic,
   drawSize,
-  drawWithReplacement,
+  allowDuplicate,
   startDrawingSheetCombo,
   stopDrawingSheetCombo,
   isBlindfoldMode,
@@ -32,7 +32,7 @@ async function drawSheets() {
       gameCode: gameCode.value,
       eventSource: 'SheetComboDialog',
       drawSize: drawSize.value,
-      drawWithReplacement: drawWithReplacement.value,
+      allowDuplicate: allowDuplicate.value,
       isBlindfoldMode: isBlindfoldMode.value,
     });
   });
@@ -148,10 +148,10 @@ watch(isOpened, () => {
               large
               icon
               class="text-h6 pa-0 ma-0"
-              @click="drawWithReplacement = !drawWithReplacement;"
+              @click="allowDuplicate = !allowDuplicate;"
               v-on="on"
             >
-              <v-icon>{{ drawWithReplacement ? 'mdi-autorenew-off' : 'mdi-autorenew' }}</v-icon>
+              <v-icon>{{ allowDuplicate ? 'mdi-autorenew' : 'mdi-autorenew-off' }}</v-icon>
             </v-btn>
           </template>
           <span v-text="$t('sfc.SheetComboDialog.allowDuplicate')" />
@@ -167,7 +167,7 @@ watch(isOpened, () => {
               @click="isBlindfoldMode = !isBlindfoldMode;"
               v-on="on"
             >
-              <v-icon>{{ isBlindfoldMode ? 'mdi-eye-off' : 'mdi-eye' }}</v-icon>
+              <v-icon>{{ !isBlindfoldMode ? 'mdi-eye' : 'mdi-eye-off' }}</v-icon>
             </v-btn>
           </template>
           <span v-text="$t('sfc.SheetComboDialog.blindfoldMode')" />
