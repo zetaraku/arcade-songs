@@ -1,4 +1,4 @@
-import { ref, computed } from '@nuxtjs/composition-api';
+import { ref, computed, watch } from '@nuxtjs/composition-api';
 import { useLocalStorage } from '@vueuse/core';
 import { NULL_SHEET } from '~/utils';
 import type { Sheet } from '~/types';
@@ -8,6 +8,9 @@ const isOpened = ref(false);
 const drawingPool = ref<Sheet[]>([]);
 const drawSize = useLocalStorage('SheetComboDrawer:drawSize', 4);
 const drawWithReplacement = useLocalStorage('SheetComboDrawer:drawWithReplacement', true);
+
+const isBlindfoldMode = ref(false);
+const blindfoldedIndexes = ref(new Set());
 
 const {
   currentItems,
@@ -31,14 +34,29 @@ function viewSheetCombo(sheets: Sheet[]) {
   isOpened.value = true;
 }
 
+function syncBlindfoldMode() {
+  if (isBlindfoldMode.value) {
+    blindfoldedIndexes.value = new Set([...Array(drawSize.value).keys()]);
+  } else {
+    blindfoldedIndexes.value = new Set();
+  }
+}
+
 async function startDrawingSheetCombo(onFinish?: (resultItems: typeof currentItems.value) => void) {
   isOpened.value = true;
+
+  syncBlindfoldMode();
+
   await startDrawing(onFinish);
 }
 
 async function stopDrawingSheetCombo() {
   await stopDrawing();
 }
+
+watch([isBlindfoldMode, drawSize], () => {
+  syncBlindfoldMode();
+});
 
 export default function useSheetComboDialog() {
   return {
@@ -51,5 +69,7 @@ export default function useSheetComboDialog() {
     viewSheetCombo,
     startDrawingSheetCombo,
     stopDrawingSheetCombo,
+    isBlindfoldMode,
+    blindfoldedIndexes,
   };
 }

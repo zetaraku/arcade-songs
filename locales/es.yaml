@@ -119,3 +119,6 @@ sfc:
   SheetComboDialog:
     drawResults: Resultados de la extracción
     noDuplicate: Sin duplicados
+    changeDrawSize: Change Draw Size
+    allowDuplicate: Allow Duplicate
+    blindfoldMode: Blindfold Mode

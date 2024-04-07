@@ -119,3 +119,6 @@ sfc:
   SheetComboDialog:
     drawResults: Hasil Undian
     noDuplicate: Tidak Ada Duplikat
+    changeDrawSize: Change Draw Size
+    allowDuplicate: Allow Duplicate
+    blindfoldMode: Blindfold Mode

@@ -5,7 +5,7 @@ import useGameInfo from '~/composables/useGameInfo';
 import useSheetDialog from '~/composables/useSheetDialog';
 import useSheetComboDialog from '~/composables/useSheetComboDialog';
 import SheetTile from '~/components/SheetTile.vue';
-import { clamp } from '~/utils';
+import { clamp, VOID_SHEET } from '~/utils';
 
 const isDarkMode: Ref<boolean> = inject('isDarkMode')!;
 
@@ -22,11 +22,19 @@ const {
   drawWithReplacement,
   startDrawingSheetCombo,
   stopDrawingSheetCombo,
+  isBlindfoldMode,
+  blindfoldedIndexes,
 } = useSheetComboDialog();
 
 async function drawSheets() {
   await startDrawingSheetCombo(() => {
-    gtag('event', 'RandomSheetComboDrawn', { gameCode: gameCode.value, eventSource: 'SheetComboDialog', drawSize: drawSize.value });
+    gtag('event', 'RandomSheetComboDrawn', {
+      gameCode: gameCode.value,
+      eventSource: 'SheetComboDialog',
+      drawSize: drawSize.value,
+      drawWithReplacement: drawWithReplacement.value,
+      isBlindfoldMode: isBlindfoldMode.value,
+    });
   });
 }
 
@@ -45,6 +53,18 @@ function configDrawSize() {
   }
 
   drawSize.value = clamp(newDrawSize, 1, 100);
+}
+
+function handleSheetClick(index: number) {
+  if (blindfoldedIndexes.value.has(index)) {
+    // reveal sheet
+    blindfoldedIndexes.value.delete(index);
+    blindfoldedIndexes.value = new Set(blindfoldedIndexes.value);
+    gtag('event', 'SheetRevealed', { gameCode, eventSource: 'SheetComboDialog' });
+  } else {
+    viewSheet(currentSheets.value[index]);
+    gtag('event', 'SheetViewed', { gameCode, eventSource: 'SheetComboDialog' });
+  }
 }
 
 const maxDialogWidth = computed(() => {
@@ -95,12 +115,9 @@ watch(isOpened, () => {
           <SheetTile
             v-for="(sheet, i) in currentSheets"
             :key="i"
-            :sheet="sheet"
+            :sheet="!blindfoldedIndexes.has(i) ? sheet : VOID_SHEET"
             :hide-cover="!isStatic"
-            @click.left="
-              viewSheet(sheet);
-              $gtag('event', 'SheetViewed', { gameCode, eventSource: 'SheetComboDialog' });
-            "
+            @click.left="handleSheetClick(i);"
           />
         </div>
       </div>
@@ -108,20 +125,53 @@ watch(isOpened, () => {
       <v-divider class="mx-4" />
 
       <v-card-actions>
-        <v-btn
-          large
-          icon
-          class="text-h6"
-          @click="configDrawSize();"
-        >
-          <v-icon>mdi-cog</v-icon>
-        </v-btn>
-        <v-checkbox
-          v-model="drawWithReplacement"
-          :label="$t('sfc.SheetComboDialog.noDuplicate')"
-          hide-details
-          class="pt-0 my-4 ml-3"
-        />
+        <!-- Draw Count -->
+        <v-tooltip top>
+          <template #activator="{ on }">
+            <v-btn
+              large
+              icon
+              class="text-h6 pa-0 ma-0"
+              @click="configDrawSize();"
+              v-on="on"
+            >
+              <v-icon>mdi-pound-box-outline</v-icon>
+            </v-btn>
+          </template>
+          <span v-text="$t('sfc.SheetComboDialog.changeDrawSize')" />
+        </v-tooltip>
+
+        <!-- No Duplicate -->
+        <v-tooltip top>
+          <template #activator="{ on }">
+            <v-btn
+              large
+              icon
+              class="text-h6 pa-0 ma-0"
+              @click="drawWithReplacement = !drawWithReplacement;"
+              v-on="on"
+            >
+              <v-icon>{{ drawWithReplacement ? 'mdi-autorenew-off' : 'mdi-autorenew' }}</v-icon>
+            </v-btn>
+          </template>
+          <span v-text="$t('sfc.SheetComboDialog.allowDuplicate')" />
+        </v-tooltip>
+
+        <!-- Blindfold Mode -->
+        <v-tooltip top>
+          <template #activator="{ on }">
+            <v-btn
+              large
+              icon
+              class="text-h6 pa-0 ma-0"
+              @click="isBlindfoldMode = !isBlindfoldMode;"
+              v-on="on"
+            >
+              <v-icon>{{ isBlindfoldMode ? 'mdi-eye-off' : 'mdi-eye' }}</v-icon>
+            </v-btn>
+          </template>
+          <span v-text="$t('sfc.SheetComboDialog.blindfoldMode')" />
+        </v-tooltip>
 
         <v-spacer />
 

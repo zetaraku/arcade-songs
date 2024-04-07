@@ -1,4 +1,5 @@
 import catImageUrl from '~/assets/images/cat.png';
+import darkCatImageUrl from '~/assets/images/dark-cat.png';
 import rickImageUrl from '~/assets/images/rick.png';
 import type { Sheet } from '~/types';
 
@@ -23,9 +24,30 @@ export const NULL_SHEET: Sheet = {
   searchUrl: 'https://www.youtube.com/watch?v=W1nifh1OhI8',
 };
 
-export const RICK_SHEET: Sheet = {
+export const VOID_SHEET: Sheet = {
   songId: null,
   songNo: -1,
+
+  category: '???',
+  title: 'ฅ-ω-ฅ',
+  artist: ';3',
+  imageUrl: darkCatImageUrl,
+
+  version: undefined,
+  bpm: undefined,
+
+  type: '??',
+  difficulty: '?',
+  level: '',
+  levelValue: 0,
+
+  noteDesigner: 'Oops! Nothing here ;3',
+  searchUrl: 'https://www.youtube.com/watch?v=C9PFVo1FEwU',
+};
+
+export const RICK_SHEET: Sheet = {
+  songId: null,
+  songNo: -42,
 
   category: 'Whenever You Need Somebody',
   title: 'Never Gonna Give You Up',

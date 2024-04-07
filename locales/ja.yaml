@@ -119,3 +119,6 @@ sfc:
   SheetComboDialog:
     drawResults: 抽選結果
     noDuplicate: 重複なし
+    changeDrawSize: 抽選数量変更
+    allowDuplicate: 重複を許可する
+    blindfoldMode: 目隠しモード

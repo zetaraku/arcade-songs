@@ -119,3 +119,6 @@ sfc:
   SheetComboDialog:
     drawResults: 선곡 결과
     noDuplicate: 중복 없음
+    changeDrawSize: 제비 개수 변경
+    allowDuplicate: 중복 허용
+    blindfoldMode: 제비뽑기 모드
