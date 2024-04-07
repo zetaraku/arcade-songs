@@ -280,10 +280,16 @@ export default defineComponent({
     <h3>{{ $t('page.about.updateRecord') }}</h3>
     <v-timeline dense align-top class="mt-2">
       <v-timeline-item>
-        <span class="font-weight-bold">2024/04/07－ v3.13 Update</span>
+        <span class="font-weight-bold">2024/04/07－ v3.14 Update</span>
+        <ul>
+          <li>feature: (Sheet Drawer) add "Blindfold Mode" in Sheet Combo Drawer 😎</li>
+          <li>misc: (Sheet Drawer) now the settings in the Sheet Combo Drawer are preserved</li>
+        </ul>
+      </v-timeline-item>
+      <v-timeline-item>
+        <span class="font-weight-bold">2024/04/06－ v3.13 Update</span>
         <ul>
           <li>feature: (Sheet Drawer) allow user to config draw size of Sheet Combo Drawer</li>
-          <li>misc: (Sheet Drawer) now the settings in the Sheet Combo Drawer are preserved</li>
           <li>misc: (Gallery) now gallery page will use id instead of title in the url</li>
         </ul>
       </v-timeline-item>
