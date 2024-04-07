@@ -5,6 +5,7 @@ import useGameInfo from '~/composables/useGameInfo';
 import useSheetDialog from '~/composables/useSheetDialog';
 import useSheetComboDialog from '~/composables/useSheetComboDialog';
 import SheetTile from '~/components/SheetTile.vue';
+import { clamp } from '~/utils';
 
 const isDarkMode: Ref<boolean> = inject('isDarkMode')!;
 
@@ -18,6 +19,7 @@ const {
   isOpened,
   isStatic,
   drawSize,
+  setDrawSize,
   setDrawWithReplacement,
   startDrawingSheetCombo,
   stopDrawingSheetCombo,
@@ -31,13 +33,34 @@ async function drawSheets() {
   });
 }
 
+function configDrawSize() {
+  // eslint-disable-next-line no-alert
+  const userInput = window.prompt('Input draw size (1~100):', String(drawSize.value));
+
+  if (userInput === null) return;
+
+  const newDrawSize = Number(userInput);
+
+  if (!Number.isInteger(newDrawSize)) {
+    // eslint-disable-next-line no-alert
+    window.alert('Invalid draw size.');
+    return;
+  }
+
+  setDrawSize(clamp(newDrawSize, 1, 100));
+}
+
 const maxDialogWidth = computed(() => {
   // 2 per line
   if (drawSize.value <= 4) return '400px';
   // 3 per line
-  if (drawSize.value <= 6 || drawSize.value === 9) return '550px';
+  if (drawSize.value <= 9) return '550px';
   // 4 per line
-  return '700px';
+  if (drawSize.value <= 16) return '700px';
+  // 5 per line
+  if (drawSize.value <= 25) return '850px';
+  // 6 per line
+  return '1000px';
 });
 
 watch(drawWithReplacement, () => {
@@ -83,6 +106,14 @@ watch(isOpened, () => {
       <v-divider class="mx-4" />
 
       <v-card-actions>
+        <v-btn
+          large
+          icon
+          class="text-h6"
+          @click="configDrawSize();"
+        >
+          <v-icon>mdi-cog</v-icon>
+        </v-btn>
         <v-checkbox
           v-model="drawWithReplacement"
           :label="$t('sfc.SheetComboDialog.noDuplicate')"

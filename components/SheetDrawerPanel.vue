@@ -4,7 +4,6 @@ import useGtag from '~/composables/useGtag';
 import useGameInfo from '~/composables/useGameInfo';
 import useSheetDialog from '~/composables/useSheetDialog';
 import useSheetComboDialog from '~/composables/useSheetComboDialog';
-import { clamp } from '~/utils';
 import type { Sheet } from '~/types';
 
 const drawingPool: ComputedRef<Sheet[]> = inject('drawingPool')!;
@@ -19,7 +18,6 @@ const {
 const {
   drawSize,
   setDrawingPool: setSheetComboDrawingPool,
-  setDrawSize,
   startDrawingSheetCombo,
 } = useSheetComboDialog();
 
@@ -50,19 +48,6 @@ async function drawSheetCombo() {
   await startDrawingSheetCombo(() => {
     gtag('event', 'RandomSheetComboDrawn', { gameCode: gameCode.value, eventSource: 'SheetDrawerPanel', drawSize: drawSize.value });
   });
-}
-
-function configDrawSize() {
-  // eslint-disable-next-line no-alert
-  const userInput = window.prompt('Input draw size (1~12):');
-
-  if (userInput === null) return;
-
-  const newDrawSize = Number(userInput);
-
-  if (Number.isNaN(newDrawSize)) return;
-
-  setDrawSize(clamp(Math.trunc(newDrawSize), 1, 12));
 }
 
 watch(drawModeIndex, () => {
@@ -102,16 +87,6 @@ watch(drawModeIndex, () => {
       @click="drawSheetCombo();"
     >
       {{ $t('sfc.SheetDrawerPanel.drawRandomSheetCombo') }}
-    </v-btn>
-    <v-btn
-      v-if="drawMode === 'combo'"
-      large
-      icon
-      color="success"
-      class="text-h6"
-      @click="configDrawSize();"
-    >
-      <v-icon>mdi-cog</v-icon>
     </v-btn>
     <v-btn
       v-if="drawModes.length > 1"
