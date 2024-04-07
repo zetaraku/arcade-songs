@@ -34,18 +34,14 @@ function viewSheetCombo(sheets: Sheet[]) {
   isOpened.value = true;
 }
 
-function syncBlindfoldMode() {
+async function startDrawingSheetCombo(onFinish?: (resultItems: typeof currentItems.value) => void) {
+  isOpened.value = true;
+
   if (isBlindfoldMode.value) {
     blindfoldedIndexes.value = new Set([...Array(drawSize.value).keys()]);
   } else {
     blindfoldedIndexes.value = new Set();
   }
-}
-
-async function startDrawingSheetCombo(onFinish?: (resultItems: typeof currentItems.value) => void) {
-  isOpened.value = true;
-
-  syncBlindfoldMode();
 
   await startDrawing(onFinish);
 }
@@ -54,8 +50,9 @@ async function stopDrawingSheetCombo() {
   await stopDrawing();
 }
 
-watch([isBlindfoldMode, drawSize], () => {
-  syncBlindfoldMode();
+// reveal all sheets when the current sheets are reset in useItemDrawer()
+watch([drawingPool, drawSize, allowDuplicate], () => {
+  blindfoldedIndexes.value = new Set();
 });
 
 export default function useSheetComboDialog() {
