@@ -45,6 +45,9 @@ export function preprocessData(data: Data, dataSourceUrl: string, gameCode: stri
     for (const sheet of song.sheets) {
       Object.setPrototypeOf(sheet, song);
 
+      sheet.imageUrl = resolveUrl(sheet.imageName, `${dataSourceUrl}/img/cover/`);
+      sheet.imageUrlM = resolveUrl(sheet.imageName, `${dataSourceUrl}/img/cover-m/`);
+
       sheet.sheetExpr = computeSheetExpr(sheet);
       sheet.notePercents = computeNotePercentages(sheet.noteCounts);
 
