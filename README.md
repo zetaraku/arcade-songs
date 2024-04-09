@@ -74,22 +74,28 @@ If you have any ideas or suggestions, you can [open an issue](https://github.com
 
 ## Contributors ✨
 
-- Korean translation
+- **Korean** translation
   - [Sungsoo Han (lomotos10)](https://github.com/lomotos10)
   - [DDinghoya (DDinghoya)](https://github.com/DDinghoya)
-- Spanish translation
+- **Spanish** translation
   - [gallegonovato (gallegonovato)](https://github.com/gallegonovato)
   - [Onyx (VendettaCalls)](https://github.com/VendettaCalls)
-- Indonesian translation
+- **Indonesian** translation
   - [Echo (echocentrical)](https://github.com/echocentrical)
 
 ## Special Thanks ✨
 
-- [maimai譜面定数ちほー🏖☀️ (@maiLv_Chihooooo)](https://twitter.com/maiLv_Chihooooo) - Internal level information for maimai
-- [CrazyKid (@CrazyKidCN)](https://github.com/CrazyKidCN) - Sheet information for maimai China ver. (舞萌DX)
-- [CHUNITHM譜面定数メインフレーム (@RCMF_chunithm)](https://twitter.com/RCMF_chunithm) - Internal level information for CHUNITHM
-- [chunirec チュウニズム非公式スコア管理ツール (@chunirec)](https://twitter.com/chunirec) - Internal level information API for CHUNITHM
-- ... and all the players contributing sheet data and reporting issues!
+- Internal level information for **maimai**
+  - [maimai譜面定数ちほー🏖☀️ (@maiLv_Chihooooo)](https://twitter.com/maiLv_Chihooooo)
+- Internal level information for **CHUNITHM**
+  - [CHUNITHM譜面定数メインフレーム (@RCMF_chunithm)](https://twitter.com/RCMF_chunithm)
+  - [chunirec チュウニズム非公式スコア管理ツール (@chunirec)](https://twitter.com/chunirec)
+- Internal level information for **オンゲキ**
+  - [オンゲキ譜面定数部 (@ongeki_level)](https://twitter.com/ongeki_level)
+  - [OngekiScoreLog - オンゲキ非公式スコアツール (@ongeki_score)](https://twitter.com/ongeki_score)
+- Sheet information for **maimai China ver. (舞萌DX)**
+  - [CrazyKid (@CrazyKidCN)](https://github.com/CrazyKidCN)
+- *... and all the players contributing sheet data and reporting issues!*
 
 ## License
 
