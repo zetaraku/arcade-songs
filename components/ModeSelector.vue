@@ -131,7 +131,13 @@ async function importSelectedSheets() {
               <span>
                 <v-icon>mdi-playlist-music</v-icon>
                 <span v-text="$t('sfc.ModeSelector.myListMode')" />
-                <span>({{ selectedSheets.length }})</span>
+                <v-badge
+                  v-if="selectedSheets.length > 0"
+                  inline
+                  color="error"
+                  style="font-weight: bold;"
+                  :content="selectedSheets.length"
+                />
               </span>
             </template>
           </v-radio>
