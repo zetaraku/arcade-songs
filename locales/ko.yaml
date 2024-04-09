@@ -60,6 +60,7 @@ description:
   filterResultEmpty: 필터를 만족하는 채보를 찾을 수 없습니다.
   myListEmpty: 채보를 마우스 오른쪽 버튼으로 클릭하거나 길게 눌러 내 목록에 추가하면 여기에서 선택한 채보를 볼 수 있습니다.
   drawPoolEmpty: 현재 채보 풀이 비어 있습니다.
+  clearMyList: Clear MY LIST
 
 # Pages
 page:

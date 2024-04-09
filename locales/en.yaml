@@ -60,6 +60,7 @@ description:
   filterResultEmpty: Cannot find any sheet that satisfies the filter.
   myListEmpty: Right-click or long-press a sheet to add it to MY LIST, and then you can see your selected sheets here.
   drawPoolEmpty: Current drawing pool is empty.
+  clearMyList: Clear MY LIST
 
 # Pages
 page:

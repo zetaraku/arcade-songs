@@ -60,6 +60,7 @@ description:
   filterResultEmpty: No se encuentra ningún mapa que cumpla el filtro.
   myListEmpty: Haga clic con el botón derecho del ratón o mantenga pulsada un mapa para añadirlo a MI LISTA y, a continuación, podrás ver aquí los mapas seleccionados.
   drawPoolEmpty: El recipiente de extracción actual está vacío.
+  clearMyList: Clear MY LIST
 
 # Pages
 page:

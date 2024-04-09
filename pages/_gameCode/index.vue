@@ -127,5 +127,17 @@ export default defineComponent({
         v-text="$t('description.myListEmpty')"
       />
     </div>
+    <div
+      v-if="filterMode === 'my-list' && selectedSheets.length > 0"
+      class="text-center py-8"
+    >
+      <v-btn
+        color="error"
+        outlined
+        @click="selectedSheets = [];"
+      >
+        {{ $t('description.clearMyList') }}
+      </v-btn>
+    </div>
   </v-container>
 </template>

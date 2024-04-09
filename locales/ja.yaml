@@ -60,6 +60,7 @@ description:
   filterResultEmpty: フィルター条件を満たす譜面が見つかりません。
   myListEmpty: 譜面を右クリックまたは長押しで「マイリスト」に追加すると、ここに選択した譜面が見られます。
   drawPoolEmpty: 譜面プールは空です。
+  clearMyList: 「マイリスト」を空にする
 
 # Pages
 page:

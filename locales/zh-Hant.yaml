@@ -60,6 +60,7 @@ description:
   filterResultEmpty: 找不到符合當前篩選條件的譜面。
   myListEmpty: 右鍵點擊或長按譜面將譜面加入【我的歌單】後，就能在這裡看到你選擇的譜面。
   drawPoolEmpty: 當前的譜面池是空的。
+  clearMyList: 清空【我的歌單】
 
 # Pages
 page:
