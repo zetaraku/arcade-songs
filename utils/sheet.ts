@@ -20,7 +20,9 @@ export const NULL_SHEET: Sheet = {
   level: '',
   levelValue: 0,
 
-  noteDesigner: 'Oops! Nothing here :3',
+  noteDesigner: undefined,
+  comment: 'Oops! Nothing here :3',
+
   searchUrl: 'https://www.youtube.com/watch?v=W1nifh1OhI8',
 };
 
@@ -41,7 +43,9 @@ export const VOID_SHEET: Sheet = {
   level: '',
   levelValue: 0,
 
-  noteDesigner: 'Oops! Nothing here ;3',
+  noteDesigner: undefined,
+  comment: 'Oops! Nothing here ;3',
+
   searchUrl: 'https://www.youtube.com/watch?v=C9PFVo1FEwU',
 };
 
@@ -63,7 +67,9 @@ export const RICK_SHEET: Sheet = {
   level: '',
   levelValue: 0,
 
-  noteDesigner: 'Never gonna give you up. Never gonna let you down.',
+  noteDesigner: undefined,
+  comment: 'Never gonna give you up. Never gonna let you down.',
+
   searchUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
 };
 
@@ -71,7 +77,7 @@ export function computeSheetExpr(sheet: Sheet) {
   return `${sheet.songId}|${sheet.type}|${sheet.difficulty}`;
 }
 
-export function makeInvalidDummySheet(sheetExprMatches: string[]) {
+export function makeInvalidDummySheet(sheetExprMatches: string[]): Sheet {
   const sheetExpr = sheetExprMatches.join('|');
 
   return {
@@ -95,13 +101,14 @@ export function makeInvalidDummySheet(sheetExprMatches: string[]) {
     level: undefined,
     levelValue: undefined,
 
-    noteDesigner: 'This sheet expr is not in a valid format.',
+    noteDesigner: undefined,
+    comment: 'This sheet expr is not in a valid format.',
 
     searchUrl: null,
   };
 }
 
-export function makeUnmatchedDummySheet(sheetExprMatches: string[]) {
+export function makeUnmatchedDummySheet(sheetExprMatches: string[]): Sheet {
   const [songId, type, difficulty, level = undefined] = sheetExprMatches;
 
   return {
@@ -125,7 +132,8 @@ export function makeUnmatchedDummySheet(sheetExprMatches: string[]) {
     level,
     levelValue: undefined,
 
-    noteDesigner: 'This sheet expr doesn\'t match with any sheets.',
+    noteDesigner: undefined,
+    comment: 'This sheet expr doesn\'t match with any sheets.',
 
     searchUrl: null,
   };
