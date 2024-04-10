@@ -47,6 +47,7 @@ term:
   noteDesigner: Заметки Дизайнера
   totalNotes: ВСЕГО
   region: Регион
+  comment: Комментарий
 
 # Descriptions & Tooltips
 description:

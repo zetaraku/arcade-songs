@@ -47,6 +47,7 @@ term:
   noteDesigner: 谱面制作者
   totalNotes: 总计
   region: 地区
+  comment: 备注
 
 # Descriptions & Tooltips
 description:

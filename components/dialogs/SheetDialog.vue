@@ -217,6 +217,12 @@ watch(isOpened, () => {
               <span>{{ sheet.releaseDate ?? '????-??-??' }}</span>
               <span>({{ sheet.version ?? 'N/A' }})</span>
             </h4>
+
+            <!-- Comment -->
+            <h4 class="pt-2 text-truncate">
+              <span v-text="$t('term.comment')" />:
+              <span>{{ sheet.comment ?? 'N/A' }}</span>
+            </h4>
           </div>
 
           <!-- Right column -->

@@ -47,6 +47,7 @@ term:
   noteDesigner: Notes Designer
   totalNotes: TOTAL
   region: Region
+  comment: Comment
 
 # Descriptions & Tooltips
 description:

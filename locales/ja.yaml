@@ -47,6 +47,7 @@ term:
   noteDesigner: 譜面制作者
   totalNotes: ノーツ総数
   region: 地区
+  comment: コメント
 
 # Descriptions & Tooltips
 description:

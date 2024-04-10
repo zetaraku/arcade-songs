@@ -47,6 +47,7 @@ term:
   noteDesigner: Diseñador del mapa
   totalNotes: TOTAL
   region: Región
+  comment: Comentario
 
 # Descriptions & Tooltips
 description:

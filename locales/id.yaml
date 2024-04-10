@@ -47,6 +47,7 @@ term:
   noteDesigner: Perancang Note
   totalNotes: TOTAL
   region: Wilayah
+  comment: Komentar
 
 # Descriptions & Tooltips
 description:

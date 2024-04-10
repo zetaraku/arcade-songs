@@ -16,6 +16,8 @@ export type Song = {
   isNew?: boolean;
   isLocked?: boolean;
 
+  comment?: string;
+
   sheets: Sheet[];
 } & {
   // added by preprocessing
