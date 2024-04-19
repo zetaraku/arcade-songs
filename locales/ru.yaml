@@ -61,7 +61,7 @@ description:
   filterResultEmpty: Не удалось найти лист, который удовлетворяет фильтр.
   myListEmpty: Щелкните правой кнопкой или долгим нажатием на лист, чтобы добавить его в МОЙ СПИСОК, и вы сможете увидеть ваши избранные листы здесь.
   drawPoolEmpty: Текущий пул рисования пуст.
-  clearMyList: Clear MY LIST
+  # clearMyList: Clear MY LIST
 
 # Pages
 page:
@@ -121,6 +121,6 @@ sfc:
   SheetComboDialog:
     drawResults: Нарисовать Результаты
     noDuplicate: Нету Дубликатов
-    changeDrawSize: Change Draw Size
-    allowDuplicate: Allow Duplicate
-    blindfoldMode: Blindfold Mode
+    # changeDrawSize: Change Draw Size
+    # allowDuplicate: Allow Duplicate
+    # blindfoldMode: Blindfold Mode

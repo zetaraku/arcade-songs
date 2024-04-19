@@ -61,7 +61,7 @@ description:
   filterResultEmpty: Tidak dapat menemukan lembar yang memenuhi filter.
   myListEmpty: Klik kanan atau tahan untuk menambah sebuah lembar ke MY LIST, lalu kamu bisa lihat lembar yang dipilih di sini.
   drawPoolEmpty: Kolam undian saat ini kosong.
-  clearMyList: Clear MY LIST
+  # clearMyList: Clear MY LIST
 
 # Pages
 page:
@@ -121,6 +121,6 @@ sfc:
   SheetComboDialog:
     drawResults: Hasil Undian
     noDuplicate: Tidak Ada Duplikat
-    changeDrawSize: Change Draw Size
-    allowDuplicate: Allow Duplicate
-    blindfoldMode: Blindfold Mode
+    # changeDrawSize: Change Draw Size
+    # allowDuplicate: Allow Duplicate
+    # blindfoldMode: Blindfold Mode
