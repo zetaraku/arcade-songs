@@ -108,7 +108,7 @@ sfc:
     exportMyList: Экспортировать МОЙ ЛИСТ в файл
     myListEmptyWarn: "МОЙ ЛИСТ пуст!\nНечего экспортировать."
     importMyList: Импортировать МОЙ ЛИСТ из файла
-    sheetsLoaded: 'Успешно импортировано {n} лист(-ов)'
+    sheetsLoaded: 'Успешно импортировано {n} лист(-ов).'
   SheetDrawerPanel:
     drawRandomSheet: НАРИСОВАТЬ СЛУЧАЙНЫЙ ЛИСТ!
     drawRandomSheetCombo: НАРИСОВАТЬ СЛУЧАЙНЫЙ НАБОР!

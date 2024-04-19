@@ -33,17 +33,17 @@ term:
   version: Version
   releaseDate: Release Date
   bpm: BPM
-  minBPM: Min BPM
-  maxBPM: Max BPM
+  minBPM: Min. BPM
+  maxBPM: Max. BPM
   sheets: Sheets
   type: Type
   difficulty: Difficulty
   level: Level
-  minLevel: Min Level
-  maxLevel: Max Level
+  minLevel: Min. Level
+  maxLevel: Max. Level
   internalLevel: Internal Level
-  minInternalLevel: Min Internal Level
-  maxInternalLevel: Max Internal Level
+  minInternalLevel: Min. Internal Level
+  maxInternalLevel: Max. Internal Level
   noteDesigner: Notes Designer
   totalNotes: TOTAL
   region: Region
