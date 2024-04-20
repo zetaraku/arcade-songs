@@ -64,6 +64,7 @@ description:
   # clearMyList: Clear MY LIST
 
 # Pages
+  clearMyList: Borrar MI LISTA
 page:
   index:
     description: Busca canciones de tus juegos musicales favoritos, ¡ahora todo en uno!
@@ -124,3 +125,6 @@ sfc:
     # changeDrawSize: Change Draw Size
     # allowDuplicate: Allow Duplicate
     # blindfoldMode: Blindfold Mode
+    blindfoldMode: Modo aleatorio
+    changeDrawSize: Cambiar tamaño de dibujo
+    allowDuplicate: Permitir duplicado
