@@ -124,7 +124,7 @@ export default defineComponent({
       <template v-if="gameCode === 'jubeat'">
         <li>
           {{ $t('page.about.songInfo') }} －
-          <a href="https://p.eagate.573.jp/game/jubeat/ave/" target="_blank">jubeat Ave.</a>
+          <a href="https://p.eagate.573.jp/game/jubeat/beyond/" target="_blank">jubeat beyond the Ave.</a>
         </li>
         <li>
           {{ $t('page.about.sheetInfo') }} －
@@ -220,6 +220,18 @@ export default defineComponent({
           <a href="https://remywiki.com/AC_NST_Op.3" target="_blank">ノスタルジア Op.3 - RemyWiki</a>
           － {{ $t('page.about.sheetInfoDescription') }}
         </li>
+        <li>
+          {{ $t('term.internalLevel') }} －
+          <a class="text-decoration-none" href="https://twitter.com/nosdata" target="_blank">
+            <v-icon small left color="#1da1f2">mdi-twitter</v-icon><span>Nosdata</span>
+          </a> / <a href="https://nosdata.info/" target="_blank">Nosdata</a>
+          <i>
+            (Thanks
+            <a href="https://twitter.com/exponent_iidx" target="_blank">@exponent_iidx</a> &amp;
+            <a href="https://twitter.com/nosdata" target="_blank">@nosdata</a>
+            !)
+          </i>
+        </li>
       </template>
       <template v-if="gameCode === 'diva'">
         <li>
@@ -279,6 +291,36 @@ export default defineComponent({
 
     <h3>{{ $t('page.about.updateRecord') }}</h3>
     <v-timeline dense align-top class="mt-2">
+      <v-timeline-item>
+        <span class="font-weight-bold">2024/04/25 － v3.16 Update</span>
+        <ul>
+          <li>feature: (Data) add sheet internal level information for <strong>NOSTALGIA</strong></li>
+          <li>
+            Data source:
+            <a class="text-decoration-none" href="https://twitter.com/nosdata" target="_blank">
+              <v-icon small left color="#1da1f2">mdi-twitter</v-icon><span>Nosdata</span>
+            </a> / <a href="https://nosdata.info/" target="_blank">Nosdata</a>
+            <i>
+              (Thanks
+              <a href="https://twitter.com/exponent_iidx" target="_blank">@exponent_iidx</a> &amp;
+              <a href="https://twitter.com/nosdata" target="_blank">@nosdata</a>
+              !)
+            </i>
+          </li>
+        </ul>
+      </v-timeline-item>
+      <v-timeline-item>
+        <span class="font-weight-bold">2024/04/19 － v3.15 Update</span>
+        <ul>
+          <li>feature: (Data) add "comment" field for songs</li>
+        </ul>
+      </v-timeline-item>
+      <v-timeline-item small color="grey">
+        <span class="font-weight-bold">2024/04/11－ v3.14.1 Update</span>
+        <ul>
+          <li>misc: (Data) the song list of <strong>オンゲキ</strong> is now complete! (70 deleted songs added)</li>
+        </ul>
+      </v-timeline-item>
       <v-timeline-item>
         <span class="font-weight-bold">2024/04/07－ v3.14 Update</span>
         <ul>
