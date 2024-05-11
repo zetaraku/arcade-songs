@@ -3,10 +3,10 @@ hello: Привет мир!
 
 # Page titles
 page-title:
-  home: Дом
+  home: Главная
   song: Данные Песен
   songs: Список Песен
-  gallery: Листы Треков
+  gallery: Список Треков
   about: О нас
   bug-report: Сообщить о проблеме
   source-code: Исходный код
@@ -29,7 +29,7 @@ ui:
 term:
   category: Категория
   title: Название
-  artist: Артист
+  artist: Автор
   version: Версия
   releaseDate: Дата Выпуска
   bpm: BPM
@@ -61,7 +61,7 @@ description:
   filterResultEmpty: Не удалось найти лист, который удовлетворяет фильтр.
   myListEmpty: Щелкните правой кнопкой или долгим нажатием на лист, чтобы добавить его в МОЙ СПИСОК, и вы сможете увидеть ваши избранные листы здесь.
   drawPoolEmpty: Текущий пул рисования пуст.
-  # clearMyList: Clear MY LIST
+  clearMyList: Отчистить Список
 
 # Pages
 page:
@@ -87,11 +87,11 @@ page:
       >лицензией MIT</a>, и вы можете найти полный исходный код здесь.
       Если вы заинтересованы, вы можете присоединиться к нам чтобы тоже улучшать проект! ⭐ :)
     updateRecord: Обновить Запись
-    disclaimer: Уведомление об Авторском Праве
+    disclaimer: Предупреждение об Авторском Праве
   error:
     error: Ошибка
     notFound: Страница Не Найдена
-    backToHome: Вернуться Домой
+    backToHome: Вернуться Главную
 
 # Components
 sfc:
@@ -105,9 +105,9 @@ sfc:
     myListMode: МОЙ ЛИСТ
     copyFilterLink: Скопировать нынешние фильтры как ссылку
     noFilterWarn: Пожалуйста, сначала выберите хотя бы один фильтр.
-    exportMyList: Экспортировать МОЙ ЛИСТ в файл
+    exportMyList: Экспортировать МОЙ СПИСОК в файл
     myListEmptyWarn: "МОЙ ЛИСТ пуст!\nНечего экспортировать."
-    importMyList: Импортировать МОЙ ЛИСТ из файла
+    importMyList: Импортировать МОЙ СПИСОК из файла
     sheetsLoaded: 'Успешно импортировано {n} лист(-ов).'
   SheetDrawerPanel:
     drawRandomSheet: НАРИСОВАТЬ СЛУЧАЙНЫЙ ЛИСТ!
@@ -120,7 +120,7 @@ sfc:
     tryAgain: ПОВТОРИТЬ ПОПЫТКУ
   SheetComboDialog:
     drawResults: Нарисовать Результаты
-    noDuplicate: Нету Дубликатов
-    # changeDrawSize: Change Draw Size
-    # allowDuplicate: Allow Duplicate
-    # blindfoldMode: Blindfold Mode
+    noDuplicate: Без Дубликатов
+    changeDrawSize: Изменить Размер Кисти
+    allowDuplicate: Разрешить Дубликаты
+    blindfoldMode: Режим Вслепую
