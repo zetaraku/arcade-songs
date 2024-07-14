@@ -3,6 +3,7 @@ import { computed, inject, Ref } from '@nuxtjs/composition-api';
 import YAML from 'yaml';
 import FileSaver from 'file-saver';
 import useGtag from '~/composables/useGtag';
+import useSentry from '~/composables/useSentry';
 import useGameInfo from '~/composables/useGameInfo';
 import { computeSheetExpr, toLocalISODateString } from '~/utils';
 import type { Sheet } from '~/types';
@@ -18,6 +19,7 @@ const isDarkMode: Ref<boolean> = inject('isDarkMode')!;
 const selectedSheets: Ref<Sheet[]> = inject('selectedSheets')!;
 
 const gtag = useGtag();
+const sentry = useSentry();
 const { gameCode } = useGameInfo();
 
 const selectedSheetsYaml = computed(
@@ -32,9 +34,11 @@ async function exportSelectedSheets() {
     );
 
     gtag('event', 'MyListExported', { gameCode: gameCode.value, eventSource: 'MyListExportDialog' });
-  } catch (e) {
+  } catch (err) {
+    sentry.captureException(err);
+
     // eslint-disable-next-line no-alert
-    window.alert(`An error occurred while saving MY LIST:\n${e}`);
+    window.alert(`An error occurred while saving MY LIST:\n${err}`);
   }
 }
 </script>

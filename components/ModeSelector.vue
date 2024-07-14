@@ -6,6 +6,7 @@ import copyToClipboard from 'copy-to-clipboard';
 import selectFiles from 'select-files';
 import { useDataStore } from '~/stores/data';
 import useGtag from '~/composables/useGtag';
+import useSentry from '~/composables/useSentry';
 import useGameInfo from '~/composables/useGameInfo';
 import MyListExportDialog from '~/components/dialogs/MyListExportDialog.vue';
 import { saveFiltersAsQuery, makeDummySheet } from '~/utils';
@@ -18,6 +19,7 @@ const selectedSheets: Ref<Sheet[]> = inject('selectedSheets')!;
 
 const context = useContext();
 const gtag = useGtag();
+const sentry = useSentry();
 const dataStore = useDataStore();
 const { gameCode } = useGameInfo();
 
@@ -71,9 +73,11 @@ async function importSelectedSheets() {
     window.alert(context.i18n.t('sfc.ModeSelector.sheetsLoaded', { n: loadedSheets.length }));
 
     gtag('event', 'MyListImported', { gameCode: gameCode.value, eventSource: 'ModeSelector' });
-  } catch (e) {
+  } catch (err) {
+    sentry.captureException(err);
+
     // eslint-disable-next-line no-alert
-    window.alert(`An error occurred while loading '${files[0].name}':\n\n${e}`);
+    window.alert(`An error occurred while loading '${files[0].name}':\n\n${err}`);
   }
 }
 </script>

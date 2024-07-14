@@ -1,5 +1,6 @@
 import { ref, computed, watch } from '@nuxtjs/composition-api';
 import { defineStore } from 'pinia';
+import useSentry from '~/composables/useSentry';
 import LoadingStatus from '~/enums/LoadingStatus';
 import sites from '~/data/sites.json';
 import { buildEmptyData, preprocessData } from '~/utils';
@@ -22,6 +23,8 @@ export const useDataStore = defineStore('data', () => {
   const currentLoadingErrorMessage = computed(
     () => loadingErrorMessages.value.get(currentGameCode.value) ?? '',
   );
+
+  const sentry = useSentry();
 
   async function loadData(gameCode: string) {
     // helper functions
@@ -47,8 +50,10 @@ export const useDataStore = defineStore('data', () => {
 
       setLoadedData(data);
       setLoadingStatus(LoadingStatus.LOADED);
-    } catch (error: any) {
-      setLoadingErrorMessage(error.message);
+    } catch (err: any) {
+      sentry.captureException(err);
+
+      setLoadingErrorMessage(err.message);
       setLoadingStatus(LoadingStatus.ERROR);
     }
   }

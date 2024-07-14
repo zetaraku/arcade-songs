@@ -6,6 +6,7 @@ import YAML from 'yaml';
 import selectFiles from 'select-files';
 import { useDataStore } from '~/stores/data';
 import useGtag from '~/composables/useGtag';
+import useSentry from '~/composables/useSentry';
 import useGameInfo from '~/composables/useGameInfo';
 import useSheetDialog from '~/composables/useSheetDialog';
 import LoadingOverlay from '~/components/LoadingOverlay.vue';
@@ -19,6 +20,7 @@ const isDarkMode: Ref<boolean> = inject('isDarkMode')!;
 
 const context = useContext();
 const gtag = useGtag();
+const sentry = useSentry();
 const route = useRoute();
 const router = useRouter();
 const dataStore = useDataStore();
@@ -55,10 +57,12 @@ async function loadDefaultGallery() {
     currentGalleryProvider.value = 'default';
     currentGallery.value = buildGallery(data, dataStore.currentData.sheets);
   } catch (err) {
+    // sentry.captureException(err);
+
     currentLoadingStatus.value = LoadingStatus.ERROR;
 
     // eslint-disable-next-line no-console
-    console.log('The gallery is currently unavailable.');
+    console.info('The gallery is currently unavailable.');
 
     return false;
   }
@@ -95,6 +99,8 @@ async function loadExternalGalleryFromUrl(galleryUrl: string) {
     currentGalleryProvider.value = 'url';
     currentGallery.value = buildGallery(data, dataStore.currentData.sheets);
   } catch (err) {
+    sentry.captureException(err);
+
     currentLoadingStatus.value = LoadingStatus.ERROR;
 
     // eslint-disable-next-line no-alert
@@ -133,6 +139,8 @@ async function loadExternalGalleryFromFile(galleryFile: File) {
     currentGalleryProvider.value = 'file';
     currentGallery.value = buildGallery(data, dataStore.currentData.sheets);
   } catch (err) {
+    sentry.captureException(err);
+
     currentLoadingStatus.value = LoadingStatus.ERROR;
 
     // eslint-disable-next-line no-alert
