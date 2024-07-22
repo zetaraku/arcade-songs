@@ -10,7 +10,7 @@ import ModeSelector from '~/components/ModeSelector.vue';
 import SheetDrawerPanel from '~/components/SheetDrawerPanel.vue';
 import FilterInfoBar from '~/components/FilterInfoBar.vue';
 import SheetDataView from '~/components/SheetDataView.vue';
-import { buildEmptyFilters, buildFilterOptions, loadFiltersFromQuery, filterSheets } from '~/utils';
+import { buildEmptyFilters, buildFilterOptions, loadFiltersFromQuery, filterSheets, pickItem } from '~/utils';
 import type { Sheet } from '~/types';
 
 const context = useContext();
@@ -39,6 +39,10 @@ const displayingSheets = computed(() => {
   throw new Error('Invalid filter mode');
 });
 
+const unselectedSheets = computed(() => filteredSheets.value.filter(
+  (sheet) => !selectedSheets.value.includes(sheet),
+));
+
 function toggleSheetSelection(sheet: Sheet) {
   const index = selectedSheets.value.indexOf(sheet);
   if (index === -1) {
@@ -46,6 +50,19 @@ function toggleSheetSelection(sheet: Sheet) {
   } else {
     selectedSheets.value.splice(index, 1);
   }
+}
+
+function pickFromFilter() {
+  if (unselectedSheets.value.length === 0) {
+    // eslint-disable-next-line no-alert
+    window.alert(context.i18n.t('description.noMoreSheetsToPick'));
+    return;
+  }
+
+  const selectedSheet = pickItem(unselectedSheets.value);
+  selectedSheets.value.push(selectedSheet);
+
+  gtag('event', 'RandomSheetPicked', { gameCode: gameCode.value, eventSource: 'GameIndexPage' });
 }
 
 onMounted(() => {
@@ -101,8 +118,21 @@ export default defineComponent({
 
     <FilterInfoBar
       :sheets="displayingSheets"
-      class="my-5"
+      class="my-6"
     />
+
+    <div
+      v-if="filterMode === 'my-list'"
+      class="text-center py-8"
+    >
+      <v-btn
+        color="info"
+        outlined
+        @click="pickFromFilter();"
+      >
+        {{ $t('description.pickOneFromFilter') }}
+      </v-btn>
+    </div>
 
     <!--
       The inner SheetDataGrid and SheetDataTable need to sync with each other.
@@ -112,7 +142,7 @@ export default defineComponent({
       v-show="displayingSheets.length > 0"
       :sheets="displayingSheets"
       :display-mode="displayMode"
-      class="mt-8"
+      class="mt-4"
     />
     <div
       v-if="displayingSheets.length === 0"
@@ -127,6 +157,7 @@ export default defineComponent({
         v-text="$t('description.myListEmpty')"
       />
     </div>
+
     <div
       v-if="filterMode === 'my-list' && selectedSheets.length > 0"
       class="text-center py-8"

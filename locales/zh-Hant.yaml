@@ -62,6 +62,8 @@ description:
   myListEmpty: 右鍵點擊或長按譜面將譜面加入【我的歌單】後，就能在這裡看到你選擇的譜面。
   drawPoolEmpty: 當前的譜面池是空的。
   clearMyList: 清空【我的歌單】
+  pickOneFromFilter: 從篩選結果中選取一個！
+  noMoreSheetsToPick: 已經沒有可選取的譜面。
 
 # Pages
 page:

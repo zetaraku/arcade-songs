@@ -62,6 +62,8 @@ description:
   myListEmpty: Right-click or long-press a sheet to add it to MY LIST, and then you can see your selected sheets here.
   drawPoolEmpty: Current drawing pool is empty.
   clearMyList: Clear MY LIST
+  pickOneFromFilter: PICK ONE FROM FILTER!
+  noMoreSheetsToPick: No more sheets to pick.
 
 # Pages
 page:
