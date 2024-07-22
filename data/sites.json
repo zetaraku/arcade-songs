@@ -107,9 +107,17 @@
   {
     "isHidden": true,
     "gameCode": "any",
-    "gameTitle": "???",
+    "gameTitle": "🌈",
     "themeColor": "#000000",
     "dataSourceUrl": "https://dp4p6x0xfi5o9.cloudfront.net/any",
     "accessCounterUrl": "https://www.f-counter.net/j/48/1651407538/"
+  },
+  {
+    "isHidden": true,
+    "gameCode": "mahjong",
+    "gameTitle": "🐦",
+    "themeColor": "#000000",
+    "dataSourceUrl": "https://dp4p6x0xfi5o9.cloudfront.net/mahjong",
+    "accessCounterUrl": "https://www.f-counter.net/j/64/1716708621/"
   }
 ]
