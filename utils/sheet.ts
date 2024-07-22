@@ -1,6 +1,7 @@
 import catImageUrl from '~/assets/images/cat.png';
 import darkCatImageUrl from '~/assets/images/dark-cat.png';
 import rickImageUrl from '~/assets/images/rick.png';
+import indiImageUrl from '~/assets/images/indi.png';
 import type { Sheet } from '~/types';
 
 export const NULL_SHEET: Sheet = {
@@ -71,6 +72,30 @@ export const RICK_SHEET: Sheet = {
   comment: 'Never gonna give you up. Never gonna let you down.',
 
   searchUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+};
+
+export const INDI_SHEET: Sheet = {
+  songId: null,
+  songNo: -43,
+
+  category: 'IndiHome Packet Phoenix',
+  title: 'Goyang Ubur Ubur (Remixed)',
+  artist: 'Hendro Engkeng',
+  imageUrl: indiImageUrl,
+
+  version: undefined,
+  releaseDate: '2020-04-??',
+  bpm: 130,
+
+  type: '??',
+  difficulty: '<:D',
+  level: '',
+  levelValue: 0,
+
+  noteDesigner: undefined,
+  comment: 'IndiHome Paket Phoenix 100Mbps - Rp 935.000 / bulan',
+
+  searchUrl: 'https://www.youtube.com/watch?v=_IneeB-UDFA',
 };
 
 export function computeSheetExpr(sheet: Sheet) {
