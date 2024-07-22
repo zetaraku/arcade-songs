@@ -1,17 +1,17 @@
 <script setup lang="ts">
-import { ref, computed, watch, inject, Ref } from '@nuxtjs/composition-api';
+import { ref, computed, watch } from '@nuxtjs/composition-api';
 import copyToClipboard from 'copy-to-clipboard';
 import { useDataStore } from '~/stores/data';
 import useGtag from '~/composables/useGtag';
+import useDarkMode from '~/composables/useDarkMode';
 import useGameInfo from '~/composables/useGameInfo';
 import useGameData from '~/composables/useGameData';
 import useSheetDialog from '~/composables/useSheetDialog';
 import catImageUrl from '~/assets/images/cat.png';
 
-const isDarkMode: Ref<boolean> = inject('isDarkMode')!;
-
 const gtag = useGtag();
 const dataStore = useDataStore();
+const { isDarkMode } = useDarkMode();
 const { gameCode } = useGameInfo();
 const {
   getTypeIconUrl,

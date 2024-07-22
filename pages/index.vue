@@ -1,18 +1,18 @@
 <script setup lang="ts">
 /* eslint-disable import/first, import/no-duplicates */
-import { ref, inject, useMeta as useHead, useContext, Ref } from '@nuxtjs/composition-api';
+import { ref, useMeta as useHead, useContext } from '@nuxtjs/composition-api';
 import confetti from 'canvas-confetti';
 import sleep from 'sleep-promise';
 import useGtag from '~/composables/useGtag';
+import useDarkMode from '~/composables/useDarkMode';
 import useGameInfo from '~/composables/useGameInfo';
 import useSheetDialog from '~/composables/useSheetDialog';
 import sites from '~/data/sites.json';
 import { RICK_SHEET } from '~/utils';
 
-const isDarkMode: Ref<boolean> = inject('isDarkMode')!;
-
 const context = useContext();
 const gtag = useGtag();
+const { isDarkMode } = useDarkMode();
 const { gameCode } = useGameInfo();
 const { viewSheet } = useSheetDialog();
 

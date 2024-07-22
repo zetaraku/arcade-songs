@@ -1,11 +1,11 @@
 <script setup lang="ts">
 /* eslint-disable import/first, import/no-duplicates */
-import { inject, useMeta as useHead, Ref, useContext } from '@nuxtjs/composition-api';
+import { useMeta as useHead, useContext } from '@nuxtjs/composition-api';
+import useDarkMode from '~/composables/useDarkMode';
 import useGameInfo from '~/composables/useGameInfo';
 
-const isDarkMode: Ref<boolean> = inject('isDarkMode')!;
-
 const context = useContext();
+const { isDarkMode } = useDarkMode();
 const { gameCode } = useGameInfo();
 
 useHead(() => ({

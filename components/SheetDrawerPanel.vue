@@ -1,19 +1,20 @@
 <script setup lang="ts">
-import { ref, watch, inject, Ref, ComputedRef, useContext } from '@nuxtjs/composition-api';
+import { ref, watch, inject, ComputedRef, useContext } from '@nuxtjs/composition-api';
 import confetti from 'canvas-confetti';
 import sleep from 'sleep-promise';
 import useGtag from '~/composables/useGtag';
+import useDarkMode from '~/composables/useDarkMode';
 import useGameInfo from '~/composables/useGameInfo';
 import useSheetDialog from '~/composables/useSheetDialog';
 import useSheetComboDialog from '~/composables/useSheetComboDialog';
 import { INDI_SHEET, pickItem } from '~/utils';
 import type { Sheet } from '~/types';
 
-const isDarkMode: Ref<boolean> = inject('isDarkMode')!;
 const drawingPool: ComputedRef<Sheet[]> = inject('drawingPool')!;
 
 const context = useContext();
 const gtag = useGtag();
+const { isDarkMode } = useDarkMode();
 const { gameCode, themeColor } = useGameInfo();
 const {
   drawingPool: sheetDrawingPool,

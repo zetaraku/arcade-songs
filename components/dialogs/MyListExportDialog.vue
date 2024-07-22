@@ -4,6 +4,7 @@ import YAML from 'yaml';
 import FileSaver from 'file-saver';
 import useGtag from '~/composables/useGtag';
 import useSentry from '~/composables/useSentry';
+import useDarkMode from '~/composables/useDarkMode';
 import useGameInfo from '~/composables/useGameInfo';
 import { computeSheetExpr, toLocalISODateString } from '~/utils';
 import type { Sheet } from '~/types';
@@ -15,11 +16,11 @@ defineEmits<{
   (event: 'input', value: boolean): void;
 }>();
 
-const isDarkMode: Ref<boolean> = inject('isDarkMode')!;
 const selectedSheets: Ref<Sheet[]> = inject('selectedSheets')!;
 
 const gtag = useGtag();
 const sentry = useSentry();
+const { isDarkMode } = useDarkMode();
 const { gameCode } = useGameInfo();
 
 const selectedSheetsYaml = computed(

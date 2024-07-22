@@ -1,8 +1,9 @@
 <script setup lang="ts">
 /* eslint-disable import/first, import/no-duplicates */
-import { ref, computed, watch, provide, onMounted, useRoute, useMeta as useHead, useContext } from '@nuxtjs/composition-api';
+import { ref, computed, watch, onMounted, useRoute, useMeta as useHead, useContext } from '@nuxtjs/composition-api';
 import { useDataStore } from '~/stores/data';
 import useGameInfo from '~/composables/useGameInfo';
+import useDarkMode from '~/composables/useDarkMode';
 import LoadingOverlay from '~/components/LoadingOverlay.vue';
 import LocaleSwitcher from '~/components/LocaleSwitcher.vue';
 import SheetDialog from '~/components/dialogs/SheetDialog.vue';
@@ -14,6 +15,7 @@ import { PageNotFoundError } from '~/utils';
 const context = useContext();
 const route = useRoute();
 const dataStore = useDataStore();
+const { isDarkMode } = useDarkMode();
 const {
   gameCode,
   gameTitle,
@@ -102,7 +104,6 @@ useHead(() => {
   };
 });
 
-const isDarkMode = ref(false);
 const isDrawerOpened = ref(false);
 const isPortalOpened = ref(false);
 
@@ -127,8 +128,6 @@ watch(isDarkMode, () => {
 });
 
 onMounted(() => detectGameCode());
-
-provide('isDarkMode', isDarkMode);
 </script>
 
 <script lang="ts">

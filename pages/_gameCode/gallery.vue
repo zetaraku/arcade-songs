@@ -1,12 +1,13 @@
 <script setup lang="ts">
 /* eslint-disable import/first, import/no-duplicates */
-import { ref, computed, watch, inject, onMounted, useRoute, useRouter, useMeta as useHead, useContext, Ref } from '@nuxtjs/composition-api';
+import { ref, computed, watch, onMounted, useRoute, useRouter, useMeta as useHead, useContext, Ref } from '@nuxtjs/composition-api';
 import { until } from '@vueuse/core';
 import YAML from 'yaml';
 import selectFiles from 'select-files';
 import { useDataStore } from '~/stores/data';
 import useGtag from '~/composables/useGtag';
 import useSentry from '~/composables/useSentry';
+import useDarkMode from '~/composables/useDarkMode';
 import useGameInfo from '~/composables/useGameInfo';
 import useSheetDialog from '~/composables/useSheetDialog';
 import LoadingOverlay from '~/components/LoadingOverlay.vue';
@@ -16,14 +17,13 @@ import sites from '~/data/sites.json';
 import { buildGallery, isValidUrl } from '~/utils';
 import type { Gallery, GalleryList } from '~/types';
 
-const isDarkMode: Ref<boolean> = inject('isDarkMode')!;
-
 const context = useContext();
 const gtag = useGtag();
 const sentry = useSentry();
 const route = useRoute();
 const router = useRouter();
 const dataStore = useDataStore();
+const { isDarkMode } = useDarkMode();
 const { gameCode } = useGameInfo();
 const { viewSheet } = useSheetDialog();
 

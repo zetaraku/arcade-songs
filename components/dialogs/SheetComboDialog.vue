@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import { computed, watch, inject, Ref } from '@nuxtjs/composition-api';
+import { computed, watch } from '@nuxtjs/composition-api';
 import useGtag from '~/composables/useGtag';
+import useDarkMode from '~/composables/useDarkMode';
 import useGameInfo from '~/composables/useGameInfo';
 import useSheetDialog from '~/composables/useSheetDialog';
 import useSheetComboDialog from '~/composables/useSheetComboDialog';
 import SheetTile from '~/components/SheetTile.vue';
 import { clamp, VOID_SHEET } from '~/utils';
 
-const isDarkMode: Ref<boolean> = inject('isDarkMode')!;
-
 const gtag = useGtag();
+const { isDarkMode } = useDarkMode();
 const { gameCode } = useGameInfo();
 const {
   viewSheet,

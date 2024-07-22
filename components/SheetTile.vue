@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { inject, Ref, PropType } from '@nuxtjs/composition-api';
+import { PropType } from '@nuxtjs/composition-api';
+import useDarkMode from '~/composables/useDarkMode';
 import useGameData from '~/composables/useGameData';
 import type { Sheet } from '~/types';
 
@@ -26,8 +27,7 @@ defineProps({
   },
 });
 
-const isDarkMode: Ref<boolean> = inject('isDarkMode')!;
-
+const { isDarkMode } = useDarkMode();
 const {
   getLockedIconUrl,
   getLockedIconHeight,
