@@ -21,6 +21,8 @@ const toggle = ref(isDarkMode.value);
 const toggleTimeoutId = ref<number | undefined>(undefined);
 
 async function toggleLightSwitch(buttonPressed: boolean) {
+  if (Math.random() < 1) return;
+
   window.clearTimeout(toggleTimeoutId.value);
   toggleTimeoutId.value = undefined;
 
