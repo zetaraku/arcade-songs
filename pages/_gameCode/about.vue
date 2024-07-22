@@ -266,6 +266,14 @@ export default defineComponent({
           － {{ $t('page.about.sheetInfoDescription') }}
         </li>
       </template>
+      <template v-if="gameCode === 'mahjong'">
+        <li>
+          Vector graphics of riichi mahjong tiles －
+          <a class="text-decoration-none" href="https://github.com/FluffyStuff/riichi-mahjong-tiles" target="_blank">
+            <v-icon small left color="#24292e">mdi-github</v-icon><span>FluffyStuff/riichi-mahjong-tiles</span>
+          </a> <i>(Thanks <a href="https://github.com/FluffyStuff" target="_blank">Kristján (@FluffyStuff)</a> !)</i>
+        </li>
+      </template>
     </ul>
 
     <br>
@@ -291,6 +299,13 @@ export default defineComponent({
 
     <h3>{{ $t('page.about.updateRecord') }}</h3>
     <v-timeline dense align-top class="mt-2">
+      <v-timeline-item icon="mdi-lock-question" color="#FFA31A">
+        <span class="font-weight-bold">2024/07/22 － v3.17 Update</span>
+        <ul>
+          <li>feature: (My List) add "Pick one from filter" button</li>
+          <li>feature: (???) a new <strong>light switch</strong> is installed, but <i>where is it?</i></li>
+        </ul>
+      </v-timeline-item>
       <v-timeline-item icon="mdi-flag-variant">
         <span class="font-weight-bold">2024/06/21 － 500000 visits reached</span>
         <ul>
