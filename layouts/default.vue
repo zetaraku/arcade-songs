@@ -122,12 +122,12 @@ async function detectGameCode() {
   dataStore.gameCode = gameCode.value!;
 }
 
-watch(gameCode, () => detectGameCode());
+watch(gameCode, () => detectGameCode(), {
+  immediate: true,
+});
 watch(isDarkMode, () => {
   context.$vuetify.theme.dark = isDarkMode.value;
 });
-
-onMounted(() => detectGameCode());
 </script>
 
 <script lang="ts">

@@ -1,12 +1,17 @@
 import { computed, useRoute, useContext } from '@nuxtjs/composition-api';
+import useDarkMode from '~/composables/useDarkMode';
 import sites from '~/data/sites.json';
 
 export default function useGameInfo() {
   const context = useContext();
   const route = useRoute();
+  const { isDarkMode } = useDarkMode();
 
   const siteInfo = computed(
-    () => sites.find((site) => site.gameCode === route.value.params.gameCode),
+    () => sites
+      .filter((site) => !site.isHidden || isDarkMode.value)
+      .find((site) => site.gameCode === route.value.params.gameCode)
+    ,
   );
 
   const gameCode = computed(() => siteInfo.value?.gameCode ?? undefined);
