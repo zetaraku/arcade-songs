@@ -27,6 +27,14 @@ export const useDataStore = defineStore('data', () => {
   const sentry = useSentry();
 
   async function loadData(gameCode: string) {
+    const dataSourceUrl = sites.find((site) => site.gameCode === gameCode)?.dataSourceUrl;
+
+    if (dataSourceUrl === undefined) {
+      // eslint-disable-next-line no-console
+      console.warn(`"${gameCode}" is not a valid gameCode`);
+      return;
+    }
+
     // helper functions
     function setLoadedData(data: Data) {
       loadedData.value = new Map(loadedData.value.set(gameCode, data));
@@ -40,8 +48,6 @@ export const useDataStore = defineStore('data', () => {
 
     try {
       setLoadingStatus(LoadingStatus.LOADING);
-
-      const { dataSourceUrl } = sites.find((site) => site.gameCode === gameCode)!;
 
       const response = await fetch(`${dataSourceUrl}/data.json`);
       const data = await response.json() as Data;
@@ -59,6 +65,8 @@ export const useDataStore = defineStore('data', () => {
   }
 
   watch(currentGameCode, async () => {
+    if (currentGameCode.value === '') return;
+
     if (currentLoadingStatus.value === LoadingStatus.PENDING) {
       await loadData(currentGameCode.value);
     }
