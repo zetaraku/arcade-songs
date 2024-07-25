@@ -6,6 +6,7 @@ import useSheetHeaders from '~/composables/useSheetHeaders';
 import SheetTile from '~/components/SheetTile.vue';
 import type { Sheet } from '~/types';
 
+const filterMode: Ref<string> = inject('filterMode')!;
 const selectedSheets: Ref<Sheet[]> = inject('selectedSheets')!;
 const toggleSheetSelection: (sheet: Sheet) => void = inject('toggleSheetSelection')!;
 
@@ -57,7 +58,7 @@ const headers = useSheetHeaders();
         v-for="(sheet, i) in currentSheets"
         :key="i"
         :sheet="sheet"
-        :class="{ 'selected-sheet': selectedSheets.includes(sheet) }"
+        :class="{ 'selected-sheet': filterMode !== 'my-list' && selectedSheets.includes(sheet) }"
         @click.left="
           viewSheet(sheet);
           $gtag('event', 'SheetViewed', { gameCode, eventSource: 'SheetDataGrid' });

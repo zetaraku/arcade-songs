@@ -8,6 +8,7 @@ import { toPercentageString, validateNoteCounts } from '~/utils';
 import type { Sheet } from '~/types';
 
 const sheets: Ref<Sheet[]> = inject('sheets')!;
+const filterMode: Ref<string> = inject('filterMode')!;
 const selectedSheets: Ref<Sheet[]> = inject('selectedSheets')!;
 const toggleSheetSelection: (sheet: Sheet) => void = inject('toggleSheetSelection')!;
 
@@ -34,7 +35,7 @@ const { viewSheet } = useSheetDialog();
 const headers = useSheetHeaders();
 
 function getItemClass(sheet: Sheet) {
-  return selectedSheets.value.includes(sheet) ? 'selected-sheet' : '';
+  return filterMode.value !== 'my-list' && selectedSheets.value.includes(sheet) ? 'selected-sheet' : '';
 }
 
 watch(sheets, () => {
