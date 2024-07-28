@@ -192,12 +192,13 @@ watch(isOpened, () => {
                 :class="{ 'text--primary': getDifficultyColor(sheet.difficulty) === 'unset' }"
                 :style="{ 'color': getDifficultyColor(sheet.difficulty) }"
               >{{ getDifficultyName(sheet.difficulty) }} {{ sheet.level }}</span>
-              <v-tooltip
-                v-if="sheet.internalLevel != null"
-                top
-              >
+              <v-tooltip top>
                 <template #activator="{ on }">
-                  <small class="text--secondary" v-on="on">
+                  <small
+                    class="text--secondary"
+                    :style="{ 'visibility': sheet.internalLevel != null ? 'visible' : 'hidden' }"
+                    v-on="on"
+                  >
                     <span>({{ sheet.internalLevel }})</span>
                   </small>
                 </template>
