@@ -68,7 +68,7 @@ async function exportSelectedSheets() {
           auto-grow
           hide-details
           class="mt-2"
-          style="font-family: monospace;"
+          style="font-family: Consolas, monospace;"
         />
       </v-card-text>
       <v-card-actions>
