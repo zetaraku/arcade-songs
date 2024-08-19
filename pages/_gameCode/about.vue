@@ -299,6 +299,13 @@ export default defineComponent({
 
     <h3>{{ $t('page.about.updateRecord') }}</h3>
     <v-timeline dense align-top class="mt-2">
+      <v-timeline-item>
+        <span class="font-weight-bold">2024/08/19 － v3.18 Update</span>
+        <ul>
+          <li>feature: (Filter) add "Super Filter" 💪✨</li>
+          <li><i>Now everyone should learn JavaScript</i> 😉</li>
+        </ul>
+      </v-timeline-item>
       <v-timeline-item icon="mdi-lock-question" color="#FFA31A">
         <span class="font-weight-bold">2024/07/22 － v3.17 Update</span>
         <ul>
