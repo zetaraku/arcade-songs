@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/prefer-default-export
 export function isValidUrl(urlString: string): boolean {
   try {
     // eslint-disable-next-line no-new
@@ -7,4 +6,10 @@ export function isValidUrl(urlString: string): boolean {
   } catch {
     return false;
   }
+}
+
+export function parseBoolean(str: string): boolean | undefined {
+  if (str === 'true') return true;
+  if (str === 'false') return false;
+  return undefined;
 }
