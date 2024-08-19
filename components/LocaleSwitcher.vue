@@ -44,7 +44,9 @@ function setLocale(locale: string) {
         :key="localeOption.code"
         @click="setLocale(localeOption.code);"
       >
-        <v-list-item-title v-text="localeOption.name" />
+        <v-list-item-title>
+          {{ localeOption.name }}
+        </v-list-item-title>
       </v-list-item>
     </v-list>
   </v-menu>

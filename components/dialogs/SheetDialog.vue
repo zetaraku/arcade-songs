@@ -123,10 +123,9 @@ watch(isOpened, () => {
                   $gtag('event', 'SheetVideoSearched', { gameCode, eventSource: 'SheetDialog' });
                 "
               >
-                <v-icon
-                  :large="$vuetify.breakpoint.smAndUp"
-                  v-text="getSheetSearchLinkIcon(sheet)"
-                />
+                <v-icon :large="$vuetify.breakpoint.smAndUp">
+                  {{ getSheetSearchLinkIcon(sheet) }}
+                </v-icon>
               </v-btn>
             </template>
             <span>

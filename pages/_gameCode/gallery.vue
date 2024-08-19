@@ -280,7 +280,9 @@ export default defineComponent({
               :key="i"
               @click="changeGalleryProvider(provider.type);"
             >
-              <v-list-item-title v-text="provider.title" />
+              <v-list-item-title>
+                {{ provider.title }}
+              </v-list-item-title>
             </v-list-item>
           </v-list>
         </v-menu>

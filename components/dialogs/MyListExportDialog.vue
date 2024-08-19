@@ -12,6 +12,7 @@ import type { Sheet } from '~/types';
 defineProps<{
   value: boolean;
 }>();
+// eslint-disable-next-line no-spaced-func, func-call-spacing
 defineEmits<{
   (event: 'input', value: boolean): void;
 }>();

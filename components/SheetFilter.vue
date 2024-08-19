@@ -1,10 +1,16 @@
 <script setup lang="ts">
-import { inject, Ref } from '@nuxtjs/composition-api';
+import { computed, inject, Ref } from '@nuxtjs/composition-api';
 import { parseSuperFilter } from '~/utils';
 import type { Filters, FilterOptions } from '~/types';
 
 const filters: Ref<Filters> = inject('filters')!;
 const filterOptions: Ref<FilterOptions> = inject('filterOptions')!;
+
+const currentLevelFilterOptions = computed(() => (
+  filters.value.useInternalLevel
+    ? filterOptions.value.internalLevels
+    : filterOptions.value.levels
+));
 
 function validateSuperFilter(superFilterText: string): boolean | string {
   try {
@@ -85,10 +91,10 @@ function validateSuperFilter(superFilterText: string): boolean | string {
         <div class="d-flex flex-grow-1 align-end">
           <v-select
             v-model="filters.minLevelValue"
-            :items="(!filters.useInternalLevel ? filterOptions.levels : filterOptions.internalLevels)"
+            :items="currentLevelFilterOptions"
             prepend-icon="mdi-numeric-9-plus-box-multiple-outline"
-            :label="(!filters.useInternalLevel ? $t('term.minLevel') : $t('term.minInternalLevel'))"
-            :placeholder="((!filters.useInternalLevel ? filterOptions.levels : filterOptions.internalLevels)?.[0] ?? { text: '?' }).text"
+            :label="filters.useInternalLevel ? $t('term.minInternalLevel') : $t('term.minLevel')"
+            :placeholder="currentLevelFilterOptions?.at(0)?.text ?? '?'"
             persistent-placeholder
             clearable
           />
@@ -96,9 +102,9 @@ function validateSuperFilter(superFilterText: string): boolean | string {
         <div class="d-flex flex-grow-1 align-end pl-6">
           <v-select
             v-model="filters.maxLevelValue"
-            :items="(!filters.useInternalLevel ? filterOptions.levels : filterOptions.internalLevels)"
-            :label="(!filters.useInternalLevel ? $t('term.maxLevel') : $t('term.maxInternalLevel'))"
-            :placeholder="((!filters.useInternalLevel ? filterOptions.levels : filterOptions.internalLevels)?.at(-1) ?? { text: '?' }).text"
+            :items="currentLevelFilterOptions"
+            :label="filters.useInternalLevel ? $t('term.maxInternalLevel') : $t('term.maxLevel')"
+            :placeholder="currentLevelFilterOptions?.at(-1)?.text ?? '?'"
             persistent-placeholder
             clearable
           />
@@ -223,7 +229,7 @@ function validateSuperFilter(superFilterText: string): boolean | string {
               :min="0"
               prepend-icon="mdi-metronome"
               :label="$t('term.minBPM')"
-              :placeholder="String(filterOptions.bpms[0] ?? 0)"
+              :placeholder="String(filterOptions.bpms.at(0) ?? 0)"
               persistent-placeholder
               clearable
             />
@@ -234,7 +240,7 @@ function validateSuperFilter(superFilterText: string): boolean | string {
               type="number"
               :min="0"
               :label="$t('term.maxBPM')"
-              :placeholder="String(filterOptions.bpms.slice(-1)[0] ?? 999)"
+              :placeholder="String(filterOptions.bpms.at(-1) ?? 999)"
               persistent-placeholder
               clearable
             />

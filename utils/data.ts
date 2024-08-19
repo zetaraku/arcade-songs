@@ -52,6 +52,7 @@ export function preprocessData(data: Data, dataSourceUrl: string, gameCode: stri
       sheet.notePercents = computeNotePercentages(sheet.noteCounts);
 
       if (!validateNoteCounts(sheet, gameCode)) {
+        // eslint-disable-next-line no-console
         console.warn('Invalid note counts:', sheet.sheetExpr, sheet.noteCounts);
       }
 

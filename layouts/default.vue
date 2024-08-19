@@ -1,6 +1,6 @@
 <script setup lang="ts">
 /* eslint-disable import/first, import/no-duplicates */
-import { ref, computed, watch, onMounted, useRoute, useMeta as useHead, useContext } from '@nuxtjs/composition-api';
+import { ref, computed, watch, useRoute, useMeta as useHead, useContext } from '@nuxtjs/composition-api';
 import { useDataStore } from '~/stores/data';
 import useGameInfo from '~/composables/useGameInfo';
 import useDarkMode from '~/composables/useDarkMode';
@@ -161,13 +161,12 @@ export default defineComponent({
               mdi-music-box-multiple
             </v-icon>
             <v-list-item-content>
-              <v-list-item-title
-                class="text-h6 font-weight-medium"
-                v-text="$config.siteTitle"
-              />
-              <v-list-item-subtitle
-                v-text="gameTitle"
-              />
+              <v-list-item-title class="text-h6 font-weight-medium">
+                {{ $config.siteTitle }}
+              </v-list-item-title>
+              <v-list-item-subtitle>
+                {{ gameTitle }}
+              </v-list-item-subtitle>
             </v-list-item-content>
           </template>
 
@@ -185,7 +184,9 @@ export default defineComponent({
                 mdi-music-box-multiple
               </v-icon>
             </v-list-item-icon>
-            <v-list-item-title v-text="site.gameTitle" />
+            <v-list-item-title>
+              {{ site.gameTitle }}
+            </v-list-item-title>
           </v-list-item>
         </v-list-group>
         <v-divider />
@@ -201,10 +202,14 @@ export default defineComponent({
           exact
         >
           <v-list-item-icon>
-            <v-icon v-text="menuItem.icon" />
+            <v-icon>
+              {{ menuItem.icon }}
+            </v-icon>
           </v-list-item-icon>
           <v-list-item-content>
-            <v-list-item-title v-text="menuItem.title" />
+            <v-list-item-title>
+              {{ menuItem.title }}
+            </v-list-item-title>
           </v-list-item-content>
           <v-list-item-icon v-if="menuItem.href !== undefined">
             <v-icon>
@@ -238,11 +243,12 @@ export default defineComponent({
               class="font-weight-medium mb-0"
               :class="$vuetify.breakpoint.smAndUp ? 'text-h5' : 'text-h6'"
               style="line-height: 1.8rem;"
-              v-text="$config.siteTitle"
-            />
-            <v-list-item-subtitle
-              v-text="gameTitle ?? 'made by @zetaraku'"
-            />
+            >
+              {{ $config.siteTitle }}
+            </v-list-item-title>
+            <v-list-item-subtitle>
+              {{ gameTitle ?? 'made by @zetaraku' }}
+            </v-list-item-subtitle>
           </v-list-item-content>
         </v-toolbar-title>
       </NuxtLink>

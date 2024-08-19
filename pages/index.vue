@@ -95,7 +95,9 @@ export default defineComponent({
                 mdi-music-box-multiple
               </v-icon>
             </v-list-item-icon>
-            <v-list-item-title v-text="site.gameTitle" />
+            <v-list-item-title>
+              {{ site.gameTitle }}
+            </v-list-item-title>
             <v-list-item-icon class="SiteList__arrow">
               <v-icon>mdi-arrow-right</v-icon>
             </v-list-item-icon>

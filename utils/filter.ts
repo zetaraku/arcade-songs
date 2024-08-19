@@ -1,3 +1,4 @@
+import { parseBoolean } from '~/utils/misc';
 import type { NuxtI18nInstance } from '@nuxtjs/i18n';
 import type { Data, Sheet, Filters, FilterOptions } from '~/types';
 
@@ -181,79 +182,128 @@ export function filterSheets(sheets: Sheet[], filters: Filters) {
   if (filters.region != null) {
     if (filters.region.startsWith('!')) {
       const excludedRegion = filters.region.replace(/^!/, '');
-      result = result.filter((sheet) => sheet.regions == null || !sheet.regions[excludedRegion]);
+      result = result.filter(
+        (sheet) => (
+          sheet.regions == null
+          || !sheet.regions[excludedRegion]
+        ),
+      );
     } else {
       const includedRegion = filters.region;
-      result = result.filter((sheet) => sheet.regions != null && sheet.regions[includedRegion]);
+      result = result.filter(
+        (sheet) => (
+          sheet.regions != null
+          && sheet.regions[includedRegion]
+        ),
+      );
     }
   }
   if (filters.categories.length !== 0) {
     result = result.filter((sheet) => filters.categories.some(
-      (category) => sheet.category === category || (sheet.category != null && sheet.category.split('|').includes(category)),
+      (category) => sheet.category === category || (
+        sheet.category != null
+        && sheet.category.split('|').includes(category)
+      ),
     ));
   }
   if (filters.title != null) {
     const normalizedTitle = filters.title.toLowerCase();
     result = result.filter(
-      (sheet) => sheet.title?.toLowerCase().includes(normalizedTitle) ?? false,
+      (sheet) => (
+        sheet.title != null
+        && sheet.title.toLowerCase().includes(normalizedTitle)
+      ),
     );
   }
   if (filters.versions.length !== 0) {
     result = result.filter(
-      (sheet) => filters.versions.includes(sheet.version!),
+      (sheet) => (
+        sheet.version != null
+        && filters.versions.includes(sheet.version)
+      ),
     );
   }
   if (filters.types.length !== 0) {
     result = result.filter(
-      (sheet) => filters.types.includes(sheet.type!),
+      (sheet) => (
+        sheet.type != null
+        && filters.types.includes(sheet.type)
+      ),
     );
   }
   if (filters.difficulties.length !== 0) {
     result = result.filter(
-      (sheet) => filters.difficulties.includes(sheet.difficulty!),
+      (sheet) => (
+        sheet.difficulty != null
+        && filters.difficulties.includes(sheet.difficulty)
+      ),
     );
   }
   if (typeof filters.minLevelValue === 'number') {
     if (filters.useInternalLevel) {
       result = result.filter(
-        (sheet) => sheet.internalLevelValue != null && sheet.internalLevelValue >= filters.minLevelValue!,
+        (sheet) => (
+          sheet.internalLevelValue != null
+          && sheet.internalLevelValue >= filters.minLevelValue!
+        ),
       );
     } else {
       result = result.filter(
-        (sheet) => sheet.levelValue != null && sheet.levelValue >= filters.minLevelValue!,
+        (sheet) => (
+          sheet.levelValue != null
+          && sheet.levelValue >= filters.minLevelValue!
+        ),
       );
     }
   }
   if (typeof filters.maxLevelValue === 'number') {
     if (filters.useInternalLevel) {
       result = result.filter(
-        (sheet) => sheet.internalLevelValue != null && sheet.internalLevelValue <= filters.maxLevelValue!,
+        (sheet) => (
+          sheet.internalLevelValue != null
+          && sheet.internalLevelValue <= filters.maxLevelValue!
+        ),
       );
     } else {
       result = result.filter(
-        (sheet) => sheet.levelValue != null && sheet.levelValue <= filters.maxLevelValue!,
+        (sheet) => (
+          sheet.levelValue != null
+          && sheet.levelValue <= filters.maxLevelValue!
+        ),
       );
     }
   }
   if (typeof filters.minBPM === 'number') {
     result = result.filter(
-      (sheet) => sheet.bpm != null && sheet.bpm >= filters.minBPM!,
+      (sheet) => (
+        sheet.bpm != null
+        && sheet.bpm >= filters.minBPM!
+      ),
     );
   }
   if (typeof filters.maxBPM === 'number') {
     result = result.filter(
-      (sheet) => sheet.bpm != null && sheet.bpm <= filters.maxBPM!,
+      (sheet) => (
+        sheet.bpm != null
+        && sheet.bpm <= filters.maxBPM!
+      ),
     );
   }
   if (filters.artist != null) {
     const normalizedArtist = filters.artist.toLowerCase();
     result = result.filter(
-      (sheet) => sheet.artist?.toLowerCase().includes(normalizedArtist) ?? false,
+      (sheet) => (
+        sheet.artist != null
+        && sheet.artist.toLowerCase().includes(normalizedArtist)
+      ),
     );
   }
   if (filters.noteDesigners.length !== 0) {
     result = result.filter(
-      (sheet) => filters.noteDesigners.includes(sheet.noteDesigner!),
+      (sheet) => (
+        sheet.noteDesigner != null
+        && filters.noteDesigners.includes(sheet.noteDesigner)
+      ),
     );
   }
   if (filters.superFilter != null) {
@@ -278,7 +328,7 @@ export function filterSheets(sheets: Sheet[], filters: Filters) {
 
 export function loadFiltersFromQuery(query: Record<string, string>): Filters {
   const QueryReader = {
-    boolean: (str: string) => (str === 'true' ? true : str === 'false' ? false : null),
+    boolean: (str: string) => parseBoolean(str) ?? null,
     string: (str: string) => String(str),
     number: (str: string) => Number(str),
     'string[]': (str: string) => str.split('|').map(QueryReader.string),

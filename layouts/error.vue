@@ -52,16 +52,18 @@ export default defineComponent({
             :href="$config.siteReportUrl"
             target="_blank"
             class="mr-5"
-            v-text="$t('page-title.bug-report')"
-          />
+          >
+            {{ $t('page-title.bug-report') }}
+          </v-btn>
           <v-btn
             outlined
             large
             color="secondary"
             :to="gameCode !== undefined ? `/${gameCode}/` : '/'"
             exact
-            v-text="$t('page.error.backToHome')"
-          />
+          >
+            {{ $t('page.error.backToHome') }}
+          </v-btn>
         </div>
       </v-col>
     </v-row>

@@ -112,10 +112,9 @@ export default defineComponent({
         <span>{{ (song.category ?? '').replaceAll('|', '｜') }}</span>
       </template>
       <template #item.title="{ item: song }">
-        <router-link
-          :to="{ name: 'gameCode-song', query: { id: song.songId } }"
-          v-text="song.title"
-        />
+        <router-link :to="{ name: 'gameCode-song', query: { id: song.songId } }">
+          {{ song.title }}
+        </router-link>
       </template>
       <template #item.sheets="{ item: song }">
         <v-btn
