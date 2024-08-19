@@ -48,6 +48,7 @@ term:
   totalNotes: ノーツ総数
   region: 地区
   comment: コメント
+  superFilter: スーパーフィルター
 
 # Descriptions & Tooltips
 description:

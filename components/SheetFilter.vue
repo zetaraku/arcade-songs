@@ -1,9 +1,19 @@
 <script setup lang="ts">
 import { inject, Ref } from '@nuxtjs/composition-api';
+import { parseSuperFilter } from '~/utils';
 import type { Filters, FilterOptions } from '~/types';
 
 const filters: Ref<Filters> = inject('filters')!;
 const filterOptions: Ref<FilterOptions> = inject('filterOptions')!;
+
+function validateSuperFilter(superFilterText: string): boolean | string {
+  try {
+    parseSuperFilter(superFilterText);
+    return true;
+  } catch (err: any) {
+    return err.message;
+  }
+}
 </script>
 
 <template>
@@ -227,6 +237,26 @@ const filterOptions: Ref<FilterOptions> = inject('filterOptions')!;
             />
           </v-col>
         </v-row>
+      </v-col>
+      <v-col
+        v-if="filters.superFilter !== null"
+        cols="12"
+        md="6"
+        class="d-flex align-end"
+      >
+        <v-textarea
+          v-model="filters.superFilter"
+          rows="3"
+          :rules="[validateSuperFilter]"
+          prepend-icon="mdi-code-braces-box"
+          :label="`${$t('term.superFilter')} (JavaScript)`"
+          :placeholder="$t('description.superFilterPlaceholder')"
+          :hint="$t('description.superFilterHint')"
+          persistent-placeholder
+          clearable
+          outlined
+          style="font-family: Consolas, monospace;"
+        />
       </v-col>
     </v-row>
   </div>

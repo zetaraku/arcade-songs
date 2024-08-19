@@ -48,6 +48,7 @@ term:
   totalNotes: 總計
   region: 地區
   comment: 備註
+  superFilter: 超級篩選器
 
 # Descriptions & Tooltips
 description:

@@ -48,6 +48,7 @@ term:
   totalNotes: TOTAL
   region: Region
   comment: Comment
+  superFilter: Super Filter
 
 # Descriptions & Tooltips
 description:
@@ -64,6 +65,10 @@ description:
   clearMyList: Clear MY LIST
   pickOneFromFilter: PICK ONE FROM FILTER!
   noMoreSheetsToPick: No more sheets to pick.
+  superFilterPlaceholder: |
+    // return a predicate function to filter the result
+    return (sheet) => true;
+  superFilterHint: // I hope you know what you're doing ...
 
 # Pages
 page:

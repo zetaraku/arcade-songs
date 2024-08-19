@@ -44,6 +44,15 @@ function copyFilterLink() {
 
   gtag('event', 'FilterLinkCopied', { gameCode: gameCode.value, eventSource: 'ModeSelector', query: rawQuery });
 }
+function toggleSuperFilter() {
+  if (filters.value.superFilter === null) {
+    filters.value.superFilter = '';
+
+    gtag('event', 'SuperFilterShown', { gameCode: gameCode.value, eventSource: 'ModeSelector' });
+  } else {
+    filters.value.superFilter = null;
+  }
+}
 async function showMyListExportDialog() {
   if (selectedSheets.value.length === 0) {
     // eslint-disable-next-line no-alert
@@ -152,9 +161,8 @@ async function importSelectedSheets() {
             <template #activator="{ on }">
               <v-btn
                 icon
-                x-large
+                large
                 color="green"
-                class="mx-4"
                 @click="copyFilterLink"
                 v-on="on"
               >
@@ -162,6 +170,20 @@ async function importSelectedSheets() {
               </v-btn>
             </template>
             <span v-text="$t('sfc.ModeSelector.copyFilterLink')" />
+          </v-tooltip>
+          <v-tooltip top>
+            <template #activator="{ on }">
+              <v-btn
+                icon
+                large
+                color="grey darken-1"
+                @click="toggleSuperFilter"
+                v-on="on"
+              >
+                <v-icon>mdi-code-braces-box</v-icon>
+              </v-btn>
+            </template>
+            <span v-text="$t('term.superFilter')" />
           </v-tooltip>
         </template>
         <template v-if="filterMode === 'my-list'">

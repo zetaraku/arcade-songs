@@ -18,6 +18,9 @@ const filterTypes = {
 
   noteDesigners: 'string[]',
   region: 'string',
+
+  // Super Filter is not saved or loaded due to security concerns
+  // superFilter: 'string',
 };
 
 export function buildEmptyFilters(): Filters {
@@ -38,6 +41,8 @@ export function buildEmptyFilters(): Filters {
 
     noteDesigners: [],
     region: null,
+
+    superFilter: null,
   };
 }
 
@@ -165,6 +170,11 @@ export function buildFilterOptions(data: Data, i18n: NuxtI18nInstance): FilterOp
   };
 }
 
+export function parseSuperFilter(superFilterText: string) {
+  // eslint-disable-next-line no-new-func
+  return (new Function(superFilterText))();
+}
+
 export function filterSheets(sheets: Sheet[], filters: Filters) {
   let result = sheets.slice();
 
@@ -245,6 +255,14 @@ export function filterSheets(sheets: Sheet[], filters: Filters) {
     result = result.filter(
       (sheet) => filters.noteDesigners.includes(sheet.noteDesigner!),
     );
+  }
+  if (filters.superFilter != null) {
+    try {
+      const superFilter = parseSuperFilter(filters.superFilter);
+      result = result.filter(superFilter);
+    } catch {
+      // do nothing if any error occurred
+    }
   }
 
   return result;

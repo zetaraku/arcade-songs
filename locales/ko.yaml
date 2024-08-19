@@ -48,6 +48,7 @@ term:
   totalNotes: 전체 노트 수
   region: 지역
   comment: 코멘트
+  superFilter: 슈퍼 필터
 
 # Descriptions & Tooltips
 description:

@@ -15,4 +15,6 @@ export type Filters = {
 
   noteDesigners: string[];
   region: string | null;
+
+  superFilter: string | null;
 };
