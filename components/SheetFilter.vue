@@ -8,10 +8,13 @@ const filterOptions: Ref<FilterOptions> = inject('filterOptions')!;
 
 function validateSuperFilter(superFilterText: string): boolean | string {
   try {
-    parseSuperFilter(superFilterText);
+    const superFilter = parseSuperFilter(superFilterText);
+
+    if (typeof superFilter !== 'function') throw new TypeError('You should return a predicate function.');
+
     return true;
-  } catch (err: any) {
-    return err.message;
+  } catch (err) {
+    return String(err);
   }
 }
 </script>

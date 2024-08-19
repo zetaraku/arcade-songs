@@ -259,9 +259,17 @@ export function filterSheets(sheets: Sheet[], filters: Filters) {
   if (filters.superFilter != null) {
     try {
       const superFilter = parseSuperFilter(filters.superFilter);
-      result = result.filter(superFilter);
+
+      if (typeof superFilter !== 'function') throw new TypeError('Invalid super filter');
+
+      try {
+        result = result.filter(superFilter);
+      } catch (err) {
+        // eslint-disable-next-line no-console
+        console.warn(err);
+      }
     } catch {
-      // do nothing if any error occurred
+      // do nothing if the super filter is invalid
     }
   }
 
