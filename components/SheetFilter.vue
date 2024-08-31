@@ -115,6 +115,7 @@ function validateSuperFilter(superFilterText: string): boolean | string {
         >
           <v-btn
             icon
+            :color="!filters.useInternalLevel ? null : 'accent'"
             @click="filters.useInternalLevel = !filters.useInternalLevel || null;"
           >
             <v-icon size="2.4em">
