@@ -1,4 +1,4 @@
-import { parseBoolean } from '~/utils/misc';
+import { parseBoolean, isEmptyArray } from '~/utils/misc';
 import type { NuxtI18nInstance } from '@nuxtjs/i18n';
 import type { Data, Sheet, Filters, FilterOptions } from '~/types';
 
@@ -363,7 +363,7 @@ export function saveFiltersAsQuery(filters: Filters): Record<string, string> {
   for (const [key, name] of Object.entries(filterTypes)) {
     const value = filters[key as keyof Filters];
     // eslint-disable-next-line no-continue
-    if (value == null || (Array.isArray(value) && value.length === 0)) continue;
+    if (value == null || isEmptyArray(value)) continue;
     query[key] = QueryWriter[name](value);
   }
 

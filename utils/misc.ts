@@ -8,6 +8,10 @@ export function isValidUrl(urlString: string): boolean {
   }
 }
 
+export function isEmptyArray(arg: unknown): boolean {
+  return Array.isArray(arg) && arg.length === 0;
+}
+
 export function parseBoolean(str: string): boolean | undefined {
   if (str === 'true') return true;
   if (str === 'false') return false;
