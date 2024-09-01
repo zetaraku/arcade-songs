@@ -62,7 +62,7 @@ export default defineComponent({
           <a href="http://maimai.wiki.fc2.com/" target="_blank">maimai wiki</a>
           (<a href="https://web.archive.org/web/20220327004356/https://maimai.wiki.fc2.com/" target="_blank">archive</a>)
           /
-          {{ /* eslint-disable-next-line no-irregular-whitespace */ }}
+          <!-- eslint-disable-next-line no-irregular-whitespace -->
           <a href="https://gamerch.com/maimai/" target="_blank">maimai　攻略wiki | Gamerch</a>
           － {{ $t('page.about.sheetInfoDescription') }}
         </li>
