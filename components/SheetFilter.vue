@@ -113,15 +113,22 @@ function validateSuperFilter(superFilterText: string): boolean | string {
           v-if="filterOptions.internalLevels != null && filterOptions.internalLevels.length !== 0"
           class="d-flex flex-grow-0 align-center pl-6 align-self-stretch"
         >
-          <v-btn
-            icon
-            :color="!filters.useInternalLevel ? null : 'accent'"
-            @click="filters.useInternalLevel = !filters.useInternalLevel || null;"
-          >
-            <v-icon size="2.4em">
-              {{ !filters.useInternalLevel ? 'mdi-closed-caption-outline' : 'mdi-closed-caption' }}
-            </v-icon>
-          </v-btn>
+          <v-tooltip top>
+            <template #activator="{ on }">
+              <v-btn
+                icon
+                :color="!filters.useInternalLevel ? null : 'accent'"
+                @click="filters.useInternalLevel = !filters.useInternalLevel || null;"
+                v-on="on"
+              >
+                <v-icon size="2.4em">
+                  <!-- eslint-disable-next-line max-len -->
+                  {{ !filters.useInternalLevel ? 'mdi-closed-caption-outline' : 'mdi-closed-caption' }}
+                </v-icon>
+              </v-btn>
+            </template>
+            <span v-text="$t('sfc.SheetFilter.useInternalLevel')" />
+          </v-tooltip>
         </div>
       </v-col>
       <v-col

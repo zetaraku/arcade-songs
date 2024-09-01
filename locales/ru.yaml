@@ -98,6 +98,8 @@ sfc:
   DataInfoBar:
     updateTime: 'Время Обновления Данных: {time}'
     loadFailed: Не удалось загрузить данные.
+  # SheetFilter:
+  #   useInternalLevel: Use Internal Level
   ModeSelector:
     gridMode: Вид в Столбик
     tableMode: Детальный Вид

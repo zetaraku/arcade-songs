@@ -99,6 +99,8 @@ sfc:
   DataInfoBar:
     updateTime: '데이터 업데이트 시간: {time}'
     loadFailed: 데이터를 불러오는 동안 실패했습니다.
+  SheetFilter:
+    useInternalLevel: 보면상수를 사용
   ModeSelector:
     gridMode: 그리드 보기
     tableMode: 상세 보기

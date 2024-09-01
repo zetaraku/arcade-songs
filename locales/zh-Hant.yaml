@@ -101,6 +101,8 @@ sfc:
   DataInfoBar:
     updateTime: '資料更新日期：{time}'
     loadFailed: 資料讀取失敗。
+  SheetFilter:
+    useInternalLevel: 使用譜面定數
   ModeSelector:
     gridMode: 格狀檢視
     tableMode: 詳細檢視

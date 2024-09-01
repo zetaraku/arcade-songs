@@ -105,6 +105,8 @@ sfc:
   DataInfoBar:
     updateTime: 'Data Update Time: {time}'
     loadFailed: Failed while loading data.
+  SheetFilter:
+    useInternalLevel: Use Internal Level
   ModeSelector:
     gridMode: Grid View
     tableMode: Detail View

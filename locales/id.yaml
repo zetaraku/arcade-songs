@@ -98,6 +98,8 @@ sfc:
   DataInfoBar:
     updateTime: 'Waktu Pembaruan Data: {time}'
     loadFailed: Gagal ketika memuat data.
+  # SheetFilter:
+  #   useInternalLevel: Use Internal Level
   ModeSelector:
     gridMode: Berkotak
     tableMode: Bergaris

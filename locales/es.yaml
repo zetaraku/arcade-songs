@@ -98,6 +98,8 @@ sfc:
   DataInfoBar:
     updateTime: 'Tiempo de actualización de los datos: {time}'
     loadFailed: Error al cargar los datos.
+  # SheetFilter:
+  #   useInternalLevel: Use Internal Level
   ModeSelector:
     gridMode: Vista en cuadrícula
     tableMode: Vista detallada

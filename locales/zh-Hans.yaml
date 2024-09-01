@@ -101,6 +101,8 @@ sfc:
   DataInfoBar:
     updateTime: '数据更新日期：{time}'
     loadFailed: 数据加载失败。
+  SheetFilter:
+    useInternalLevel: 使用谱面定数
   ModeSelector:
     gridMode: 格状检视
     tableMode: 详细检视
