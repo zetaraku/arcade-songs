@@ -1,10 +1,13 @@
 <script setup lang="ts">
 import { computed, inject, Ref } from '@nuxtjs/composition-api';
+import useGameInfo from '~/composables/useGameInfo';
 import { parseSuperFilter } from '~/utils';
 import type { Filters, FilterOptions } from '~/types';
 
 const filters: Ref<Filters> = inject('filters')!;
 const filterOptions: Ref<FilterOptions> = inject('filterOptions')!;
+
+const { gameCode } = useGameInfo();
 
 const currentLevelFilterOptions = computed(() => (
   filters.value.useInternalLevel
@@ -118,7 +121,11 @@ function validateSuperFilter(superFilterText: string): boolean | string {
               <v-btn
                 icon
                 :color="!filters.useInternalLevel ? null : 'accent'"
-                @click="filters.useInternalLevel = !filters.useInternalLevel || null;"
+                @click="
+                  filters.useInternalLevel = !filters.useInternalLevel || null;
+                  // eslint-disable-next-line max-len
+                  $gtag('event', 'InternalLevelFilterToggled', { gameCode, eventSource: 'SheetFilter' });
+                "
                 v-on="on"
               >
                 <v-icon size="2.4em">
@@ -228,7 +235,10 @@ function validateSuperFilter(superFilterText: string): boolean | string {
                 icon
                 :color="!filters.useRegionOverride ? null : 'accent'"
                 :disabled="filters.region == null || filters.region.startsWith('!')"
-                @click="filters.useRegionOverride = !filters.useRegionOverride || null;"
+                @click="
+                  filters.useRegionOverride = !filters.useRegionOverride || null;
+                  $gtag('event', 'RegionOverrideToggled', { gameCode, eventSource: 'SheetFilter' });
+                "
                 v-on="on"
               >
                 <v-icon size="2.0em">
