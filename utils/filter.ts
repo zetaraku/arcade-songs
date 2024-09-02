@@ -1,3 +1,4 @@
+import { $canonicalSheet } from '~/utils/sheet';
 import { parseBoolean, isEmptyArray } from '~/utils/misc';
 import type { NuxtI18nInstance } from '@nuxtjs/i18n';
 import type { Data, Sheet, Filters, FilterOptions } from '~/types';
@@ -19,6 +20,7 @@ const filterTypes = {
 
   noteDesigners: 'string[]',
   region: 'string',
+  useRegionOverride: 'boolean',
 
   // Super Filter is not saved or loaded due to security concerns
   // superFilter: 'string',
@@ -42,6 +44,7 @@ export function buildEmptyFilters(): Filters {
 
     noteDesigners: [],
     region: null,
+    useRegionOverride: null,
 
     superFilter: null,
   };
@@ -178,6 +181,14 @@ export function parseSuperFilter(superFilterText: string) {
 
 export function filterSheets(sheets: Sheet[], filters: Filters) {
   let result = sheets.slice();
+
+  if (filters.useRegionOverride) {
+    const currentRegion = filters.region != null && !filters.region.startsWith('!') ? filters.region : null;
+
+    if (currentRegion != null) {
+      result = result.map((sheet) => sheet.regionOverrides?.[currentRegion] ?? sheet);
+    }
+  }
 
   if (filters.region != null) {
     if (filters.region.startsWith('!')) {
@@ -322,6 +333,8 @@ export function filterSheets(sheets: Sheet[], filters: Filters) {
       // do nothing if the super filter is invalid
     }
   }
+
+  result = result.map((sheet) => sheet[$canonicalSheet] ?? sheet);
 
   return result;
 }

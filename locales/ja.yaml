@@ -103,6 +103,7 @@ sfc:
     loadFailed: データの読み込みに失敗しました。
   SheetFilter:
     useInternalLevel: 譜面定数を使用する
+    useRegionOverride: 地区の情報でオーバーライド
   ModeSelector:
     gridMode: グリッド表示
     tableMode: 詳細表示

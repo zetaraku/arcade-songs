@@ -103,6 +103,7 @@ sfc:
     loadFailed: 数据加载失败。
   SheetFilter:
     useInternalLevel: 使用谱面定数
+    useRegionOverride: 使用地区信息覆写
   ModeSelector:
     gridMode: 格状检视
     tableMode: 详细检视

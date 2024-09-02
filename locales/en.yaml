@@ -107,6 +107,7 @@ sfc:
     loadFailed: Failed while loading data.
   SheetFilter:
     useInternalLevel: Use Internal Level
+    useRegionOverride: Use Regional Info Override
   ModeSelector:
     gridMode: Grid View
     tableMode: Detail View

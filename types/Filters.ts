@@ -15,6 +15,7 @@ export type Filters = {
 
   noteDesigners: string[];
   region: string | null;
+  useRegionOverride: boolean | null;
 
   superFilter: string | null;
 };

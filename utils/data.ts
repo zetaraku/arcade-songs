@@ -1,4 +1,4 @@
-import { computeSheetExpr, validateNoteCounts } from '~/utils/sheet';
+import { $canonicalSheet, computeSheetExpr, validateNoteCounts } from '~/utils/sheet';
 import type { Data } from '~/types';
 
 export function buildEmptyData(): Data {
@@ -44,6 +44,8 @@ export function preprocessData(data: Data, dataSourceUrl: string, gameCode: stri
     for (const sheet of song.sheets) {
       Object.setPrototypeOf(sheet, song);
 
+      sheet[$canonicalSheet] = sheet;
+
       sheet.imageUrl = resolveUrl(sheet.imageName, `${dataSourceUrl}/img/cover/`);
       sheet.imageUrlM = resolveUrl(sheet.imageName, `${dataSourceUrl}/img/cover-m/`);
 
@@ -55,9 +57,16 @@ export function preprocessData(data: Data, dataSourceUrl: string, gameCode: stri
         console.warn('Invalid note counts:', sheet.sheetExpr, sheet.noteCounts);
       }
 
+      for (const regionOverride of Object.values(sheet.regionOverrides ?? {})) {
+        Object.setPrototypeOf(regionOverride, sheet);
+
+        Object.freeze(regionOverride);
+      }
+
       Object.freeze(sheet.noteCounts);
       Object.freeze(sheet.notePercents);
       Object.freeze(sheet.regions);
+      Object.freeze(sheet.regionOverrides);
 
       Object.freeze(sheet);
     }

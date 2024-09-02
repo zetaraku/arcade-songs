@@ -1,3 +1,4 @@
+import { $canonicalSheet } from '~/utils';
 import type { Song } from './Song';
 
 export type Sheet = (Omit<Song, 'sheets'> & {
@@ -14,10 +15,12 @@ export type Sheet = (Omit<Song, 'sheets'> & {
   noteCounts?: Record<string, number | null>;
 
   regions?: Record<string, boolean>;
+  regionOverrides?: Record<string, Sheet>;
 
   isSpecial?: boolean;
 } & {
   // added by preprocessing
+  [$canonicalSheet]?: Sheet;
   sheetExpr?: string;
   notePercents?: Record<string, number | null>;
 

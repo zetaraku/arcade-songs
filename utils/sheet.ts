@@ -4,6 +4,8 @@ import rickImageUrl from '~/assets/images/rick.png';
 import indiImageUrl from '~/assets/images/indi.png';
 import type { Sheet } from '~/types';
 
+export const $canonicalSheet = Symbol('$canonicalSheet');
+
 export const NULL_SHEET: Sheet = {
   songId: null,
   songNo: 0,

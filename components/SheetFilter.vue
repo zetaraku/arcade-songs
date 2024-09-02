@@ -210,15 +210,35 @@ function validateSuperFilter(superFilterText: string): boolean | string {
         md="6"
         class="d-flex align-end"
       >
-        <v-select
-          v-model="filters.region"
-          :items="filterOptions.regions"
-          prepend-icon="mdi-map-search"
-          :label="$t('term.region')"
-          :placeholder="$t('ui.all')"
-          persistent-placeholder
-          clearable
-        />
+        <div class="d-flex flex-grow-1 align-end">
+          <v-select
+            v-model="filters.region"
+            :items="filterOptions.regions"
+            prepend-icon="mdi-map-search"
+            :label="$t('term.region')"
+            :placeholder="$t('ui.all')"
+            persistent-placeholder
+            clearable
+          />
+        </div>
+        <div class="d-flex flex-grow-0 align-center pl-6 align-self-stretch">
+          <v-tooltip top>
+            <template #activator="{ on }">
+              <v-btn
+                icon
+                :color="!filters.useRegionOverride ? null : 'accent'"
+                :disabled="filters.region == null || filters.region.startsWith('!')"
+                @click="filters.useRegionOverride = !filters.useRegionOverride || null;"
+                v-on="on"
+              >
+                <v-icon size="2.0em">
+                  {{ !filters.useRegionOverride ? 'mdi-file-replace-outline' : 'mdi-file-replace' }}
+                </v-icon>
+              </v-btn>
+            </template>
+            <span v-text="$t('sfc.SheetFilter.useRegionOverride')" />
+          </v-tooltip>
+        </div>
       </v-col>
       <v-col
         v-if="filterOptions.bpms != null"
