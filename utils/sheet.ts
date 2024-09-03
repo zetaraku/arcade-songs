@@ -100,6 +100,14 @@ export const INDI_SHEET: Sheet = {
   searchUrl: 'https://www.youtube.com/watch?v=_IneeB-UDFA',
 };
 
+export function getRegionOverrideSheet(sheet: Sheet, region: string): Sheet {
+  return sheet.regionOverrides?.[region] ?? sheet;
+}
+
+export function getCanonicalSheet(sheet: Sheet): Sheet {
+  return sheet[$canonicalSheet] ?? sheet;
+}
+
 export function computeSheetExpr(sheet: Sheet) {
   return `${sheet.songId}|${sheet.type}|${sheet.difficulty}`;
 }

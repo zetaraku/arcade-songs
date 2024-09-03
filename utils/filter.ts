@@ -1,4 +1,4 @@
-import { $canonicalSheet } from '~/utils/sheet';
+import { getRegionOverrideSheet, getCanonicalSheet } from '~/utils/sheet';
 import { parseBoolean, isEmptyArray } from '~/utils/misc';
 import type { NuxtI18nInstance } from '@nuxtjs/i18n';
 import type { Data, Sheet, Filters, FilterOptions } from '~/types';
@@ -186,7 +186,7 @@ export function filterSheets(sheets: Sheet[], filters: Filters) {
     const currentRegion = filters.region != null && !filters.region.startsWith('!') ? filters.region : null;
 
     if (currentRegion != null) {
-      result = result.map((sheet) => sheet.regionOverrides?.[currentRegion] ?? sheet);
+      result = result.map((sheet) => getRegionOverrideSheet(sheet, currentRegion));
     }
   }
 
@@ -334,7 +334,7 @@ export function filterSheets(sheets: Sheet[], filters: Filters) {
     }
   }
 
-  result = result.map((sheet) => sheet[$canonicalSheet] ?? sheet);
+  result = result.map((sheet) => getCanonicalSheet(sheet));
 
   return result;
 }
