@@ -17,6 +17,10 @@ const sortDesc: Ref<boolean> = inject('sortDesc')!;
 const { gameCode } = useGameInfo();
 const { viewSheet } = useSheetDialog();
 const headers = useSheetHeaders();
+
+function getItemClass(sheet: Sheet) {
+  return filterMode.value !== 'my-list' && selectedSheets.value.includes(sheet) ? 'selected-sheet' : '';
+}
 </script>
 
 <template>
@@ -58,7 +62,7 @@ const headers = useSheetHeaders();
         v-for="(sheet, i) in currentSheets"
         :key="i"
         :sheet="sheet"
-        :class="{ 'selected-sheet': filterMode !== 'my-list' && selectedSheets.includes(sheet) }"
+        :class="getItemClass(sheet)"
         @click.left="
           viewSheet(sheet);
           $gtag('event', 'SheetViewed', { gameCode, eventSource: 'SheetDataGrid' });
