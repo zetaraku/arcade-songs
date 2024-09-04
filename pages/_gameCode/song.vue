@@ -76,7 +76,7 @@ export default defineComponent({
 </script>
 
 <template>
-  <v-container class="pa-8">
+  <v-container class="pa-4 pa-sm-8">
     <v-btn
       color="secondary"
       outlined

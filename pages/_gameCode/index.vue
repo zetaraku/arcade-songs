@@ -108,7 +108,7 @@ export default defineComponent({
 </script>
 
 <template>
-  <v-container fluid class="pa-8">
+  <v-container fluid class="pa-4 pa-sm-8">
     <DataInfoBar class="mb-6" />
 
     <SheetFilter class="px-3" />

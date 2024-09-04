@@ -82,7 +82,7 @@ export default defineComponent({
 
 <template>
   <!-- eslint-disable vue/valid-v-slot -->
-  <v-container fluid class="pa-8">
+  <v-container fluid class="pa-4 pa-sm-8">
     <h1>
       <span v-text="$t('page-title.songs')" />
     </h1>

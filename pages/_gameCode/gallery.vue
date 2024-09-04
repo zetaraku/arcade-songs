@@ -242,7 +242,7 @@ export default defineComponent({
 </script>
 
 <template>
-  <v-container class="text-center pa-8">
+  <v-container class="text-center pa-4 pa-sm-8">
     <LoadingOverlay
       v-if="
         currentLoadingStatus === LoadingStatus.LOADING

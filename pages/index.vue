@@ -58,7 +58,7 @@ export default defineComponent({
 </script>
 
 <template>
-  <v-container class="fill-height pa-8">
+  <v-container class="fill-height pa-4 pa-sm-8">
     <v-row class="align-center">
       <v-col cols="12" md="6" class="text-center" style="user-select: none;">
         <link v-if="toggle" rel="preload" :href="RICK_SHEET.imageUrl" as="image">

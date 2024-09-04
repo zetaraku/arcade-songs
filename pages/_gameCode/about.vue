@@ -24,7 +24,7 @@ export default defineComponent({
 
 <template>
   <!-- eslint-disable max-len -->
-  <v-container class="pa-8">
+  <v-container class="pa-4 pa-sm-8">
     <h1>{{ $t('page-title.about') }}</h1>
 
     <v-divider class="my-3" />
