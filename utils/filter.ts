@@ -11,11 +11,13 @@ const filterTypes = {
   versions: 'string[]',
   minBPM: 'number',
   maxBPM: 'number',
+  // syncBPM: 'boolean',
 
   types: 'string[]',
   difficulties: 'string[]',
   minLevelValue: 'number',
   maxLevelValue: 'number',
+  // syncLevelValue: 'boolean',
   useInternalLevel: 'boolean',
 
   noteDesigners: 'string[]',
@@ -35,11 +37,13 @@ export function buildEmptyFilters(): Filters {
     versions: [],
     minBPM: null,
     maxBPM: null,
+    syncBPM: null,
 
     types: [],
     difficulties: [],
     minLevelValue: null,
     maxLevelValue: null,
+    syncLevelValue: null,
     useInternalLevel: null,
 
     noteDesigners: [],

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, inject, Ref } from '@nuxtjs/composition-api';
+import { computed, watch, inject, Ref } from '@nuxtjs/composition-api';
 import useGameInfo from '~/composables/useGameInfo';
 import { parseSuperFilter } from '~/utils';
 import type { Filters, FilterOptions } from '~/types';
@@ -26,6 +26,30 @@ function validateSuperFilter(superFilterText: string): boolean | string {
     return String(err);
   }
 }
+
+// Sync Level Filter
+watch(() => filters.value.minLevelValue, () => {
+  if (filters.value.syncLevelValue) {
+    filters.value.maxLevelValue = filters.value.minLevelValue;
+  }
+});
+watch(() => filters.value.maxLevelValue, () => {
+  if (filters.value.syncLevelValue) {
+    filters.value.minLevelValue = filters.value.maxLevelValue;
+  }
+});
+
+// Sync BPM Filter
+watch(() => filters.value.minBPM, () => {
+  if (filters.value.syncBPM) {
+    filters.value.maxBPM = filters.value.minBPM;
+  }
+});
+watch(() => filters.value.maxBPM, () => {
+  if (filters.value.syncBPM) {
+    filters.value.minBPM = filters.value.maxBPM;
+  }
+});
 </script>
 
 <template>
@@ -106,7 +130,21 @@ function validateSuperFilter(superFilterText: string): boolean | string {
             clearable
           />
         </div>
-        <div class="d-flex flex-grow-1 align-end pl-6" style="min-width: 0;">
+        <div class="d-flex flex-grow-0 align-center px-2 align-self-stretch">
+          <v-btn
+            icon
+            :color="!filters.syncLevelValue ? null : 'accent'"
+            @click="
+              filters.syncLevelValue = !filters.syncLevelValue || null;
+              $gtag('event', 'LevelFilterSyncToggled', { gameCode, eventSource: 'SheetFilter' });
+            "
+          >
+            <v-icon size="2.0em">
+              {{ !filters.syncLevelValue ? 'mdi-link-off' : 'mdi-link' }}
+            </v-icon>
+          </v-btn>
+        </div>
+        <div class="d-flex flex-grow-1 align-end" style="min-width: 0;">
           <v-select
             v-model="filters.maxLevelValue"
             :items="currentLevelFilterOptions"
@@ -278,7 +316,21 @@ function validateSuperFilter(superFilterText: string): boolean | string {
             clearable
           />
         </div>
-        <div class="d-flex flex-grow-1 align-end pl-6" style="min-width: 0;">
+        <div class="d-flex flex-grow-0 align-center px-2 align-self-stretch">
+          <v-btn
+            icon
+            :color="!filters.syncBPM ? null : 'accent'"
+            @click="
+              filters.syncBPM = !filters.syncBPM || null;
+              $gtag('event', 'BPMFilterSyncToggled', { gameCode, eventSource: 'SheetFilter' });
+            "
+          >
+            <v-icon size="2.0em">
+              {{ !filters.syncBPM ? 'mdi-link-off' : 'mdi-link' }}
+            </v-icon>
+          </v-btn>
+        </div>
+        <div class="d-flex flex-grow-1 align-end" style="min-width: 0;">
           <v-text-field
             v-model.number="filters.maxBPM"
             type="number"
@@ -314,3 +366,11 @@ function validateSuperFilter(superFilterText: string): boolean | string {
     </v-row>
   </div>
 </template>
+
+<style lang="scss" scoped>
+::v-deep {
+  .v-select__selections {
+    flex-wrap: nowrap;
+  }
+}
+</style>
