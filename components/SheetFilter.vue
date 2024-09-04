@@ -38,6 +38,13 @@ watch(() => filters.value.maxLevelValue, () => {
     filters.value.minLevelValue = filters.value.maxLevelValue;
   }
 });
+watch(() => filters.value.syncLevelValue, () => {
+  if (filters.value.syncLevelValue) {
+    const levelValue = filters.value.minLevelValue ?? filters.value.maxLevelValue;
+    filters.value.minLevelValue = levelValue;
+    filters.value.maxLevelValue = levelValue;
+  }
+}, { immediate: true });
 
 // Sync BPM Filter
 watch(() => filters.value.minBPM, () => {
@@ -50,6 +57,13 @@ watch(() => filters.value.maxBPM, () => {
     filters.value.minBPM = filters.value.maxBPM;
   }
 });
+watch(() => filters.value.syncBPM, () => {
+  if (filters.value.syncBPM) {
+    const bpm = filters.value.maxBPM ?? filters.value.minBPM;
+    filters.value.minBPM = bpm;
+    filters.value.maxBPM = bpm;
+  }
+}, { immediate: true });
 </script>
 
 <template>
