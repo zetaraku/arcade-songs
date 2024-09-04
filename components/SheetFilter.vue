@@ -31,6 +31,7 @@ function validateSuperFilter(superFilterText: string): boolean | string {
 <template>
   <div>
     <v-row>
+      <!-- Category -->
       <v-col
         v-if="filterOptions.categories != null"
         cols="12"
@@ -50,6 +51,7 @@ function validateSuperFilter(superFilterText: string): boolean | string {
           clearable
         />
       </v-col>
+      <!-- Title -->
       <v-col
         v-if="filterOptions.titles != null"
         cols="12"
@@ -66,6 +68,7 @@ function validateSuperFilter(superFilterText: string): boolean | string {
           clearable
         />
       </v-col>
+      <!-- Difficulty -->
       <v-col
         v-if="filterOptions.difficulties != null"
         cols="12"
@@ -85,6 +88,7 @@ function validateSuperFilter(superFilterText: string): boolean | string {
           clearable
         />
       </v-col>
+      <!-- Level / Internal Level -->
       <v-col
         v-if="filterOptions.levels != null"
         cols="12"
@@ -138,6 +142,7 @@ function validateSuperFilter(superFilterText: string): boolean | string {
           </v-tooltip>
         </div>
       </v-col>
+      <!-- Version -->
       <v-col
         v-if="filterOptions.versions != null"
         cols="12"
@@ -157,6 +162,7 @@ function validateSuperFilter(superFilterText: string): boolean | string {
           clearable
         />
       </v-col>
+      <!-- Type -->
       <v-col
         v-if="filterOptions.types != null"
         cols="12"
@@ -176,6 +182,7 @@ function validateSuperFilter(superFilterText: string): boolean | string {
           clearable
         />
       </v-col>
+      <!-- Artist -->
       <v-col
         v-if="filterOptions.artists != null"
         cols="12"
@@ -192,6 +199,7 @@ function validateSuperFilter(superFilterText: string): boolean | string {
           clearable
         />
       </v-col>
+      <!-- Note Designer -->
       <v-col
         v-if="filterOptions.noteDesigners != null"
         cols="12"
@@ -211,6 +219,7 @@ function validateSuperFilter(superFilterText: string): boolean | string {
           clearable
         />
       </v-col>
+      <!-- Region -->
       <v-col
         v-if="filterOptions.regions != null"
         cols="12"
@@ -250,6 +259,7 @@ function validateSuperFilter(superFilterText: string): boolean | string {
           </v-tooltip>
         </div>
       </v-col>
+      <!-- BPM -->
       <v-col
         v-if="filterOptions.bpms != null"
         cols="12"
@@ -280,6 +290,7 @@ function validateSuperFilter(superFilterText: string): boolean | string {
           />
         </div>
       </v-col>
+      <!-- Super Filter -->
       <v-col
         v-if="filters.superFilter !== null"
         cols="12"
