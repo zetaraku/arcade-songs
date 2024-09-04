@@ -156,7 +156,7 @@ watch(() => filters.value.maxBPM, () => {
         </div>
         <div
           v-if="filterOptions.internalLevels != null && filterOptions.internalLevels.length !== 0"
-          class="d-flex flex-grow-0 align-center pl-6 align-self-stretch"
+          class="d-flex flex-grow-0 align-center pl-4 align-self-stretch"
         >
           <v-tooltip top>
             <template #activator="{ on }">
@@ -275,7 +275,7 @@ watch(() => filters.value.maxBPM, () => {
             clearable
           />
         </div>
-        <div class="d-flex flex-grow-0 align-center pl-6 align-self-stretch">
+        <div class="d-flex flex-grow-0 align-center pl-4 align-self-stretch">
           <v-tooltip top>
             <template #activator="{ on }">
               <v-btn
