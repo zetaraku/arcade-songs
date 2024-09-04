@@ -91,7 +91,7 @@ function validateSuperFilter(superFilterText: string): boolean | string {
         md="6"
         class="d-flex align-end"
       >
-        <div class="d-flex flex-grow-1 align-end">
+        <div class="d-flex flex-grow-1 align-end" style="min-width: 0;">
           <v-select
             v-model="filters.minLevelValue"
             :items="currentLevelFilterOptions"
@@ -102,7 +102,7 @@ function validateSuperFilter(superFilterText: string): boolean | string {
             clearable
           />
         </div>
-        <div class="d-flex flex-grow-1 align-end pl-6">
+        <div class="d-flex flex-grow-1 align-end pl-6" style="min-width: 0;">
           <v-select
             v-model="filters.maxLevelValue"
             :items="currentLevelFilterOptions"
@@ -217,7 +217,7 @@ function validateSuperFilter(superFilterText: string): boolean | string {
         md="6"
         class="d-flex align-end"
       >
-        <div class="d-flex flex-grow-1 align-end">
+        <div class="d-flex flex-grow-1 align-end" style="min-width: 0;">
           <v-select
             v-model="filters.region"
             :items="filterOptions.regions"
@@ -256,7 +256,7 @@ function validateSuperFilter(superFilterText: string): boolean | string {
         md="6"
         class="d-flex align-end"
       >
-        <div class="d-flex flex-grow-1 align-end">
+        <div class="d-flex flex-grow-1 align-end" style="min-width: 0;">
           <v-text-field
             v-model.number="filters.minBPM"
             type="number"
@@ -268,7 +268,7 @@ function validateSuperFilter(superFilterText: string): boolean | string {
             clearable
           />
         </div>
-        <div class="d-flex flex-grow-1 align-end pl-6">
+        <div class="d-flex flex-grow-1 align-end pl-6" style="min-width: 0;">
           <v-text-field
             v-model.number="filters.maxBPM"
             type="number"
