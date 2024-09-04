@@ -300,6 +300,14 @@ export default defineComponent({
     <h3>{{ $t('page.about.updateRecord') }}</h3>
     <v-timeline dense align-top class="mt-2">
       <v-timeline-item>
+        <span class="font-weight-bold">2024/09/04 － v3.20 Update</span>
+        <ul>
+          <li>feature: (Filter) add "Sync Level" and "Sync BPM" filter options</li>
+          <li>ui: (Filter) fix filter option button overflow problem</li>
+          <li>ui: (Site) adjust page padding on small devices</li>
+        </ul>
+      </v-timeline-item>
+      <v-timeline-item>
         <span class="font-weight-bold">2024/09/02 － v3.19 Update</span>
         <ul>
           <li>feature: (Filter) add "Use Regional Info Override" option on "Region" filter</li>
