@@ -256,34 +256,29 @@ function validateSuperFilter(superFilterText: string): boolean | string {
         md="6"
         class="d-flex align-end"
       >
-        <v-row no-gutters>
-          <v-col
-            cols="6"
-            class="d-flex align-end"
-          >
-            <v-text-field
-              v-model.number="filters.minBPM"
-              type="number"
-              :min="0"
-              prepend-icon="mdi-metronome"
-              :label="$t('term.minBPM')"
-              :placeholder="String(filterOptions.bpms.at(0) ?? 0)"
-              persistent-placeholder
-              clearable
-            />
-          </v-col>
-          <v-col cols="6" class="d-flex align-end pl-6">
-            <v-text-field
-              v-model.number="filters.maxBPM"
-              type="number"
-              :min="0"
-              :label="$t('term.maxBPM')"
-              :placeholder="String(filterOptions.bpms.at(-1) ?? 999)"
-              persistent-placeholder
-              clearable
-            />
-          </v-col>
-        </v-row>
+        <div class="d-flex flex-grow-1 align-end">
+          <v-text-field
+            v-model.number="filters.minBPM"
+            type="number"
+            :min="0"
+            prepend-icon="mdi-metronome"
+            :label="$t('term.minBPM')"
+            :placeholder="String(filterOptions.bpms.at(0) ?? 0)"
+            persistent-placeholder
+            clearable
+          />
+        </div>
+        <div class="d-flex flex-grow-1 align-end pl-6">
+          <v-text-field
+            v-model.number="filters.maxBPM"
+            type="number"
+            :min="0"
+            :label="$t('term.maxBPM')"
+            :placeholder="String(filterOptions.bpms.at(-1) ?? 999)"
+            persistent-placeholder
+            clearable
+          />
+        </div>
       </v-col>
       <v-col
         v-if="filters.superFilter !== null"
