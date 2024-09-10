@@ -50,6 +50,7 @@ term:
   comment: Comentario
 
 # Descriptions & Tooltips
+  superFilter: Superfiltro
 description:
   pending: Pendiente
   loading: Cargando datos…
@@ -64,6 +65,10 @@ description:
   clearMyList: Borrar MI LISTA
 
 # Pages
+  pickOneFromFilter: ¡ELIGE UNO DEL FILTRO!
+  noMoreSheetsToPick: No hay más gráficos para seleccionar.
+  superFilterPlaceholder: "// devuelve una función de predicado para filtrar el resultado\nreturn (sheet) => true;\n"
+  superFilterHint: // Espero que sepas lo que estás haciendo ...
 page:
   index:
     description: Busca canciones de tus juegos musicales favoritos, ¡ahora todo en uno!
@@ -127,3 +132,6 @@ sfc:
     changeDrawSize: Cambiar tamaño de dibujo
     allowDuplicate: Permitir duplicado
     blindfoldMode: Modo aleatorio
+  SheetFilter:
+    useInternalLevel: Utilizar el nivel interno
+    useRegionOverride: Sobrescribir con información de región
