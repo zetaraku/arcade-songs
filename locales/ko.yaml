@@ -63,6 +63,12 @@ description:
   myListEmpty: 채보를 마우스 오른쪽 버튼으로 클릭하거나 길게 눌러 내 목록에 추가하면 여기에서 선택한 채보를 볼 수 있습니다.
   drawPoolEmpty: 현재 채보 풀이 비어 있습니다.
   clearMyList: 내 목록 비우기
+  # pickOneFromFilter: PICK ONE FROM FILTER!
+  # noMoreSheetsToPick: No more sheets to pick.
+  # superFilterPlaceholder: |
+  #   // return a predicate function to filter the result
+  #   return (sheet) => true;
+  # superFilterHint: // I hope you know what you're doing ...
 
 # Pages
 page:
