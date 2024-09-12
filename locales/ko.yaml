@@ -63,8 +63,8 @@ description:
   myListEmpty: 채보를 마우스 오른쪽 버튼으로 클릭하거나 길게 눌러 내 목록에 추가하면 여기에서 선택한 채보를 볼 수 있습니다.
   drawPoolEmpty: 현재 채보 풀이 비어 있습니다.
   clearMyList: 내 목록 비우기
-  # pickOneFromFilter: PICK ONE FROM FILTER!
-  # noMoreSheetsToPick: No more sheets to pick.
+  pickOneFromFilter: 현재 필터에서 곡 한개 뽑기!
+  noMoreSheetsToPick: 더 이상 고를 수 있는 곡이 없습니다.
   # superFilterPlaceholder: |
   #   // return a predicate function to filter the result
   #   return (sheet) => true;
@@ -107,7 +107,7 @@ sfc:
     loadFailed: 데이터를 불러오는 동안 실패했습니다.
   SheetFilter:
     useInternalLevel: 보면상수를 사용
-    useRegionOverride: 특정 지역 정보를 사용
+    useRegionOverride: 이 지역의 정보로 덮어쓰기
   ModeSelector:
     gridMode: 그리드 보기
     tableMode: 상세 보기
