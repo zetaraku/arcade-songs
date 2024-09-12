@@ -65,6 +65,10 @@ description:
   clearMyList: 「マイリスト」を空にする
   pickOneFromFilter: フィルター結果から選択する！
   noMoreSheetsToPick: 選ばれる譜面がありません。
+  # superFilterPlaceholder: |
+  #   // return a predicate function to filter the result
+  #   return (sheet) => true;
+  # superFilterHint: // I hope you know what you're doing ...
 
 # Pages
 page:

@@ -48,6 +48,7 @@ term:
   totalNotes: TOTAL
   region: Región
   comment: Comentario
+  superFilter: Superfiltro
 
 # Descriptions & Tooltips
 description:
@@ -62,6 +63,12 @@ description:
   myListEmpty: Haga clic con el botón derecho del ratón o mantenga pulsada un mapa para añadirlo a MI LISTA y, a continuación, podrás ver aquí los mapas seleccionados.
   drawPoolEmpty: El recipiente de extracción actual está vacío.
   clearMyList: Borrar MI LISTA
+  pickOneFromFilter: ¡ELIGE UNO DEL FILTRO!
+  noMoreSheetsToPick: No hay más gráficos para seleccionar.
+  superFilterPlaceholder: |
+    // devuelve una función de predicado para filtrar el resultado
+    return (sheet) => true;
+  superFilterHint: // Espero que sepas lo que estás haciendo ...
 
 # Pages
 page:
@@ -98,9 +105,9 @@ sfc:
   DataInfoBar:
     updateTime: 'Tiempo de actualización de los datos: {time}'
     loadFailed: Error al cargar los datos.
-  # SheetFilter:
-  #   useInternalLevel: Use Internal Level
-  #   useRegionOverride: Use Regional Info Override
+  SheetFilter:
+    useInternalLevel: Utilizar el nivel interno
+    useRegionOverride: Sobrescribir con información de región
   ModeSelector:
     gridMode: Vista en cuadrícula
     tableMode: Vista detallada

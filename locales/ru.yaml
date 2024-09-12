@@ -48,6 +48,7 @@ term:
   totalNotes: ВСЕГО
   region: Регион
   comment: Комментарий
+  # superFilter: Super Filter
 
 # Descriptions & Tooltips
 description:
@@ -62,6 +63,12 @@ description:
   myListEmpty: Щелкните правой кнопкой или долгим нажатием на лист, чтобы добавить его в МОЙ СПИСОК, и вы сможете увидеть ваши избранные листы здесь.
   drawPoolEmpty: Текущий пул рисования пуст.
   # clearMyList: Clear MY LIST
+  # pickOneFromFilter: PICK ONE FROM FILTER!
+  # noMoreSheetsToPick: No more sheets to pick.
+  # superFilterPlaceholder: |
+  #   // return a predicate function to filter the result
+  #   return (sheet) => true;
+  # superFilterHint: // I hope you know what you're doing ...
 
 # Pages
 page:

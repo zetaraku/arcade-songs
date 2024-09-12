@@ -48,6 +48,7 @@ term:
   totalNotes: TOTAL
   region: Wilayah
   comment: Komentar
+  # superFilter: Super Filter
 
 # Descriptions & Tooltips
 description:
@@ -61,12 +62,18 @@ description:
   filterResultEmpty: Tidak dapat menemukan lembar yang memenuhi filter.
   myListEmpty: Klik kanan atau tahan untuk menambah sebuah lembar ke MY LIST, lalu kamu bisa lihat lembar yang dipilih di sini.
   drawPoolEmpty: Kolam undian saat ini kosong.
-  # clearMyList: Clear MY LIST
+  clearMyList: Kosongkan MY LIST
+  # pickOneFromFilter: PICK ONE FROM FILTER!
+  # noMoreSheetsToPick: No more sheets to pick.
+  # superFilterPlaceholder: |
+  #   // return a predicate function to filter the result
+  #   return (sheet) => true;
+  # superFilterHint: // I hope you know what you're doing ...
 
 # Pages
 page:
   index:
-    description: Cari lagu dari permainan musik kesukaanmu, sekarang dalam satu situs!
+    description: Cari lagu permainan musik favorit Anda, sekarang semua tergabung dalam satu!
   gallery:
     selectList: Pilih Daftar Lagu
   songs:
@@ -125,5 +132,5 @@ sfc:
     drawResults: Hasil Undian
     noDuplicate: Tidak Ada Duplikat
     # changeDrawSize: Change Draw Size
-    # allowDuplicate: Allow Duplicate
-    # blindfoldMode: Blindfold Mode
+    allowDuplicate: Bolehkan Duplikat
+    blindfoldMode: Mode Blindfold

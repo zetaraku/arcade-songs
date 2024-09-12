@@ -65,6 +65,10 @@ description:
   clearMyList: 清空【我的歌單】
   pickOneFromFilter: 從篩選結果中選取一個！
   noMoreSheetsToPick: 已經沒有可選取的譜面。
+  # superFilterPlaceholder: |
+  #   // return a predicate function to filter the result
+  #   return (sheet) => true;
+  # superFilterHint: // I hope you know what you're doing ...
 
 # Pages
 page:
