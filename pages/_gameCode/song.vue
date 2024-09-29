@@ -99,7 +99,7 @@ export default defineComponent({
           <img
             :src="song.imageUrl"
             :alt="song.title"
-            style="width: 300px; height: 300px; vertical-align: middle;"
+            style="width: 300px; height: 300px; object-fit: contain; vertical-align: middle;"
           >
         </v-col>
         <v-col cols="12" sm="auto">
