@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { PropType } from '@nuxtjs/composition-api';
 import useDarkMode from '~/composables/useDarkMode';
+import useGameInfo from '~/composables/useGameInfo';
 import useGameData from '~/composables/useGameData';
 import type { Sheet } from '~/types';
 
@@ -28,6 +29,7 @@ defineProps({
 });
 
 const { isDarkMode } = useDarkMode();
+const { gameCode } = useGameInfo();
 const {
   getLockedIconUrl,
   getLockedIconHeight,
@@ -48,7 +50,7 @@ const {
   >
     <v-tooltip
       top
-      :nudge-bottom="95"
+      :nudge-bottom="gameCode !== 'popn' ? 95 : 75"
       :disabled="$vuetify.breakpoint.mobile || hideTitle"
     >
       <template #activator="{ on }">
@@ -70,6 +72,11 @@ const {
             class="CoverContainer grey"
             :class="{ 'dark-style': isDarkMode }"
             style="vertical-align: middle;"
+            :style="
+              gameCode !== 'popn'
+                ? { 'width': '100px', 'height': '100px' }
+                : { 'width': '244px', 'height': '58px' }
+            "
           >
             <!-- sheet cover image -->
             <picture v-if="!hideCover">
@@ -142,7 +149,12 @@ const {
     <!-- difficulty & level & description -->
     <div
       class="mt-4"
-      style="max-width: 116px; text-align: center;"
+      style="text-align: center;"
+      :style="
+        gameCode !== 'popn'
+          ? { 'max-width': '116px' }
+          : { 'max-width': '260px' }
+      "
     >
       <div
         class="text-no-wrap font-weight-bold"
@@ -193,8 +205,6 @@ const {
   .CoverContainer {
     display: inline-block;
     position: relative;
-    width: 100px;
-    height: 100px;
     box-shadow:
       // the gray shadows
       0 14px 28px rgb(0 0 0 / 25%),
