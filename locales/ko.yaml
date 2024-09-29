@@ -71,6 +71,8 @@ description:
   # superFilterHint: // I hope you know what you're doing ...
 
 # Pages
+  superFilterPlaceholder: "// 결과를 필터링하기 위한 술어 함수를 반환함\nreturn (sheet) => true;\n"
+  superFilterHint: // 무엇을 하고 있는지 알고 있기를 바랍니다...
 page:
   index:
     description: 좋아하는 음악 게임의 곡을 이제 한 곳에서 검색하세요!
