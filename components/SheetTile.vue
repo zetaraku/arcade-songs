@@ -142,7 +142,7 @@ const {
     <!-- difficulty & level & description -->
     <div
       class="mt-4"
-      style="width: 116px; text-align: center;"
+      style="max-width: 116px; text-align: center;"
     >
       <div
         class="text-no-wrap font-weight-bold"
