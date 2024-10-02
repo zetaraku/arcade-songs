@@ -65,14 +65,12 @@ description:
   clearMyList: 내 목록 비우기
   pickOneFromFilter: 현재 필터에서 곡 한개 뽑기!
   noMoreSheetsToPick: 더 이상 고를 수 있는 곡이 없습니다.
-  # superFilterPlaceholder: |
-  #   // return a predicate function to filter the result
-  #   return (sheet) => true;
-  # superFilterHint: // I hope you know what you're doing ...
+  superFilterPlaceholder: |
+    // 결과를 필터링하기 위한 술어 함수를 반환함
+    return (sheet) => true;
+  superFilterHint: // 무엇을 하고 있는지 알고 있기를 바랍니다…
 
 # Pages
-  superFilterPlaceholder: "// 결과를 필터링하기 위한 술어 함수를 반환함\nreturn (sheet) => true;\n"
-  superFilterHint: // 무엇을 하고 있는지 알고 있기를 바랍니다...
 page:
   index:
     description: 좋아하는 음악 게임의 곡을 이제 한 곳에서 검색하세요!
