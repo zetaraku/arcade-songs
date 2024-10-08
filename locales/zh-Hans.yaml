@@ -71,6 +71,7 @@ description:
   # superFilterHint: // I hope you know what you're doing ...
 
 # Pages
+  superFilterHint: // 我希望你知道自己在做什么 ...
 page:
   index:
     description: 在这里搜索你最喜欢的音乐游戏歌曲！
