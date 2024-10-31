@@ -68,7 +68,7 @@ description:
   # superFilterPlaceholder: |
   #   // return a predicate function to filter the result
   #   return (sheet) => true;
-  # superFilterHint: // I hope you know what you're doing ...
+  superFilterHint: // 我希望你知道自己在做什么 ...
 
 # Pages
 page:
