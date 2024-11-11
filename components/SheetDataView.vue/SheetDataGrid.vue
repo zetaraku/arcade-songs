@@ -4,6 +4,7 @@ import useGameInfo from '~/composables/useGameInfo';
 import useSheetDialog from '~/composables/useSheetDialog';
 import useSheetHeaders from '~/composables/useSheetHeaders';
 import SheetTile from '~/components/SheetTile.vue';
+import { getCanonicalSheet } from '~/utils';
 import type { Sheet } from '~/types';
 
 const filterMode: Ref<string> = inject('filterMode')!;
@@ -19,7 +20,7 @@ const { viewSheet } = useSheetDialog();
 const headers = useSheetHeaders();
 
 function getItemClass(sheet: Sheet) {
-  return filterMode.value !== 'my-list' && selectedSheets.value.includes(sheet) ? 'selected-sheet' : '';
+  return filterMode.value !== 'my-list' && selectedSheets.value.includes(getCanonicalSheet(sheet)) ? 'selected-sheet' : '';
 }
 </script>
 
@@ -67,7 +68,7 @@ function getItemClass(sheet: Sheet) {
           viewSheet(sheet);
           $gtag('event', 'SheetViewed', { gameCode, eventSource: 'SheetDataGrid' });
         "
-        @click.right="toggleSheetSelection(sheet);"
+        @click.right="toggleSheetSelection(getCanonicalSheet(sheet));"
       />
     </div>
   </div>

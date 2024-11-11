@@ -10,7 +10,7 @@ import ModeSelector from '~/components/ModeSelector.vue';
 import SheetDrawerPanel from '~/components/SheetDrawerPanel.vue';
 import FilterInfoBar from '~/components/FilterInfoBar.vue';
 import SheetDataView from '~/components/SheetDataView.vue';
-import { buildEmptyFilters, buildFilterOptions, loadFiltersFromQuery, filterSheets, pickItem } from '~/utils';
+import { buildEmptyFilters, buildFilterOptions, loadFiltersFromQuery, filterSheets, pickItem, getRegionOverrideSheet, isCanonicalSheet } from '~/utils';
 import type { Sheet } from '~/types';
 
 const context = useContext();
@@ -33,10 +33,22 @@ const filteredSheets = computed(
 );
 const selectedSheets = ref<Sheet[]>([]);
 
-const displayingSheets = computed(() => {
+const preDisplayingSheets = computed(() => {
   if (filterMode.value === 'filter') return filteredSheets.value;
   if (filterMode.value === 'my-list') return selectedSheets.value;
   throw new Error('Invalid filter mode');
+});
+
+const displayingSheets = computed(() => {
+  if (filters.value.useRegionOverride) {
+    const currentRegion = filters.value.region != null && !filters.value.region.startsWith('!') ? filters.value.region : null;
+
+    if (currentRegion != null) {
+      return preDisplayingSheets.value.map((sheet) => getRegionOverrideSheet(sheet, currentRegion));
+    }
+  }
+
+  return preDisplayingSheets.value;
 });
 
 const unselectedSheets = computed(() => filteredSheets.value.filter(
@@ -44,6 +56,11 @@ const unselectedSheets = computed(() => filteredSheets.value.filter(
 ));
 
 function toggleSheetSelection(sheet: Sheet) {
+  if (!isCanonicalSheet(sheet)) {
+    // eslint-disable-next-line no-console
+    console.warn('Non-canonical sheet should not be used as selected sheets.');
+  }
+
   const index = selectedSheets.value.indexOf(sheet);
   if (index === -1) {
     selectedSheets.value.push(sheet);

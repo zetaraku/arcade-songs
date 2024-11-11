@@ -108,6 +108,10 @@ export function getCanonicalSheet(sheet: Sheet): Sheet {
   return sheet[$canonicalSheet] ?? sheet;
 }
 
+export function isCanonicalSheet(sheet: Sheet): boolean {
+  return sheet === getCanonicalSheet(sheet);
+}
+
 export function computeSheetExpr(sheet: Sheet) {
   return `${sheet.songId}|${sheet.type}|${sheet.difficulty}`;
 }

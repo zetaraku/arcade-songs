@@ -4,7 +4,7 @@ import useGameInfo from '~/composables/useGameInfo';
 import useGameData from '~/composables/useGameData';
 import useSheetDialog from '~/composables/useSheetDialog';
 import useSheetHeaders from '~/composables/useSheetHeaders';
-import { toPercentageString, validateNoteCounts } from '~/utils';
+import { getCanonicalSheet, toPercentageString, validateNoteCounts } from '~/utils';
 import type { Sheet } from '~/types';
 
 const sheets: Ref<Sheet[]> = inject('sheets')!;
@@ -35,7 +35,7 @@ const { viewSheet } = useSheetDialog();
 const headers = useSheetHeaders();
 
 function getItemClass(sheet: Sheet) {
-  return filterMode.value !== 'my-list' && selectedSheets.value.includes(sheet) ? 'selected-sheet' : '';
+  return filterMode.value !== 'my-list' && selectedSheets.value.includes(getCanonicalSheet(sheet)) ? 'selected-sheet' : '';
 }
 
 watch(sheets, () => {
@@ -58,7 +58,7 @@ watch(sheets, () => {
       hide-default-footer
       @page-count="pageCount = $event;"
       @current-items="currentSheets = $event;"
-      @contextmenu:row.prevent="toggleSheetSelection(arguments[1].item);"
+      @contextmenu:row.prevent="toggleSheetSelection(getCanonicalSheet(arguments[1].item));"
     >
       <!-- This is explicitly added for the variables used in v-on to be exposed correctly -->
       <template v-if="false">
