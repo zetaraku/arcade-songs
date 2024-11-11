@@ -55,7 +55,7 @@ export default defineComponent({
       <template v-if="gameCode === 'maimai'">
         <li>
           {{ $t('page.about.songInfo') }} －
-          <a href="https://maimai.sega.jp/" target="_blank">maimai でらっくす BUDDiES PLUS公式サイト｜セガ音ゲー</a>
+          <a href="https://maimai.sega.jp/" target="_blank">maimai でらっくす PRiSM公式サイト｜セガ音ゲー</a>
         </li>
         <li>
           {{ $t('page.about.sheetInfo') }} －
@@ -202,11 +202,13 @@ export default defineComponent({
       <template v-if="gameCode === 'popn'">
         <li>
           {{ $t('page.about.songInfo') }} －
-          <a href="https://p.eagate.573.jp/game/popn/unilab/" target="_blank">pop'n music UniLab</a>
+          <a href="https://p.eagate.573.jp/game/popn/jamfizz/" target="_blank">pop'n music Jam&Fizz</a>
         </li>
         <li>
           {{ $t('page.about.sheetInfo') }} －
           <a href="https://popnmusic.fandom.com/wiki/" target="_blank">Pop'n Music Wiki | Fandom</a>
+          /
+          <a href="https://bemaniwiki.com/index.php?pop%27n+music+Jam%A1%F5Fizz" target="_blank">pop'n music Jam＆Fizz - BEMANIWiki 2nd</a>
           － {{ $t('page.about.sheetInfoDescription') }}
         </li>
       </template>
@@ -299,6 +301,12 @@ export default defineComponent({
 
     <h3>{{ $t('page.about.updateRecord') }}</h3>
     <v-timeline dense align-top class="mt-2">
+      <v-timeline-item>
+        <span class="font-weight-bold">2024/11/11 － v3.21 Update</span>
+        <ul>
+          <li>feature: (Filter) display regional info instead if "Use Regional Info Override" is enabled</li>
+        </ul>
+      </v-timeline-item>
       <v-timeline-item>
         <span class="font-weight-bold">2024/09/04 － v3.20 Update</span>
         <ul>
