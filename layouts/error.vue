@@ -39,6 +39,7 @@ export default defineComponent({
           <span v-text="title" />
         </h1>
         <p
+          v-if="!isNotFound"
           class="red--text"
           v-text="error.message"
         />
