@@ -1,6 +1,6 @@
 <script setup lang="ts">
 /* eslint-disable import/first, import/no-duplicates */
-import { ref, computed, watch, useRoute, useMeta as useHead, useContext } from '@nuxtjs/composition-api';
+import { ref, computed, watch, useMeta as useHead, useContext } from '@nuxtjs/composition-api';
 import { useDataStore } from '~/stores/data';
 import useGameInfo from '~/composables/useGameInfo';
 import useDarkMode from '~/composables/useDarkMode';
@@ -13,7 +13,6 @@ import sites from '~/data/sites.json';
 import { PageNotFoundError } from '~/utils';
 
 const context = useContext();
-const route = useRoute();
 const dataStore = useDataStore();
 const { isDarkMode } = useDarkMode();
 const {
@@ -111,18 +110,17 @@ function adaptSiteStyle() {
   context.$vuetify.theme.themes.light.primary = themeColor.value;
   context.$vuetify.theme.themes.dark.primary = '#FFAC1C';
 }
-function validateGameCode() {
-  if (route.value.params.gameCode !== undefined && gameCode.value === undefined) {
-    context.error(new PageNotFoundError());
-  }
-}
-async function detectGameCode() {
-  adaptSiteStyle();
-  validateGameCode();
-  dataStore.gameCode = gameCode.value!;
-}
 
-watch(gameCode, () => detectGameCode(), {
+watch(gameCode, () => {
+  adaptSiteStyle();
+
+  if (gameCode.value === undefined) {
+    context.error(new PageNotFoundError());
+    return;
+  }
+
+  dataStore.gameCode = gameCode.value;
+}, {
   immediate: true,
 });
 watch(isDarkMode, () => {
@@ -146,7 +144,7 @@ export default defineComponent({
     <LoadingOverlay v-if="dataStore.currentLoadingStatus === LoadingStatus.LOADING" />
 
     <v-navigation-drawer
-      v-if="gameCode !== undefined"
+      v-if="gameCode != null"
       v-model="isDrawerOpened"
       width="300"
       temporary
@@ -192,7 +190,7 @@ export default defineComponent({
         <v-divider />
       </template>
 
-      <v-list v-if="gameCode !== undefined">
+      <v-list v-if="gameCode != null">
         <v-list-item
           v-for="(menuItem, i) in menu"
           :key="i"
@@ -226,7 +224,7 @@ export default defineComponent({
       app
     >
       <v-app-bar-nav-icon
-        :disabled="gameCode === undefined"
+        :disabled="gameCode == null"
         @click="isDrawerOpened = !isDrawerOpened;"
       />
       <NuxtLink

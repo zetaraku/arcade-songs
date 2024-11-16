@@ -8,11 +8,11 @@ import type { Data } from '~/types';
 
 // eslint-disable-next-line import/prefer-default-export
 export const useDataStore = defineStore('data', () => {
-  const currentGameCode = ref('');
+  const currentGameCode = ref<string | null>(null);
 
-  const loadedData = ref(new Map<string, Data>());
-  const loadingStatuses = ref(new Map<string, LoadingStatus>());
-  const loadingErrorMessages = ref(new Map<string, string>());
+  const loadedData = ref(new Map<string | null, Data>());
+  const loadingStatuses = ref(new Map<string | null, LoadingStatus>());
+  const loadingErrorMessages = ref(new Map<string | null, string>());
 
   const currentData = computed(
     () => loadedData.value.get(currentGameCode.value) ?? buildEmptyData(),
@@ -65,7 +65,7 @@ export const useDataStore = defineStore('data', () => {
   }
 
   watch(currentGameCode, async () => {
-    if (currentGameCode.value === '') return;
+    if (currentGameCode.value === null) return;
 
     if (currentLoadingStatus.value === LoadingStatus.PENDING) {
       await loadData(currentGameCode.value);

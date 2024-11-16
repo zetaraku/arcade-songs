@@ -14,7 +14,11 @@ export default function useGameInfo() {
     ,
   );
 
-  const gameCode = computed(() => siteInfo.value?.gameCode ?? undefined);
+  const gameCode = computed(() => (
+    route.value.params.gameCode !== undefined
+      ? siteInfo.value?.gameCode ?? undefined
+      : null
+  ));
   const gameTitle = computed(() => siteInfo.value?.gameTitle ?? undefined);
   const themeColor = computed(() => siteInfo.value?.themeColor ?? '#424242');
   const dataSourceUrl = computed(() => siteInfo.value?.dataSourceUrl ?? undefined);
