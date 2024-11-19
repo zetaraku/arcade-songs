@@ -22,7 +22,7 @@
     "@nuxtjs/google-gtag": "^1.0.4",
     "@nuxtjs/i18n": "^7.3.1",
     "@nuxtjs/pwa": "^3.3.5",
-    "@nuxtjs/sentry": "^7.3.1",
+    "@nuxtjs/sentry": "^8.0.8",
     "@nuxtjs/sitemap": "^2.4.0",
     "@pinia/nuxt": "^0.2.1",
     "@vueuse/core": "^10.2.1",
