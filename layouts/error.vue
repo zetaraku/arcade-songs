@@ -60,7 +60,7 @@ export default defineComponent({
             outlined
             large
             color="secondary"
-            :to="gameCode !== undefined ? `/${gameCode}/` : '/'"
+            :to="gameCode != null ? `/${gameCode}/` : '/'"
             exact
           >
             {{ $t('page.error.backToHome') }}
