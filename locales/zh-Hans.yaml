@@ -65,13 +65,12 @@ description:
   clearMyList: 清空【我的歌单】
   pickOneFromFilter: 从筛选结果中选取一个！
   noMoreSheetsToPick: 已经没有可选取的谱面。
-  # superFilterPlaceholder: |
-  #   // return a predicate function to filter the result
-  #   return (sheet) => true;
+  superFilterPlaceholder: |
+    // 返回用于过滤结果的谓词函数
+    return (sheet) => true;
   superFilterHint: // 我希望你知道自己在做什么 ...
 
 # Pages
-  superFilterPlaceholder: "// 返回用于过滤结果的谓词函数\nreturn (sheet) => true;\n"
 page:
   index:
     description: 在这里搜索你最喜欢的音乐游戏歌曲！
