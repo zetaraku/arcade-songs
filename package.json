@@ -37,6 +37,7 @@
     "select-files": "^1.0.1",
     "sleep-promise": "^9.1.0",
     "vue": "^2.7.14",
+    "vue-echarts": "^7.0.3",
     "vue-server-renderer": "^2.7.14",
     "vuetify": "^2.7.0",
     "yaml": "^2.3.1"
