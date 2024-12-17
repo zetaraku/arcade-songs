@@ -68,22 +68,24 @@ function handleSheetClick(index: number) {
 }
 
 const maxDialogWidth = computed(() => {
+  const currentSheetsCount = currentSheets.value.length;
+
   // 2 per line
-  if (drawSize.value <= 4) return '400px';
+  if (currentSheetsCount <= 4) return '400px';
   // 3 per line
-  if (drawSize.value <= 9) return '550px';
+  if (currentSheetsCount <= 9) return '550px';
   // 4 per line
-  if (drawSize.value <= 16) return '700px';
+  if (currentSheetsCount <= 16) return '700px';
   // 5 per line
-  if (drawSize.value <= 25) return '850px';
+  if (currentSheetsCount <= 25) return '850px';
   // 6 per line
-  if (drawSize.value <= 36) return '1000px';
+  if (currentSheetsCount <= 36) return '1000px';
   // 7 per line
-  if (drawSize.value <= 49) return '1150px';
+  if (currentSheetsCount <= 49) return '1150px';
   // 8 per line
-  if (drawSize.value <= 64) return '1300px';
+  if (currentSheetsCount <= 64) return '1300px';
   // 9 per line
-  if (drawSize.value <= 81) return '1450px';
+  if (currentSheetsCount <= 81) return '1450px';
   // 10 per line
   return '1600px';
 });
