@@ -93,7 +93,7 @@ export default defineComponent({
       <template v-if="gameCode === 'chunithm'">
         <li>
           {{ $t('page.about.songInfo') }} －
-          <a href="https://chunithm.sega.jp/" target="_blank">CHUNITHM LUMINOUS PLUS (チュウニズム ルミナス プラス)｜セガ新作音ゲー</a>
+          <a href="https://chunithm.sega.jp/" target="_blank">CHUNITHM VERSE (チュウニズム バース)｜セガ新作音ゲー</a>
         </li>
         <li>
           {{ $t('page.about.sheetInfo') }} －
@@ -301,6 +301,14 @@ export default defineComponent({
 
     <h3>{{ $t('page.about.updateRecord') }}</h3>
     <v-timeline dense align-top class="mt-2">
+      <v-timeline-item>
+        <span class="font-weight-bold">2024/12/29 － v3.22 Update</span>
+        <ul>
+          <li>feature: (Summary View) add Summary View</li>
+          <li>ui: (Sheet Drawer) fix width calculation logic in Sheet Combo Drawer</li>
+          <li>misc: (Site) track more interaction event for development insight &gt;:)</li>
+        </ul>
+      </v-timeline-item>
       <v-timeline-item>
         <span class="font-weight-bold">2024/11/11 － v3.21 Update</span>
         <ul>
