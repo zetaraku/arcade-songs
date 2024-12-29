@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, watch } from '@nuxtjs/composition-api';
+import { computed, watch, useContext } from '@nuxtjs/composition-api';
 import useGtag from '~/composables/useGtag';
 import useDarkMode from '~/composables/useDarkMode';
 import useGameInfo from '~/composables/useGameInfo';
@@ -7,6 +7,8 @@ import useSheetDialog from '~/composables/useSheetDialog';
 import useSheetComboDialog from '~/composables/useSheetComboDialog';
 import SheetTile from '~/components/SheetTile.vue';
 import { clamp, VOID_SHEET } from '~/utils';
+
+const context = useContext();
 
 const gtag = useGtag();
 const { isDarkMode } = useDarkMode();
@@ -26,6 +28,26 @@ const {
   isBlindfoldMode,
   blindfoldedIndexes,
 } = useSheetComboDialog();
+const {
+  drawingPool: sheetDrawingPool,
+  startDrawingSheet,
+} = useSheetDialog();
+
+async function drawSheet() {
+  if (currentSheets.value.length === 0) {
+    // eslint-disable-next-line no-alert
+    window.alert(context.i18n.t('description.drawPoolEmpty'));
+    return;
+  }
+
+  sheetDrawingPool.value = currentSheets.value;
+  await startDrawingSheet(() => {
+    gtag('event', 'RandomSheetDrawn', {
+      gameCode: gameCode.value,
+      eventSource: 'SheetComboDialog',
+    });
+  });
+}
 
 async function drawSheets() {
   await startDrawingSheetCombo(() => {
@@ -180,6 +202,15 @@ watch(isOpened, () => {
             </template>
             <span v-text="$t('sfc.SheetComboDialog.blindfoldMode')" />
           </v-tooltip>
+        </template>
+        <template v-else>
+          <v-btn
+            text
+            color="primary"
+            @click="drawSheet();"
+          >
+            {{ $t('sfc.SheetDrawerPanel.drawRandomSheet') }}
+          </v-btn>
         </template>
 
         <v-spacer />
