@@ -61,6 +61,8 @@ async function showMyListExportDialog() {
   }
 
   isMyListExportDialogOpened.value = true;
+
+  gtag('event', 'MyListExportDialogShown', { gameCode: gameCode.value, eventSource: 'ModeSelector' });
 }
 async function importSelectedSheets() {
   const files = await selectFiles({ accept: '.yaml', multiple: false });
@@ -102,6 +104,13 @@ async function importSelectedSheets() {
         <v-radio-group
           v-model="displayMode"
           row
+          @change="
+            $gtag('event', 'DisplayModeChanged', {
+              gameCode,
+              eventSource: 'ModeSelector',
+              displayMode: $event,
+            });
+          "
         >
           <v-radio value="grid">
             <template #label>
@@ -144,6 +153,13 @@ async function importSelectedSheets() {
         <v-radio-group
           v-model="filterMode"
           row
+          @change="
+            $gtag('event', 'FilterModeChanged', {
+              gameCode,
+              eventSource: 'ModeSelector',
+              filterMode: $event,
+            });
+          "
         >
           <v-radio value="filter">
             <template #label>
