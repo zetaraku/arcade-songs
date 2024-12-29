@@ -146,6 +146,9 @@ const nuxtConfig: NuxtConfig = {
   build: {
     transpile: [
       'vuetify/src/locale',
+      'vue-echarts',
+      'echarts',
+      'zrender',
       'yaml',
     ],
     extend(config) {

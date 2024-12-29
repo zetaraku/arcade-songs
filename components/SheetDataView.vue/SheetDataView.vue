@@ -3,6 +3,7 @@ import { ref, provide, toRef } from '@nuxtjs/composition-api';
 import type { Sheet } from '~/types';
 import SheetDataGrid from './SheetDataGrid.vue';
 import SheetDataTable from './SheetDataTable.vue';
+import SheetDataChart from './SheetDataChart.vue';
 
 const props = defineProps<{
   sheets: Sheet[];
@@ -28,6 +29,7 @@ provide('sortDesc', sortDesc);
 <template>
   <div>
     <v-pagination
+      v-show="displayMode !== 'chart'"
       v-model="currentPage"
       :length="pageCount"
       :total-visible="15"
@@ -45,8 +47,12 @@ provide('sortDesc', sortDesc);
     <SheetDataTable
       v-show="displayMode === 'table'"
     />
+    <SheetDataChart
+      v-show="displayMode === 'chart'"
+    />
 
     <v-pagination
+      v-show="displayMode !== 'chart'"
       v-model="currentPage"
       :length="pageCount"
       :total-visible="15"

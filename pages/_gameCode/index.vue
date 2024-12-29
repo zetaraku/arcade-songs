@@ -156,13 +156,13 @@ export default defineComponent({
       To ensure the SheetDataView always exists, we use v-show instead of v-if.
     -->
     <SheetDataView
-      v-show="displayingSheets.length > 0"
+      v-show="displayingSheets.length > 0 || displayMode === 'chart'"
       :sheets="displayingSheets"
       :display-mode="displayMode"
       class="mt-4"
     />
     <div
-      v-if="displayingSheets.length === 0"
+      v-if="displayingSheets.length === 0 && displayMode !== 'chart'"
       class="text-center text--secondary py-8"
     >
       <span

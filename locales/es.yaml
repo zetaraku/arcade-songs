@@ -111,6 +111,7 @@ sfc:
   ModeSelector:
     gridMode: Vista en cuadrícula
     tableMode: Vista detallada
+    # chartMode: Summary View
     filterMode: Modo filtrado
     myListMode: MI LISTA
     copyFilterLink: Copiar los filtros actuales como enlace

@@ -111,6 +111,7 @@ sfc:
   ModeSelector:
     gridMode: 그리드 보기
     tableMode: 상세 보기
+    chartMode: 요약 보기
     filterMode: 필터 모드
     myListMode: 내 목록
     copyFilterLink: 현재 필터를 링크로 복사

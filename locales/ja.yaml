@@ -111,6 +111,7 @@ sfc:
   ModeSelector:
     gridMode: グリッド表示
     tableMode: 詳細表示
+    chartMode: まとめ表示
     filterMode: フィルター
     myListMode: マイリスト
     copyFilterLink: フィルターをリンクにコピーする

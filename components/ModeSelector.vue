@@ -119,6 +119,20 @@ async function importSelectedSheets() {
               </span>
             </template>
           </v-radio>
+          <v-radio value="chart">
+            <template #label>
+              <span>
+                <v-icon>mdi-chart-bar</v-icon>
+                <span v-text="$t('sfc.ModeSelector.chartMode')" />
+                <v-badge
+                  inline
+                  color="error"
+                  style="font-weight: bold;"
+                  content="NEW!"
+                />
+              </span>
+            </template>
+          </v-radio>
         </v-radio-group>
       </v-col>
 
