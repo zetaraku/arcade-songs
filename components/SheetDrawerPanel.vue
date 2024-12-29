@@ -27,8 +27,8 @@ const {
   startDrawingSheetCombo,
 } = useSheetComboDialog();
 
-const drawModes = ref(['light', 'single', 'combo']);
-const drawMode = ref('single');
+const drawModes = ['light', 'single', 'combo'] as const;
+const drawMode = ref<typeof drawModes[number]>('single');
 const drawModeIndex = ref(1);
 
 async function drawSheet() {
@@ -85,7 +85,7 @@ async function toggleLights(index: number) {
 }
 
 watch(drawModeIndex, () => {
-  drawMode.value = drawModes.value[drawModeIndex.value];
+  drawMode.value = drawModes[drawModeIndex.value];
 });
 </script>
 
@@ -154,7 +154,7 @@ watch(drawModeIndex, () => {
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .pointer-events-auto {
   pointer-events: auto;
 }
