@@ -368,20 +368,20 @@ export default defineComponent({
         </ul>
       </v-timeline-item>
       <v-timeline-item small color="grey">
-        <span class="font-weight-bold">2024/04/11－ v3.14.1 Update</span>
+        <span class="font-weight-bold">2024/04/11 － v3.14.1 Update</span>
         <ul>
           <li>misc: (Data) the song list of <strong>オンゲキ</strong> is now complete! (70 deleted songs added)</li>
         </ul>
       </v-timeline-item>
       <v-timeline-item>
-        <span class="font-weight-bold">2024/04/07－ v3.14 Update</span>
+        <span class="font-weight-bold">2024/04/07 － v3.14 Update</span>
         <ul>
           <li>feature: (Sheet Drawer) add "Blindfold Mode" in Sheet Combo Drawer 😎</li>
           <li>misc: (Sheet Drawer) now the settings in the Sheet Combo Drawer are preserved</li>
         </ul>
       </v-timeline-item>
       <v-timeline-item>
-        <span class="font-weight-bold">2024/04/06－ v3.13 Update</span>
+        <span class="font-weight-bold">2024/04/06 － v3.13 Update</span>
         <ul>
           <li>feature: (Sheet Drawer) allow user to config draw size of Sheet Combo Drawer</li>
           <li>misc: (Gallery) now gallery page will use id instead of title in the url</li>
@@ -397,7 +397,7 @@ export default defineComponent({
         </ul>
       </v-timeline-item>
       <v-timeline-item icon="mdi-star">
-        <span class="font-weight-bold">2023/12/21－ v3.12 Update</span>
+        <span class="font-weight-bold">2023/12/21 － v3.12 Update</span>
         <ul>
           <li>
             project: add new site for <strong>REFLEC BEAT</strong>
@@ -415,7 +415,7 @@ export default defineComponent({
         </ul>
       </v-timeline-item>
       <v-timeline-item icon="mdi-star">
-        <span class="font-weight-bold">2023/11/20－ v3.11 Update</span>
+        <span class="font-weight-bold">2023/11/20 － v3.11 Update</span>
         <ul>
           <li>
             project: add new site for <strong>crossbeats REV.</strong>
@@ -449,7 +449,7 @@ export default defineComponent({
         </ul>
       </v-timeline-item>
       <v-timeline-item>
-        <span class="font-weight-bold">2023/07/20－ v3.10 Update</span>
+        <span class="font-weight-bold">2023/07/20 － v3.10 Update</span>
         <ul>
           <li>
             feature: add sheet information (Notes Designer, Note Counts) for <strong>CHUNITHM</strong>
@@ -457,7 +457,7 @@ export default defineComponent({
         </ul>
       </v-timeline-item>
       <v-timeline-item icon="mdi-star">
-        <span class="font-weight-bold">2023/07/09－ v3.9 Update</span>
+        <span class="font-weight-bold">2023/07/09 － v3.9 Update</span>
         <ul>
           <li>
             project: add new site for <strong>NOSTALGIA</strong>
@@ -466,7 +466,7 @@ export default defineComponent({
         </ul>
       </v-timeline-item>
       <v-timeline-item icon="mdi-star">
-        <span class="font-weight-bold">2023/07/03－ v3.8 Update</span>
+        <span class="font-weight-bold">2023/07/03 － v3.8 Update</span>
         <ul>
           <li>
             project: add new site for <strong>DanceDanceRevolution</strong>
@@ -483,7 +483,7 @@ export default defineComponent({
         </ul>
       </v-timeline-item>
       <v-timeline-item icon="mdi-star">
-        <span class="font-weight-bold">2023/04/04－ v3.7 Update</span>
+        <span class="font-weight-bold">2023/04/04 － v3.7 Update</span>
         <ul>
           <li>
             project: add new site for <strong>DANCERUSH STARDOM</strong>
@@ -518,7 +518,7 @@ export default defineComponent({
         </ul>
       </v-timeline-item>
       <v-timeline-item>
-        <span class="font-weight-bold">2023/02/15－ v3.5 Update</span>
+        <span class="font-weight-bold">2023/02/15 － v3.5 Update</span>
         <ul>
           <li>feature: (Filter) add "Internal Level" filter</li>
           <li>misc!: (Data) now <code>levelValue</code> reflects the lower bound of its internal level (e.g. <code>levelValue</code> of level 12+ is <i>12.5</i> in CHUNITHM but <i>12.7</i> in maimai, オンゲキ and WACCA)</li>
@@ -528,7 +528,7 @@ export default defineComponent({
         </ul>
       </v-timeline-item>
       <v-timeline-item icon="mdi-star">
-        <span class="font-weight-bold">2022/11/17－ v3.4 Update</span>
+        <span class="font-weight-bold">2022/11/17 － v3.4 Update</span>
         <ul>
           <li>
             project: add new site for <strong>pop'n music</strong>
