@@ -60,10 +60,10 @@ function handleSheetClick(index: number) {
     // reveal sheet
     blindfoldedIndexes.value.delete(index);
     blindfoldedIndexes.value = new Set(blindfoldedIndexes.value);
-    gtag('event', 'SheetRevealed', { gameCode, eventSource: 'SheetComboDialog' });
+    gtag('event', 'SheetRevealed', { gameCode: gameCode.value, eventSource: 'SheetComboDialog' });
   } else {
     viewSheet(currentSheets.value[index]);
-    gtag('event', 'SheetViewed', { gameCode, eventSource: 'SheetComboDialog' });
+    gtag('event', 'SheetViewed', { gameCode: gameCode.value, eventSource: 'SheetComboDialog' });
   }
 }
 
