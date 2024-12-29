@@ -17,6 +17,7 @@ const {
 const {
   currentSheets,
   isOpened,
+  isDrawMode,
   isStatic,
   drawSize,
   allowDuplicate,
@@ -104,7 +105,11 @@ watch(isOpened, () => {
   >
     <v-card>
       <v-card-title class="justify-center">
-        {{ $t('sfc.SheetComboDialog.drawResults') }}
+        {{
+          isDrawMode
+            ? $t('sfc.SheetComboDialog.drawResults')
+            : $t('sfc.FilterInfoBar.sheetsCount', { n: currentSheets.length })
+        }}
       </v-card-title>
 
       <v-divider class="mx-4" />
@@ -127,57 +132,60 @@ watch(isOpened, () => {
       <v-divider class="mx-4" />
 
       <v-card-actions>
-        <!-- Draw Count -->
-        <v-tooltip top>
-          <template #activator="{ on }">
-            <v-btn
-              large
-              icon
-              class="text-h6 pa-0 ma-0"
-              @click="configDrawSize();"
-              v-on="on"
-            >
-              <v-icon>mdi-pound-box-outline</v-icon>
-            </v-btn>
-          </template>
-          <span v-text="$t('sfc.SheetComboDialog.changeDrawSize')" />
-        </v-tooltip>
+        <template v-if="isDrawMode">
+          <!-- Draw Count -->
+          <v-tooltip top>
+            <template #activator="{ on }">
+              <v-btn
+                large
+                icon
+                class="text-h6 pa-0 ma-0"
+                @click="configDrawSize();"
+                v-on="on"
+              >
+                <v-icon>mdi-pound-box-outline</v-icon>
+              </v-btn>
+            </template>
+            <span v-text="$t('sfc.SheetComboDialog.changeDrawSize')" />
+          </v-tooltip>
 
-        <!-- No Duplicate -->
-        <v-tooltip top>
-          <template #activator="{ on }">
-            <v-btn
-              large
-              icon
-              class="text-h6 pa-0 ma-0"
-              @click="allowDuplicate = !allowDuplicate;"
-              v-on="on"
-            >
-              <v-icon>{{ allowDuplicate ? 'mdi-autorenew' : 'mdi-autorenew-off' }}</v-icon>
-            </v-btn>
-          </template>
-          <span v-text="$t('sfc.SheetComboDialog.allowDuplicate')" />
-        </v-tooltip>
+          <!-- No Duplicate -->
+          <v-tooltip top>
+            <template #activator="{ on }">
+              <v-btn
+                large
+                icon
+                class="text-h6 pa-0 ma-0"
+                @click="allowDuplicate = !allowDuplicate;"
+                v-on="on"
+              >
+                <v-icon>{{ allowDuplicate ? 'mdi-autorenew' : 'mdi-autorenew-off' }}</v-icon>
+              </v-btn>
+            </template>
+            <span v-text="$t('sfc.SheetComboDialog.allowDuplicate')" />
+          </v-tooltip>
 
-        <!-- Blindfold Mode -->
-        <v-tooltip top>
-          <template #activator="{ on }">
-            <v-btn
-              large
-              icon
-              class="text-h6 pa-0 ma-0"
-              @click="isBlindfoldMode = !isBlindfoldMode;"
-              v-on="on"
-            >
-              <v-icon>{{ !isBlindfoldMode ? 'mdi-eye' : 'mdi-eye-off' }}</v-icon>
-            </v-btn>
-          </template>
-          <span v-text="$t('sfc.SheetComboDialog.blindfoldMode')" />
-        </v-tooltip>
+          <!-- Blindfold Mode -->
+          <v-tooltip top>
+            <template #activator="{ on }">
+              <v-btn
+                large
+                icon
+                class="text-h6 pa-0 ma-0"
+                @click="isBlindfoldMode = !isBlindfoldMode;"
+                v-on="on"
+              >
+                <v-icon>{{ !isBlindfoldMode ? 'mdi-eye' : 'mdi-eye-off' }}</v-icon>
+              </v-btn>
+            </template>
+            <span v-text="$t('sfc.SheetComboDialog.blindfoldMode')" />
+          </v-tooltip>
+        </template>
 
         <v-spacer />
 
         <v-btn
+          v-if="isDrawMode"
           text
           color="primary"
           @click="drawSheets();"
@@ -189,7 +197,7 @@ watch(isOpened, () => {
           color="success"
           @click="isOpened = false;"
         >
-          {{ $t('ui.ok') }}
+          {{ isDrawMode ? $t('ui.ok') : $t('ui.close') }}
         </v-btn>
       </v-card-actions>
     </v-card>

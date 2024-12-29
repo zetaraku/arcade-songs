@@ -30,6 +30,7 @@ function viewSheet(sheet: Sheet) {
 async function startDrawingSheet(onFinish?: (resultItems: typeof currentItems.value) => void) {
   isDrawMode.value = true;
   isOpened.value = true;
+
   await startDrawing(onFinish);
 }
 
