@@ -109,7 +109,7 @@ watch(isOpened, () => {
 
       <v-divider class="mx-4" />
 
-      <div class="py-5 overflow-y-auto">
+      <div class="py-5 overflow-y-auto" style="overscroll-behavior: contain;">
         <div
           class="d-flex flex-wrap justify-center"
           @contextmenu.prevent
