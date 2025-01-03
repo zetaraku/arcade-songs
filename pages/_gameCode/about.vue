@@ -302,6 +302,13 @@ export default defineComponent({
     <h3>{{ $t('page.about.updateRecord') }}</h3>
     <v-timeline dense align-top class="mt-2">
       <v-timeline-item>
+        <span class="font-weight-bold">2025/01/03 － v3.23 Update</span>
+        <ul>
+          <li>feature: (Summary View) allow clicking on chart to view sheets in the bar</li>
+          <li>misc: (Sheet Drawer) add "View Mode" for viewing sheets</li>
+        </ul>
+      </v-timeline-item>
+      <v-timeline-item>
         <span class="font-weight-bold">2024/12/29 － v3.22 Update</span>
         <ul>
           <li>feature: (Summary View) add Summary View</li>
