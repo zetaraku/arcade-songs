@@ -22,6 +22,7 @@ const {
   isDrawMode,
   isStatic,
   isShowAll,
+  headerTitle,
   drawSize,
   allowDuplicate,
   startDrawingSheetCombo,
@@ -128,11 +129,13 @@ watch(isOpened, () => {
   >
     <v-card>
       <v-card-title class="justify-center">
-        {{
-          isDrawMode
-            ? $t('sfc.SheetComboDialog.drawResults')
-            : $t('sfc.FilterInfoBar.sheetsCount', { n: currentSheets.length })
-        }}
+        <template v-if="isDrawMode">
+          {{ $t('sfc.SheetComboDialog.drawResults') }}
+        </template>
+        <template v-else>
+          {{ headerTitle }}
+          ({{ $t('sfc.FilterInfoBar.sheetsCount', { n: currentSheets.length }) }})
+        </template>
       </v-card-title>
 
       <v-divider class="mx-4" />

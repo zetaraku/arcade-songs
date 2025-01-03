@@ -7,6 +7,7 @@ import useItemDrawer from './useItemDrawer';
 const isOpened = ref(false);
 const isDrawMode = ref(false);
 const isShowAll = ref(true);
+const headerTitle = ref<string | null>(null);
 const drawingPool = ref<Sheet[]>([]);
 const drawSize = useLocalStorage('SheetComboDrawer:drawSize', 4);
 const allowDuplicate = useLocalStorage('SheetComboDrawer:allowDuplicate', false);
@@ -31,14 +32,16 @@ const currentSheets = computed(
 );
 const isStatic = computed(() => !isDrawing.value);
 
-function viewSheetCombo(sheets: Sheet[]) {
+function viewSheetCombo(sheets: Sheet[], title?: string) {
   setCurrentItems(sheets);
+  headerTitle.value = title ?? null;
   isDrawMode.value = false;
   isShowAll.value = false;
   isOpened.value = true;
 }
 
 async function startDrawingSheetCombo(onFinish?: (resultItems: typeof currentItems.value) => void) {
+  headerTitle.value = null;
   isDrawMode.value = true;
   isShowAll.value = true;
   isOpened.value = true;
@@ -68,6 +71,7 @@ export default function useSheetComboDialog() {
     isDrawMode,
     isStatic,
     isShowAll,
+    headerTitle,
     drawingPool,
     drawSize,
     allowDuplicate,
