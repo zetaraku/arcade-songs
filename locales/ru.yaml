@@ -24,6 +24,7 @@ ui:
   default: По умолчанию
   sort-asc: ASC
   sort-desc: DESC
+  # showAll: Show All
 
 # Terminologies
 term:

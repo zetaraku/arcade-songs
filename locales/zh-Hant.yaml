@@ -24,6 +24,7 @@ ui:
   default: 預設
   sort-asc: 升序
   sort-desc: 降序
+  showAll: 顯示全部
 
 # Terminologies
 term:

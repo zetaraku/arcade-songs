@@ -21,6 +21,7 @@ const {
   isOpened,
   isDrawMode,
   isStatic,
+  isShowAll,
   drawSize,
   allowDuplicate,
   startDrawingSheetCombo,
@@ -142,12 +143,22 @@ watch(isOpened, () => {
           @contextmenu.prevent
         >
           <SheetTile
-            v-for="(sheet, i) in currentSheets"
+            v-for="(sheet, i) in (isShowAll ? currentSheets : currentSheets.slice(0, 100))"
             :key="i"
             :sheet="!blindfoldedIndexes.has(i) ? sheet : VOID_SHEET"
             :hide-cover="!isStatic"
             @click.left="handleSheetClick(i);"
           />
+        </div>
+        <div class="d-flex justify-center py-4">
+          <v-btn
+            v-if="currentSheets.length > 100 && !isShowAll"
+            color="info"
+            outlined
+            @click="isShowAll = true;"
+          >
+            {{ $t('ui.showAll') }}
+          </v-btn>
         </div>
       </div>
 

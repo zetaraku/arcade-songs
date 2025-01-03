@@ -24,6 +24,7 @@ ui:
   default: 기본값
   sort-asc: 오름차순
   sort-desc: 내림차순
+  showAll: 모두 보기
 
 # Terminologies
 term:

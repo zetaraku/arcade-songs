@@ -24,6 +24,7 @@ ui:
   default: Predeterminado
   sort-asc: Orden ascendente
   sort-desc: Orden descendente
+  showAll: Mostrar todo
 
 # Terminologies
 term:
@@ -111,7 +112,7 @@ sfc:
   ModeSelector:
     gridMode: Vista en cuadrícula
     tableMode: Vista detallada
-    # chartMode: Summary View
+    chartMode: Vista resumida
     filterMode: Modo filtrado
     myListMode: MI LISTA
     copyFilterLink: Copiar los filtros actuales como enlace

@@ -24,6 +24,7 @@ ui:
   default: 默认
   sort-asc: 升序
   sort-desc: 降序
+  showAll: 显示全部
 
 # Terminologies
 term:
