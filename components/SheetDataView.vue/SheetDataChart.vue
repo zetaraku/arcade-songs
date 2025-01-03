@@ -1,8 +1,12 @@
 <script setup lang="ts">
-import { computed, inject, Ref } from '@nuxtjs/composition-api';
+import { computed, inject, useContext, Ref } from '@nuxtjs/composition-api';
 import VChart from 'vue-echarts/dist/csp';
 import * as echarts from 'echarts';
 import { useDataStore } from '~/stores/data';
+import useGtag from '~/composables/useGtag';
+import useGameInfo from '~/composables/useGameInfo';
+import useGameData from '~/composables/useGameData';
+import useSheetComboDialog from '~/composables/useSheetComboDialog';
 import type { Sheet, Filters, FilterOptions } from '~/types';
 import 'vue-echarts/dist/csp/style.css';
 
@@ -10,8 +14,23 @@ const sheets: Ref<Sheet[]> = inject('sheets')!;
 const filters: Ref<Filters> = inject('filters')!;
 const filterOptions: Ref<FilterOptions> = inject('filterOptions')!;
 
+const context = useContext();
+
+const gtag = useGtag();
 const dataStore = useDataStore();
+const { gameCode } = useGameInfo();
+const { getTypeIndex, getDifficultyIndex } = useGameData();
+const { viewSheetCombo } = useSheetComboDialog();
+
 const data = computed(() => dataStore.currentData);
+const sortedSheets = computed(() => sheets.value.toSorted(
+  (a, b) => 0
+    || (b.levelValue ?? 0) - (a.levelValue ?? 0)
+    || (b.internalLevelValue ?? 0) - (a.internalLevelValue ?? 0)
+    || (b.internalLevel != null ? 1 : 0) - (a.internalLevel != null ? 1 : 0)
+    || (getDifficultyIndex(b.difficulty)) - (getDifficultyIndex(a.difficulty))
+    || (getTypeIndex(a.type)) - (getTypeIndex(b.type)),
+));
 
 function getSheetLevelValueInUse(sheet: Sheet) {
   return (
@@ -92,6 +111,7 @@ const option = computed<echarts.EChartsOption>(() => ({
   tooltip: {
     trigger: 'axis',
     order: 'seriesDesc',
+    extraCssText: 'z-index: 200 !important;',
   },
   xAxis: {
     type: 'category',
@@ -123,6 +143,12 @@ const option = computed<echarts.EChartsOption>(() => ({
           .filter((sheet) => getSheetDifficultyInUse(sheet) === difficulty)
           .filter((sheet) => getSheetLevelValueInUse(sheet) === level.value)
           .length,
+        _headerTitle: [
+          filters.value.useInternalLevel ? context.i18n.t('term.internalLevel') : context.i18n.t('term.level'),
+          level.text,
+        ].join(' '),
+        _getSheets: () => sortedSheets.value
+          .filter((sheet) => getSheetLevelValueInUse(sheet) === level.value),
       })),
     } satisfies echarts.BarSeriesOption)),
   ],
@@ -136,6 +162,10 @@ const option = computed<echarts.EChartsOption>(() => ({
       :init-options="initOptions"
       :option="option"
       autoresize
+      @click="
+        viewSheetCombo($event.data._getSheets(), $event.data._headerTitle);
+        gtag('event', 'SheetComboViewed', { gameCode, eventSource: 'SheetDataChart' });
+      "
     />
   </div>
 </template>
