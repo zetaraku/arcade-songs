@@ -2,6 +2,7 @@
 import { computed, inject, useContext, Ref } from '@nuxtjs/composition-api';
 import VChart from 'vue-echarts/dist/csp';
 import * as echarts from 'echarts';
+import sleep from 'sleep-promise';
 import { useDataStore } from '~/stores/data';
 import useGtag from '~/composables/useGtag';
 import useGameInfo from '~/composables/useGameInfo';
@@ -165,7 +166,7 @@ const option = computed<echarts.EChartsOption>(() => ({
       :option="option"
       autoresize
       @click="
-        viewSheetCombo($event.data._getSheets(), $event.data._headerTitle);
+        sleep(0).then(() => viewSheetCombo($event.data._getSheets(), $event.data._headerTitle));
         gtag('event', 'SheetComboViewed', { gameCode, eventSource: 'SheetDataChart' });
       "
     />
