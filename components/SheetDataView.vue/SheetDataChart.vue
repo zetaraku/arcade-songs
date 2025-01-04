@@ -112,6 +112,8 @@ const option = computed<echarts.EChartsOption>(() => ({
     trigger: 'axis',
     order: 'seriesDesc',
     extraCssText: 'z-index: 200 !important;',
+    showContent: !context.$vuetify.breakpoint.mobile,
+    axisPointer: { animation: !context.$vuetify.breakpoint.mobile },
   },
   xAxis: {
     type: 'category',
