@@ -301,6 +301,13 @@ export default defineComponent({
 
     <h3>{{ $t('page.about.updateRecord') }}</h3>
     <v-timeline dense align-top class="mt-2">
+      <v-timeline-item small color="grey">
+        <span class="font-weight-bold">2025/01/04 － v3.23.1 Update</span>
+        <ul>
+          <li>ui: (Summary View) hide tooltip and reduce axis pointer animation on mobile</li>
+          <li>bugfix: (Summary View) fix dialog flashing problem when viewing sheets</li>
+        </ul>
+      </v-timeline-item>
       <v-timeline-item>
         <span class="font-weight-bold">2025/01/03 － v3.23 Update</span>
         <ul>
