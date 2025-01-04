@@ -35,6 +35,12 @@ const {
   startDrawingSheet,
 } = useSheetDialog();
 
+const displayingSheets = computed(() => (
+  isShowAll.value
+    ? currentSheets.value
+    : currentSheets.value.slice(0, 100)
+));
+
 async function drawSheet() {
   if (currentSheets.value.length === 0) {
     // eslint-disable-next-line no-alert
@@ -93,24 +99,24 @@ function handleSheetClick(index: number) {
 }
 
 const maxDialogWidth = computed(() => {
-  const currentSheetsCount = currentSheets.value.length;
+  const displayCount = displayingSheets.value.length;
 
   // 2 per line
-  if (currentSheetsCount <= 4) return '400px';
+  if (displayCount <= 4) return '400px';
   // 3 per line
-  if (currentSheetsCount <= 9) return '550px';
+  if (displayCount <= 9) return '550px';
   // 4 per line
-  if (currentSheetsCount <= 16) return '700px';
+  if (displayCount <= 16) return '700px';
   // 5 per line
-  if (currentSheetsCount <= 25) return '850px';
+  if (displayCount <= 25) return '850px';
   // 6 per line
-  if (currentSheetsCount <= 36) return '1000px';
+  if (displayCount <= 36) return '1000px';
   // 7 per line
-  if (currentSheetsCount <= 49) return '1150px';
+  if (displayCount <= 49) return '1150px';
   // 8 per line
-  if (currentSheetsCount <= 64) return '1300px';
+  if (displayCount <= 64) return '1300px';
   // 9 per line
-  if (currentSheetsCount <= 81) return '1450px';
+  if (displayCount <= 81) return '1450px';
   // 10 per line
   return '1600px';
 });
@@ -146,7 +152,7 @@ watch(isOpened, () => {
           @contextmenu.prevent
         >
           <SheetTile
-            v-for="(sheet, i) in (isShowAll ? currentSheets : currentSheets.slice(0, 100))"
+            v-for="(sheet, i) in displayingSheets"
             :key="i"
             :sheet="!blindfoldedIndexes.has(i) ? sheet : VOID_SHEET"
             :hide-cover="!isStatic"
@@ -155,7 +161,7 @@ watch(isOpened, () => {
         </div>
         <div class="d-flex justify-center py-4">
           <v-btn
-            v-if="currentSheets.length > 100 && !isShowAll"
+            v-if="displayingSheets.length < currentSheets.length"
             color="info"
             outlined
             @click="isShowAll = true;"
