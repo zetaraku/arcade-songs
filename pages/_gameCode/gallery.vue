@@ -73,11 +73,12 @@ async function loadDefaultGallery() {
 
 async function loadExternalGalleryFromUrl(galleryUrl: string) {
   // eslint-disable-next-line no-alert
-  const confirm = window.confirm([
-    'You are about to load an external gallery from the URL:',
-    '', galleryUrl, '',
-    'Continue?',
-  ].join('\n'));
+  const confirm = window.confirm(
+    context.i18n.t('page.gallery.loadExternalGalleryConfirmation', {
+      srcType: context.i18n.t('page.gallery.thisUrl'),
+      src: galleryUrl,
+    }),
+  );
 
   if (!confirm) return false;
 
@@ -122,11 +123,12 @@ async function loadExternalGalleryFromUrl(galleryUrl: string) {
 
 async function loadExternalGalleryFromFile(galleryFile: File) {
   // eslint-disable-next-line no-alert
-  const confirm = window.confirm([
-    'You are about to load an external gallery from the file:',
-    '', galleryFile.name, '',
-    'Continue?',
-  ].join('\n'));
+  const confirm = window.confirm(
+    context.i18n.t('page.gallery.loadExternalGalleryConfirmation', {
+      srcType: context.i18n.t('page.gallery.thisFile'),
+      src: galleryFile.name,
+    }),
+  );
 
   if (!confirm) return false;
 
@@ -295,9 +297,14 @@ export default defineComponent({
       class="mb-6"
       outlined
     >
-      You are currently viewing an external gallery from
-      👉 <a :href="externalGalleryUrl" target="_blank">this URL</a>.<br>
-      The content is not created by this site and we have no control over it.
+      <i18n path="page.gallery.externalGalleryDisclaimer">
+        <template #source>
+          👉 <a :href="externalGalleryUrl" target="_blank">{{ $t('page.gallery.thisUrl') }}</a>
+        </template>
+        <template #br>
+          <br>
+        </template>
+      </i18n>
     </v-alert>
     <v-alert
       v-if="currentGalleryProvider === 'file'"
@@ -305,9 +312,14 @@ export default defineComponent({
       class="mb-6"
       outlined
     >
-      You are currently viewing an external gallery from
-      <b>your local file</b>.<br>
-      The content is not created by this site and we have no control over it.
+      <i18n path="page.gallery.externalGalleryDisclaimer">
+        <template #source>
+          <b>{{ $t('page.gallery.yourLocalFile') }}</b>
+        </template>
+        <template #br>
+          <br>
+        </template>
+      </i18n>
     </v-alert>
 
     <!-- Current List -->

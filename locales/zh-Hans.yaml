@@ -77,6 +77,13 @@ page:
     description: 在这里搜索你最喜欢的音乐游戏歌曲！
   gallery:
     selectList: 选择乐曲列表
+    loadExternalGalleryConfirmation: "你正在从{srcType}载入一个外部的乐曲列表：\n\n{src}\n\n要继续吗？"
+    externalGalleryDisclaimer: |
+      你正在观看由 {source} 载入的外部乐曲列表。{br}
+      请注意此乐曲列表之内容并非由本网站所制作或管理。
+    thisUrl: 这个网址
+    thisFile: 这个文件
+    yourLocalFile: 你的本地文件
   songs:
     sheetData: 谱面数据
   about:

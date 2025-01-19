@@ -77,6 +77,13 @@ page:
     description: Busca canciones de tus juegos musicales favoritos, ¡ahora todo en uno!
   gallery:
     selectList: Seleccionar lista de canciones
+    # loadExternalGalleryConfirmation: "You are about to load an external gallery from {srcType}:\n\n{src}\n\nContinue?"
+    # externalGalleryDisclaimer: |
+    #   You are currently viewing an external gallery from {source}.{br}
+    #   The content is not created or managed by this site.
+    # thisUrl: this URL
+    # thisFile: this File
+    # yourLocalFile: your local file
   songs:
     sheetData: Datos de mapa
   about:

@@ -77,6 +77,13 @@ page:
     description: Search songs of your favorite music games, now all in one!
   gallery:
     selectList: Select Song List
+    loadExternalGalleryConfirmation: "You are about to load an external gallery from {srcType}:\n\n{src}\n\nContinue?"
+    externalGalleryDisclaimer: |
+      You are currently viewing an external gallery from {source}.{br}
+      The content is not created or managed by this site.
+    thisUrl: this URL
+    thisFile: this File
+    yourLocalFile: your local file
   songs:
     sheetData: Sheet Data
   about:

@@ -77,6 +77,13 @@ page:
     description: Поиск песен любимых музыкальных игр, теперь все в одном!
   gallery:
     selectList: Выберите Список Песен
+    # loadExternalGalleryConfirmation: "You are about to load an external gallery from {srcType}:\n\n{src}\n\nContinue?"
+    # externalGalleryDisclaimer: |
+    #   You are currently viewing an external gallery from {source}.{br}
+    #   The content is not created or managed by this site.
+    # thisUrl: this URL
+    # thisFile: this File
+    # yourLocalFile: your local file
   songs:
     sheetData: Данные Листа
   about:

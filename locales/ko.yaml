@@ -77,6 +77,13 @@ page:
     description: 좋아하는 음악 게임의 곡을 이제 한 곳에서 검색하세요!
   gallery:
     selectList: 곡 목록 선택
+    # loadExternalGalleryConfirmation: "You are about to load an external gallery from {srcType}:\n\n{src}\n\nContinue?"
+    # externalGalleryDisclaimer: |
+    #   You are currently viewing an external gallery from {source}.{br}
+    #   The content is not created or managed by this site.
+    # thisUrl: this URL
+    # thisFile: this File
+    # yourLocalFile: your local file
   songs:
     sheetData: 채보 데이터
   about:

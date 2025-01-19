@@ -77,6 +77,13 @@ page:
     description: 好きな音ゲー楽曲をここで探してみよう！
   gallery:
     selectList: 曲リスト選択
+    loadExternalGalleryConfirmation: "{srcType}から外部の曲リストを読み込んでいます：\n\n{src}\n\n続行しますか？"
+    externalGalleryDisclaimer: |
+      {source} から外部の曲リストを表示しています。{br}
+      コンテンツは、このサイトによって作成または管理されていません。
+    thisUrl: このリンク
+    thisFile: このファイル
+    yourLocalFile: あなたのローカルファイル
   songs:
     sheetData: 譜面データ
   about:
