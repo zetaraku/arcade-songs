@@ -7,3 +7,8 @@
   background-clip: text;
   background-image: linear-gradient(135deg, red, orange, yellow, green, blue, indigo, violet);
 }
+
+// always show clear icon
+.v-input__icon--clear {
+  opacity: 1 !important;
+}
