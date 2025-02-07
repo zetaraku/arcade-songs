@@ -380,11 +380,3 @@ watch(() => filters.value.syncBPM, () => {
     </v-row>
   </div>
 </template>
-
-<style lang="scss" scoped>
-::v-deep {
-  .v-select__selections {
-    flex-wrap: nowrap;
-  }
-}
-</style>
