@@ -210,7 +210,13 @@ async function importSelectedSheets() {
                 @click="toggleSuperFilter"
                 v-on="on"
               >
-                <v-icon>mdi-code-braces-box</v-icon>
+                <v-badge
+                  color="error"
+                  style="font-weight: bold;"
+                  content="NEW!"
+                >
+                  <v-icon>mdi-code-braces-box</v-icon>
+                </v-badge>
               </v-btn>
             </template>
             <span v-text="$t('term.superFilter')" />
