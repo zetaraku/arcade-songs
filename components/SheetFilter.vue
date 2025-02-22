@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { computed, watch, inject, Ref } from '@nuxtjs/composition-api';
+import { ref, computed, watch, inject, Ref } from '@nuxtjs/composition-api';
 import useGameInfo from '~/composables/useGameInfo';
+import SuperFilterDialog from '~/components/dialogs/SuperFilterDialog.vue';
 import { parseSuperFilter } from '~/utils';
 import type { Filters, FilterOptions } from '~/types';
 
@@ -8,6 +9,8 @@ const filters: Ref<Filters> = inject('filters')!;
 const filterOptions: Ref<FilterOptions> = inject('filterOptions')!;
 
 const { gameCode } = useGameInfo();
+
+const isSuperFilterDialogOpened = ref(false);
 
 const currentLevelFilterOptions = computed(() => (
   filters.value.useInternalLevel
@@ -372,11 +375,29 @@ watch(() => filters.value.syncBPM, () => {
           :placeholder="$t('description.superFilterPlaceholder')"
           :hint="$t('description.superFilterHint')"
           persistent-placeholder
-          clearable
           outlined
+          auto-grow
+          readonly
+          class="SuperFilter"
           style="font-family: Consolas, monospace;"
+          @click="isSuperFilterDialogOpened = true;"
+        />
+        <SuperFilterDialog
+          v-model="isSuperFilterDialogOpened"
+          :super-filter-text.sync="filters.superFilter"
         />
       </v-col>
     </v-row>
   </div>
 </template>
+
+<style lang="scss" scoped>
+::v-deep {
+  .SuperFilter {
+    textarea {
+      cursor: pointer;
+      caret-color: transparent;
+    }
+  }
+}
+</style>
