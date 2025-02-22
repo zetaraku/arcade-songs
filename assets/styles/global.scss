@@ -12,3 +12,9 @@
 .v-input__icon--clear {
   opacity: 1 !important;
 }
+
+.v-textarea {
+  textarea {
+    margin-bottom: 8px;
+  }
+}
