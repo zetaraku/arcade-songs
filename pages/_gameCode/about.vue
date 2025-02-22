@@ -301,6 +301,13 @@ export default defineComponent({
 
     <h3>{{ $t('page.about.updateRecord') }}</h3>
     <v-timeline dense align-top class="mt-2">
+      <v-timeline-item>
+        <span class="font-weight-bold">2025/02/22 － v3.24 Update</span>
+        <ul>
+          <li>ui: (Filter) open a dialog with instructions to edit the Super Filter</li>
+          <li>bugfix: (Filter) remove misconfigured style for multi-select</li>
+        </ul>
+      </v-timeline-item>
       <v-timeline-item small color="grey">
         <span class="font-weight-bold">2025/01/04 － v3.23.1 Update</span>
         <ul>
