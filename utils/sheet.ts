@@ -1,8 +1,8 @@
 import catImageUrl from '~/assets/images/cat.png';
 import darkCatImageUrl from '~/assets/images/dark-cat.png';
 import shyCatImageUrl from '~/assets/images/shy-cat.jpg';
-import rickImageUrl from '~/assets/images/rick.png';
-import indiImageUrl from '~/assets/images/indi.png';
+import rickImageUrl from '~/assets/images/rick.jpg';
+import indiImageUrl from '~/assets/images/indi.jpg';
 import type { Sheet } from '~/types';
 
 export const $canonicalSheet = Symbol('$canonicalSheet');
