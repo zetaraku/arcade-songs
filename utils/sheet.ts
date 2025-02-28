@@ -1,5 +1,6 @@
 import catImageUrl from '~/assets/images/cat.png';
 import darkCatImageUrl from '~/assets/images/dark-cat.png';
+import shyCatImageUrl from '~/assets/images/shy-cat.jpg';
 import rickImageUrl from '~/assets/images/rick.png';
 import indiImageUrl from '~/assets/images/indi.png';
 import type { Sheet } from '~/types';
@@ -186,6 +187,34 @@ export function makeDummySheet(sheetExpr: string): Sheet {
 
   if (sheetExprMatches.length < 3) return makeInvalidDummySheet(sheetExprMatches);
   return makeUnmatchedDummySheet(sheetExprMatches);
+}
+
+export function makeShyCatSheet(thing: unknown, category?: string): Sheet {
+  const thingType = typeof thing;
+
+  return {
+    songId: null,
+    songNo: 0,
+
+    category,
+    title: `you like ${thingType === 'string' ? thing : `${thingType}s`} don't you`,
+    artist: 'Mauzymice',
+    imageUrl: shyCatImageUrl,
+
+    version: undefined,
+    releaseDate: '2022-06-22',
+    bpm: undefined,
+
+    type: '??',
+    difficulty: thingType,
+    level: ['number', 'bigint', 'boolean', 'symbol', 'object'].includes(thingType) ? String(thing) : ':3',
+    levelValue: 0,
+
+    noteDesigner: undefined,
+    comment: `oooooo you like returning ${thingType}s ur ${/^[aeiou]/i.test(thingType) ? 'an' : 'a'} ${thingType}lover`,
+
+    searchUrl: null,
+  };
 }
 
 export function validateNoteCounts(sheet: Sheet, gameCode: string | undefined) {

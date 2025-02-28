@@ -1,14 +1,18 @@
 <script setup lang="ts">
 import { ref, computed, watch, inject, Ref } from '@nuxtjs/composition-api';
+import useGtag from '~/composables/useGtag';
 import useGameInfo from '~/composables/useGameInfo';
+import useSheetDialog from '~/composables/useSheetDialog';
 import SuperFilterDialog from '~/components/dialogs/SuperFilterDialog.vue';
-import { parseSuperFilter } from '~/utils';
+import { parseSuperFilter, makeShyCatSheet } from '~/utils';
 import type { Filters, FilterOptions } from '~/types';
 
 const filters: Ref<Filters> = inject('filters')!;
 const filterOptions: Ref<FilterOptions> = inject('filterOptions')!;
 
+const gtag = useGtag();
 const { gameCode } = useGameInfo();
+const { viewSheet } = useSheetDialog();
 
 const isSuperFilterDialogOpened = ref(false);
 
@@ -22,7 +26,14 @@ function validateSuperFilter(superFilterText: string): boolean | string {
   try {
     const superFilter = parseSuperFilter(superFilterText);
 
-    if (typeof superFilter !== 'function') throw new TypeError('You should return a predicate function.');
+    if (typeof superFilter !== 'function') {
+      if (typeof superFilter !== 'undefined') {
+        viewSheet(makeShyCatSheet(superFilter, 'INVALID SUPER FILTER'));
+        gtag('event', 'InvalidSuperFilterReturned', { gameCode: gameCode.value, eventSource: 'SheetFilter' });
+      }
+
+      throw new TypeError('You should return a predicate function.');
+    }
 
     return true;
   } catch (err) {
