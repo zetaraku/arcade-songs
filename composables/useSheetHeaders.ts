@@ -200,6 +200,11 @@ function useHeaders(): DataTableHeader[] {
       width: 150,
       sort: (a: string, b: string) => getVersionIndex(a) - getVersionIndex(b),
     },
+    {
+      text: context.i18n.t('term.releaseDate') as string,
+      value: 'releaseDate',
+      width: 150,
+    },
   ];
 }
 
