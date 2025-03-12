@@ -17,27 +17,45 @@ export default function useGameData() {
   }
 
   // Category
+  const categoryMap = computed(() => new Map(
+    data.value.categories.map((e) => [e.category, e]),
+  ));
+  const categoryIndexMap = computed(() => new Map(
+    data.value.categories.map((e, i) => [e.category, i]),
+  ));
   function getCategoryData(category: string | undefined) {
-    return data.value.categories.find((e) => e.category === category);
+    return categoryMap.value.get(category!);
   }
   function getCategoryIndex(category: string | undefined) {
-    return data.value.categories.findIndex((e) => e.category === category);
+    return categoryIndexMap.value.get(category!) ?? -1;
   }
 
   // Version
+  const versionMap = computed(() => new Map(
+    data.value.versions.map((e) => [e.version, e]),
+  ));
+  const versionIndexMap = computed(() => new Map(
+    data.value.versions.map((e, i) => [e.version, i]),
+  ));
   function getVersionData(version: string | undefined) {
-    return data.value.versions.find((e) => e.version === version);
+    return versionMap.value.get(version!);
   }
   function getVersionAbbr(version: string | undefined) {
     return getVersionData(version)?.abbr ?? version;
   }
   function getVersionIndex(version: string | undefined) {
-    return data.value.versions.findIndex((e) => e.version === version);
+    return versionIndexMap.value.get(version!) ?? -1;
   }
 
   // Type
+  const typeMap = computed(() => new Map(
+    data.value.types.map((e) => [e.type, e]),
+  ));
+  const typeIndexMap = computed(() => new Map(
+    data.value.types.map((e, i) => [e.type, i]),
+  ));
   function getTypeData(type: string | undefined) {
-    return data.value.types.find((e) => e.type === type);
+    return typeMap.value.get(type!);
   }
   function getTypeName(type: string | undefined) {
     return getTypeData(type)?.name ?? String(type).toUpperCase();
@@ -52,12 +70,18 @@ export default function useGameData() {
     return getTypeData(type)?.iconHeight ?? undefined;
   }
   function getTypeIndex(type: string | undefined) {
-    return data.value.types.findIndex((e) => e.type === type);
+    return typeIndexMap.value.get(type!) ?? -1;
   }
 
   // Difficulty
+  const difficultyMap = computed(() => new Map(
+    data.value.difficulties.map((e) => [e.difficulty, e]),
+  ));
+  const difficultyIndexMap = computed(() => new Map(
+    data.value.difficulties.map((e, i) => [e.difficulty, i]),
+  ));
   function getDifficultyData(difficulty: string | undefined) {
-    return data.value.difficulties.find((e) => e.difficulty === difficulty);
+    return difficultyMap.value.get(difficulty!);
   }
   function getDifficultyName(difficulty: string | undefined) {
     return getDifficultyData(difficulty)?.name ?? String(difficulty).toUpperCase();
@@ -72,7 +96,7 @@ export default function useGameData() {
     return getDifficultyData(difficulty)?.iconHeight ?? undefined;
   }
   function getDifficultyIndex(difficulty: string | undefined) {
-    return data.value.difficulties.findIndex((e) => e.difficulty === difficulty);
+    return difficultyIndexMap.value.get(difficulty!) ?? -1;
   }
 
   // Search link
