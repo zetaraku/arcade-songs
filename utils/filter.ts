@@ -214,12 +214,16 @@ export function filterSheets(sheets: Sheet[], filters: Filters) {
     }
   }
   if (filters.categories.length !== 0) {
-    result = result.filter((sheet) => filters.categories.some(
-      (category) => sheet.category === category || (
-        sheet.category != null
-        && sheet.category.split('|').includes(category)
+    const categorySet = new Set(filters.categories);
+    result = result.filter(
+      (sheet) => (
+        categorySet.has(sheet.category!)
+        || (
+          sheet.category != null
+          && sheet.category.split('|').some((category) => categorySet.has(category))
+        )
       ),
-    ));
+    );
   }
   if (filters.title != null) {
     const normalizedTitle = filters.title.toLowerCase();
@@ -231,27 +235,21 @@ export function filterSheets(sheets: Sheet[], filters: Filters) {
     );
   }
   if (filters.versions.length !== 0) {
+    const versionSet = new Set(filters.versions);
     result = result.filter(
-      (sheet) => (
-        sheet.version != null
-        && filters.versions.includes(sheet.version)
-      ),
+      (sheet) => versionSet.has(sheet.version!),
     );
   }
   if (filters.types.length !== 0) {
+    const typeSet = new Set(filters.types);
     result = result.filter(
-      (sheet) => (
-        sheet.type != null
-        && filters.types.includes(sheet.type)
-      ),
+      (sheet) => typeSet.has(sheet.type!),
     );
   }
   if (filters.difficulties.length !== 0) {
+    const difficultySet = new Set(filters.difficulties);
     result = result.filter(
-      (sheet) => (
-        sheet.difficulty != null
-        && filters.difficulties.includes(sheet.difficulty)
-      ),
+      (sheet) => difficultySet.has(sheet.difficulty!),
     );
   }
   if (typeof filters.minLevelValue === 'number') {
@@ -314,10 +312,10 @@ export function filterSheets(sheets: Sheet[], filters: Filters) {
     );
   }
   if (filters.noteDesigners.length !== 0) {
+    const noteDesignerSet = new Set(filters.noteDesigners);
     result = result.filter(
       (sheet) => (
-        sheet.noteDesigner != null
-        && filters.noteDesigners.includes(sheet.noteDesigner)
+        noteDesignerSet.has(sheet.noteDesigner!)
       ),
     );
   }
