@@ -1,7 +1,9 @@
 export type Filters = {
   categories: string[];
   title: string | null;
+  matchExactTitle: boolean | null;
   artist: string | null;
+  matchExactArtist: boolean | null;
 
   versions: string[];
   minBPM: number | null;

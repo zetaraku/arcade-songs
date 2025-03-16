@@ -114,6 +114,7 @@ sfc:
     updateTime: '데이터 업데이트 시간: {time}'
     loadFailed: 데이터를 불러오는 동안 실패했습니다.
   SheetFilter:
+    exactMatch: 완전 일치
     useInternalLevel: 보면상수를 사용
     useRegionOverride: 이 지역의 정보로 덮어쓰기
   ModeSelector:

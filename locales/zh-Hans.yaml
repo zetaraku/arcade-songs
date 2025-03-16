@@ -114,6 +114,7 @@ sfc:
     updateTime: '数据更新日期：{time}'
     loadFailed: 数据加载失败。
   SheetFilter:
+    exactMatch: 完全匹配
     useInternalLevel: 使用谱面定数
     useRegionOverride: 使用地区信息覆写
   ModeSelector:

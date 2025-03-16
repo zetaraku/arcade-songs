@@ -114,6 +114,7 @@ sfc:
     updateTime: 'データ更新日：{time}'
     loadFailed: データの読み込みに失敗しました。
   SheetFilter:
+    exactMatch: 完全一致
     useInternalLevel: 譜面定数を使用する
     useRegionOverride: 地区の情報でオーバーライド
   ModeSelector:

@@ -6,7 +6,9 @@ import type { Data, Sheet, Filters, FilterOptions } from '~/types';
 const filterTypes = {
   categories: 'string[]',
   title: 'string',
+  matchExactTitle: 'boolean',
   artist: 'string',
+  matchExactArtist: 'boolean',
 
   versions: 'string[]',
   minBPM: 'number',
@@ -32,7 +34,9 @@ export function buildEmptyFilters(): Filters {
   return {
     categories: [],
     title: null,
+    matchExactTitle: null,
     artist: null,
+    matchExactArtist: null,
 
     versions: [],
     minBPM: null,
@@ -226,13 +230,19 @@ export function filterSheets(sheets: Sheet[], filters: Filters) {
     );
   }
   if (filters.title != null) {
-    const normalizedTitle = filters.title.toLowerCase();
-    result = result.filter(
-      (sheet) => (
-        sheet.title != null
-        && sheet.title.toLowerCase().includes(normalizedTitle)
-      ),
-    );
+    if (filters.matchExactTitle) {
+      result = result.filter(
+        (sheet) => (sheet.title === filters.title),
+      );
+    } else {
+      const normalizedTitle = filters.title.toLowerCase();
+      result = result.filter(
+        (sheet) => (
+          sheet.title != null
+          && sheet.title.toLowerCase().includes(normalizedTitle)
+        ),
+      );
+    }
   }
   if (filters.versions.length !== 0) {
     const versionSet = new Set(filters.versions);
@@ -303,13 +313,19 @@ export function filterSheets(sheets: Sheet[], filters: Filters) {
     );
   }
   if (filters.artist != null) {
-    const normalizedArtist = filters.artist.toLowerCase();
-    result = result.filter(
-      (sheet) => (
-        sheet.artist != null
-        && sheet.artist.toLowerCase().includes(normalizedArtist)
-      ),
-    );
+    if (filters.matchExactArtist) {
+      result = result.filter(
+        (sheet) => (sheet.artist === filters.artist),
+      );
+    } else {
+      const normalizedArtist = filters.artist.toLowerCase();
+      result = result.filter(
+        (sheet) => (
+          sheet.artist != null
+          && sheet.artist.toLowerCase().includes(normalizedArtist)
+        ),
+      );
+    }
   }
   if (filters.noteDesigners.length !== 0) {
     const noteDesignerSet = new Set(filters.noteDesigners);

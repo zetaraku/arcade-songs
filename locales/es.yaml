@@ -114,6 +114,7 @@ sfc:
     updateTime: 'Tiempo de actualización de los datos: {time}'
     loadFailed: Error al cargar los datos.
   SheetFilter:
+    exactMatch: Concordancia exacta
     useInternalLevel: Utilizar el nivel interno
     useRegionOverride: Sobrescribir con información de región
   ModeSelector:

@@ -114,6 +114,7 @@ sfc:
     updateTime: 'Время Обновления Данных: {time}'
     loadFailed: Не удалось загрузить данные.
   # SheetFilter:
+  #   exactMatch: Exact Match
   #   useInternalLevel: Use Internal Level
   #   useRegionOverride: Use Regional Info Override
   ModeSelector:

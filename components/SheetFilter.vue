@@ -110,15 +110,37 @@ watch(() => filters.value.syncBPM, () => {
         md="6"
         class="d-flex align-end"
       >
-        <v-combobox
-          v-model="filters.title"
-          :items="filterOptions.titles"
-          prepend-icon="mdi-alphabetical-variant"
-          :label="$t('term.title')"
-          :placeholder="$t('ui.all')"
-          persistent-placeholder
-          clearable
-        />
+        <div class="d-flex flex-grow-1 align-end" style="min-width: 0;">
+          <v-combobox
+            v-model="filters.title"
+            :items="filterOptions.titles"
+            prepend-icon="mdi-alphabetical-variant"
+            :label="$t('term.title')"
+            :placeholder="$t('ui.all')"
+            persistent-placeholder
+            clearable
+          />
+        </div>
+        <div class="d-flex flex-grow-0 align-center pl-4 align-self-stretch">
+          <v-tooltip top>
+            <template #activator="{ on }">
+              <v-btn
+                icon
+                :color="!filters.matchExactTitle ? null : 'accent'"
+                @click="
+                  filters.matchExactTitle = !filters.matchExactTitle || null;
+                  $gtag('event', 'MatchExactTitleToggled', { gameCode, eventSource: 'SheetFilter' });
+                "
+                v-on="on"
+              >
+                <v-icon size="2.0em">
+                  mdi-format-letter-matches
+                </v-icon>
+              </v-btn>
+            </template>
+            <span v-text="$t('sfc.SheetFilter.exactMatch')" />
+          </v-tooltip>
+        </div>
       </v-col>
       <!-- Difficulty -->
       <v-col
@@ -255,15 +277,37 @@ watch(() => filters.value.syncBPM, () => {
         md="6"
         class="d-flex align-end"
       >
-        <v-combobox
-          v-model="filters.artist"
-          :items="filterOptions.artists"
-          prepend-icon="mdi-account-music-outline"
-          :label="$t('term.artist')"
-          :placeholder="$t('ui.all')"
-          persistent-placeholder
-          clearable
-        />
+        <div class="d-flex flex-grow-1 align-end" style="min-width: 0;">
+          <v-combobox
+            v-model="filters.artist"
+            :items="filterOptions.artists"
+            prepend-icon="mdi-account-music-outline"
+            :label="$t('term.artist')"
+            :placeholder="$t('ui.all')"
+            persistent-placeholder
+            clearable
+          />
+        </div>
+        <div class="d-flex flex-grow-0 align-center pl-4 align-self-stretch">
+          <v-tooltip top>
+            <template #activator="{ on }">
+              <v-btn
+                icon
+                :color="!filters.matchExactArtist ? null : 'accent'"
+                @click="
+                  filters.matchExactArtist = !filters.matchExactArtist || null;
+                  $gtag('event', 'MatchExactArtistToggled', { gameCode, eventSource: 'SheetFilter' });
+                "
+                v-on="on"
+              >
+                <v-icon size="2.0em">
+                  mdi-format-letter-matches
+                </v-icon>
+              </v-btn>
+            </template>
+            <span v-text="$t('sfc.SheetFilter.exactMatch')" />
+          </v-tooltip>
+        </div>
       </v-col>
       <!-- Note Designer -->
       <v-col
