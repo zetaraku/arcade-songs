@@ -128,7 +128,7 @@ export function buildFilterOptions(data: Data, i18n: NuxtI18nInstance): FilterOp
     levels: nonEmptyOrNull(
       [...new Map(
         data.sheets
-          .filter((sheet) => sheet.levelValue != null && sheet.level != null)
+          .filter((sheet) => sheet.levelValue != null && sheet.level != null && !sheet.level.endsWith('?'))
           .map((sheet) => [sheet.levelValue!, sheet.level!]),
       ).entries()]
         .sort(([aLevelValue], [bLevelValue]) => aLevelValue - bLevelValue)
