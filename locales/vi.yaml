@@ -3,6 +3,10 @@
 
 # Page titles
 page-title:
+  home: Trang chính
+  song: Dữ liệu Bài hát
+  songs: Danh sách Bài
+  gallery: Tập hợp Bài
   # home: Home
   # song: Song Data
   # songs: List of Songs
@@ -139,6 +143,7 @@ sfc:
     # searchOnYouTube: Search on YouTube
     # tryAgain: TRY AGAIN
   SheetComboDialog:
+hello: Xin chào thế giới!
     # drawResults: Draw Results
     # noDuplicate: No Duplicate
     # changeDrawSize: Change Draw Size
