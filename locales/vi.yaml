@@ -3,7 +3,7 @@
 
 # Page titles
 page-title:
-  home: Trang chính
+  home: Trang chủ
   song: Dữ liệu Bài hát
   songs: Danh sách Bài
   gallery: Tập hợp Bài
@@ -16,7 +16,20 @@ page-title:
   # source-code: Source Code
 
 # General UIs
+  about: Về chúng tôi
+  bug-report: Báo cáo Sự cố
+  source-code: Mã Nguồn
 ui:
+  search: Tìm kiếm
+  preview: Xem trước
+  download: Tải xuống
+  goBack: Quay về
+  all: TẤT CẢ
+  default: Mặc định
+  ok: OK
+  cancel: Hủy
+  close: Đóng
+  showAll: Hiển thị tất cả
   # ok: OK
   # cancel: Cancel
   # close: Close
@@ -32,6 +45,22 @@ ui:
 
 # Terminologies
 term:
+  version: Phiên bản
+  title: Tiêu đề
+  artist: Hoạ sĩ
+  releaseDate: Ngày phát hành
+  difficulty: Độ khó
+  level: Cấp độ
+  totalNotes: TỔNG
+  category: Phân loại
+  bpm: BPM
+  minBPM: BPM thấp nhất
+  maxBPM: BPM cao nhất
+  minLevel: Cấp độ thấp nhất
+  maxLevel: Cấp độ cao nhất
+  noteDesigner: Người thiết kế các nốt
+  comment: Bình luận
+  region: Khu vực
   # category: Category
   # title: Title
   # artist: Artist
@@ -57,6 +86,14 @@ term:
 
 # Descriptions & Tooltips
 description:
+  loading: Đang tải dữ liệu…
+  newSong: Bài hát mới!
+  unlockNeeded: Bài hát này cần phải được mở khoá
+  unavailableInRegion: Hiện không khả dụng ở {region}
+  copied: Đã sao chép vào bộ nhớ tạm!
+  pending: Đang xử lý
+  invalidNoteCounts: Số lượng note không hợp lệ
+  clearMyList: Dọn dẹp DANH SÁCH CỦA TÔI
   # pending: Pending
   # loading: Loading data…
   # newSong: New song!
@@ -91,6 +128,9 @@ page:
   songs:
     # sheetData: Sheet Data
   about:
+    dataSource: Dữ liệu nguồn
+    songInfo: Thông tin bài hát
+    openSource: Mã nguồn dự án
     # author: Author
     # dataSource: Data Source
     # songInfo: Song Info
@@ -108,6 +148,9 @@ page:
     # updateRecord: Update Record
     # disclaimer: Copyright Notice
   error:
+    error: Lỗi
+    notFound: Không tìm thấy trang
+    backToHome: Quay về Trang chủ
     # error: Error
     # notFound: Page Not Found
     # backToHome: Back to Home
@@ -122,6 +165,8 @@ sfc:
     # useInternalLevel: Use Internal Level
     # useRegionOverride: Use Regional Info Override
   ModeSelector:
+    filterMode: Chế độ lọc
+    myListMode: DANH SÁCH CỦA TÔI
     # gridMode: Grid View
     # tableMode: Detail View
     # chartMode: Summary View
@@ -140,9 +185,12 @@ sfc:
     # sheetsCount: '{n} sheets'
     # songsCount: '{n} songs'
   SheetDialog:
+    searchOnYouTube: Tìm kiếm trên YouTube
+    tryAgain: THỬ LẠI
     # searchOnYouTube: Search on YouTube
     # tryAgain: TRY AGAIN
   SheetComboDialog:
+    allowDuplicate: Cho phép Nhân bản
 hello: Xin chào thế giới!
     # drawResults: Draw Results
     # noDuplicate: No Duplicate
