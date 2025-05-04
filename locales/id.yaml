@@ -27,6 +27,7 @@ ui:
   # showAll: Show All
 
 # Terminologies
+  showAll: Tampilkan Semua
 term:
   category: Kategori
   title: Judul
@@ -52,6 +53,7 @@ term:
   # superFilter: Super Filter
 
 # Descriptions & Tooltips
+  superFilter: Filter super
 description:
   pending: Menunggu
   loading: Memuat data…
@@ -72,6 +74,10 @@ description:
   # superFilterHint: // I hope you know what you're doing ...
 
 # Pages
+  pickOneFromFilter: PILIH SALAH SATU DARI FILTER!
+  superFilterPlaceholder: "// mengembalikan fungsi predikat untuk memfilter hasil \nreturn (sheet) => true;\n"
+  superFilterHint: // Kuharap kau tahu apa yang kau lakukan...
+  noMoreSheetsToPick: Tidak ada lagi lembaran yang harus dipilih.
 page:
   index:
     description: Cari lagu permainan musik favorit Anda, sekarang semua tergabung dalam satu!
@@ -84,6 +90,10 @@ page:
     # thisUrl: this URL
     # thisFile: this File
     # yourLocalFile: your local file
+    loadExternalGalleryConfirmation: "Anda akan memuat galeri eksternal dari {srcType}:\n \n{src}\n\nLanjutkan?"
+    externalGalleryDisclaimer: "Anda sedang melihat galeri eksternal dari {source}.{br} \nKonten tidak dibuat atau dikelola oleh situs ini.\n"
+    thisUrl: URL ini
+    thisFile: File ini
   songs:
     sheetData: Data Lembar
   about:
