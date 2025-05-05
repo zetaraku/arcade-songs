@@ -24,10 +24,9 @@ ui:
   default: Standar
   sort-asc: Urutan Menaik
   sort-desc: Urutan Menurun
-  # showAll: Show All
+  showAll: Tampilkan Semua
 
 # Terminologies
-  showAll: Tampilkan Semua
 term:
   category: Kategori
   title: Judul
@@ -50,10 +49,9 @@ term:
   totalNotes: TOTAL
   region: Wilayah
   comment: Komentar
-  # superFilter: Super Filter
+  superFilter: Filter Super
 
 # Descriptions & Tooltips
-  superFilter: Filter super
 description:
   pending: Menunggu
   loading: Memuat data…
@@ -66,34 +64,26 @@ description:
   myListEmpty: Klik kanan atau tahan untuk menambah sebuah lembar ke MY LIST, lalu kamu bisa lihat lembar yang dipilih di sini.
   drawPoolEmpty: Kolam undian saat ini kosong.
   clearMyList: Kosongkan MY LIST
-  # pickOneFromFilter: PICK ONE FROM FILTER!
-  # noMoreSheetsToPick: No more sheets to pick.
-  # superFilterPlaceholder: |
-  #   // return a predicate function to filter the result
-  #   return (sheet) => true;
-  # superFilterHint: // I hope you know what you're doing ...
+  pickOneFromFilter: PILIH SALAH SATU DARI FILTER!
+  noMoreSheetsToPick: Tidak ada lagi lembaran yang harus dipilih.
+  superFilterPlaceholder: |
+    // mengembalikan fungsi predikat untuk memfilter hasil
+    return (sheet) => true;
+  superFilterHint: // Kuharap kau tahu apa yang kau lakukan ...
 
 # Pages
-  pickOneFromFilter: PILIH SALAH SATU DARI FILTER!
-  superFilterPlaceholder: "// mengembalikan fungsi predikat untuk memfilter hasil \nreturn (sheet) => true;\n"
-  superFilterHint: // Kuharap kau tahu apa yang kau lakukan...
-  noMoreSheetsToPick: Tidak ada lagi lembaran yang harus dipilih.
 page:
   index:
     description: Cari lagu permainan musik favorit Anda, sekarang semua tergabung dalam satu!
   gallery:
     selectList: Pilih Daftar Lagu
-    # loadExternalGalleryConfirmation: "You are about to load an external gallery from {srcType}:\n\n{src}\n\nContinue?"
-    # externalGalleryDisclaimer: |
-    #   You are currently viewing an external gallery from {source}.{br}
-    #   The content is not created or managed by this site.
-    # thisUrl: this URL
-    # thisFile: this File
-    # yourLocalFile: your local file
-    loadExternalGalleryConfirmation: "Anda akan memuat galeri eksternal dari {srcType}:\n \n{src}\n\nLanjutkan?"
-    externalGalleryDisclaimer: "Anda sedang melihat galeri eksternal dari {source}.{br} \nKonten tidak dibuat atau dikelola oleh situs ini.\n"
+    loadExternalGalleryConfirmation: "Anda akan memuat galeri eksternal dari {srcType}:\n\n{src}\n\nLanjutkan?"
+    externalGalleryDisclaimer: |
+      Anda sedang melihat galeri eksternal dari {source}.{br}
+      Konten tidak dibuat atau dikelola oleh situs ini.
     thisUrl: URL ini
     thisFile: File ini
+    # yourLocalFile: your local file
   songs:
     sheetData: Data Lembar
   about:
