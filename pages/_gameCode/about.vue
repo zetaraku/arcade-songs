@@ -268,6 +268,17 @@ export default defineComponent({
           － {{ $t('page.about.sheetInfoDescription') }}
         </li>
       </template>
+      <template v-if="gameCode === 'gitadora'">
+        <li>
+          {{ $t('page.about.songInfo') }} －
+          <a href="https://p.eagate.573.jp/game/gfdm/gitadora_galaxywave_delta/" target="_blank">GITADORA GALAXY WAVE DELTA</a>
+        </li>
+        <li>
+          {{ $t('page.about.sheetInfo') }} －
+          <a href="https://bemaniwiki.com/?GITADORA+GALAXY+WAVE+DELTA" target="_blank">GITADORA GALAXY WAVE DELTA - BEMANIWiki 2nd</a>
+          － {{ $t('page.about.sheetInfoDescription') }}
+        </li>
+      </template>
       <template v-if="gameCode === 'mahjong'">
         <li>
           Vector graphics of riichi mahjong tiles －
@@ -301,6 +312,26 @@ export default defineComponent({
 
     <h3>{{ $t('page.about.updateRecord') }}</h3>
     <v-timeline dense align-top class="mt-2">
+      <v-timeline-item icon="mdi-star">
+        <span class="font-weight-bold">2025/05/19－ v3.26 Update</span>
+        <ul>
+          <li>
+            project: add new site for <strong>GITADORA</strong>
+            >> <a href="https://arcade-songs.zetaraku.dev/gitadora/" target="_blank">GITADORA | arcade-songs</a>
+          </li>
+          <li><i>"Let's ROCK!!!!!"</i></li>
+        </ul>
+      </v-timeline-item>
+      <v-timeline-item>
+        <span class="font-weight-bold">2025/03/16 － v3.25 Update</span>
+        <ul>
+          <li>feature: (Filter) allow exact match on title and artist</li>
+          <li>ui: (List View) add "Release Date" column</li>
+          <li>fix: (Filter) do not build level filter options from levels that end with "?"</li>
+          <li>misc: (Filter) improve filter performance</li>
+          <li>misc: (Site) improve game data matching performance</li>
+        </ul>
+      </v-timeline-item>
       <v-timeline-item>
         <span class="font-weight-bold">2025/02/22 － v3.24 Update</span>
         <ul>
@@ -1152,6 +1183,16 @@ export default defineComponent({
         <li>
           This site is not associated or officially connected with
           <strong>REFLEC BEAT</strong> or <strong>Konami Amusement Co., Ltd.</strong>
+        </li>
+      </template>
+      <template v-if="gameCode === 'gitadora'">
+        <li>
+          <strong>GITADORA</strong> and <strong>ギタドラ</strong>
+          are trademarks of <strong>Konami Amusement Co., Ltd.</strong>
+        </li>
+        <li>
+          This site is not associated or officially connected with
+          <strong>GITADORA</strong> or <strong>Konami Amusement Co., Ltd.</strong>
         </li>
       </template>
       <li>
