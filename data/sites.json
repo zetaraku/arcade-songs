@@ -63,6 +63,13 @@
     "accessCounterUrl": "https://www.f-counter.net/j/61/1680617223/"
   },
   {
+    "gameCode": "gitadora",
+    "gameTitle": "GITADORA",
+    "themeColor": "#21008d",
+    "dataSourceUrl": "https://dp4p6x0xfi5o9.cloudfront.net/gitadora",
+    "accessCounterUrl": "https://www.f-counter.net/j/65/1747667103/"
+  },
+  {
     "gameCode": "gc",
     "gameTitle": "GROOVE COASTER",
     "themeColor": "#22125b",
