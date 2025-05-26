@@ -84,10 +84,12 @@ const {
               :key="sheet.imageUrl"
             >
               <source
+                v-if="sheet.imageUrlM != null"
                 :srcset="sheet.imageUrlM"
                 type="image/webp"
               >
               <img
+                v-if="sheet.imageUrl != null"
                 :src="sheet.imageUrl"
                 alt=""
                 class="CoverImage"
