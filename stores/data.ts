@@ -4,7 +4,7 @@ import useSentry from '~/composables/useSentry';
 import LoadingStatus from '~/enums/LoadingStatus';
 import sites from '~/data/sites.json';
 import { buildEmptyData, preprocessData } from '~/utils';
-import type { Data } from '~/types';
+import type { Data, Sheet } from '~/types';
 
 // eslint-disable-next-line import/prefer-default-export
 export const useDataStore = defineStore('data', () => {
@@ -13,6 +13,8 @@ export const useDataStore = defineStore('data', () => {
   const loadedData = ref(new Map<string | null, Data>());
   const loadingStatuses = ref(new Map<string | null, LoadingStatus>());
   const loadingErrorMessages = ref(new Map<string | null, string>());
+
+  const loadedSelectedSheets = ref(new Map<string | null, Sheet[]>());
 
   const currentData = computed(
     () => loadedData.value.get(currentGameCode.value) ?? buildEmptyData(),
@@ -23,6 +25,18 @@ export const useDataStore = defineStore('data', () => {
   const currentLoadingErrorMessage = computed(
     () => loadingErrorMessages.value.get(currentGameCode.value) ?? '',
   );
+
+  const currentSelectedSheets = computed({
+    get() {
+      return loadedSelectedSheets.value.get(currentGameCode.value) ?? [];
+    },
+    set(value) {
+      loadedSelectedSheets.value = new Map(loadedSelectedSheets.value.set(
+        currentGameCode.value,
+        value,
+      ));
+    },
+  });
 
   const sentry = useSentry();
 
@@ -77,5 +91,6 @@ export const useDataStore = defineStore('data', () => {
     currentData,
     currentLoadingStatus,
     currentLoadingErrorMessage,
+    currentSelectedSheets,
   };
 });

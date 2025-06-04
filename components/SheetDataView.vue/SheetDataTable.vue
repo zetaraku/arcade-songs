@@ -4,13 +4,12 @@ import useGameInfo from '~/composables/useGameInfo';
 import useGameData from '~/composables/useGameData';
 import useSheetDialog from '~/composables/useSheetDialog';
 import useSheetHeaders from '~/composables/useSheetHeaders';
+import useSelectedSheets from '~/composables/useSelectedSheets';
 import { getCanonicalSheet, toPercentageString, validateNoteCounts } from '~/utils';
 import type { Sheet } from '~/types';
 
 const sheets: Ref<Sheet[]> = inject('sheets')!;
 const filterMode: Ref<string> = inject('filterMode')!;
-const selectedSheets: Ref<Sheet[]> = inject('selectedSheets')!;
-const toggleSheetSelection: (sheet: Sheet) => void = inject('toggleSheetSelection')!;
 
 const currentSheets: Ref<Sheet[]> = inject('currentSheets')!;
 const sortBy: Ref<string> = inject('sortBy')!;
@@ -33,6 +32,7 @@ const {
 } = useGameData();
 const { viewSheet } = useSheetDialog();
 const headers = useSheetHeaders();
+const { selectedSheets, toggleSheetSelection } = useSelectedSheets();
 
 function getItemClass(sheet: Sheet) {
   return filterMode.value !== 'my-list' && selectedSheets.value.includes(getCanonicalSheet(sheet)) ? 'selected-sheet' : '';

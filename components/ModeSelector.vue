@@ -8,20 +8,21 @@ import { useDataStore } from '~/stores/data';
 import useGtag from '~/composables/useGtag';
 import useSentry from '~/composables/useSentry';
 import useGameInfo from '~/composables/useGameInfo';
+import useSelectedSheets from '~/composables/useSelectedSheets';
 import MyListExportDialog from '~/components/dialogs/MyListExportDialog.vue';
 import { saveFiltersAsQuery, makeDummySheet } from '~/utils';
-import type { Sheet, Filters } from '~/types';
+import type { Filters } from '~/types';
 
 const displayMode: Ref<string> = inject('displayMode')!;
 const filterMode: Ref<string> = inject('filterMode')!;
 const filters: Ref<Filters> = inject('filters')!;
-const selectedSheets: Ref<Sheet[]> = inject('selectedSheets')!;
 
 const context = useContext();
 const gtag = useGtag();
 const sentry = useSentry();
 const dataStore = useDataStore();
 const { gameCode } = useGameInfo();
+const { selectedSheets } = useSelectedSheets();
 
 const isMyListExportDialogOpened = ref(false);
 

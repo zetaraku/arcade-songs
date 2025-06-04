@@ -4,14 +4,14 @@ import { ref, computed, provide, onMounted, useRoute, useRouter, useMeta as useH
 import useGtag from '~/composables/useGtag';
 import { useDataStore } from '~/stores/data';
 import useGameInfo from '~/composables/useGameInfo';
+import useSelectedSheets from '~/composables/useSelectedSheets';
 import DataInfoBar from '~/components/DataInfoBar.vue';
 import SheetFilter from '~/components/SheetFilter.vue';
 import ModeSelector from '~/components/ModeSelector.vue';
 import SheetDrawerPanel from '~/components/SheetDrawerPanel.vue';
 import FilterInfoBar from '~/components/FilterInfoBar.vue';
 import SheetDataView from '~/components/SheetDataView.vue';
-import { buildEmptyFilters, buildFilterOptions, loadFiltersFromQuery, filterSheets, pickItem, getRegionOverrideSheet, isCanonicalSheet } from '~/utils';
-import type { Sheet } from '~/types';
+import { buildEmptyFilters, buildFilterOptions, loadFiltersFromQuery, filterSheets, pickItem, getRegionOverrideSheet } from '~/utils';
 
 const context = useContext();
 const gtag = useGtag();
@@ -19,6 +19,7 @@ const route = useRoute();
 const router = useRouter();
 const dataStore = useDataStore();
 const { gameCode, gameTitle } = useGameInfo();
+const { selectedSheets } = useSelectedSheets();
 
 const data = computed(() => dataStore.currentData);
 
@@ -31,7 +32,6 @@ const filterOptions = computed(() => buildFilterOptions(data.value, context.i18n
 const filteredSheets = computed(
   () => filterSheets(data.value.sheets, filters.value),
 );
-const selectedSheets = ref<Sheet[]>([]);
 
 const preDisplayingSheets = computed(() => {
   if (filterMode.value === 'filter') return filteredSheets.value;
@@ -55,20 +55,6 @@ const unselectedSheets = computed(() => filteredSheets.value.filter(
   (sheet) => !selectedSheets.value.includes(sheet),
 ));
 
-function toggleSheetSelection(sheet: Sheet) {
-  if (!isCanonicalSheet(sheet)) {
-    // eslint-disable-next-line no-console
-    console.warn('Non-canonical sheet should not be used as selected sheets.');
-  }
-
-  const index = selectedSheets.value.indexOf(sheet);
-  if (index === -1) {
-    selectedSheets.value.push(sheet);
-  } else {
-    selectedSheets.value.splice(index, 1);
-  }
-}
-
 function pickFromFilter() {
   if (unselectedSheets.value.length === 0) {
     // eslint-disable-next-line no-alert
@@ -77,7 +63,7 @@ function pickFromFilter() {
   }
 
   const selectedSheet = pickItem(unselectedSheets.value);
-  selectedSheets.value.push(selectedSheet);
+  selectedSheets.value = [...selectedSheets.value, selectedSheet];
 
   gtag('event', 'RandomSheetPicked', { gameCode: gameCode.value, eventSource: 'GameIndexPage' });
 }
@@ -105,8 +91,6 @@ useHead(() => ({
 }));
 
 provide('drawingPool', displayingSheets);
-provide('selectedSheets', selectedSheets);
-provide('toggleSheetSelection', toggleSheetSelection);
 
 provide('filters', filters);
 provide('filterOptions', filterOptions);
