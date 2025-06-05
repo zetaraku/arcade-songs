@@ -34,6 +34,7 @@ const isStatic = computed(() => !isDrawing.value);
 
 function viewSheetCombo(sheets: Sheet[], title?: string) {
   setCurrentItems(sheets);
+  blindfoldedIndexes.value = new Set();
   headerTitle.value = title ?? null;
   isDrawMode.value = false;
   isShowAll.value = false;
