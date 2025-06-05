@@ -312,6 +312,14 @@ export default defineComponent({
 
     <h3>{{ $t('page.about.updateRecord') }}</h3>
     <v-timeline dense align-top class="mt-2">
+      <v-timeline-item>
+        <span class="font-weight-bold">2025/06/06 － v3.27 Update</span>
+        <ul>
+          <li>feature: (Sheet Dialog) allow toggling My List in Sheet Dialog</li>
+          <li>ui: (Site) adjust index page layout</li>
+          <li>misc: (Sheet Dialog) do not hide YouTube link when drawing sheet</li>
+        </ul>
+      </v-timeline-item>
       <v-timeline-item icon="mdi-star">
         <span class="font-weight-bold">2025/05/19－ v3.26 Update</span>
         <ul>
@@ -320,6 +328,14 @@ export default defineComponent({
             >> <a href="https://arcade-songs.zetaraku.dev/gitadora/" target="_blank">GITADORA | arcade-songs</a>
           </li>
           <li><i>"Let's ROCK!!!!!"</i></li>
+        </ul>
+      </v-timeline-item>
+      <v-timeline-item icon="mdi-flag-variant">
+        <span class="font-weight-bold">2025/04/09 － 1,000,000 visits reached</span>
+        <ul>
+          <li>
+            milestone: 1,000,000 visits reached on <a href="https://arcade-songs.zetaraku.dev/maimai/" target="_blank">arcade-songs/maimai</a>!
+          </li>
         </ul>
       </v-timeline-item>
       <v-timeline-item>
