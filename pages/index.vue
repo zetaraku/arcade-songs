@@ -58,7 +58,7 @@ export default defineComponent({
 <template>
   <v-container class="fill-height pa-4 pa-sm-8">
     <v-row class="align-center">
-      <v-col cols="12" md="6" class="text-center" style="user-select: none;">
+      <v-col cols="12" lg="5" class="text-center" style="user-select: none;">
         <link v-if="toggle" rel="preload" :href="RICK_SHEET.imageUrl" as="image">
         <v-icon
           :size="120"
@@ -76,11 +76,10 @@ export default defineComponent({
         </h1>
         <p v-text="$t('page.index.description')" />
       </v-col>
-      <v-col cols="12" md="6">
+      <v-col cols="12" lg="7">
         <v-list
           nav
-          max-width="500px"
-          class="mx-auto"
+          class="SiteList__container"
         >
           <v-list-item
             v-for="(site, i) in sites.filter((e) => !e.isHidden || isDarkMode)"
@@ -108,6 +107,27 @@ export default defineComponent({
 
 <style lang="scss">
 .SiteList {
+  &__container {
+    display: grid;
+    margin: auto;
+
+    @media (width < 800px) {
+      max-width: 400px;
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+
+    @media (width >= 800px) {
+      max-width: 800px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    /* xl */
+    @media (width >= 1904px) {
+      max-width: 1200px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
   &__arrow {
     opacity: 0;
     transition: opacity 0.5s;
