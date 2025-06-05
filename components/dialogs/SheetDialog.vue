@@ -105,9 +105,10 @@ watch(isOpened, () => {
         >
           <span v-text="sheet.songNo" />
         </div>
+
         <div
-          v-else
-          class="d-flex justify-end align-end fill-height pa-3"
+          class="d-flex flex-column pa-3"
+          style="position: absolute; bottom: 0; right: 0; gap: 8px;"
         >
           <v-tooltip v-if="sheet.searchUrl !== null" top>
             <template #activator="{ on }">
