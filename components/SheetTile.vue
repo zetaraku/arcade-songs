@@ -1,11 +1,15 @@
 <script setup lang="ts">
-import { PropType } from '@nuxtjs/composition-api';
+import { computed, inject, Ref, PropType } from '@nuxtjs/composition-api';
 import useDarkMode from '~/composables/useDarkMode';
 import useGameInfo from '~/composables/useGameInfo';
 import useGameData from '~/composables/useGameData';
+import useSelectedSheets from '~/composables/useSelectedSheets';
+import { getCanonicalSheet } from '~/utils';
 import type { Sheet } from '~/types';
 
-defineProps({
+const filterMode: Ref<string> | undefined = inject('filterMode');
+
+const props = defineProps({
   sheet: {
     type: Object as PropType<Sheet>,
     required: true,
@@ -40,13 +44,23 @@ const {
   getDifficultyIconUrl,
   getDifficultyIconHeight,
 } = useGameData();
+const {
+  selectedSheets,
+  toggleSheetSelection,
+} = useSelectedSheets();
+
+const isSheetSelected = computed(
+  () => selectedSheets.value.includes(getCanonicalSheet(props.sheet)),
+);
 </script>
 
 <template>
   <div
     v-ripple
     class="SheetTile rounded pa-3 ma-1"
+    :class="filterMode !== 'my-list' && isSheetSelected ? 'selected-sheet' : ''"
     style="user-select: none;"
+    @click.right="toggleSheetSelection(getCanonicalSheet(sheet));"
   >
     <v-tooltip
       top
@@ -194,6 +208,10 @@ const {
 .SheetTile {
   position: relative;
   cursor: pointer;
+
+  &.selected-sheet {
+    background-color: #4eda !important;
+  }
 
   .BlockingPanel {
     position: absolute;
