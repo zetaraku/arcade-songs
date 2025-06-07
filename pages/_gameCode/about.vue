@@ -312,12 +312,21 @@ export default defineComponent({
 
     <h3>{{ $t('page.about.updateRecord') }}</h3>
     <v-timeline dense align-top class="mt-2">
+      <v-timeline-item icon="mdi-lock-question" color="#FFA31A">
+        <span class="font-weight-bold">2025/06/08 － v3.28 Update</span>
+        <ul>
+          <li>ui: adjust My List toggle button style on Sheet Dialog</li>
+          <li>feature: (My List) allow toggling My List with right-click on Sheet Tile everywhere</li>
+          <li>feature: (???) <strong>Annihilation</strong> was claimed to be now reproducible in a controlled environment, but <i>how?</i></li>
+        </ul>
+      </v-timeline-item>
       <v-timeline-item>
         <span class="font-weight-bold">2025/06/06 － v3.27 Update</span>
         <ul>
           <li>feature: (Sheet Dialog) allow toggling My List in Sheet Dialog</li>
           <li>ui: (Site) adjust index page layout</li>
-          <li>misc: (Sheet Dialog) do not hide YouTube link when drawing sheet</li>
+          <li>ui: (Sheet Dialog) do not hide YouTube link when drawing sheet</li>
+          <li>bugfix: clear up blindfolds when viewing sheet combo</li>
         </ul>
       </v-timeline-item>
       <v-timeline-item icon="mdi-star">
@@ -343,7 +352,7 @@ export default defineComponent({
         <ul>
           <li>feature: (Filter) allow exact match on title and artist</li>
           <li>ui: (List View) add "Release Date" column</li>
-          <li>fix: (Filter) do not build level filter options from levels that end with "?"</li>
+          <li>bugfix: (Filter) do not build level filter options from levels that end with "?"</li>
           <li>misc: (Filter) improve filter performance</li>
           <li>misc: (Site) improve game data matching performance</li>
         </ul>
@@ -408,7 +417,7 @@ export default defineComponent({
         <span class="font-weight-bold">2024/07/22 － v3.17 Update</span>
         <ul>
           <li>feature: (My List) add "Pick one from filter" button</li>
-          <li>feature: (???) a new <strong>light switch</strong> is installed, but <i>where is it?</i></li>
+          <li>feature: (???) Don't trust your eyes! A new <strong>light switch</strong> was installed when you left, but <i>where is it?</i></li>
         </ul>
       </v-timeline-item>
       <v-timeline-item icon="mdi-flag-variant">
@@ -975,7 +984,7 @@ export default defineComponent({
       <v-timeline-item icon="mdi-lock-question" color="#FFA31A">
         <span class="font-weight-bold">2020/11/06 － v1.4 Update</span>
         <ul>
-          <li>feature: (???) add <strong>DARK MODE</strong>, but <i>where is it?</i></li>
+          <li>feature: (???) <strong><i>HOLD ON!</i></strong> A mysterious <strong>singing slate</strong> is said to exist, but <i>where is it?</i></li>
           <li>ui: (Gallery) add Sheet Dialog support for Gallery</li>
           <li>misc: (About Page) add timeline for Update Record</li>
         </ul>
@@ -1213,11 +1222,10 @@ export default defineComponent({
       </template>
       <li>
         <div v-if="!isDarkMode">
-          This site contains a <strong><i>secret</i></strong>. Can you find it?<br>
-          Read the sign and <strong>HOLD ON</strong> a second before you go into the forest!
+          This site contains several <strong><i>secrets</i></strong>. Can you find them?<br>
         </div>
         <div v-else class="yellow--text">
-          <strong>You found the <i>secret</i> :D!</strong> Isn't that kinda cool :)?
+          <strong>You found a <i>secret</i> !</strong> Isn't that kinda cool :)?
         </div>
       </li>
     </ul>
