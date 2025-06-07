@@ -1,25 +1,31 @@
 <script setup lang="ts">
 /* eslint-disable import/first, import/no-duplicates */
 import { ref, computed, provide, onMounted, useRoute, useRouter, useMeta as useHead, useContext } from '@nuxtjs/composition-api';
+import confetti from 'canvas-confetti';
+import sleep from 'sleep-promise';
 import useGtag from '~/composables/useGtag';
 import { useDataStore } from '~/stores/data';
+import useDarkMode from '~/composables/useDarkMode';
 import useGameInfo from '~/composables/useGameInfo';
 import useSelectedSheets from '~/composables/useSelectedSheets';
+import useSheetDialog from '~/composables/useSheetDialog';
 import DataInfoBar from '~/components/DataInfoBar.vue';
 import SheetFilter from '~/components/SheetFilter.vue';
 import ModeSelector from '~/components/ModeSelector.vue';
 import SheetDrawerPanel from '~/components/SheetDrawerPanel.vue';
 import FilterInfoBar from '~/components/FilterInfoBar.vue';
 import SheetDataView from '~/components/SheetDataView.vue';
-import { buildEmptyFilters, buildFilterOptions, loadFiltersFromQuery, filterSheets, pickItem, getRegionOverrideSheet } from '~/utils';
+import { buildEmptyFilters, buildFilterOptions, loadFiltersFromQuery, filterSheets, pickItem, getRegionOverrideSheet, NULL_SHEET, VOID_SHEET, HYBRID_SHEET } from '~/utils';
 
 const context = useContext();
 const gtag = useGtag();
 const route = useRoute();
 const router = useRouter();
 const dataStore = useDataStore();
+const { isDarkMode } = useDarkMode();
 const { gameCode, gameTitle } = useGameInfo();
 const { selectedSheets } = useSelectedSheets();
+const { viewSheet } = useSheetDialog();
 
 const data = computed(() => dataStore.currentData);
 
@@ -66,6 +72,29 @@ function pickFromFilter() {
   selectedSheets.value = [...selectedSheets.value, selectedSheet];
 
   gtag('event', 'RandomSheetPicked', { gameCode: gameCode.value, eventSource: 'GameIndexPage' });
+}
+
+const isRitualReady = computed(() => (
+  selectedSheets.value.length === 2
+  && selectedSheets.value.includes(NULL_SHEET)
+  && selectedSheets.value.includes(VOID_SHEET)
+));
+
+async function clearMyList() {
+  if (isRitualReady.value) {
+    isDarkMode.value = !isDarkMode.value;
+
+    await sleep(1500);
+    viewSheet(HYBRID_SHEET);
+    confetti({ particleCount: 100, spread: 60, origin: { y: 0.6 }, zIndex: 999 });
+    gtag('event', 'SecretFound', { gameCode: gameCode.value, eventSource: 'GameIndexPage', no: 3 });
+
+    selectedSheets.value = [HYBRID_SHEET];
+
+    return;
+  }
+
+  selectedSheets.value = [];
 }
 
 onMounted(() => {
@@ -164,9 +193,9 @@ export default defineComponent({
       class="text-center py-8"
     >
       <v-btn
-        color="error"
-        outlined
-        @click="selectedSheets = [];"
+        :color="!isRitualReady ? 'error' : 'warning'"
+        :outlined="!isRitualReady ? true : false"
+        @click="clearMyList"
       >
         {{ $t('description.clearMyList') }}
       </v-btn>

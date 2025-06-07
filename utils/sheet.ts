@@ -1,5 +1,6 @@
 import catImageUrl from '~/assets/images/cat.png';
 import darkCatImageUrl from '~/assets/images/dark-cat.png';
+import hybridCatImageUrl from '~/assets/images/hybrid-cat.png';
 import shyCatImageUrl from '~/assets/images/shy-cat.jpg';
 import rickImageUrl from '~/assets/images/rick.jpg';
 import indiImageUrl from '~/assets/images/indi.jpg';
@@ -51,6 +52,29 @@ export const VOID_SHEET: Sheet = {
   comment: 'Oops! Nothing here ;3',
 
   searchUrl: 'https://www.youtube.com/watch?v=C9PFVo1FEwU',
+};
+
+export const HYBRID_SHEET: Sheet = {
+  songId: null,
+  songNo: -2,
+
+  category: '!!!',
+  title: 'ฅ•ω-ฅ',
+  artist: ':O',
+  imageUrl: hybridCatImageUrl,
+
+  version: undefined,
+  bpm: undefined,
+
+  type: '!!',
+  difficulty: '!',
+  level: '',
+  levelValue: 0,
+
+  noteDesigner: undefined,
+  comment: 'A miracle cat born from pure light and darkness.',
+
+  searchUrl: null,
 };
 
 export const RICK_SHEET: Sheet = {
