@@ -18,3 +18,8 @@
     margin-bottom: 8px;
   }
 }
+
+// hide fab button focus shadow
+.v-btn--fab::before {
+  opacity: 0 !important;
+}
