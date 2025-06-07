@@ -24,7 +24,11 @@ const { gameCode } = useGameInfo();
 const { selectedSheets } = useSelectedSheets();
 
 const selectedSheetsYaml = computed(
-  () => YAML.stringify(selectedSheets.value.map((sheet) => computeSheetExpr(sheet))),
+  () => YAML.stringify(
+    selectedSheets.value
+      .filter((sheet) => sheet.songId != null)
+      .map((sheet) => computeSheetExpr(sheet)),
+  ),
 );
 
 async function exportSelectedSheets() {
