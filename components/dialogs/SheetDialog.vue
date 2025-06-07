@@ -119,24 +119,16 @@ watch(isOpened, () => {
           class="d-flex flex-column pa-3"
           style="position: absolute; top: 0; right: 0; gap: 8px;"
         >
-          <v-tooltip bottom>
-            <template #activator="{ on }">
-              <v-btn
-                icon
-                x-large
-                color="teal lighten-1"
-                v-on="on"
-                @click="toggleSheetSelection(sheet);"
-              >
-                <v-icon large>
-                  {{ isSheetSelected ? 'mdi-bookmark-check' : 'mdi-bookmark-plus-outline' }}
-                </v-icon>
-              </v-btn>
-            </template>
-            <span>
-              {{ $t('sfc.ModeSelector.myListMode') }}
-            </span>
-          </v-tooltip>
+          <v-btn
+            fab
+            large
+            class="teal--text"
+            @click="toggleSheetSelection(sheet);"
+          >
+            <v-icon large>
+              {{ isSheetSelected ? 'mdi-bookmark-check' : 'mdi-bookmark-plus-outline' }}
+            </v-icon>
+          </v-btn>
         </div>
 
         <div
