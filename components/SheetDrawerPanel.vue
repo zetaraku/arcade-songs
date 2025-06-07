@@ -56,14 +56,18 @@ async function drawSheetCombo() {
   });
 }
 
-const lights = ref(
-  isDarkMode.value ? [false, false, false, false, false] : pickItem([
-    [false, true, false, true, false],
-    [true, false, false, false, true],
-    [true, false, true, false, true],
-    // all configurations are 3 click away to the darkness
-  ]),
-);
+function getInitialLight() {
+  return isDarkMode.value
+    ? [false, false, false, false, false]
+    : pickItem([
+      [false, true, false, true, false],
+      [true, false, false, false, true],
+      [true, false, true, false, true],
+      // all configurations are 3 click away to the darkness
+    ]);
+}
+
+const lights = ref(getInitialLight());
 
 function toggleLight(index: number) {
   lights.value.splice(index, 1, !lights.value[index]);
@@ -86,6 +90,12 @@ async function toggleLights(index: number) {
 
 watch(drawModeIndex, () => {
   drawMode.value = drawModes[drawModeIndex.value];
+});
+
+watch(isDarkMode, () => {
+  if (isDarkMode.value !== !lights.value.includes(true)) {
+    lights.value = getInitialLight();
+  }
 });
 </script>
 
