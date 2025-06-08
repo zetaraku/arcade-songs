@@ -70,14 +70,14 @@ async function importSelectedSheets() {
 
   if (files === null || files.length === 0) return;
 
+  const sheetMap = new Map(dataStore.currentData.sheets.map((sheet) => [sheet.sheetExpr, sheet]));
+
   try {
     const file = files[0];
     const sheetExprs = [...new Set(YAML.parse(await file.text()))] as string[];
 
     const loadedSheets = sheetExprs.map(
-      (sheetExpr) => dataStore.currentData.sheets.find(
-        (sheet) => sheet.sheetExpr === sheetExpr,
-      ) ?? makeDummySheet(sheetExpr),
+      (sheetExpr) => sheetMap.get(sheetExpr) ?? makeDummySheet(sheetExpr),
     );
     selectedSheets.value = loadedSheets;
 
