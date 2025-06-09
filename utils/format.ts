@@ -15,5 +15,5 @@ export function toLocalISODateString(date: Date) {
 export function toPercentageString(n: number | undefined) {
   if (n == null) return n;
   if (Number.isNaN(n)) return '?';
-  return `${Math.trunc(10000 * n) / 100}%`;
+  return `${(n * 100).toFixed(2)}%`;
 }
