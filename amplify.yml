@@ -1,0 +1,13 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - "yarn install"
+    build:
+      commands:
+        - "yarn run generate"
+  artifacts:
+    baseDirectory: dist
+    files:
+      - "**/*"
