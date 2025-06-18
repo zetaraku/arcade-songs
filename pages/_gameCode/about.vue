@@ -279,6 +279,17 @@ export default defineComponent({
           － {{ $t('page.about.sheetInfoDescription') }}
         </li>
       </template>
+      <template v-if="gameCode === 'polarischord'">
+        <li>
+          {{ $t('page.about.songInfo') }} －
+          <a href="https://p.eagate.573.jp/game/polarischord/pc/" target="_blank">ポラリスコード公式サイト</a>
+        </li>
+        <li>
+          {{ $t('page.about.sheetInfo') }} －
+          <a href="https://bemaniwiki.com/?%A5%DD%A5%E9%A5%EA%A5%B9%A5%B3%A1%BC%A5%C9" target="_blank">ポラリスコード - BEMANIWiki 2nd</a>
+          － {{ $t('page.about.sheetInfoDescription') }}
+        </li>
+      </template>
       <template v-if="gameCode === 'mahjong'">
         <li>
           Vector graphics of riichi mahjong tiles －
@@ -312,6 +323,15 @@ export default defineComponent({
 
     <h3>{{ $t('page.about.updateRecord') }}</h3>
     <v-timeline dense align-top class="mt-2">
+      <v-timeline-item icon="mdi-star">
+        <span class="font-weight-bold">2025/06/18－ v3.29 Update</span>
+        <ul>
+          <li>
+            project: add new site for <strong>ポラリスコード</strong>
+            >> <a href="https://arcade-songs.zetaraku.dev/polarischord/" target="_blank">ポラリスコード | arcade-songs</a>
+          </li>
+        </ul>
+      </v-timeline-item>
       <v-timeline-item icon="mdi-lock-question" color="#FFA31A">
         <span class="font-weight-bold">2025/06/08 － v3.28 Update</span>
         <ul>
@@ -1218,6 +1238,16 @@ export default defineComponent({
         <li>
           This site is not associated or officially connected with
           <strong>GITADORA</strong> or <strong>Konami Amusement Co., Ltd.</strong>
+        </li>
+      </template>
+      <template v-if="gameCode === 'polarischord'">
+        <li>
+          <strong>ポラリスコード</strong> and <strong>Polaris Chord</strong>
+          are trademarks of <strong>Konami Amusement Co., Ltd.</strong>
+        </li>
+        <li>
+          This site is not associated or officially connected with
+          <strong>ポラリスコード</strong> or <strong>Konami Amusement Co., Ltd.</strong>
         </li>
       </template>
       <li>
