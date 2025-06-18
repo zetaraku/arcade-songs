@@ -49,6 +49,13 @@
     "accessCounterUrl": "https://www.f-counter.net/j/46/1629440181/"
   },
   {
+    "gameCode": "polarischord",
+    "gameTitle": "ポラリスコード",
+    "themeColor": "#695ca7",
+    "dataSourceUrl": "https://dp4p6x0xfi5o9.cloudfront.net/polarischord",
+    "accessCounterUrl": "https://www.f-counter.net/j/65/1750175649/"
+  },
+  {
     "gameCode": "ddr",
     "gameTitle": "DanceDanceRevolution",
     "themeColor": "#2484c5",
