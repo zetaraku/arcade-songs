@@ -85,6 +85,8 @@ export function buildFilterOptions(data: Data, i18n: NuxtI18nInstance): FilterOp
 
   const nonEmptyOrNull = <T>(arr: T[]) => (arr.length !== 0 ? arr : null);
 
+  const difficultiesSet = new Set(data.difficulties.map(({ difficulty }) => difficulty));
+
   return {
     categories: nonEmptyOrNull(
       data.categories
@@ -123,11 +125,20 @@ export function buildFilterOptions(data: Data, i18n: NuxtI18nInstance): FilterOp
         })),
     ),
     difficulties: nonEmptyOrNull(
-      data.difficulties
-        .map(({ difficulty, name }) => ({
-          text: name,
-          value: difficulty,
-        })),
+      [
+        ...data.difficulties
+          .map(({ difficulty, name }) => ({
+            text: name,
+            value: difficulty,
+          })),
+        ...[...new Set(data.sheets.map((sheet) => sheet.difficulty))]
+          .filter((difficulty) => difficulty != null)
+          .filter((difficulty) => !difficultiesSet.has(difficulty))
+          .map((difficulty) => ({
+            text: difficulty,
+            value: difficulty,
+          })),
+      ],
     ),
     levels: nonEmptyOrNull(
       [...new Map(
