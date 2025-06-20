@@ -323,6 +323,12 @@ export default defineComponent({
 
     <h3>{{ $t('page.about.updateRecord') }}</h3>
     <v-timeline dense align-top class="mt-2">
+      <v-timeline-item>
+        <span class="font-weight-bold">2025/06/20 － v3.30 Update</span>
+        <ul>
+          <li>feature: (Filter) add special difficulties in filter options</li>
+        </ul>
+      </v-timeline-item>
       <v-timeline-item icon="mdi-star">
         <span class="font-weight-bold">2025/06/18－ v3.29 Update</span>
         <ul>
