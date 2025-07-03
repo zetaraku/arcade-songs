@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, inject, Ref, PropType } from '@nuxtjs/composition-api';
+import { computed, inject, Ref } from '@nuxtjs/composition-api';
 import useDarkMode from '~/composables/useDarkMode';
 import useGameInfo from '~/composables/useGameInfo';
 import useGameData from '~/composables/useGameData';
@@ -9,27 +9,17 @@ import type { Sheet } from '~/types';
 
 const filterMode: Ref<string> | undefined = inject('filterMode');
 
-const props = defineProps({
-  sheet: {
-    type: Object as PropType<Sheet>,
-    required: true,
-  },
-  hideTitle: {
-    type: Boolean,
-    default: false,
-  },
-  hideCover: {
-    type: Boolean,
-    default: false,
-  },
-  hideLevel: {
-    type: Boolean,
-    default: false,
-  },
-  hideLock: {
-    type: Boolean,
-    default: false,
-  },
+const props = withDefaults(defineProps<{
+  sheet: Sheet,
+  hideTitle?: boolean,
+  hideCover?: boolean,
+  hideLevel?: boolean,
+  hideLock?: boolean,
+}>(), {
+  hideTitle: false,
+  hideCover: false,
+  hideLevel: false,
+  hideLock: false,
 });
 
 const { isDarkMode } = useDarkMode();
