@@ -134,12 +134,13 @@ watch(isOpened, () => {
     scrollable
   >
     <v-card>
-      <v-card-title class="justify-center">
+      <v-card-title class="justify-center text-center">
         <template v-if="isDrawMode">
           {{ $t('sfc.SheetComboDialog.drawResults') }}
         </template>
         <template v-else>
           {{ headerTitle }}
+          <br>
           ({{ $t('sfc.FilterInfoBar.sheetsCount', { n: currentSheets.length }) }})
         </template>
       </v-card-title>
