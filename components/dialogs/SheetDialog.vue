@@ -123,7 +123,7 @@ watch(isOpened, () => {
             fab
             large
             class="teal--text"
-            @click="toggleSheetSelection(sheet);"
+            @click="toggleSheetSelection(getCanonicalSheet(sheet));"
           >
             <v-icon large>
               {{ isSheetSelected ? 'mdi-bookmark-check' : 'mdi-bookmark-plus-outline' }}
