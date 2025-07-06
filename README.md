@@ -93,7 +93,7 @@ If you have any ideas or suggestions, you can [open an issue](https://github.com
 - Internal level information for **オンゲキ**
   - [オンゲキ譜面定数部 (@ongeki_level)](https://twitter.com/ongeki_level)
   - [OngekiScoreLog - オンゲキ非公式スコアツール (@ongeki_score)](https://twitter.com/ongeki_score)
-- Internal level information for **NOSTALGIA**
+- Internal level information for **ノスタルジア**
   - [EXP? (@exponent_iidx)](https://twitter.com/exponent_iidx)
   - [Nosdata (@nosdata)](https://twitter.com/nosdata)
 - Sheet information for **maimai China ver. (舞萌DX)**

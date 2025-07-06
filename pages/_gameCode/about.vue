@@ -457,7 +457,7 @@ export default defineComponent({
       <v-timeline-item>
         <span class="font-weight-bold">2024/04/25 － v3.16 Update</span>
         <ul>
-          <li>feature: (Data) add sheet internal level information for <strong>NOSTALGIA</strong></li>
+          <li>feature: (Data) add sheet internal level information for <strong>ノスタルジア</strong></li>
           <li>
             Data source:
             <a class="text-decoration-none" href="https://twitter.com/nosdata" target="_blank">
@@ -571,8 +571,8 @@ export default defineComponent({
         <span class="font-weight-bold">2023/07/09 － v3.9 Update</span>
         <ul>
           <li>
-            project: add new site for <strong>NOSTALGIA</strong>
-            >> <a href="https://arcade-songs.zetaraku.dev/nostalgia/" target="_blank">NOSTALGIA | arcade-songs</a>
+            project: add new site for <strong>ノスタルジア</strong>
+            >> <a href="https://arcade-songs.zetaraku.dev/nostalgia/" target="_blank">ノスタルジア | arcade-songs</a>
           </li>
         </ul>
       </v-timeline-item>
@@ -1198,12 +1198,12 @@ export default defineComponent({
       </template>
       <template v-if="gameCode === 'nostalgia'">
         <li>
-          <strong>NOSTALGIA</strong> and <strong>ノスタルジア</strong>
+          <strong>ノスタルジア</strong> and <strong>NOSTALGIA</strong>
           are trademarks of <strong>Konami Amusement Co., Ltd.</strong>
         </li>
         <li>
           This site is not associated or officially connected with
-          <strong>NOSTALGIA</strong> or <strong>Konami Amusement Co., Ltd.</strong>
+          <strong>ノスタルジア</strong> or <strong>Konami Amusement Co., Ltd.</strong>
         </li>
       </template>
       <template v-if="gameCode === 'diva'">
