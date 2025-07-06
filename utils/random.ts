@@ -4,7 +4,7 @@ export function shuffled<T>(items: T[], maxCount = items.length) {
   for (let i = 0; i < itemsCopy.length; i += 1) {
     if (i + 1 > maxCount) break;
 
-    const j = i + Math.floor((itemsCopy.length - i) * Math.random());
+    const j = i + Math.trunc((itemsCopy.length - i) * Math.random());
     [itemsCopy[i], itemsCopy[j]] = [itemsCopy[j], itemsCopy[i]];
   }
 
@@ -12,7 +12,7 @@ export function shuffled<T>(items: T[], maxCount = items.length) {
 }
 
 export function pickItem<T>(items: T[]) {
-  return items[Math.floor(items.length * Math.random())];
+  return items[Math.trunc(items.length * Math.random())];
 }
 
 export function pickItems<T>(items: T[], count: number) {
