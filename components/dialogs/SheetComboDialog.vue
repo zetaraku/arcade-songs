@@ -102,23 +102,23 @@ const maxDialogWidth = computed(() => {
   const displayCount = displayingSheets.value.length;
 
   // 2 per line
-  if (displayCount <= 4) return '400px';
+  if (displayCount <= 4) return 400;
   // 3 per line
-  if (displayCount <= 9) return '550px';
+  if (displayCount <= 9) return 550;
   // 4 per line
-  if (displayCount <= 16) return '700px';
+  if (displayCount <= 16) return 700;
   // 5 per line
-  if (displayCount <= 25) return '850px';
+  if (displayCount <= 25) return 850;
   // 6 per line
-  if (displayCount <= 36) return '1000px';
+  if (displayCount <= 36) return 1000;
   // 7 per line
-  if (displayCount <= 49) return '1150px';
+  if (displayCount <= 49) return 1150;
   // 8 per line
-  if (displayCount <= 64) return '1300px';
+  if (displayCount <= 64) return 1300;
   // 9 per line
-  if (displayCount <= 81) return '1450px';
+  if (displayCount <= 81) return 1450;
   // 10 per line
-  return '1600px';
+  return 1600;
 });
 
 watch(isOpened, () => {
