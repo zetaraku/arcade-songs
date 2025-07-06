@@ -23,7 +23,7 @@ const props = withDefaults(defineProps<{
 });
 
 const { isDarkMode } = useDarkMode();
-const { gameCode } = useGameInfo();
+const { coverImageSize } = useGameInfo();
 const {
   getLockedIconUrl,
   getLockedIconHeight,
@@ -54,7 +54,7 @@ const isSheetSelected = computed(
   >
     <v-tooltip
       top
-      :nudge-bottom="gameCode !== 'popn' ? 95 : 75"
+      :nudge-bottom="45 + coverImageSize.height / 2"
       :disabled="$vuetify.breakpoint.mobile || hideTitle"
     >
       <template #activator="{ on }">
@@ -76,11 +76,10 @@ const isSheetSelected = computed(
             class="CoverContainer grey"
             :class="{ 'dark-style': isDarkMode }"
             style="vertical-align: middle;"
-            :style="
-              gameCode !== 'popn'
-                ? { 'width': '100px', 'height': '100px' }
-                : { 'width': '244px', 'height': '58px' }
-            "
+            :style="{
+              'width': `${coverImageSize.width}px`,
+              'height': `${coverImageSize.height}px`,
+            }"
           >
             <!-- sheet cover image -->
             <picture
@@ -157,11 +156,7 @@ const isSheetSelected = computed(
     <div
       class="mt-4"
       style="text-align: center;"
-      :style="
-        gameCode !== 'popn'
-          ? { 'max-width': '116px' }
-          : { 'max-width': '260px' }
-      "
+      :style="{ 'max-width': `${coverImageSize.width + 16}px` }"
     >
       <div
         class="text-no-wrap font-weight-bold"

@@ -87,6 +87,7 @@
     "gameCode": "popn",
     "gameTitle": "pop'n music",
     "themeColor": "#00009d",
+    "coverImageSize": { "width": 244, "height": 58 },
     "dataSourceUrl": "https://dp4p6x0xfi5o9.cloudfront.net/popn",
     "accessCounterUrl": "https://www.f-counter.net/j/49/1668223495/"
   },

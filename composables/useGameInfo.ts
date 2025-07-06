@@ -21,6 +21,9 @@ export default function useGameInfo() {
   ));
   const gameTitle = computed(() => siteInfo.value?.gameTitle ?? undefined);
   const themeColor = computed(() => siteInfo.value?.themeColor ?? '#424242');
+  const coverImageSize = computed(() => (
+    siteInfo.value?.coverImageSize ?? { width: 100, height: 100 }
+  ));
   const dataSourceUrl = computed(() => siteInfo.value?.dataSourceUrl ?? undefined);
   const accessCounterUrl = computed(() => (
     siteInfo.value?.accessCounterUrl ?? context.$config.indexAccessCounterUrl
@@ -30,6 +33,7 @@ export default function useGameInfo() {
     gameCode,
     gameTitle,
     themeColor,
+    coverImageSize,
     dataSourceUrl,
     accessCounterUrl,
   };
