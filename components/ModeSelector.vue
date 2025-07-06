@@ -134,12 +134,6 @@ async function importSelectedSheets() {
               <span>
                 <v-icon>mdi-chart-bar</v-icon>
                 <span v-text="$t('sfc.ModeSelector.chartMode')" />
-                <v-badge
-                  inline
-                  color="error"
-                  style="font-weight: bold;"
-                  content="NEW!"
-                />
               </span>
             </template>
           </v-radio>
@@ -211,13 +205,7 @@ async function importSelectedSheets() {
                 @click="toggleSuperFilter"
                 v-on="on"
               >
-                <v-badge
-                  color="error"
-                  style="font-weight: bold;"
-                  content="NEW!"
-                >
-                  <v-icon>mdi-code-braces-box</v-icon>
-                </v-badge>
+                <v-icon>mdi-code-braces-box</v-icon>
               </v-btn>
             </template>
             <span v-text="$t('term.superFilter')" />
