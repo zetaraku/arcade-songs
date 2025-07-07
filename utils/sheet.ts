@@ -241,7 +241,7 @@ export function makeShyCatSheet(thing: unknown, category?: string): Sheet {
   };
 }
 
-export function validateNoteCounts(sheet: Sheet, gameCode: string | undefined) {
+export function validateNoteCounts(sheet: Sheet, gameCode: string | null | undefined) {
   if (sheet.noteCounts == null) return true;
 
   if (gameCode === 'maimai') {
