@@ -131,7 +131,7 @@ const isSheetSelected = computed(
               alt=""
               style="
                 position: absolute;
-                bottom: 0; left: -15px;
+                bottom: 0; left: -20px;
                 transform: translate(0%, +50%);
                 vertical-align: middle;"
               :style="{
@@ -266,8 +266,8 @@ const isSheetSelected = computed(
       position: absolute;
       top: 0;
       left: 0;
-      padding: 0 3px;
-      min-width: 40px;
+      padding: 0 6px;
+      min-width: 45px;
       border-radius: 3px;
       transform: translate(-50%, -50%);
 
