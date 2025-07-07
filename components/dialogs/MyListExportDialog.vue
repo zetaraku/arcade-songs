@@ -7,7 +7,7 @@ import useSentry from '~/composables/useSentry';
 import useDarkMode from '~/composables/useDarkMode';
 import useGameInfo from '~/composables/useGameInfo';
 import useSelectedSheets from '~/composables/useSelectedSheets';
-import { computeSheetExpr, toLocalISODateString } from '~/utils';
+import { toLocalISODateString } from '~/utils';
 
 defineProps<{
   value: boolean;
@@ -25,9 +25,7 @@ const { selectedSheets } = useSelectedSheets();
 
 const selectedSheetsYaml = computed(
   () => YAML.stringify(
-    selectedSheets.value
-      .filter((sheet) => sheet.songId != null)
-      .map((sheet) => computeSheetExpr(sheet)),
+    selectedSheets.value.map((sheet) => sheet.sheetExpr ?? null),
   ),
 );
 
