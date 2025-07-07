@@ -25,7 +25,9 @@ const { selectedSheets } = useSelectedSheets();
 
 const selectedSheetsYaml = computed(
   () => YAML.stringify(
-    selectedSheets.value.map((sheet) => sheet.sheetExpr ?? null),
+    selectedSheets.value
+      .map((sheet) => sheet.sheetExpr)
+      .filter((sheetExpr) => sheetExpr != null),
   ),
 );
 
