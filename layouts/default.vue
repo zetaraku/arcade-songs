@@ -147,6 +147,7 @@ export default defineComponent({
       v-if="gameCode != null"
       v-model="isDrawerOpened"
       width="300"
+      class="overflow-y-auto"
       temporary
       app
     >
