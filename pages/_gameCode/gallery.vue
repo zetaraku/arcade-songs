@@ -362,6 +362,7 @@ export default defineComponent({
         <div
           v-if="section.sheets != null"
           class="d-flex flex-wrap justify-center"
+          style="gap: 8px;"
         >
           <!-- Sheet tile -->
           <SheetTile

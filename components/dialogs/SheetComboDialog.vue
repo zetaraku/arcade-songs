@@ -150,6 +150,7 @@ watch(isOpened, () => {
       <div class="py-5 overflow-y-auto" style="overscroll-behavior: contain;">
         <div
           class="d-flex flex-wrap justify-center"
+          style="gap: 8px;"
           @contextmenu.prevent
         >
           <SheetTile

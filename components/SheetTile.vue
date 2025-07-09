@@ -47,14 +47,14 @@ const isSheetSelected = computed(
 <template>
   <div
     v-ripple
-    class="SheetTile rounded pa-3 ma-1"
+    class="SheetTile rounded pa-3"
     :class="filterMode !== 'my-list' && isSheetSelected ? 'selected-sheet' : ''"
     style="user-select: none;"
     @click.right="toggleSheetSelection(getCanonicalSheet(sheet));"
   >
     <v-tooltip
       top
-      :nudge-bottom="45 + coverImageSize.height / 2"
+      :nudge-bottom="46 + coverImageSize.height / 2"
       :disabled="$vuetify.breakpoint.mobile || hideTitle"
     >
       <template #activator="{ on }">

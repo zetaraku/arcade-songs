@@ -48,6 +48,7 @@ const headers = useSheetHeaders();
     </v-select>
     <div
       class="d-flex flex-wrap justify-center"
+      style="gap: 8px;"
       @contextmenu.prevent
     >
       <SheetTile
