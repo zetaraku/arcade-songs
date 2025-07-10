@@ -167,7 +167,9 @@ const option = computed<echarts.EChartsOption>(() => ({
       :option="option"
       autoresize
       @click="
-        sleep(0).then(() => viewSheetCombo($event.data._getSheets(), $event.data._headerTitle));
+        sleep(0).then(() => {
+          viewSheetCombo($event.data._getSheets(), { title: $event.data._headerTitle })
+        });
         gtag('event', 'SheetComboViewed', { gameCode, eventSource: 'SheetDataChart' });
       "
     />

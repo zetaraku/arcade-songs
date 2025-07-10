@@ -32,10 +32,13 @@ const currentSheets = computed(
 );
 const isStatic = computed(() => !isDrawing.value);
 
-function viewSheetCombo(sheets: Sheet[], title?: string) {
+function viewSheetCombo(
+  sheets: Sheet[],
+  options: { title?: string } = {},
+) {
   setCurrentItems(sheets);
   blindfoldedIndexes.value = new Set();
-  headerTitle.value = title ?? null;
+  headerTitle.value = options.title ?? null;
   isDrawMode.value = false;
   isShowAll.value = false;
   isOpened.value = true;
