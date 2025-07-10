@@ -140,7 +140,7 @@ export default defineComponent({
         </li>
         <li>
           {{ $t('page.about.sheetInfo') }} －
-          <a href="https://www.wikihouse.com/taiko/" target="_blank">FrontPage - 太鼓の達人 譜面とかWiki</a>
+          <a href="https://wikiwiki.jp/taiko-fumen/" target="_blank">太鼓の達人 譜面とか Wiki*</a>
           － {{ $t('page.about.sheetInfoDescription') }}
         </li>
       </template>
@@ -324,6 +324,25 @@ export default defineComponent({
 
     <h3>{{ $t('page.about.updateRecord') }}</h3>
     <v-timeline dense align-top class="mt-2">
+      <v-timeline-item>
+        <span class="font-weight-bold">2025/07/10 － v3.31 Update</span>
+        <ul>
+          <li>feature: (Timeline) add "Timeline"</li>
+          <li>bugfix: (Portal) sidebar portal is now scrollable when overflowed</li>
+          <li>
+            i18n: (Site) Vietnamese (vi) locale is now available!
+            <i>(Thanks <a href="https://github.com/Kirigamisensei" target="_blank">@Kirigamisensei</a> !)</i>
+          </li>
+        </ul>
+      </v-timeline-item>
+      <v-timeline-item small color="grey">
+        <span class="font-weight-bold">2025/07/07 － v3.30.1 Update</span>
+        <ul>
+          <li>ui: (List View) adjust table columns</li>
+          <li>bugfix: (My List) fix sheet selection problem when region override is enabled</li>
+          <li>misc: use <strong>ノスタルジア</strong> instead of <strong>NOSTALGIA</strong> as its game title</li>
+        </ul>
+      </v-timeline-item>
       <v-timeline-item>
         <span class="font-weight-bold">2025/06/20 － v3.30 Update</span>
         <ul>
