@@ -27,7 +27,6 @@ const {
   <div
     v-ripple
     class="SongTile rounded pa-2"
-    :class="{ 'faded': song.sheets.every((sheet) => sheet.regions?.jp === false) }"
     style="user-select: none;"
   >
     <v-tooltip
@@ -104,11 +103,6 @@ const {
 .SongTile {
   position: relative;
   cursor: pointer;
-  transition: opacity 500ms;
-
-  &.faded:not(:hover) {
-    opacity: 0.2;
-  }
 
   .BlockingPanel {
     position: absolute;

@@ -111,6 +111,7 @@ export default defineComponent({
                   v-for="(song, j) in block.songs"
                   :key="j"
                   :song="song"
+                  :class="{ 'faded': song.sheets.every((sheet) => sheet.regions?.jp === false) }"
                   @click="viewSheetCombo(song.sheets, song.title);"
                 />
               </div>
@@ -130,3 +131,13 @@ export default defineComponent({
     </v-timeline>
   </v-container>
 </template>
+
+<style lang="scss" scoped>
+.faded {
+  transition: opacity 500ms;
+
+  &:not(:hover) {
+    opacity: 0.2;
+  }
+}
+</style>
