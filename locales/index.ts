@@ -13,10 +13,10 @@ const locales: LocaleObject[] = [
     // Russian
     code: 'ru', iso: 'ru', abbr: 'ru', name: 'Русский', file: 'ru.yaml',
   },
-  // {
-  //   // Vietnamese
-  //   code: 'vi', iso: 'vi', abbr: 'vi', name: 'Tiếng Việt', file: 'vi.yaml',
-  // },
+  {
+    // Vietnamese
+    code: 'vi', iso: 'vi', abbr: 'vi', name: 'Tiếng Việt', file: 'vi.yaml',
+  },
   {
     // Indonesian
     code: 'id', iso: 'id', abbr: 'id', name: 'Bahasa Indonesia', file: 'id.yaml',
