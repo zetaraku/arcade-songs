@@ -106,7 +106,7 @@ export default defineComponent({
               <span>{{ block.releaseDate ?? 'N/A' }}</span>
             </h2>
             <v-lazy :min-height="coverImageSize.height + 32">
-              <div class="d-flex flex-wrap">
+              <div class="d-flex flex-wrap ml-n4">
                 <SongTile
                   v-for="(song, j) in block.songs"
                   :key="j"
