@@ -1,15 +1,16 @@
 <script setup lang="ts">
 /* eslint-disable import/first, import/no-duplicates */
-import { useMeta as useHead, useContext } from '@nuxtjs/composition-api';
+import { useMeta as useHead } from '@nuxtjs/composition-api';
+import useI18n from '~/composables/useI18n';
 import useDarkMode from '~/composables/useDarkMode';
 import useGameInfo from '~/composables/useGameInfo';
 
-const context = useContext();
+const i18n = useI18n();
 const { isDarkMode } = useDarkMode();
 const { gameCode } = useGameInfo();
 
 useHead(() => ({
-  title: context.i18n.t('page-title.about') as string,
+  title: i18n.t('page-title.about') as string,
 }));
 </script>
 

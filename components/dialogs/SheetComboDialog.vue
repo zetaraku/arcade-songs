@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { computed, watch, useContext } from '@nuxtjs/composition-api';
+import { computed, watch } from '@nuxtjs/composition-api';
+import useI18n from '~/composables/useI18n';
 import useGtag from '~/composables/useGtag';
 import useDarkMode from '~/composables/useDarkMode';
 import useGameInfo from '~/composables/useGameInfo';
@@ -8,8 +9,7 @@ import useSheetComboDialog from '~/composables/useSheetComboDialog';
 import SheetTile from '~/components/SheetTile.vue';
 import { clamp, VOID_SHEET } from '~/utils';
 
-const context = useContext();
-
+const i18n = useI18n();
 const gtag = useGtag();
 const { isDarkMode } = useDarkMode();
 const { gameCode } = useGameInfo();
@@ -44,7 +44,7 @@ const displayingSheets = computed(() => (
 async function drawSheet() {
   if (currentSheets.value.length === 0) {
     // eslint-disable-next-line no-alert
-    window.alert(context.i18n.t('description.drawPoolEmpty'));
+    window.alert(i18n.t('description.drawPoolEmpty'));
     return;
   }
 

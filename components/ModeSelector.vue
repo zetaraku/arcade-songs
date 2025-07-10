@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { ref, inject, Ref, useContext } from '@nuxtjs/composition-api';
+import { ref, inject, Ref } from '@nuxtjs/composition-api';
 import YAML from 'yaml';
 import QueryString from 'query-string';
 import copyToClipboard from 'copy-to-clipboard';
 import selectFiles from 'select-files';
 import { useDataStore } from '~/stores/data';
+import useI18n from '~/composables/useI18n';
 import useGtag from '~/composables/useGtag';
 import useSentry from '~/composables/useSentry';
 import useGameInfo from '~/composables/useGameInfo';
@@ -17,7 +18,7 @@ const displayMode: Ref<string> = inject('displayMode')!;
 const filterMode: Ref<string> = inject('filterMode')!;
 const filters: Ref<Filters> = inject('filters')!;
 
-const context = useContext();
+const i18n = useI18n();
 const gtag = useGtag();
 const sentry = useSentry();
 const dataStore = useDataStore();
@@ -31,7 +32,7 @@ function copyFilterLink() {
 
   if (Object.keys(query).length === 0) {
     // eslint-disable-next-line no-alert
-    window.alert(context.i18n.t('sfc.ModeSelector.noFilterWarn'));
+    window.alert(i18n.t('sfc.ModeSelector.noFilterWarn'));
     return;
   }
 
@@ -41,7 +42,7 @@ function copyFilterLink() {
   copyToClipboard(url, { format: 'text/plain' });
 
   // eslint-disable-next-line no-alert
-  window.alert(`${url}\n${context.i18n.t('description.copied')}`);
+  window.alert(`${url}\n${i18n.t('description.copied')}`);
 
   gtag('event', 'FilterLinkCopied', { gameCode: gameCode.value, eventSource: 'ModeSelector', query: rawQuery });
 }
@@ -57,7 +58,7 @@ function toggleSuperFilter() {
 async function showMyListExportDialog() {
   if (selectedSheets.value.length === 0) {
     // eslint-disable-next-line no-alert
-    window.alert(context.i18n.t('sfc.ModeSelector.myListEmptyWarn'));
+    window.alert(i18n.t('sfc.ModeSelector.myListEmptyWarn'));
     return;
   }
 
@@ -82,7 +83,7 @@ async function importSelectedSheets() {
     selectedSheets.value = loadedSheets;
 
     // eslint-disable-next-line no-alert
-    window.alert(context.i18n.t('sfc.ModeSelector.sheetsLoaded', { n: loadedSheets.length }));
+    window.alert(i18n.t('sfc.ModeSelector.sheetsLoaded', { n: loadedSheets.length }));
 
     gtag('event', 'MyListImported', { gameCode: gameCode.value, eventSource: 'ModeSelector' });
   } catch (err) {

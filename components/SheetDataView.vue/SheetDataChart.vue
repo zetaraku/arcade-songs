@@ -4,6 +4,7 @@ import VChart from 'vue-echarts/dist/csp';
 import * as echarts from 'echarts';
 import sleep from 'sleep-promise';
 import { useDataStore } from '~/stores/data';
+import useI18n from '~/composables/useI18n';
 import useGtag from '~/composables/useGtag';
 import useGameInfo from '~/composables/useGameInfo';
 import useGameData from '~/composables/useGameData';
@@ -16,7 +17,7 @@ const filters: Ref<Filters> = inject('filters')!;
 const filterOptions: Ref<FilterOptions> = inject('filterOptions')!;
 
 const context = useContext();
-
+const i18n = useI18n();
 const gtag = useGtag();
 const dataStore = useDataStore();
 const { gameCode } = useGameInfo();
@@ -147,7 +148,7 @@ const option = computed<echarts.EChartsOption>(() => ({
           .filter((sheet) => getSheetLevelValueInUse(sheet) === level.value)
           .length,
         _headerTitle: [
-          filters.value.useInternalLevel ? context.i18n.t('term.internalLevel') : context.i18n.t('term.level'),
+          filters.value.useInternalLevel ? i18n.t('term.internalLevel') : i18n.t('term.level'),
           level.text,
         ].join(' '),
         _getSheets: () => sortedSheets.value

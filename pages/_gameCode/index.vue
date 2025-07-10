@@ -3,8 +3,9 @@
 import { ref, computed, provide, onMounted, useRoute, useRouter, useMeta as useHead, useContext } from '@nuxtjs/composition-api';
 import confetti from 'canvas-confetti';
 import sleep from 'sleep-promise';
-import useGtag from '~/composables/useGtag';
 import { useDataStore } from '~/stores/data';
+import useI18n from '~/composables/useI18n';
+import useGtag from '~/composables/useGtag';
 import useDarkMode from '~/composables/useDarkMode';
 import useGameInfo from '~/composables/useGameInfo';
 import useSelectedSheets from '~/composables/useSelectedSheets';
@@ -18,6 +19,7 @@ import SheetDataView from '~/components/SheetDataView.vue';
 import { buildEmptyFilters, buildFilterOptions, loadFiltersFromQuery, filterSheets, pickItem, getRegionOverrideSheet, NULL_SHEET, VOID_SHEET, HYBRID_SHEET } from '~/utils';
 
 const context = useContext();
+const i18n = useI18n();
 const gtag = useGtag();
 const route = useRoute();
 const router = useRouter();
@@ -33,7 +35,7 @@ const filterMode = ref('filter');
 const displayMode = ref('grid');
 
 const filters = ref(buildEmptyFilters());
-const filterOptions = computed(() => buildFilterOptions(data.value, context.i18n));
+const filterOptions = computed(() => buildFilterOptions(data.value, i18n));
 
 const filteredSheets = computed(
   () => filterSheets(data.value.sheets, filters.value),
@@ -64,7 +66,7 @@ const unselectedSheets = computed(() => filteredSheets.value.filter(
 function pickFromFilter() {
   if (unselectedSheets.value.length === 0) {
     // eslint-disable-next-line no-alert
-    window.alert(context.i18n.t('description.noMoreSheetsToPick'));
+    window.alert(i18n.t('description.noMoreSheetsToPick'));
     return;
   }
 

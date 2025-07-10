@@ -2,6 +2,7 @@
 /* eslint-disable import/first, import/no-duplicates */
 import { ref, computed, watch, useMeta as useHead, useContext } from '@nuxtjs/composition-api';
 import { useDataStore } from '~/stores/data';
+import useI18n from '~/composables/useI18n';
 import useGameInfo from '~/composables/useGameInfo';
 import useDarkMode from '~/composables/useDarkMode';
 import LoadingOverlay from '~/components/LoadingOverlay.vue';
@@ -13,6 +14,7 @@ import sites from '~/data/sites.json';
 import { PageNotFoundError } from '~/utils';
 
 const context = useContext();
+const i18n = useI18n();
 const dataStore = useDataStore();
 const { isDarkMode } = useDarkMode();
 const {
@@ -25,38 +27,38 @@ const {
 const menu = computed(() => [
   {
     icon: 'mdi-apps',
-    title: context.i18n.t('page-title.home'),
+    title: i18n.t('page-title.home'),
     to: { name: 'gameCode' },
   },
   {
     icon: 'mdi-timeline-text',
-    title: context.i18n.t('page-title.timeline'),
+    title: i18n.t('page-title.timeline'),
     to: { name: 'gameCode-timeline' },
     isNew: true,
   },
   {
     icon: 'mdi-script-text',
-    title: context.i18n.t('page-title.gallery'),
+    title: i18n.t('page-title.gallery'),
     to: { name: 'gameCode-gallery' },
   },
   {
     icon: 'mdi-database',
-    title: context.i18n.t('page-title.songs'),
+    title: i18n.t('page-title.songs'),
     to: { name: 'gameCode-songs' },
   },
   {
     icon: 'mdi-comment-question',
-    title: context.i18n.t('page-title.bug-report'),
+    title: i18n.t('page-title.bug-report'),
     href: context.$config.siteReportUrl,
   },
   {
     icon: 'mdi-github',
-    title: context.i18n.t('page-title.source-code'),
+    title: i18n.t('page-title.source-code'),
     href: context.$config.sourceCodeUrl,
   },
   {
     icon: 'mdi-information-outline',
-    title: context.i18n.t('page-title.about'),
+    title: i18n.t('page-title.about'),
     to: { name: 'gameCode-about' },
   },
 ]);

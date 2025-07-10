@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { ref, watch, inject, ComputedRef, useContext } from '@nuxtjs/composition-api';
+import { ref, watch, inject, ComputedRef } from '@nuxtjs/composition-api';
 import confetti from 'canvas-confetti';
 import sleep from 'sleep-promise';
+import useI18n from '~/composables/useI18n';
 import useGtag from '~/composables/useGtag';
 import useDarkMode from '~/composables/useDarkMode';
 import useGameInfo from '~/composables/useGameInfo';
@@ -12,7 +13,7 @@ import type { Sheet } from '~/types';
 
 const drawingPool: ComputedRef<Sheet[]> = inject('drawingPool')!;
 
-const context = useContext();
+const i18n = useI18n();
 const gtag = useGtag();
 const { isDarkMode } = useDarkMode();
 const { gameCode, themeColor } = useGameInfo();
@@ -34,7 +35,7 @@ const drawModeIndex = ref(1);
 async function drawSheet() {
   if (drawingPool.value.length === 0) {
     // eslint-disable-next-line no-alert
-    window.alert(context.i18n.t('description.drawPoolEmpty'));
+    window.alert(i18n.t('description.drawPoolEmpty'));
     return;
   }
 
@@ -46,7 +47,7 @@ async function drawSheet() {
 async function drawSheetCombo() {
   if (drawingPool.value.length === 0) {
     // eslint-disable-next-line no-alert
-    window.alert(context.i18n.t('description.drawPoolEmpty'));
+    window.alert(i18n.t('description.drawPoolEmpty'));
     return;
   }
 

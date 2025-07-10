@@ -2,6 +2,7 @@
 /* eslint-disable import/first, import/no-duplicates */
 import { computed, useRoute, useMeta as useHead, useContext } from '@nuxtjs/composition-api';
 import { useDataStore } from '~/stores/data';
+import useI18n from '~/composables/useI18n';
 import useGameInfo from '~/composables/useGameInfo';
 import useGameData from '~/composables/useGameData';
 import useSheetDialog from '~/composables/useSheetDialog';
@@ -9,6 +10,7 @@ import LoadingStatus from '~/enums/LoadingStatus';
 import { validateNoteCounts, PageNotFoundError } from '~/utils';
 
 const context = useContext();
+const i18n = useI18n();
 const route = useRoute();
 const dataStore = useDataStore();
 const {
@@ -44,7 +46,7 @@ const extraSheetHeaders = computed(() => {
     return ['total', 'tap', 'hold', 'slide', 'touch', 'break']
       .map((key) => ({
         key,
-        title: key !== 'total' ? key.toUpperCase() : context.i18n.t('term.totalNotes'),
+        title: key !== 'total' ? key.toUpperCase() : i18n.t('term.totalNotes'),
         get: (sheet: Sheet) => sheet.noteCounts?.[key],
       }));
   }
@@ -52,7 +54,7 @@ const extraSheetHeaders = computed(() => {
     return ['total', 'tap', 'hold', 'slide', 'air', 'flick']
       .map((key) => ({
         key,
-        title: key !== 'total' ? key.toUpperCase() : context.i18n.t('term.totalNotes'),
+        title: key !== 'total' ? key.toUpperCase() : i18n.t('term.totalNotes'),
         get: (sheet: Sheet) => sheet.noteCounts?.[key],
       }));
   }
@@ -61,7 +63,7 @@ const extraSheetHeaders = computed(() => {
 });
 
 useHead(() => ({
-  title: `${song.value?.title} | ${context.i18n.t('page-title.song')}`,
+  title: `${song.value?.title} | ${i18n.t('page-title.song')}`,
 }));
 </script>
 

@@ -1,12 +1,13 @@
 <script setup lang="ts">
 /* eslint-disable import/first, import/no-duplicates */
-import { computed, useMeta as useHead, useContext } from '@nuxtjs/composition-api';
+import { computed, useMeta as useHead } from '@nuxtjs/composition-api';
 import { useDataStore } from '~/stores/data';
+import useI18n from '~/composables/useI18n';
 import useGameInfo from '~/composables/useGameInfo';
 import useSheetComboDialog from '~/composables/useSheetComboDialog';
 import SongTile from '~/components/SongTile.vue';
 
-const context = useContext();
+const i18n = useI18n();
 const dataStore = useDataStore();
 const { coverImageSize } = useGameInfo();
 const { viewSheetCombo } = useSheetComboDialog();
@@ -71,7 +72,7 @@ const blocks = computed(() => [
 ));
 
 useHead(() => ({
-  title: context.i18n.t('page-title.timeline') as string,
+  title: i18n.t('page-title.timeline') as string,
 }));
 </script>
 

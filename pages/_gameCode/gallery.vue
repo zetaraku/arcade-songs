@@ -1,10 +1,11 @@
 <script setup lang="ts">
 /* eslint-disable import/first, import/no-duplicates */
-import { ref, computed, watch, onMounted, useRoute, useRouter, useMeta as useHead, useContext, Ref } from '@nuxtjs/composition-api';
+import { ref, computed, watch, onMounted, useRoute, useRouter, useMeta as useHead, Ref } from '@nuxtjs/composition-api';
 import { until } from '@vueuse/core';
 import YAML from 'yaml';
 import selectFiles from 'select-files';
 import { useDataStore } from '~/stores/data';
+import useI18n from '~/composables/useI18n';
 import useGtag from '~/composables/useGtag';
 import useSentry from '~/composables/useSentry';
 import useDarkMode from '~/composables/useDarkMode';
@@ -17,7 +18,7 @@ import sites from '~/data/sites.json';
 import { buildGallery, isValidUrl } from '~/utils';
 import type { Gallery, GalleryList } from '~/types';
 
-const context = useContext();
+const i18n = useI18n();
 const gtag = useGtag();
 const sentry = useSentry();
 const route = useRoute();
@@ -74,8 +75,8 @@ async function loadDefaultGallery() {
 async function loadExternalGalleryFromUrl(galleryUrl: string) {
   // eslint-disable-next-line no-alert
   const confirm = window.confirm(
-    context.i18n.t('page.gallery.loadExternalGalleryConfirmation', {
-      srcType: context.i18n.t('page.gallery.thisUrl'),
+    i18n.t('page.gallery.loadExternalGalleryConfirmation', {
+      srcType: i18n.t('page.gallery.thisUrl'),
       src: galleryUrl,
     }) as string,
   );
@@ -124,8 +125,8 @@ async function loadExternalGalleryFromUrl(galleryUrl: string) {
 async function loadExternalGalleryFromFile(galleryFile: File) {
   // eslint-disable-next-line no-alert
   const confirm = window.confirm(
-    context.i18n.t('page.gallery.loadExternalGalleryConfirmation', {
-      srcType: context.i18n.t('page.gallery.thisFile'),
+    i18n.t('page.gallery.loadExternalGalleryConfirmation', {
+      srcType: i18n.t('page.gallery.thisFile'),
       src: galleryFile.name,
     }) as string,
   );
@@ -186,8 +187,8 @@ async function changeGalleryProvider(providerType: string) {
 useHead(() => ({
   title: (
     currentList.value !== null
-      ? `${currentList.value.title} | ${context.i18n.t('page-title.gallery')}`
-      : context.i18n.t('page-title.gallery') as string
+      ? `${currentList.value.title} | ${i18n.t('page-title.gallery')}`
+      : i18n.t('page-title.gallery') as string
   ),
 }));
 
