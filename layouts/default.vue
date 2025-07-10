@@ -29,6 +29,12 @@ const menu = computed(() => [
     to: { name: 'gameCode' },
   },
   {
+    icon: 'mdi-timeline-text',
+    title: context.i18n.t('page-title.timeline'),
+    to: { name: 'gameCode-timeline' },
+    isNew: true,
+  },
+  {
     icon: 'mdi-script-text',
     title: context.i18n.t('page-title.gallery'),
     to: { name: 'gameCode-gallery' },
@@ -208,6 +214,12 @@ export default defineComponent({
           <v-list-item-content>
             <v-list-item-title>
               {{ menuItem.title }}
+              <v-badge
+                v-if="menuItem.isNew"
+                color="error"
+                class="font-weight-bold ml-2"
+                content="NEW!"
+              />
             </v-list-item-title>
           </v-list-item-content>
           <v-list-item-icon v-if="menuItem.href !== undefined">

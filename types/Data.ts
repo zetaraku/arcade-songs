@@ -11,6 +11,7 @@ export type Data = {
   versions: {
     version: string;
     abbr?: string;
+    releaseDate?: string;
   }[];
 
   types: {
