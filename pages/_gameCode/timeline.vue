@@ -129,7 +129,7 @@ export default defineComponent({
                     'faded': targetRegion != null
                       && song.sheets.every((sheet) => sheet.regions?.[targetRegion ?? ''] === false)
                   }"
-                  @click="viewSheetCombo(song.sheets, { title: song.title, asDrawPool: true });"
+                  @click="viewSheetCombo(song.sheets, { title: song.title });"
                 />
               </div>
             </v-lazy>
