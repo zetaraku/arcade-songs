@@ -77,7 +77,7 @@ async function loadExternalGalleryFromUrl(galleryUrl: string) {
     context.i18n.t('page.gallery.loadExternalGalleryConfirmation', {
       srcType: context.i18n.t('page.gallery.thisUrl'),
       src: galleryUrl,
-    }),
+    }) as string,
   );
 
   if (!confirm) return false;
@@ -127,7 +127,7 @@ async function loadExternalGalleryFromFile(galleryFile: File) {
     context.i18n.t('page.gallery.loadExternalGalleryConfirmation', {
       srcType: context.i18n.t('page.gallery.thisFile'),
       src: galleryFile.name,
-    }),
+    }) as string,
   );
 
   if (!confirm) return false;
