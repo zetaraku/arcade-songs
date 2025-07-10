@@ -94,6 +94,7 @@ const nuxtConfig: NuxtConfig = {
 
         return [
           `/${site.gameCode}/`,
+          `/${site.gameCode}/timeline/`,
           `/${site.gameCode}/gallery/`,
           `/${site.gameCode}/songs/`,
           `/${site.gameCode}/about/`,
@@ -140,6 +141,7 @@ const nuxtConfig: NuxtConfig = {
   vuetify: {
     customVariables: ['~/assets/styles/variables.scss'],
     optionsPath: '~/vuetify.options.ts',
+    treeShake: true,
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
