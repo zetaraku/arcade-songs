@@ -134,7 +134,6 @@ export default function useGameData() {
   return {
     getLockedIconUrl,
     getLockedIconHeight,
-    getCategoryData,
     getCategoryIndex,
     getVersionAbbr,
     getVersionIndex,
