@@ -6,6 +6,7 @@ import useItemDrawer from './useItemDrawer';
 
 const isOpened = ref(false);
 const isDrawMode = ref(false);
+const isDrawPool = ref(false);
 const isShowAll = ref(true);
 const headerTitle = ref<string | null>(null);
 const drawingPool = ref<Sheet[]>([]);
@@ -34,12 +35,13 @@ const isStatic = computed(() => !isDrawing.value);
 
 function viewSheetCombo(
   sheets: Sheet[],
-  options: { title?: string } = {},
+  options: { title?: string, asDrawPool?: boolean } = {},
 ) {
   setCurrentItems(sheets);
   blindfoldedIndexes.value = new Set();
   headerTitle.value = options.title ?? null;
   isDrawMode.value = false;
+  isDrawPool.value = options.asDrawPool ?? false;
   isShowAll.value = false;
   isOpened.value = true;
 }
@@ -47,6 +49,7 @@ function viewSheetCombo(
 async function startDrawingSheetCombo(onFinish?: (resultItems: typeof currentItems.value) => void) {
   headerTitle.value = null;
   isDrawMode.value = true;
+  isDrawPool.value = false;
   isShowAll.value = true;
   isOpened.value = true;
 
@@ -73,6 +76,7 @@ export default function useSheetComboDialog() {
     currentSheets,
     isOpened,
     isDrawMode,
+    isDrawPool,
     isStatic,
     isShowAll,
     headerTitle,

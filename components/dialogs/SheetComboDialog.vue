@@ -20,6 +20,7 @@ const {
   currentSheets,
   isOpened,
   isDrawMode,
+  isDrawPool,
   isStatic,
   isShowAll,
   headerTitle,
@@ -225,7 +226,7 @@ watch(isOpened, () => {
             <span v-text="$t('sfc.SheetComboDialog.blindfoldMode')" />
           </v-tooltip>
         </template>
-        <template v-else>
+        <template v-if="isDrawPool">
           <v-btn
             text
             color="primary"
