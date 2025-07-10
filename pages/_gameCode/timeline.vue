@@ -1,6 +1,6 @@
 <script setup lang="ts">
 /* eslint-disable import/first, import/no-duplicates */
-import { computed, useMeta as useHead } from '@nuxtjs/composition-api';
+import { ref, computed, watch, useMeta as useHead } from '@nuxtjs/composition-api';
 import { useDataStore } from '~/stores/data';
 import useI18n from '~/composables/useI18n';
 import useGameInfo from '~/composables/useGameInfo';
@@ -11,6 +11,8 @@ const i18n = useI18n();
 const dataStore = useDataStore();
 const { coverImageSize } = useGameInfo();
 const { viewSheetCombo } = useSheetComboDialog();
+
+const targetRegion = ref<string | null>(null);
 
 const data = computed(() => dataStore.currentData);
 
@@ -71,6 +73,10 @@ const blocks = computed(() => [
   ),
 ));
 
+watch(() => data.value.regions, () => {
+  targetRegion.value = data.value.regions[0]?.region ?? null;
+}, { immediate: true });
+
 useHead(() => ({
   title: i18n.t('page-title.timeline') as string,
 }));
@@ -90,6 +96,14 @@ export default defineComponent({
     <h1 class="mb-4">
       {{ $t('page-title.timeline') }}
     </h1>
+    <v-select
+      v-if="data.regions.length > 0"
+      v-model="targetRegion"
+      :items="data.regions.map(({ region, name }) => ({ text: name, value: region }))"
+      prepend-icon="mdi-map-search"
+      :label="$t('term.region')"
+      persistent-placeholder
+    />
     <v-timeline dense align-top>
       <template v-for="(block, i) in blocks">
         <v-timeline-item v-if="block.type === 'version'" :key="i" large icon="mdi-star">
@@ -111,7 +125,10 @@ export default defineComponent({
                   v-for="(song, j) in block.songs"
                   :key="j"
                   :song="song"
-                  :class="{ 'faded': song.sheets.every((sheet) => sheet.regions?.jp === false) }"
+                  :class="{
+                    'faded': targetRegion != null
+                      && song.sheets.every((sheet) => sheet.regions?.[targetRegion ?? ''] === false)
+                  }"
                   @click="viewSheetCombo(song.sheets, song.title);"
                 />
               </div>
