@@ -58,6 +58,14 @@ const extraSheetHeaders = computed(() => {
         get: (sheet: Sheet) => sheet.noteCounts?.[key],
       }));
   }
+  if (gameCode.value === 'ongeki') {
+    return ['total', 'bell']
+      .map((key) => ({
+        key,
+        title: key !== 'total' ? key.toUpperCase() : i18n.t('term.totalNotes'),
+        get: (sheet: Sheet) => sheet.noteCounts?.[key],
+      }));
+  }
 
   return [];
 });

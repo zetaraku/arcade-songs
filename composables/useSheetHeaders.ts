@@ -147,6 +147,22 @@ function useOptionalHeaders(gameCode: string): DataTableHeader[] {
       },
     ];
   }
+  if (gameCode === 'ongeki') {
+    return [
+      {
+        text: i18n.t('term.totalNotes') as string,
+        value: 'noteCounts.total',
+        width: 80,
+        align: 'end',
+      },
+      {
+        text: 'BELL',
+        value: 'noteCounts.bell',
+        width: 80,
+        align: 'end',
+      },
+    ];
+  }
 
   return [];
 }
