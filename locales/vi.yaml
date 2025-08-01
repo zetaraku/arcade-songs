@@ -28,6 +28,8 @@ ui:
   showAll: Hiển thị tất cả
 
 # Terminologies
+  sort-asc: Tăng dần
+  sort-desc: Giảm dần
 term:
   category: Phân loại
   title: Tiêu đề
@@ -60,7 +62,7 @@ description:
   unlockNeeded: Bài hát này cần phải được mở khoá
   unavailableInRegion: 'Hiện không khả dụng ở {region}'
   copied: Đã sao chép vào bộ nhớ tạm!
-  invalidNoteCounts: Số lượng note không hợp lệ
+  invalidNoteCounts: Số lượng NOTE không hợp lệ
   # filterResultEmpty: Cannot find any sheet that satisfies the filter.
   # myListEmpty: Right-click or long-press a sheet to add it to MY LIST, and then you can see your selected sheets here.
   # drawPoolEmpty: Current drawing pool is empty.
@@ -73,10 +75,13 @@ description:
   # superFilterHint: // I hope you know what you're doing ...
 
 # Pages
+  pickOneFromFilter: CHỌN MỘT BÀI TRONG BỘ LỌC!
 page:
   index:
+    description: Tìm kiếm nhạc trong tựa game âm nhạc yêu thích của bạn, tất cả đều ở đây!
     # description: Search songs of your favorite music games, now all in one!
   gallery:
+    yourLocalFile: thư mục cục bộ của bạn
     # selectList: Select Song List
     # loadExternalGalleryConfirmation: "You are about to load an external gallery from {srcType}:\n\n{src}\n\nContinue?"
     # externalGalleryDisclaimer: |
@@ -112,6 +117,8 @@ page:
 # Components
 sfc:
   DataInfoBar:
+    updateTime: 'Ngày Cập Nhật Dữ Liệu:'
+    loadFailed: Thất bại trong việc tải dữ liệu.
     # updateTime: 'Data Update Time: {time}'
     # loadFailed: Failed while loading data.
   SheetFilter:
@@ -130,6 +137,9 @@ sfc:
     # myListEmptyWarn: "MY LIST is empty!\nNothing to export."
     # importMyList: Import MY LIST from file
     # sheetsLoaded: 'Imported {n} sheets successfully.'
+    tableMode: Xem chi tiết
+    chartMode: Xem tóm tắt
+    gridMode: Xem lưới
   SheetDrawerPanel:
     # drawRandomSheet: DRAW RANDOM SHEET!
     # drawRandomSheetCombo: DRAW RANDOM SET!
@@ -145,3 +155,4 @@ sfc:
     # changeDrawSize: Change Draw Size
     allowDuplicate: Cho phép Nhân bản
     # blindfoldMode: Blindfold Mode
+    blindfoldMode: Chế độ bịt mắt
