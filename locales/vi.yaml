@@ -23,8 +23,8 @@ ui:
   goBack: Quay về
   all: TẤT CẢ
   default: Mặc định
-  # sort-asc: ASC
-  # sort-desc: DESC
+  sort-asc: Tăng dần
+  sort-desc: Giảm dần
   showAll: Hiển thị tất cả
 
 # Terminologies
@@ -46,7 +46,7 @@ term:
   # internalLevel: Internal Level
   # minInternalLevel: Min. Internal Level
   # maxInternalLevel: Max. Internal Level
-  noteDesigner: Người thiết kế các nốt
+  noteDesigner: Charter
   totalNotes: TỔNG
   region: Khu vực
   comment: Bình luận
@@ -60,12 +60,12 @@ description:
   unlockNeeded: Bài hát này cần phải được mở khoá
   unavailableInRegion: 'Hiện không khả dụng ở {region}'
   copied: Đã sao chép vào bộ nhớ tạm!
-  invalidNoteCounts: Số lượng note không hợp lệ
+  invalidNoteCounts: Số lượng NOTE không hợp lệ
   # filterResultEmpty: Cannot find any sheet that satisfies the filter.
   # myListEmpty: Right-click or long-press a sheet to add it to MY LIST, and then you can see your selected sheets here.
   # drawPoolEmpty: Current drawing pool is empty.
   clearMyList: Dọn dẹp DANH SÁCH CỦA TÔI
-  # pickOneFromFilter: PICK ONE FROM FILTER!
+  pickOneFromFilter: CHỌN MỘT BÀI TRONG BỘ LỌC!
   # noMoreSheetsToPick: No more sheets to pick.
   # superFilterPlaceholder: |
   #   // return a predicate function to filter the result
@@ -75,7 +75,7 @@ description:
 # Pages
 page:
   index:
-    # description: Search songs of your favorite music games, now all in one!
+    description: Tìm kiếm nhạc trong tựa game âm nhạc yêu thích của bạn, tất cả đều ở đây!
   gallery:
     # selectList: Select Song List
     # loadExternalGalleryConfirmation: "You are about to load an external gallery from {srcType}:\n\n{src}\n\nContinue?"
@@ -84,7 +84,7 @@ page:
     #   The content is not created or managed by this site.
     # thisUrl: this URL
     # thisFile: this File
-    # yourLocalFile: your local file
+    yourLocalFile: thư mục cục bộ của bạn
   songs:
     # sheetData: Sheet Data
   about:
@@ -112,16 +112,16 @@ page:
 # Components
 sfc:
   DataInfoBar:
-    # updateTime: 'Data Update Time: {time}'
-    # loadFailed: Failed while loading data.
+    updateTime: 'Ngày Cập Nhật Dữ Liệu: {time}'
+    loadFailed: Thất bại trong việc tải dữ liệu.
   SheetFilter:
     # exactMatch: Exact Match
     # useInternalLevel: Use Internal Level
     # useRegionOverride: Use Regional Info Override
   ModeSelector:
-    # gridMode: Grid View
-    # tableMode: Detail View
-    # chartMode: Summary View
+    gridMode: Xem lưới
+    tableMode: Xem chi tiết
+    chartMode: Xem tóm tắt
     filterMode: Chế độ lọc
     myListMode: DANH SÁCH CỦA TÔI
     # copyFilterLink: Copy current filters as link
@@ -144,4 +144,4 @@ sfc:
     # noDuplicate: No Duplicate
     # changeDrawSize: Change Draw Size
     allowDuplicate: Cho phép Nhân bản
-    # blindfoldMode: Blindfold Mode
+    blindfoldMode: Chế độ bịt mắt
