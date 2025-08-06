@@ -25,10 +25,9 @@ ui:
   default: По умолчанию
   sort-asc: ASC
   sort-desc: DESC
-  # showAll: Show All
+  showAll: Показать все
 
 # Terminologies
-  showAll: Показать все
 term:
   category: Категория
   title: Название
@@ -51,10 +50,9 @@ term:
   totalNotes: ВСЕГО
   region: Регион
   comment: Комментарий
-  # superFilter: Super Filter
+  superFilter: Супер Фильтр
 
 # Descriptions & Tooltips
-  superFilter: Суперфильтр
 description:
   pending: В ожидании
   loading: Загрузка данных…
@@ -66,34 +64,24 @@ description:
   filterResultEmpty: Не удалось найти лист, который удовлетворяет фильтр.
   myListEmpty: Щелкните правой кнопкой или долгим нажатием на лист, чтобы добавить его в МОЙ СПИСОК, и вы сможете увидеть ваши избранные листы здесь.
   drawPoolEmpty: Текущий пул рисования пуст.
-  # clearMyList: Clear MY LIST
-  # pickOneFromFilter: PICK ONE FROM FILTER!
-  # noMoreSheetsToPick: No more sheets to pick.
-  # superFilterPlaceholder: |
-  #   // return a predicate function to filter the result
-  #   return (sheet) => true;
-  # superFilterHint: // I hope you know what you're doing ...
-
-# Pages
   clearMyList: Очистить МОЙ СПИСОК
   pickOneFromFilter: ВЫБЕРИТЕ ОДИН ИЗ ФИЛЬТРОВ!
   noMoreSheetsToPick: Больше не нужно выбирать простыни.
-  superFilterPlaceholder: "// возвращаем предикатную функцию для фильтрации результата\nreturn (sheet) => true;\n"
-  superFilterHint: // Надеюсь, вы знаете, что делаете...
+  superFilterPlaceholder: |
+    // возвращаем предикатную функцию для фильтрации результата
+    return (sheet) => true;
+  superFilterHint: // Надеюсь, вы знаете, что делаете ...
+
+# Pages
 page:
   index:
     description: Поиск песен любимых музыкальных игр, теперь все в одном!
   gallery:
     selectList: Выберите Список Песен
-    # loadExternalGalleryConfirmation: "You are about to load an external gallery from {srcType}:\n\n{src}\n\nContinue?"
-    # externalGalleryDisclaimer: |
-    #   You are currently viewing an external gallery from {source}.{br}
-    #   The content is not created or managed by this site.
-    # thisUrl: this URL
-    # thisFile: this File
-    # yourLocalFile: your local file
     loadExternalGalleryConfirmation: "Вы собираетесь загрузить внешнюю галерею из {srcType}:\n\n{src}\n\nПродолжить?"
-    externalGalleryDisclaimer: "В данный момент вы просматриваете внешнюю галерею из {источника}.{br}\nСодержимое не создано и не управляется этим сайтом.\n"
+    externalGalleryDisclaimer: |
+      В данный момент вы просматриваете внешнюю галерею из {source}.{br}
+      Содержимое не создано и не управляется этим сайтом.
     thisUrl: этот URL
     thisFile: этот файл
     yourLocalFile: ваш локальный файл
@@ -126,14 +114,14 @@ sfc:
   DataInfoBar:
     updateTime: 'Время Обновления Данных: {time}'
     loadFailed: Не удалось загрузить данные.
-  # SheetFilter:
-  #   exactMatch: Exact Match
-  #   useInternalLevel: Use Internal Level
-  #   useRegionOverride: Use Regional Info Override
+  SheetFilter:
+    exactMatch: Точное совпадение
+    useInternalLevel: Использование внутреннего уровня
+    useRegionOverride: Использовать переопределение региональной информации
   ModeSelector:
     gridMode: Вид в Столбик
     tableMode: Детальный Вид
-    # chartMode: Summary View
+    chartMode: Краткий обзор
     filterMode: Режим Фильтра
     myListMode: МОЙ ЛИСТ
     copyFilterLink: Скопировать нынешние фильтры как ссылку
@@ -142,7 +130,6 @@ sfc:
     myListEmptyWarn: "МОЙ ЛИСТ пуст!\nНечего экспортировать."
     importMyList: Импортировать МОЙ ЛИСТ из файла
     sheetsLoaded: 'Успешно импортировано {n} лист(-ов).'
-    chartMode: Краткий обзор
   SheetDrawerPanel:
     drawRandomSheet: НАРИСОВАТЬ СЛУЧАЙНЫЙ ЛИСТ!
     drawRandomSheetCombo: НАРИСОВАТЬ СЛУЧАЙНЫЙ НАБОР!
@@ -158,7 +145,3 @@ sfc:
     # changeDrawSize: Change Draw Size
     # allowDuplicate: Allow Duplicate
     # blindfoldMode: Blindfold Mode
-  SheetFilter:
-    exactMatch: Точное совпадение
-    useInternalLevel: Использование внутреннего уровня
-    useRegionOverride: Использовать переопределение региональной информации
