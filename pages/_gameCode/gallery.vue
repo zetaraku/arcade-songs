@@ -3,7 +3,6 @@
 import { ref, computed, watch, onMounted, useRoute, useRouter, useMeta as useHead, Ref } from '@nuxtjs/composition-api';
 import { until } from '@vueuse/core';
 import YAML from 'yaml';
-import selectFiles from 'select-files';
 import { useDataStore } from '~/stores/data';
 import useI18n from '~/composables/useI18n';
 import useGtag from '~/composables/useGtag';
@@ -15,7 +14,7 @@ import LoadingOverlay from '~/components/LoadingOverlay.vue';
 import SheetTile from '~/components/SheetTile.vue';
 import LoadingStatus from '~/enums/LoadingStatus';
 import sites from '~/data/sites.json';
-import { buildGallery, isValidUrl } from '~/utils';
+import { buildGallery, isValidUrl, selectFiles } from '~/utils';
 import type { Gallery, GalleryList } from '~/types';
 
 const i18n = useI18n();
