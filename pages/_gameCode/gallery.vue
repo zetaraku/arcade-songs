@@ -10,6 +10,7 @@ import useSentry from '~/composables/useSentry';
 import useDarkMode from '~/composables/useDarkMode';
 import useGameInfo from '~/composables/useGameInfo';
 import useSheetDialog from '~/composables/useSheetDialog';
+import useGlobalComponents from '~/composables/useGlobalComponents';
 import LoadingOverlay from '~/components/LoadingOverlay.vue';
 import SheetTile from '~/components/SheetTile.vue';
 import LoadingStatus from '~/enums/LoadingStatus';
@@ -26,6 +27,8 @@ const dataStore = useDataStore();
 const { isDarkMode } = useDarkMode();
 const { gameCode } = useGameInfo();
 const { viewSheet } = useSheetDialog();
+// re-export the shadowed <i18n /> component as <i18n-t />
+const { i18n: I18nT } = useGlobalComponents();
 
 const galleryProviders = computed(() => [
   { type: 'default', title: 'Load from default' },
@@ -297,14 +300,14 @@ export default defineComponent({
       class="mb-6"
       outlined
     >
-      <i18n path="page.gallery.externalGalleryDisclaimer">
+      <i18n-t path="page.gallery.externalGalleryDisclaimer">
         <template #source>
           👉 <a :href="externalGalleryUrl" target="_blank">{{ $t('page.gallery.thisUrl') }}</a>
         </template>
         <template #br>
           <br>
         </template>
-      </i18n>
+      </i18n-t>
     </v-alert>
     <v-alert
       v-if="currentGalleryProvider === 'file'"
@@ -312,14 +315,14 @@ export default defineComponent({
       class="mb-6"
       outlined
     >
-      <i18n path="page.gallery.externalGalleryDisclaimer">
+      <i18n-t path="page.gallery.externalGalleryDisclaimer">
         <template #source>
           <b>{{ $t('page.gallery.yourLocalFile') }}</b>
         </template>
         <template #br>
           <br>
         </template>
-      </i18n>
+      </i18n-t>
     </v-alert>
 
     <!-- Current List -->
