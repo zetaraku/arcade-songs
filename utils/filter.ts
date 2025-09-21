@@ -105,7 +105,7 @@ export function buildFilterOptions(data: Data, i18n: NuxtI18nInstance): FilterOp
     ),
 
     versions: nonEmptyOrNull(
-      data.versions
+      data.versions.toReversed()
         .map(({ version, abbr }) => ({
           text: abbr ?? version ?? 'N/A',
           value: version,
