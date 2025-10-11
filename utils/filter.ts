@@ -91,6 +91,7 @@ export function buildFilterOptions(data: Data, i18n: NuxtI18nInstance): FilterOp
     categories: nonEmptyOrNull(
       data.categories
         .map(({ category }) => ({
+          $type: 'option',
           text: category ?? 'N/A',
           value: category,
         })),
@@ -107,6 +108,7 @@ export function buildFilterOptions(data: Data, i18n: NuxtI18nInstance): FilterOp
     versions: nonEmptyOrNull(
       data.versions.toReversed()
         .map(({ version, abbr }) => ({
+          $type: 'option',
           text: abbr ?? version ?? 'N/A',
           value: version,
         })),
@@ -120,6 +122,7 @@ export function buildFilterOptions(data: Data, i18n: NuxtI18nInstance): FilterOp
     types: nonEmptyOrNull(
       data.types
         .map(({ type, name }) => ({
+          $type: 'option',
           text: name,
           value: type,
         })),
@@ -128,16 +131,18 @@ export function buildFilterOptions(data: Data, i18n: NuxtI18nInstance): FilterOp
       [
         ...data.difficulties
           .map(({ difficulty, name }) => ({
+            $type: 'option',
             text: name,
             value: difficulty,
-          })),
+          } as const)),
         ...[...new Set(data.sheets.map((sheet) => sheet.difficulty))]
           .filter((difficulty) => difficulty != null)
           .filter((difficulty) => !difficultiesSet.has(difficulty))
           .map((difficulty) => ({
+            $type: 'option',
             text: difficulty,
             value: difficulty,
-          })),
+          } as const)),
       ],
     ),
     levels: nonEmptyOrNull(
@@ -148,6 +153,7 @@ export function buildFilterOptions(data: Data, i18n: NuxtI18nInstance): FilterOp
       ).entries()]
         .sort(([aLevelValue], [bLevelValue]) => aLevelValue - bLevelValue)
         .map(([levelValue, level]) => ({
+          $type: 'option',
           text: level,
           value: levelValue,
         })),
@@ -160,6 +166,7 @@ export function buildFilterOptions(data: Data, i18n: NuxtI18nInstance): FilterOp
       ).entries()]
         .sort(([aLevelValue], [bLevelValue]) => aLevelValue - bLevelValue)
         .map(([levelValue, level]) => ({
+          $type: 'option',
           text: level,
           value: levelValue,
         })),
@@ -174,6 +181,7 @@ export function buildFilterOptions(data: Data, i18n: NuxtI18nInstance): FilterOp
         .filter(({ noteDesigner }) => noteDesigner != null)
         .sort((a, b) => b.sheetCount - a.sheetCount)
         .map(({ noteDesigner, sheetCount }) => ({
+          $type: 'option',
           text: `${noteDesigner} (${sheetCount})`,
           value: noteDesigner,
         })),
@@ -181,10 +189,12 @@ export function buildFilterOptions(data: Data, i18n: NuxtI18nInstance): FilterOp
     regions: nonEmptyOrNull(
       data.regions.flatMap(({ region, name }) => [
         {
+          $type: 'option',
           text: name,
           value: `${region}`,
         },
         {
+          $type: 'option',
           text: i18n.t('description.unavailableInRegion', { region: name }) as string,
           value: `!${region}`,
         },
