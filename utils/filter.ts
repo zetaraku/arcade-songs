@@ -173,12 +173,12 @@ export function buildFilterOptions(data: Data, i18n: NuxtI18nInstance): FilterOp
     ),
 
     noteDesigners: nonEmptyOrNull(
-      [...new Set(data.sheets.map((sheet) => sheet.noteDesigner!))]
-        .map((noteDesigner) => ({
-          noteDesigner,
-          sheetCount: data.sheets.filter((sheet) => sheet.noteDesigner === noteDesigner).length,
-        }))
-        .filter(({ noteDesigner }) => noteDesigner != null)
+      [...Map.groupBy(
+        data.songs.toReversed().flatMap((song) => song.sheets)
+          .filter((sheet) => sheet.noteDesigner != null),
+        (sheet) => sheet.noteDesigner!,
+      ).entries()]
+        .map(([noteDesigner, sheets]) => ({ noteDesigner, sheetCount: sheets.length }))
         .sort((a, b) => b.sheetCount - a.sheetCount)
         .map(({ noteDesigner, sheetCount }) => ({
           $type: 'option',
