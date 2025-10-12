@@ -69,6 +69,7 @@ export function buildEmptyFilterOptions(): FilterOptions {
 
     types: [],
     difficulties: [],
+    extraDifficulties: [],
     levels: [],
     internalLevels: [],
 
@@ -128,27 +129,27 @@ export function buildFilterOptions(data: Data, i18n: NuxtI18nInstance): FilterOp
         })),
     ),
     difficulties: nonEmptyOrNull(
-      [
-        ...data.difficulties
-          .map(({ difficulty, name }) => ({
-            $type: 'option',
-            text: name,
-            value: difficulty,
-          } as const)),
-        ...[...Map.groupBy(
-          data.songs.toReversed().flatMap((song) => song.sheets)
-            .filter((sheet) => sheet.difficulty != null),
-          (sheet) => sheet.difficulty!,
-        ).entries()]
-          .map(([difficulty, sheets]) => ({ difficulty, sheetCount: sheets.length }))
-          .filter(({ difficulty }) => !difficultiesSet.has(difficulty))
-          .sort((a, b) => b.sheetCount - a.sheetCount)
-          .map(({ difficulty, sheetCount }) => ({
-            $type: 'option',
-            text: `${difficulty} (${sheetCount})`,
-            value: difficulty,
-          } as const)),
-      ],
+      data.difficulties
+        .map(({ difficulty, name }) => ({
+          $type: 'option',
+          text: name,
+          value: difficulty,
+        })),
+    ),
+    extraDifficulties: nonEmptyOrNull(
+      [...Map.groupBy(
+        data.songs.toReversed().flatMap((song) => song.sheets)
+          .filter((sheet) => sheet.difficulty != null),
+        (sheet) => sheet.difficulty!,
+      ).entries()]
+        .map(([difficulty, sheets]) => ({ difficulty, sheetCount: sheets.length }))
+        .filter(({ difficulty }) => !difficultiesSet.has(difficulty))
+        .sort((a, b) => b.sheetCount - a.sheetCount)
+        .map(({ difficulty, sheetCount }) => ({
+          $type: 'option',
+          text: `${difficulty} (${sheetCount})`,
+          value: difficulty,
+        })),
     ),
     levels: nonEmptyOrNull(
       [...new Map(

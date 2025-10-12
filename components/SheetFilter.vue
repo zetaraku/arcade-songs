@@ -151,7 +151,13 @@ watch(() => filters.value.syncBPM, () => {
       >
         <v-select
           v-model="filters.difficulties"
-          :items="filterOptions.difficulties"
+          :items="[
+            ...filterOptions.difficulties,
+            ...(filterOptions.extraDifficulties != null ? [
+              { divider: true },
+              ...filterOptions.extraDifficulties,
+            ] : []),
+          ]"
           prepend-icon="mdi-skull-outline"
           :label="$t('term.difficulty')"
           :placeholder="$t('ui.all')"
