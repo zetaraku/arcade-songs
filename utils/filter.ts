@@ -135,12 +135,17 @@ export function buildFilterOptions(data: Data, i18n: NuxtI18nInstance): FilterOp
             text: name,
             value: difficulty,
           } as const)),
-        ...[...new Set(data.sheets.map((sheet) => sheet.difficulty))]
-          .filter((difficulty) => difficulty != null)
-          .filter((difficulty) => !difficultiesSet.has(difficulty))
-          .map((difficulty) => ({
+        ...[...Map.groupBy(
+          data.songs.toReversed().flatMap((song) => song.sheets)
+            .filter((sheet) => sheet.difficulty != null),
+          (sheet) => sheet.difficulty!,
+        ).entries()]
+          .map(([difficulty, sheets]) => ({ difficulty, sheetCount: sheets.length }))
+          .filter(({ difficulty }) => !difficultiesSet.has(difficulty))
+          .sort((a, b) => b.sheetCount - a.sheetCount)
+          .map(({ difficulty, sheetCount }) => ({
             $type: 'option',
-            text: difficulty,
+            text: `${difficulty} (${sheetCount})`,
             value: difficulty,
           } as const)),
       ],
