@@ -113,6 +113,13 @@
     "accessCounterUrl": "https://www.f-counter.net/j/63/1703162042/"
   },
   {
+    "gameCode": "museca",
+    "gameTitle": "MÚSECA",
+    "themeColor": "#b60033",
+    "dataSourceUrl": "https://dp4p6x0xfi5o9.cloudfront.net/museca",
+    "accessCounterUrl": "https://www.f-counter.net/j/66/1760402356/"
+  },
+  {
     "gameCode": "crossbeats",
     "gameTitle": "crossbeats REV.",
     "themeColor": "#d0c334",
