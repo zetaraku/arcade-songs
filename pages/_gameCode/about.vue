@@ -324,6 +324,23 @@ export default defineComponent({
 
     <h3>{{ $t('page.about.updateRecord') }}</h3>
     <v-timeline dense align-top class="mt-2">
+      <v-timeline-item small color="grey">
+        <span class="font-weight-bold">2025/09/21 － v3.31.1 Update</span>
+        <ul>
+          <li>bugfix: (My List / Gallery) fix bug that opens camera when selecting file</li>
+          <li>bugfix: (Gallery) fix missing disclaimer text on gallery page</li>
+        </ul>
+      </v-timeline-item>
+      <v-timeline-item icon="mdi-flag-variant">
+        <span class="font-weight-bold">2025/09/16 － 100 stars on GitHub</span>
+        <ul>
+          <li>
+            milestone: 100 stars on <a class="text-decoration-none" href="https://github.com/zetaraku/arcade-songs" target="_blank">
+              <v-icon small left color="#24292e">mdi-github</v-icon><span>zetaraku/arcade-songs</span>
+            </a> !
+          </li>
+        </ul>
+      </v-timeline-item>
       <v-timeline-item>
         <span class="font-weight-bold">2025/07/10 － v3.31 Update</span>
         <ul>
