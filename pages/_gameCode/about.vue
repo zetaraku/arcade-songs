@@ -291,6 +291,17 @@ export default defineComponent({
           － {{ $t('page.about.sheetInfoDescription') }}
         </li>
       </template>
+      <template v-if="gameCode === 'museca'">
+        <li>
+          {{ $t('page.about.songInfo') }} －
+          <a href="https://p.eagate.573.jp/game/museca/msc_1half/" target="_blank">MÚSECA 1+1/2</a>
+        </li>
+        <li>
+          {{ $t('page.about.sheetInfo') }} －
+          <a href="https://bemaniwiki.com/?MUSECA+1%2B1/2" target="_blank">MUSECA 1+1/2 - BEMANIWiki 2nd</a>
+          － {{ $t('page.about.sheetInfoDescription') }}
+        </li>
+      </template>
       <template v-if="gameCode === 'mahjong'">
         <li>
           Vector graphics of riichi mahjong tiles －
@@ -324,6 +335,16 @@ export default defineComponent({
 
     <h3>{{ $t('page.about.updateRecord') }}</h3>
     <v-timeline dense align-top class="mt-2">
+      <v-timeline-item icon="mdi-star">
+        <span class="font-weight-bold">2025/10/14－ v3.32 Update</span>
+        <ul>
+          <li>
+            project: add new site for <strong>MÚSECA</strong>
+            >> <a href="https://arcade-songs.zetaraku.dev/museca/" target="_blank">MÚSECA | arcade-songs</a>
+          </li>
+          <li>ui: (Filter) spilt and sort extra difficulties filter options by sheet count</li>
+        </ul>
+      </v-timeline-item>
       <v-timeline-item small color="grey">
         <span class="font-weight-bold">2025/09/21 － v3.31.1 Update</span>
         <ul>
@@ -1291,6 +1312,16 @@ export default defineComponent({
         <li>
           This site is not associated or officially connected with
           <strong>ポラリスコード</strong> or <strong>Konami Amusement Co., Ltd.</strong>
+        </li>
+      </template>
+      <template v-if="gameCode === 'museca'">
+        <li>
+          <strong>MÚSECA</strong> and <strong>ミュゼカ</strong>
+          are trademarks of <strong>Konami Amusement Co., Ltd.</strong>
+        </li>
+        <li>
+          This site is not associated or officially connected with
+          <strong>MÚSECA</strong> or <strong>Konami Amusement Co., Ltd.</strong>
         </li>
       </template>
       <li>
