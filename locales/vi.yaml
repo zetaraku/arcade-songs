@@ -76,6 +76,7 @@ description:
 
 # Pages
   pickOneFromFilter: CHỌN MỘT BÀI TRONG BỘ LỌC!
+  superFilterHint: // Tôi hy vọng bạn biết mình đang làm gì ...
 page:
   index:
     description: Tìm kiếm nhạc trong tựa game âm nhạc yêu thích của bạn, tất cả đều ở đây!
@@ -90,6 +91,11 @@ page:
     # thisUrl: this URL
     # thisFile: this File
     # yourLocalFile: your local file
+    selectList: Chọn Danh Sách Bài Hát
+    loadExternalGalleryConfirmation: "Bạn sắp tải một thư viện bên ngoài từ {srcType}:\n\n{src}\n\nTiếp tục?"
+    externalGalleryDisclaimer: "Hiện tại bạn đang xem thư viện ảnh bên ngoài từ {source}.{br}\n\nNội dung này không do trang web này tạo ra hoặc quản lý.\n"
+    thisUrl: URL này
+    thisFile: Tệp này
   songs:
     # sheetData: Sheet Data
   about:
@@ -109,6 +115,9 @@ page:
     #   If you're interested, you can join us to improve the project too! ⭐ :)
     # updateRecord: Update Record
     # disclaimer: Copyright Notice
+    author: Tác giả
+    sheetInfoDescription: Xin chân thành cảm ơn tất cả người chơi đã đóng góp dữ liệu!
+    disclaimer: Thông báo bản quyền
   error:
     error: Lỗi
     notFound: Không tìm thấy trang
@@ -122,6 +131,7 @@ sfc:
     # updateTime: 'Data Update Time: {time}'
     # loadFailed: Failed while loading data.
   SheetFilter:
+    exactMatch: Khớp chính xác
     # exactMatch: Exact Match
     # useInternalLevel: Use Internal Level
     # useRegionOverride: Use Regional Info Override
@@ -140,10 +150,16 @@ sfc:
     tableMode: Xem chi tiết
     chartMode: Xem tóm tắt
     gridMode: Xem lưới
+    copyFilterLink: Sao chép bộ lọc hiện tại dưới dạng liên kết
+    noFilterWarn: Trước tiên, vui lòng chọn ít nhất một bộ lọc.
+    exportMyList: Xuất DANH SÁCH CỦA TÔI ra tệp
+    myListEmptyWarn: "DANH SÁCH CỦA TÔI trống!\nKhông có gì để xuất."
+    importMyList: Nhập DANH SÁCH CỦA TÔI từ tệp
   SheetDrawerPanel:
     # drawRandomSheet: DRAW RANDOM SHEET!
     # drawRandomSheetCombo: DRAW RANDOM SET!
   FilterInfoBar:
+    songsCount: '{n} bài hát'
     # sheetsCount: '{n} sheets'
     # songsCount: '{n} songs'
   SheetDialog:
@@ -156,3 +172,4 @@ sfc:
     allowDuplicate: Cho phép Nhân bản
     # blindfoldMode: Blindfold Mode
     blindfoldMode: Chế độ bịt mắt
+    noDuplicate: Không trùng lặp
