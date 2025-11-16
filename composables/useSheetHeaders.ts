@@ -173,7 +173,7 @@ function useHeaders(): DataTableHeader[] {
     gameCode,
   } = useGameInfo();
   const {
-    getCategoryIndex,
+    // getCategoryIndex,
     getVersionIndex,
     getTypeIndex,
     getDifficultyIndex,
