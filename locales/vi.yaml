@@ -70,30 +70,30 @@ description:
   # superFilterPlaceholder: |
   #   // return a predicate function to filter the result
   #   return (sheet) => true;
-  # superFilterHint: // I hope you know what you're doing ...
+  superFilterHint: // Tôi hy vọng bạn biết mình đang làm gì ...
 
 # Pages
 page:
   index:
     description: Tìm kiếm nhạc trong tựa game âm nhạc yêu thích của bạn, tất cả đều ở đây!
   gallery:
-    # selectList: Select Song List
-    # loadExternalGalleryConfirmation: "You are about to load an external gallery from {srcType}:\n\n{src}\n\nContinue?"
-    # externalGalleryDisclaimer: |
-    #   You are currently viewing an external gallery from {source}.{br}
-    #   The content is not created or managed by this site.
-    # thisUrl: this URL
-    # thisFile: this File
+    selectList: Chọn Danh Sách Bài Hát
+    loadExternalGalleryConfirmation: "Bạn sắp tải một thư viện bên ngoài từ {srcType}:\n\n{src}\n\nTiếp tục?"
+    externalGalleryDisclaimer: |
+      Hiện tại bạn đang xem thư viện ảnh bên ngoài từ {source}.{br}
+      Nội dung này không do trang web này tạo ra hoặc quản lý.
+    thisUrl: URL này
+    thisFile: Tệp này
     yourLocalFile: thư mục cục bộ của bạn
   songs:
     # sheetData: Sheet Data
   about:
-    # author: Author
+    author: Tác giả
     dataSource: Dữ liệu nguồn
     songInfo: Thông tin bài hát
     # sheetInfo: Sheet Info
     # sheetInfoOf: 'Sheet Info of {region}'
-    # sheetInfoDescription: Much thanks to all the players contributing the sheet data!
+    sheetInfoDescription: Xin chân thành cảm ơn tất cả người chơi đã đóng góp dữ liệu!
     openSource: Mã nguồn dự án
     # openSourceDescription: |
     #   This project is licensed under the <a
@@ -103,7 +103,7 @@ page:
     #   >MIT License</a>, and you can find the complete source code here.
     #   If you're interested, you can join us to improve the project too! ⭐ :)
     # updateRecord: Update Record
-    # disclaimer: Copyright Notice
+    disclaimer: Thông báo bản quyền
   error:
     error: Lỗi
     notFound: Không tìm thấy trang
@@ -115,7 +115,7 @@ sfc:
     updateTime: 'Ngày Cập Nhật Dữ Liệu: {time}'
     loadFailed: Thất bại trong việc tải dữ liệu.
   SheetFilter:
-    # exactMatch: Exact Match
+    exactMatch: Khớp chính xác
     # useInternalLevel: Use Internal Level
     # useRegionOverride: Use Regional Info Override
   ModeSelector:
@@ -124,24 +124,24 @@ sfc:
     chartMode: Xem tóm tắt
     filterMode: Chế độ lọc
     myListMode: DANH SÁCH CỦA TÔI
-    # copyFilterLink: Copy current filters as link
-    # noFilterWarn: Please select at least one filter first.
-    # exportMyList: Export MY LIST to file
-    # myListEmptyWarn: "MY LIST is empty!\nNothing to export."
-    # importMyList: Import MY LIST from file
+    copyFilterLink: Sao chép bộ lọc hiện tại dưới dạng liên kết
+    noFilterWarn: Trước tiên, vui lòng chọn ít nhất một bộ lọc.
+    exportMyList: Xuất DANH SÁCH CỦA TÔI ra tệp
+    myListEmptyWarn: "DANH SÁCH CỦA TÔI trống!\nKhông có gì để xuất."
+    importMyList: Nhập DANH SÁCH CỦA TÔI từ tệp
     # sheetsLoaded: 'Imported {n} sheets successfully.'
   SheetDrawerPanel:
     # drawRandomSheet: DRAW RANDOM SHEET!
     # drawRandomSheetCombo: DRAW RANDOM SET!
   FilterInfoBar:
     # sheetsCount: '{n} sheets'
-    # songsCount: '{n} songs'
+    songsCount: '{n} bài hát'
   SheetDialog:
     searchOnYouTube: Tìm kiếm trên YouTube
     tryAgain: THỬ LẠI
   SheetComboDialog:
     # drawResults: Draw Results
-    # noDuplicate: No Duplicate
+    noDuplicate: Không trùng lặp
     # changeDrawSize: Change Draw Size
     allowDuplicate: Cho phép Nhân bản
     blindfoldMode: Chế độ bịt mắt
