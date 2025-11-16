@@ -7,7 +7,7 @@ import useSelectedSheets from '~/composables/useSelectedSheets';
 import { getCanonicalSheet } from '~/utils';
 import type { Sheet } from '~/types';
 
-const filterMode: Ref<string> | undefined = inject('filterMode');
+const filterMode: Ref<string> | undefined = inject('filterMode', undefined);
 
 const props = withDefaults(defineProps<{
   sheet: Sheet,

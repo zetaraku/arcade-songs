@@ -69,6 +69,7 @@ export function buildEmptyFilterOptions(): FilterOptions {
 
     types: [],
     difficulties: [],
+    extraDifficulties: [],
     levels: [],
     internalLevels: [],
 
@@ -91,6 +92,7 @@ export function buildFilterOptions(data: Data, i18n: NuxtI18nInstance): FilterOp
     categories: nonEmptyOrNull(
       data.categories
         .map(({ category }) => ({
+          $type: 'option',
           text: category ?? 'N/A',
           value: category,
         })),
@@ -105,8 +107,9 @@ export function buildFilterOptions(data: Data, i18n: NuxtI18nInstance): FilterOp
     ),
 
     versions: nonEmptyOrNull(
-      data.versions
+      data.versions.toReversed()
         .map(({ version, abbr }) => ({
+          $type: 'option',
           text: abbr ?? version ?? 'N/A',
           value: version,
         })),
@@ -120,25 +123,33 @@ export function buildFilterOptions(data: Data, i18n: NuxtI18nInstance): FilterOp
     types: nonEmptyOrNull(
       data.types
         .map(({ type, name }) => ({
+          $type: 'option',
           text: name,
           value: type,
         })),
     ),
     difficulties: nonEmptyOrNull(
-      [
-        ...data.difficulties
-          .map(({ difficulty, name }) => ({
-            text: name,
-            value: difficulty,
-          })),
-        ...[...new Set(data.sheets.map((sheet) => sheet.difficulty))]
-          .filter((difficulty) => difficulty != null)
-          .filter((difficulty) => !difficultiesSet.has(difficulty))
-          .map((difficulty) => ({
-            text: difficulty,
-            value: difficulty,
-          })),
-      ],
+      data.difficulties
+        .map(({ difficulty, name }) => ({
+          $type: 'option',
+          text: name,
+          value: difficulty,
+        })),
+    ),
+    extraDifficulties: nonEmptyOrNull(
+      [...Map.groupBy(
+        data.songs.toReversed().flatMap((song) => song.sheets)
+          .filter((sheet) => sheet.difficulty != null),
+        (sheet) => sheet.difficulty!,
+      ).entries()]
+        .map(([difficulty, sheets]) => ({ difficulty, sheetCount: sheets.length }))
+        .filter(({ difficulty }) => !difficultiesSet.has(difficulty))
+        .sort((a, b) => b.sheetCount - a.sheetCount)
+        .map(({ difficulty, sheetCount }) => ({
+          $type: 'option',
+          text: `${difficulty} (${sheetCount})`,
+          value: difficulty,
+        })),
     ),
     levels: nonEmptyOrNull(
       [...new Map(
@@ -148,6 +159,7 @@ export function buildFilterOptions(data: Data, i18n: NuxtI18nInstance): FilterOp
       ).entries()]
         .sort(([aLevelValue], [bLevelValue]) => aLevelValue - bLevelValue)
         .map(([levelValue, level]) => ({
+          $type: 'option',
           text: level,
           value: levelValue,
         })),
@@ -160,20 +172,22 @@ export function buildFilterOptions(data: Data, i18n: NuxtI18nInstance): FilterOp
       ).entries()]
         .sort(([aLevelValue], [bLevelValue]) => aLevelValue - bLevelValue)
         .map(([levelValue, level]) => ({
+          $type: 'option',
           text: level,
           value: levelValue,
         })),
     ),
 
     noteDesigners: nonEmptyOrNull(
-      [...new Set(data.sheets.map((sheet) => sheet.noteDesigner!))]
-        .map((noteDesigner) => ({
-          noteDesigner,
-          sheetCount: data.sheets.filter((sheet) => sheet.noteDesigner === noteDesigner).length,
-        }))
-        .filter(({ noteDesigner }) => noteDesigner != null)
+      [...Map.groupBy(
+        data.songs.toReversed().flatMap((song) => song.sheets)
+          .filter((sheet) => sheet.noteDesigner != null),
+        (sheet) => sheet.noteDesigner!,
+      ).entries()]
+        .map(([noteDesigner, sheets]) => ({ noteDesigner, sheetCount: sheets.length }))
         .sort((a, b) => b.sheetCount - a.sheetCount)
         .map(({ noteDesigner, sheetCount }) => ({
+          $type: 'option',
           text: `${noteDesigner} (${sheetCount})`,
           value: noteDesigner,
         })),
@@ -181,10 +195,12 @@ export function buildFilterOptions(data: Data, i18n: NuxtI18nInstance): FilterOp
     regions: nonEmptyOrNull(
       data.regions.flatMap(({ region, name }) => [
         {
+          $type: 'option',
           text: name,
           value: `${region}`,
         },
         {
+          $type: 'option',
           text: i18n.t('description.unavailableInRegion', { region: name }) as string,
           value: `!${region}`,
         },

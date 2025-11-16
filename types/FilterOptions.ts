@@ -10,6 +10,7 @@ export type FilterOptions = {
 
   types: FilterOption<string>[] | null;
   difficulties: FilterOption<string>[] | null;
+  extraDifficulties: FilterOption<string>[] | null;
   levels: FilterOption<number>[] | null;
   internalLevels: FilterOption<number>[] | null;
 

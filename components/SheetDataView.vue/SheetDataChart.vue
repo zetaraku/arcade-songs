@@ -77,11 +77,16 @@ const currentLevelFilterOptionsInRange = computed(() => {
 
   if (currentLevelFilterOptions.value == null) return [];
 
-  const result = currentLevelFilterOptions.value.filter(({ value: levelValue }) => (
-    (levelValue >= minLevelValue) && (levelValue <= maxLevelValue)
-  ));
+  const result = currentLevelFilterOptions.value
+    .filter((filterOption) => filterOption.$type === 'option')
+    .filter(({ value: levelValue }) => (
+      (levelValue >= minLevelValue) && (levelValue <= maxLevelValue)
+    ));
 
-  if (result.length === 0) return currentLevelFilterOptions.value;
+  if (result.length === 0) {
+    return currentLevelFilterOptions.value
+      .filter((filterOption) => filterOption.$type === 'option');
+  }
 
   return result;
 });

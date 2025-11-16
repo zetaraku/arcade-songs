@@ -17,3 +17,22 @@ export function parseBoolean(str: string): boolean | undefined {
   if (str === 'false') return false;
   return undefined;
 }
+
+export function selectFiles(options: Partial<HTMLInputElement> = {}): Promise<FileList | null> {
+  return new Promise((resolve) => {
+    const input = document.createElement('input');
+
+    Object.assign(input, {
+      type: 'file',
+      ...options,
+    });
+
+    input.addEventListener('change', () => {
+      resolve(input.files);
+    });
+
+    setTimeout(() => {
+      input.dispatchEvent(new MouseEvent('click'));
+    }, 0);
+  });
+}

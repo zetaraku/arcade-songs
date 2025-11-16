@@ -3,7 +3,6 @@ import { ref, inject, Ref } from '@nuxtjs/composition-api';
 import YAML from 'yaml';
 import QueryString from 'query-string';
 import copyToClipboard from 'copy-to-clipboard';
-import selectFiles from 'select-files';
 import { useDataStore } from '~/stores/data';
 import useI18n from '~/composables/useI18n';
 import useGtag from '~/composables/useGtag';
@@ -11,7 +10,7 @@ import useSentry from '~/composables/useSentry';
 import useGameInfo from '~/composables/useGameInfo';
 import useSelectedSheets from '~/composables/useSelectedSheets';
 import MyListExportDialog from '~/components/dialogs/MyListExportDialog.vue';
-import { saveFiltersAsQuery, makeDummySheet } from '~/utils';
+import { saveFiltersAsQuery, selectFiles, makeDummySheet } from '~/utils';
 import type { Filters } from '~/types';
 
 const displayMode: Ref<string> = inject('displayMode')!;
