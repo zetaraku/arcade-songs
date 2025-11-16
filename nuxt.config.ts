@@ -3,6 +3,18 @@ import locales from './locales';
 import sites from './data/sites.json';
 import { Data } from './types';
 
+declare module '@nuxt/types/config/runtime' {
+  interface NuxtRuntimeConfig {
+    siteTitle?: string;
+    siteUrl?: string;
+    siteReportUrl?: string;
+    sourceCodeUrl?: string;
+    siteDescriptionEn?: string;
+    siteDescriptionJp?: string;
+    indexAccessCounterUrl?: string;
+  }
+}
+
 const nuxtConfig: NuxtConfig = {
   generate: {
     fallback: '404.html',
