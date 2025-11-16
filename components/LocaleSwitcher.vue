@@ -19,7 +19,7 @@ function setLocale(locale: string) {
 </script>
 
 <template>
-  <v-menu offset-y>
+  <v-menu offset-y :nudge-bottom="8">
     <template #activator="{ on }">
       <v-btn
         text
