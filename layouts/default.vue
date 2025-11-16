@@ -254,7 +254,7 @@ export default defineComponent({
           <v-list-item-content>
             <v-list-item-title
               class="font-weight-medium mb-0"
-              :class="$vuetify.breakpoint.smAndUp ? 'text-h5' : 'text-h6'"
+              :class="$vuetify.breakpoint.mdAndUp ? 'text-h5' : 'text-h6'"
               style="line-height: 1.8rem;"
             >
               {{ $config.siteTitle }}
