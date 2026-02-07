@@ -1,3 +1,35 @@
+
+<div align="right">
+  <details>
+    <summary >🌐 Language</summary>
+    <div>
+      <div align="center">
+        <a href="https://openaitx.github.io/view.html?user=zetaraku&project=arcade-songs&lang=en">English</a>
+        | <a href="https://openaitx.github.io/view.html?user=zetaraku&project=arcade-songs&lang=zh-CN">简体中文</a>
+        | <a href="https://openaitx.github.io/view.html?user=zetaraku&project=arcade-songs&lang=zh-TW">繁體中文</a>
+        | <a href="https://openaitx.github.io/view.html?user=zetaraku&project=arcade-songs&lang=ja">日本語</a>
+        | <a href="https://openaitx.github.io/view.html?user=zetaraku&project=arcade-songs&lang=ko">한국어</a>
+        | <a href="https://openaitx.github.io/view.html?user=zetaraku&project=arcade-songs&lang=hi">हिन्दी</a>
+        | <a href="https://openaitx.github.io/view.html?user=zetaraku&project=arcade-songs&lang=th">ไทย</a>
+        | <a href="https://openaitx.github.io/view.html?user=zetaraku&project=arcade-songs&lang=fr">Français</a>
+        | <a href="https://openaitx.github.io/view.html?user=zetaraku&project=arcade-songs&lang=de">Deutsch</a>
+        | <a href="https://openaitx.github.io/view.html?user=zetaraku&project=arcade-songs&lang=es">Español</a>
+        | <a href="https://openaitx.github.io/view.html?user=zetaraku&project=arcade-songs&lang=it">Italiano</a>
+        | <a href="https://openaitx.github.io/view.html?user=zetaraku&project=arcade-songs&lang=ru">Русский</a>
+        | <a href="https://openaitx.github.io/view.html?user=zetaraku&project=arcade-songs&lang=pt">Português</a>
+        | <a href="https://openaitx.github.io/view.html?user=zetaraku&project=arcade-songs&lang=nl">Nederlands</a>
+        | <a href="https://openaitx.github.io/view.html?user=zetaraku&project=arcade-songs&lang=pl">Polski</a>
+        | <a href="https://openaitx.github.io/view.html?user=zetaraku&project=arcade-songs&lang=ar">العربية</a>
+        | <a href="https://openaitx.github.io/view.html?user=zetaraku&project=arcade-songs&lang=fa">فارسی</a>
+        | <a href="https://openaitx.github.io/view.html?user=zetaraku&project=arcade-songs&lang=tr">Türkçe</a>
+        | <a href="https://openaitx.github.io/view.html?user=zetaraku&project=arcade-songs&lang=vi">Tiếng Việt</a>
+        | <a href="https://openaitx.github.io/view.html?user=zetaraku&project=arcade-songs&lang=id">Bahasa Indonesia</a>
+        | <a href="https://openaitx.github.io/view.html?user=zetaraku&project=arcade-songs&lang=as">অসমীয়া</
+      </div>
+    </div>
+  </details>
+</div>
+
 # arcade-songs
 
 [![Coding Style](https://img.shields.io/badge/code_style-airbnb-%234B32C3)](https://github.com/airbnb/javascript) [![Gitmoji](https://img.shields.io/badge/commit_style-%20😜%20😍-%23FFDD67)](https://gitmoji.dev) [![Translation status](https://hosted.weblate.org/widgets/arcade-songs/-/svg-badge.svg)](https://hosted.weblate.org/engage/arcade-songs/) [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fzetaraku%2Farcade-songs.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fzetaraku%2Farcade-songs?ref=badge_shield)
