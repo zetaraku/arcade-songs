@@ -53,6 +53,11 @@ term:
   # superFilter: Super Filter
 
 # Descriptions & Tooltips
+  type: Loại
+  internalLevel: Cấp độ nội bộ
+  minInternalLevel: Cấp độ nội bộ thấp nhất
+  maxInternalLevel: Cấp độ nội bộ cao nhất
+  sheets: Bản nhạc
 description:
   pending: Đang xử lý
   loading: Đang tải dữ liệu…
@@ -73,6 +78,13 @@ description:
   superFilterHint: // Tôi hy vọng bạn biết mình đang làm gì ...
 
 # Pages
+  filterResultEmpty: Không thể tìm thấy bản nhạc nào thỏa mãn với bộ lọc.
+  myListEmpty: Nhấn chuột phải hoặc nhấn giữ một bản nhạc để lưu vào DANH SÁCH CỦA TÔI, và bạn có thể xem các bản nhạc đã lựa chọn ở đây.
+  drawPoolEmpty: Danh sách rút thăm chọn bài hiện tại đang trống.
+  noMoreSheetsToPick: Không còn bản nhạc nào để lựa chọn.
+  superFilterPlaceholder: |
+    // trả về một hàm điều kiện để lọc kết quả
+    return (sheet) => true;
 page:
   index:
     description: Tìm kiếm nhạc trong tựa game âm nhạc yêu thích của bạn, tất cả đều ở đây!
@@ -86,6 +98,7 @@ page:
     thisFile: Tệp này
     yourLocalFile: thư mục cục bộ của bạn
   songs:
+    sheetData: Dữ Liệu Bản Nhạc
     # sheetData: Sheet Data
   about:
     author: Tác giả
@@ -104,6 +117,16 @@ page:
     #   If you're interested, you can join us to improve the project too! ⭐ :)
     # updateRecord: Update Record
     disclaimer: Thông báo bản quyền
+    sheetInfo: Dữ Liệu Bản Nhạc
+    sheetInfoOf: Dữ Liệu Bản Nhạc của {region}
+    openSourceDescription: |
+      Dự án này được cấp phép theo  <a
+        href="https://en.wikipedia.org/wiki/MIT_License"
+        target="_blank"
+        class="text-decoration-none"
+      >Giấy phép MIT</a>, và bạn có thể tìm thấy mã nguồn đầy đủ ở đây.
+      Nếu bạn có quan tâm, bạn có thể tham gia cùng chúng tôi để cải thiện dự án! ⭐ :)
+    updateRecord: Lịch Sử Cập Nhật
   error:
     error: Lỗi
     notFound: Không tìm thấy trang
@@ -118,6 +141,7 @@ sfc:
     exactMatch: Khớp chính xác
     # useInternalLevel: Use Internal Level
     # useRegionOverride: Use Regional Info Override
+    useInternalLevel: Sử dụng cấp độ nội bộ
   ModeSelector:
     gridMode: Xem lưới
     tableMode: Xem chi tiết
@@ -130,12 +154,16 @@ sfc:
     myListEmptyWarn: "DANH SÁCH CỦA TÔI trống!\nKhông có gì để xuất."
     importMyList: Nhập DANH SÁCH CỦA TÔI từ tệp
     # sheetsLoaded: 'Imported {n} sheets successfully.'
+    sheetsLoaded: Nhập {n} bản nhạc thành công.
   SheetDrawerPanel:
+    drawRandomSheet: CHỌN BẢN NHẠC NGẪU NHIÊN!
+    drawRandomSheetCombo: CHỌN SET CHƠI NGẪU NHIÊN!
     # drawRandomSheet: DRAW RANDOM SHEET!
     # drawRandomSheetCombo: DRAW RANDOM SET!
   FilterInfoBar:
     # sheetsCount: '{n} sheets'
     songsCount: '{n} bài hát'
+    sheetsCount: '{n} bản nhạc'
   SheetDialog:
     searchOnYouTube: Tìm kiếm trên YouTube
     tryAgain: THỬ LẠI
@@ -145,3 +173,5 @@ sfc:
     # changeDrawSize: Change Draw Size
     allowDuplicate: Cho phép Nhân bản
     blindfoldMode: Chế độ bịt mắt
+    drawResults: Kết Quả Rút Thăm
+    changeDrawSize: Thay đổi số lượng
