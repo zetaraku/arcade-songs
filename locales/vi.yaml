@@ -31,7 +31,7 @@ ui:
 term:
   category: Phân loại
   title: Tiêu đề
-  artist: Hoạ sĩ
+  artist: Nhạc sĩ
   version: Phiên bản
   releaseDate: Ngày phát hành
   bpm: BPM
@@ -58,6 +58,7 @@ term:
   minInternalLevel: Cấp độ nội bộ thấp nhất
   maxInternalLevel: Cấp độ nội bộ cao nhất
   sheets: Bản nhạc
+  superFilter: Bộ lọc Nâng cao
 description:
   pending: Đang xử lý
   loading: Đang tải dữ liệu…
@@ -142,6 +143,7 @@ sfc:
     # useInternalLevel: Use Internal Level
     # useRegionOverride: Use Regional Info Override
     useInternalLevel: Sử dụng cấp độ nội bộ
+    useRegionOverride: Ghi đè bằng thông tin của vùng
   ModeSelector:
     gridMode: Xem lưới
     tableMode: Xem chi tiết
@@ -172,6 +174,6 @@ sfc:
     noDuplicate: Không trùng lặp
     # changeDrawSize: Change Draw Size
     allowDuplicate: Cho phép Nhân bản
-    blindfoldMode: Chế độ bịt mắt
+    blindfoldMode: Chế độ Bịt mắt
     drawResults: Kết Quả Rút Thăm
     changeDrawSize: Thay đổi số lượng
