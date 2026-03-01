@@ -31,26 +31,26 @@ ui:
 term:
   category: Phân loại
   title: Tiêu đề
-  artist: Hoạ sĩ
+  artist: Nhạc sĩ
   version: Phiên bản
   releaseDate: Ngày phát hành
   bpm: BPM
   minBPM: BPM thấp nhất
   maxBPM: BPM cao nhất
-  # sheets: Sheets
-  # type: Type
+  sheets: Bản nhạc
+  type: Loại
   difficulty: Độ khó
   level: Cấp độ
   minLevel: Cấp độ thấp nhất
   maxLevel: Cấp độ cao nhất
-  # internalLevel: Internal Level
-  # minInternalLevel: Min. Internal Level
-  # maxInternalLevel: Max. Internal Level
+  internalLevel: Cấp độ nội bộ
+  minInternalLevel: Cấp độ nội bộ thấp nhất
+  maxInternalLevel: Cấp độ nội bộ cao nhất
   noteDesigner: Charter
   totalNotes: TỔNG
   region: Khu vực
   comment: Bình luận
-  # superFilter: Super Filter
+  superFilter: Bộ lọc Nâng cao
 
 # Descriptions & Tooltips
 description:
@@ -61,15 +61,15 @@ description:
   unavailableInRegion: 'Hiện không khả dụng ở {region}'
   copied: Đã sao chép vào bộ nhớ tạm!
   invalidNoteCounts: Số lượng NOTE không hợp lệ
-  # filterResultEmpty: Cannot find any sheet that satisfies the filter.
-  # myListEmpty: Right-click or long-press a sheet to add it to MY LIST, and then you can see your selected sheets here.
-  # drawPoolEmpty: Current drawing pool is empty.
+  filterResultEmpty: Không thể tìm thấy bản nhạc nào thỏa mãn với bộ lọc.
+  myListEmpty: Nhấn chuột phải hoặc nhấn giữ một bản nhạc để lưu vào DANH SÁCH CỦA TÔI, và bạn có thể xem các bản nhạc đã lựa chọn ở đây.
+  drawPoolEmpty: Danh sách rút thăm chọn bài hiện tại đang trống.
   clearMyList: Dọn dẹp DANH SÁCH CỦA TÔI
   pickOneFromFilter: CHỌN MỘT BÀI TRONG BỘ LỌC!
-  # noMoreSheetsToPick: No more sheets to pick.
-  # superFilterPlaceholder: |
-  #   // return a predicate function to filter the result
-  #   return (sheet) => true;
+  noMoreSheetsToPick: Không còn bản nhạc nào để lựa chọn.
+  superFilterPlaceholder: |
+    // trả về một hàm điều kiện để lọc kết quả
+    return (sheet) => true;
   superFilterHint: // Tôi hy vọng bạn biết mình đang làm gì ...
 
 # Pages
@@ -86,23 +86,23 @@ page:
     thisFile: Tệp này
     yourLocalFile: thư mục cục bộ của bạn
   songs:
-    # sheetData: Sheet Data
+    sheetData: Dữ Liệu Bản Nhạc
   about:
     author: Tác giả
     dataSource: Dữ liệu nguồn
     songInfo: Thông tin bài hát
-    # sheetInfo: Sheet Info
-    # sheetInfoOf: 'Sheet Info of {region}'
+    sheetInfo: Dữ Liệu Bản Nhạc
+    sheetInfoOf: 'Dữ Liệu Bản Nhạc của {region}'
     sheetInfoDescription: Xin chân thành cảm ơn tất cả người chơi đã đóng góp dữ liệu!
     openSource: Mã nguồn dự án
-    # openSourceDescription: |
-    #   This project is licensed under the <a
-    #     href="https://en.wikipedia.org/wiki/MIT_License"
-    #     target="_blank"
-    #     class="text-decoration-none"
-    #   >MIT License</a>, and you can find the complete source code here.
-    #   If you're interested, you can join us to improve the project too! ⭐ :)
-    # updateRecord: Update Record
+    openSourceDescription: |
+      Dự án này được cấp phép theo <a
+        href="https://vi.wikipedia.org/wiki/Gi%E1%BA%A5y_ph%C3%A9p_MIT"
+        target="_blank"
+        class="text-decoration-none"
+      >Giấy phép MIT</a>, và bạn có thể tìm thấy mã nguồn đầy đủ ở đây.
+      Nếu bạn có quan tâm, bạn có thể tham gia cùng chúng tôi để cải thiện dự án! ⭐ :)
+    updateRecord: Lịch Sử Cập Nhật
     disclaimer: Thông báo bản quyền
   error:
     error: Lỗi
@@ -116,8 +116,8 @@ sfc:
     loadFailed: Thất bại trong việc tải dữ liệu.
   SheetFilter:
     exactMatch: Khớp chính xác
-    # useInternalLevel: Use Internal Level
-    # useRegionOverride: Use Regional Info Override
+    useInternalLevel: Sử dụng cấp độ nội bộ
+    useRegionOverride: Ghi đè bằng thông tin của vùng
   ModeSelector:
     gridMode: Xem lưới
     tableMode: Xem chi tiết
@@ -129,19 +129,19 @@ sfc:
     exportMyList: Xuất DANH SÁCH CỦA TÔI ra tệp
     myListEmptyWarn: "DANH SÁCH CỦA TÔI trống!\nKhông có gì để xuất."
     importMyList: Nhập DANH SÁCH CỦA TÔI từ tệp
-    # sheetsLoaded: 'Imported {n} sheets successfully.'
+    sheetsLoaded: 'Nhập {n} bản nhạc thành công.'
   SheetDrawerPanel:
-    # drawRandomSheet: DRAW RANDOM SHEET!
-    # drawRandomSheetCombo: DRAW RANDOM SET!
+    drawRandomSheet: CHỌN BẢN NHẠC NGẪU NHIÊN!
+    drawRandomSheetCombo: CHỌN SET CHƠI NGẪU NHIÊN!
   FilterInfoBar:
-    # sheetsCount: '{n} sheets'
+    sheetsCount: '{n} bản nhạc'
     songsCount: '{n} bài hát'
   SheetDialog:
     searchOnYouTube: Tìm kiếm trên YouTube
     tryAgain: THỬ LẠI
   SheetComboDialog:
-    # drawResults: Draw Results
+    drawResults: Kết Quả Rút Thăm
     noDuplicate: Không trùng lặp
-    # changeDrawSize: Change Draw Size
+    changeDrawSize: Thay đổi số lượng
     allowDuplicate: Cho phép Nhân bản
-    blindfoldMode: Chế độ bịt mắt
+    blindfoldMode: Chế độ Bịt mắt
