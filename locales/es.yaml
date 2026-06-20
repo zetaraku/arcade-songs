@@ -85,6 +85,18 @@ page:
     # thisUrl: this URL
     # thisFile: this File
     # yourLocalFile: your local file
+    loadExternalGalleryConfirmation: |-
+      Estás a punto de cargar una galería externa desde {srcType}:
+
+      {src}
+
+      ¿Continúo?
+    thisUrl: esta URL
+    thisFile: este Archivo
+    yourLocalFile: su archivo local
+    externalGalleryDisclaimer: |
+      Actualmente estás viendo una galería externa de {source}.{br}
+      El contenido no es creado ni gestionado por este sitio.
   songs:
     sheetData: Datos de mapa
   about:
